@@ -6,7 +6,7 @@ $user_home = new USER();
 
 if(!$user_home->is_logged_in())
 {
-	$user_home->redirect('index.php');
+    $user_home->redirect('index.php');
 }
 
 $stmt = $user_home->runQuery("SELECT * FROM admin WHERE userID=:uid");
@@ -168,83 +168,49 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
             </div>
 
             <!-- ... Your content goes here ... -->
-                <?php
+                <?php 
                     $prodID=$_POST['PNAME'];
                     $result = mysqli_query($dbconn ,"SELECT * FROM products WHERE productID = '". $prodID . "' LIMIT 1");
                     $row = mysqli_fetch_assoc($result);
-                    echo "<div class='col-lg-6'>
-                    <form role='form' action='editproductprocess.php' method='post'>
-                        <div class='form-group'>
-                            <label>Product ID</label>
-                            <input type='number' class='form-control' maxlength='6' value=".$row['productID']." required readonly>
-                        </div>
-                        <div class='form-group'>
-                            <label>Product Name</label>
-                            <input type='text' class='form-control' maxlength='50' value=".$row['name']." required readonly>
-                        </div>
-                        <div class='form-group'>
-                            <label>Product Price</label>
-                            <input type='number' class='form-control' value=".$row['price']." required readonly>
-                        </div>
-                        <div class='form-group'>
-                            <label>Product Quantity</label>
-                            <input type='number' class='form-control' maxlength='100' value=".$row['quantity']." required readonly>
-                        </div>
-                        <div class='form-group'>
-                            <label>Product Date Created</label>
-                            <input type='date' class='form-control' maxlength='50' value=".$row['date_created']." required readonly>
-                        </div>
-                        <div class='form-group'>
-                        <label>Product Image</label>
-                            <input type='file' name='fileToUpload' id='fileToUpload' maxlength='200'>
-                        </div>
-                        <div class='form-group'>
-                            <label>Product Description</label>
-                            <textarea class='form-control' rows='10' maxlength='100' required readonly>".$row['description']."</textarea>
-                        </div>
-                        <hr>
-                    </form>
+                    echo "
+                <div class='row'>
+                    <div class='col-lg-6'>
+                        <form role='form' action='editproductprocess.php' method='post'>
+                            <div class='form-group'>
+                                <label>Product ID</label>
+                                <input type='number' class='form-control'  name='editID' id='editID' maxlength='6' value=".$row['productID']." required readonly>
+                            </div>
+                            <div class='form-group'>
+                                <label>Product Name</label>
+                                <input type='text' class='form-control' name='editname' id='editname' maxlength='50' placeholder=".$row['name']." required>
+                            </div>
+                            <div class='form-group'>
+                                <label>Product Price</label>
+                                <input type='number' class='form-control' name='editprice' id='editprice' placeholder=".$row['price']." required>
+                            </div>
+                            <div class='form-group'>
+                                <label>Product Quantity</label>
+                                <input type='number' class='form-control' name='editquantity' id='edituantity' maxlength='100' placeholder=".$row['quantity']." required>
+                            </div>
+                            <div class='form-group'>
+                                <label>Product Date Created</label>
+                                <input type='date' class='form-control' name='editdate_created' id='editdate_created' maxlength='50' value=".$row['date_created']." required readonly>
+                            </div>
+                            <div class='form-group'>
+                            <label>Product Image</label>
+                                <input type='file' name='fileToUpload' id='fileToUpload' maxlength='200'>
+                            </div>
+                            <div class='form-group'>
+                                <label>Product Description</label>
+                                <textarea class='form-control' rows='10' name='editdescription' id='editdescription' maxlength='100' placeholder=".$row['description']." required></textarea>
+                            </div>
+                            <input type='submit' class='btn btn-primary' value='Edit' name='submit'>
+                            <input type='reset' class='btn btn-default' value='Reset'>
+                            <hr>
+                        </form>
+                    </div>
                 </div>";
                 ?>
-                <div class="row">
-                <div class="col-lg-6">
-                    <form role="form" action="editproductprocess.php" method="post">
-                        <div class="form-group">
-                            <label>Product ID</label>
-                            <input type="number" class="form-control" name="editID" id="editID" <?php echo "value='".$row['productID']."'" ?> maxlength="6" required readonly>
-                        </div>
-                        <div class="form-group">
-                            <label>Product Name</label>
-                            <input type="text" class="form-control" name="editname" id="editname" required maxlength="50">
-                        </div>
-                        <div class="form-group">
-                            <label>Product Price</label>
-                            <input type="number" class="form-control" name="editprice" id="editprice" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Product Quantity</label>
-                            <input type="number" class="form-control" name="editquantity" id="edituantity" required maxlength="100">
-                        </div>
-                        <div class="form-group">
-                            <label>Product Date Created</label>
-                            <input type="date" class="form-control" name="editdate_created" id="editdate_created" <?php echo "value='".$row['date_created']."'" ?> maxlength="50" required readonly>
-                        </div>
-                        <div class="form-group">
-                        <label>Product Image</label>
-                            <input type="file" name="fileToUpload" id="fileToUpload" maxlength="200">
-                        </div>
-                        <div class="form-group">
-                            <label>Product Description</label>
-                            <textarea class="form-control" rows="10" placeholder="Main Description" name="editdescription" id="editdescription" maxlength="500"></textarea>
-                        </div>
-                        <input type="submit" class="btn btn-primary" value="Edit" name="submit">
-                        <input type="reset" class="btn btn-default" value="Reset">
-                        <hr>
-                    </form>
-                </div>
-
-            </div>
-
         </div>
     </div>
 

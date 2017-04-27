@@ -1,3 +1,9 @@
+<script>
+	function ConfirmDelete() {
+  return confirm("Are you sure you want to delete?");
+}
+</script>
+
 <?php
 session_start();
 require_once 'class.user.php';
@@ -228,7 +234,7 @@ if(isset($_GET['dosearch'])){
                                     </form>
                                     <form method='POST' action='delproductprocess.php'>
                                         <input type='hidden' name='PNAME' value='".$row['productID']."' />
-                                        <input type='submit' class='btn btn-primary col-lg-6' value='Delete' name='submit'>
+                                        <input type='submit' class='btn btn-primary col-lg-6' value='Delete' name='submit' Onclick=\"return ConfirmDelete()\">
                                     </form>
                                 </td>
                             </tr>";

@@ -174,7 +174,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
             <!-- ... Your content goes here ... -->
             <div class="row">
                 <div class="col-lg-6">
-                    <form role="form" action="addproductprocess.php" method="post" enctype="multipart/form-data>
+                    <form role="form" action="addproductprocess.php" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label>Product Name</label>
                             <input type="text" class="form-control" name="addname" id="addname" required maxlength="50">

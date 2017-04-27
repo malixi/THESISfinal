@@ -2,9 +2,6 @@
 <html>
 <head>
 <title></title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -12,7 +9,10 @@
 <!--theme-style-->
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <!--//theme-style-->
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Mattress Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!--fonts-->
 <link href='//fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
@@ -23,7 +23,6 @@
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>
 <script src="js/simpleCart.min.js"> </script>
 </head>
-<body>
 <!--header-->
 <div class="header">
 	<div class="header-top">
@@ -75,8 +74,10 @@
 
 		  <div class=" h_menu4">
 &nbsp;&nbsp;&nbsp;
+
+
 				<ul class="memenu skyblue">
-					  <li><a class="color8" href="about.html"><strong>ABOUT US</strong></a></li>
+				<li><a class="color8" href="http://localhost:8080/THESISfinal-1/about.php"><strong>ABOUT US</strong></a></li>";
 				      <li><a class="color1" href="products.html">PRODUCTS</a>
 				      	<div class="mepanel">
 						<div class="row">
@@ -106,6 +107,8 @@
 		</div>
 	</div>
 </nav>
+
+
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
@@ -225,55 +228,6 @@
 			</div>
 		</div>
 	<!----->
-<div class="footer w3layouts">
-				<div class="container">
-			<div class="footer-top-at w3">
-
-				<div class="col-md-3 amet-sed w3l">
-				<h4>MORE INFO</h4>
-				<ul class="nav-bottom">
-						<li><a href="faq.html">FAQS</a></li>
-						<li><a href="forwarders.html">Forwarder</a></li>
-						<li><a href="contact.html">Location</a></li>
-						<li><a href="services.html">Other Services</a></li>
-
-					</ul>
-				</div>
-				<div class="col-md-3 amet-sed w3ls">
-					<h4>PRODUCTS</h4>
-					<ul class="nav-bottom">
-						<li><a href="bananaproducts.html">Banana</a></li>
-						<li><a href="cocoaproducts.html">Cocoa</a></li>
-						<li><a href="coconutproducts.html">Coconut</a></li>
-						<li><a href="herbalproducts.html">Herbal</a></li>
-						<li><a href="mangoproducts.html">Mango</a></li>
-						<li><a href="pineappleproducts.html">Pineapple</a></li>
-					</ul>
-
-				</div>
-
-				<div class="col-md-3 amet-sed agileits-w3layouts">
-				<h4>CONTACT US</h4>
-					<p>Lorem Ipsum</p>
-					<p>Lorem Ipsum</p>
-					<p>Lorem Ipsum</p>
-					<div class="social">
-						<ul>
-							<li><a href="https://www.facebook.com/cocosport.drink"  target="_blank"><i class="facebok"> </i></a></li>
-
-
-							<li><a href="https://www.instagram.com/llanesfarm/"  target="_blank"><i class="goog"> </i></a></li>
-								<div class="clearfix"></div>
-						</ul>
-					</div>
-				</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-		<div class="footer-class w3-agile">
-
-		</div>
-		</div>
+<?php include 'footer.php'; ?>
 </body>
 </html>

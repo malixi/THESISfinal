@@ -25,22 +25,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 <!--header-->
-<div class="header">
-	<div class="header-top">
-		<div class="container">
-
-			<div class="header-left">
-
-				<div class="search-box">
-					<div id="sb-search" class="sb-search">
-						<form action="searchproductuser.php" method="get">
-							<input class="sb-search-input" placeholder="Enter your search term..." type="text" name="search"  id="search">
-							<input class="sb-search-submit" type="submit" value="">
-							<span class="sb-icon-search"> </span>
-						</form>
-					</div>
-				</div>
-
+<?php include 'header.php';    ?>
 <!-- search-scripts -->
 					<script src="js/classie.js"></script>
 					<script src="js/uisearch.js"></script>
@@ -134,71 +119,6 @@ Now, with more than 40 years of expertise in farming and export, Gray Enterprise
           </div>
         </div>
 
-				<div class="footer w3layouts">
-								<div class="container">
-							<div class="footer-top-at w3">
-
-								<div class="col-md-3 amet-sed w3l">
-								<h4>MORE INFO</h4>
-								<ul class="nav-bottom">
-										<li><a href="faq.html">FAQS</a></li>
-										<li><a href="forwarders.html">Forwarder</a></li>
-										<li><a href="contact.html">Location</a></li>
-										<li><a href="services.html">Other Services</a></li>
-
-									</ul>
-								</div>
-								<div class="col-md-3 amet-sed w3ls">
-									<h4>PRODUCTS</h4>
-									<ul class="nav-bottom">
-										<li><a href="bananaproducts.html">Banana</a></li>
-										<li><a href="cocoaproducts.html">Cocoa</a></li>
-										<li><a href="coconutproducts.html">Coconut</a></li>
-										<li><a href="herbalproducts.html">Herbal</a></li>
-										<li><a href="mangoproducts.html">Mango</a></li>
-										<li><a href="pineappleproducts.html">Pineapple</a></li>
-									</ul>
-
-								</div>
-								<div class="col-md-3 amet-sed agileits">
-									<h4>NEWSLETTER</h4>
-									<div class="stay agileinfo">
-										<div class="stay-left wthree">
-											<form action="#" method="post">
-												<input type="text" placeholder="Enter your email " required="">
-											</form>
-										</div>
-										<div class="btn-1 w3-agileits">
-											<form action="#" method="post">
-												<input type="submit" value="Subscribe">
-											</form>
-										</div>
-											<div class="clearfix"> </div>
-							</div>
-
-								</div>
-								<div class="col-md-3 amet-sed agileits-w3layouts">
-								<h4>CONTACT US</h4>
-									<p>Lorem Ipsum</p>
-									<p>Lorem Ipsum</p>
-									<p>Lorem Ipsum</p>
-									<div class="social">
-										<ul>
-											<li><a href="https://www.facebook.com/cocosport.drink"  target="_blank"><i class="facebok"> </i></a></li>
-
-
-											<li><a href="https://www.instagram.com/llanesfarm/"  target="_blank"><i class="goog"> </i></a></li>
-												<div class="clearfix"></div>
-										</ul>
-									</div>
-								</div>
-								</div>
-								<div class="clearfix"> </div>
-							</div>
-						</div>
-						<div class="footer-class w3-agile">
-
-						</div>
-						</div>
+				<?php include 'footer.php'; ?>
 				</body>
 				</html>

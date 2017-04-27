@@ -198,7 +198,10 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                             </div>
                             <div class='form-group'>
                             <label>Product Image</label>
+                            <p>
+                                <img id='prodImg' src='productimage/".$row['image']."' width='100px' height=''/>
                                 <input type='file' name='fileToUpload' id='fileToUpload' maxlength='200'>
+                            </p>
                             </div>
                             <div class='form-group'>
                                 <label>Product Description</label>

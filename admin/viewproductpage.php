@@ -225,19 +225,23 @@ if(isset($_GET['dosearch'])){
                 while($row = mysqli_fetch_array($results)){
                     echo
                         "<tr>
-                            <td><img id='prodImg' src='productimage/'" .$row['image']."width='80%' heigh='80%'/></td>
+                            <td><img id='prodImg' src='productimage/".$row['image']."' width='100px' heigh=''/></td>
                             <td>" .$row['productID']. "</td>
                             <td>" .$row['name']. "</td>
                             <td>" .$row['date_created']. "</td>
                             <td>
-                                <form method='POST' action='editproductpage.php'>
-                                    <input type='hidden' name='PNAME' value='".$row['productID']."' />
-                                    <input type='submit' class='btn btn-primary col-lg-6' value='Edit' name='submit'>
-                                </form>
-                                <form method='POST' action='delproductprocess.php'>
-                                    <input type='hidden' name='PNAME' value='".$row['productID']."' />
-                                    <input type='submit' class='btn btn-primary col-lg-6' value='Delete' name='submit' Onclick=\"return ConfirmDelete()\">
-                                </form>
+                                <div>
+                                    <form method='POST' action='editproductpage.php'>
+                                        <input type='hidden' name='PNAME' value='".$row['productID']."' />
+                                        <input type='submit' class='btn btn-primary' value='Edit' name='submit'>
+                                    </form>
+                                </div>
+                                <div>
+                                    <form method='POST' action='delproductprocess.php'>
+                                        <input type='hidden' name='PNAME' value='".$row['productID']."' />
+                                        <input type='submit' class='btn btn-primary value='Delete' name='submit' Onclick=\"return ConfirmDelete()\">
+                                    </form>
+                                </div>
                             </td>
                         </tr>";
                     }

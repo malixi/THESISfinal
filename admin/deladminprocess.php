@@ -13,7 +13,7 @@ $stmt2 = $dbconn->prepare('DELETE FROM admin WHERE userID = ?');
 $stmt2->bind_param('i', $prodID);
 $stmt2->execute();
 
-echo"<script>window.alert('Product deleted.');</script>";
+echo"<script>window.alert('Admin deleted.');</script>";
 echo"<script>location.href='viewadminpage.php';</script>";
 } else {
 echo"<script>window.alert('Product Code incorrect');</script>";

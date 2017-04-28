@@ -67,7 +67,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
 			<div class="head-top">
 				<div class="logo">
-					<a href="index.html">
+					<a href="index.php">
 <img src="images/logo.png" class="navbar-brand">
 </a>
 				</div>
@@ -77,7 +77,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 				<ul class="memenu skyblue">
-				<li><a class="color8" href="http://localhost:8080/THESISfinal-1/about.php"><strong>ABOUT US</strong></a></li>";
+				<li><a class="color8" href="about.php"><strong>ABOUT US</strong></a></li>";
 				      <li><a class="color1" href="products.html">PRODUCTS</a>
 				      	<div class="mepanel">
 						<div class="row">

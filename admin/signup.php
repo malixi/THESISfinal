@@ -46,7 +46,7 @@ if(isset($_POST['btn-signup']))
 						Welcome to Gray Enterprise!<br/>
 						To complete your registration  please , just click following link<br/>
 						<br /><br />
-						<a href='http://localhost/thesis/admin/verify.php?id=$id&code=$code'>Click HERE to Activate :)</a>
+						<a href='http://localhost/ThesisFinal/admin/verify.php?id=$id&code=$code'>Click HERE to Activate :)</a>
 						<br /><br />
 						Thanks,";
 

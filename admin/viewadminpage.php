@@ -1,3 +1,8 @@
+<script>
+	function ConfirmDelete() {
+  return confirm("Are you sure you want to delete?");
+}
+</script>
 <?php
 session_start();
 require_once 'class.user.php';
@@ -211,9 +216,9 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                                         <input type='hidden' name='UNAME' value='".$row['userID']."' />
                                         <input type='submit' class='btn btn-primary col-lg-6' value='Edit' name='submit'>
                                     </form>
-                                    <form method='POST' action='deladminprocess.php'>
+                                    <form method='POST' action='deladminprocess.php' Onclick=\"return ConfirmDelete()\" /0>
                                         <input type='hidden' name='UNAME' value='".$row['userID']."' />
-                                        <input type='submit' class='btn btn-primary col-lg-6' value='Delete' name='submit'>
+                                        <input type='submit' class='btn btn-primary col-lg-6' value='Delete'  name='submit'>
                                     </form>
                                 </td>
                             </tr>";

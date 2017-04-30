@@ -26,6 +26,8 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
     <title>Llanes Farm</title>
 
+
+
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -173,6 +175,70 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
             </div>
 
             <!-- ... Your content goes here ... -->
+
+
+		<?php
+		$results = mysqli_query ($dbconn,'SELECT * FROM products');
+
+		<div class="container-fluid">
+    <div class="content-wrapper">
+		<div class="item-container">
+			<div class="container">
+				<div class="col-md-12">
+					<div class="container service1-items col-sm-2 col-md-2 pull-left">
+						<center>
+						if($results->num_rows > 0) {
+
+						while($row = mysqli_fetch_array($results)){
+								echo
+
+							<a id="item-1" class="service1-item">
+								<img src="productimage/".$row['image']." alt=""></img>
+							</a>
+						</center>
+					</div>
+				</div>
+
+				<div class="col-md-7">
+					<div class="product-title">Corsair GS600 600 Watt PSU</div>
+					<div class="product-desc">The Corsair Gaming Series GS600 is the ideal price/performance choice for mid-spec gaming PC</div>
+					<hr>
+					<div class="product-price">$ 1234.00</div>
+					<div class="product-stock">In Stock</div>
+					<hr>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="col-md-12 product-info">
+					<ul id="myTab" class="nav nav-tabs nav_tabs">
+
+						<li class="active"><a href="#service-one" data-toggle="tab">DESCRIPTION</a></li>
+
+					</ul>
+				<div id="myTabContent" class="tab-content">
+						<div class="tab-pane fade in active" id="service-one">
+
+							<section class="container product-info">
+								The Corsair Gaming Series GS600 power supply is the ideal price-performance solution for building or upgrading a Gaming PC. A single +12V rail provides up to 48A of reliable, continuous power for multi-core gaming PCs with multiple graphics cards. The ultra-quiet, dual ball-bearing fan automatically adjusts its speed according to temperature, so it will never intrude on your music and games. Blue LEDs bathe the transparent fan blades in a cool glow. Not feeling blue? You can turn off the lighting with the press of a button.
+							</section>
+
+						</div>
+					<div class="tab-pane fade" id="service-two">
+
+						<section class="container">
+
+						</section>
+
+					</div>
+					<div class="tab-pane fade" id="service-three">
+					</div>
+				</div>
+				<hr>
+			</div>
+		</div>
+	</div>
+</div>
 
         </div>
     </div>

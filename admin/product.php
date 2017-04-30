@@ -1,12 +1,6 @@
-<script>
-	function ConfirmDelete() {
-  return confirm("Are you sure you want to delete?");
-}
-</script>
 <?php
 session_start();
 require_once 'class.user.php';
-require_once 'connector.php';
 $user_home = new USER();
 
 if(!$user_home->is_logged_in())
@@ -135,13 +129,13 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                         </div>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="#" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i>Product</a>
+                        <a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i> Products</a>
                     </li>
 										<li>
-                        <a href="viewadminpage.php" class="active"><i class="fa fa-dashboard fa-fw"></i>Admin</a>
+                        <a href="viewadminpage.php" ><i class="fa fa-dashboard fa-fw"></i> Admin</a>
                     </li>
 										<li>
                         <a href="changemail.php" ><i class="fa fa-dashboard fa-fw"></i> Change email</a>
@@ -174,61 +168,11 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Add Admin</h1>
+                    <h1 class="page-header">Page Title</h1>
                 </div>
             </div>
 
-            <?php
-
-            ?>
-
             <!-- ... Your content goes here ... -->
-            <div class="row">
-                <form role="form" action="addadminpage.php" method="post">
-                    <input type="submit" class="btn btn-primary" value="Add Admin" name="submit">
-                    <hr>
-                </form>
-
-                <?php
-                $results = mysqli_query ($dbconn,'SELECT * FROM admin');
-
-                echo "<table class='table table.bordered'>
-                    <thead>
-                        <tr>
-                            <th>User ID</th>
-                            <th>First Name</th>
-														<th>Last Name</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>";
-
-                if($results->num_rows > 0) {
-
-                while($row = mysqli_fetch_array($results)){
-                    echo
-                        "<tr>
-                                <td>" .$row['userID']. "</td>
-                                <td>" .$row['FirstName']. "</td>
-																<td>" .$row['LastName']. "</td>
-                                <td>
-                                    <form method='POST' action='editadminpage.php'>
-                                        <input type='hidden' name='UNAME' value='".$row['userID']."' />
-                                        <input type='submit' class='btn btn-primary col-lg-6' value='Edit' name='submit'>
-                                    </form>
-                                    <form method='POST' action='deladminprocess.php' Onclick=\"return ConfirmDelete()\" /0>
-                                        <input type='hidden' name='UNAME' value='".$row['userID']."' />
-                                        <input type='submit' class='btn btn-primary col-lg-6' value='Delete'  name='submit'>
-                                    </form>
-                                </td>
-                            </tr>";
-                    }
-                }
-
-                echo "</tbody>
-                    </table>";
-                ?>
-            </div>
 
         </div>
     </div>

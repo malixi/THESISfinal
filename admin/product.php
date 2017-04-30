@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once 'class.user.php';
-require_once 'connector.php';
 $user_home = new USER();
 
 if(!$user_home->is_logged_in())
@@ -71,7 +70,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         <!-- Top Navigation: Left Menu -->
         <ul class="nav navbar-nav navbar-left navbar-top-links">
-            <li><a href="../index.php"><i class="fa fa-home fa-fw"></i> Website</a></li>
+            <li><a href="../index.html"><i class="fa fa-home fa-fw"></i> Website</a></li>
         </ul>
 
         <!-- Top Navigation: Right Menu -->
@@ -130,10 +129,16 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                         </div>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="#" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i> Product</a>
+                        <a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i> Products</a>
+                    </li>
+										<li>
+                        <a href="viewadminpage.php" ><i class="fa fa-dashboard fa-fw"></i> Admin</a>
+                    </li>
+										<li>
+                        <a href="changemail.php" ><i class="fa fa-dashboard fa-fw"></i> Change email</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
@@ -163,48 +168,11 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Add Product</h1>
+                    <h1 class="page-header">Page Title</h1>
                 </div>
             </div>
-
-            <?php
-
-            ?>
 
             <!-- ... Your content goes here ... -->
-            <div class="row">
-                <div class="col-lg-6">
-                    <form role="form" action="addproductprocess.php" method="post" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label>Product Name</label>
-                            <input type="text" class="form-control" name="addname" id="addname" required maxlength="50">
-                        </div>
-                        <div class="form-group">
-                            <label>Product Price</label>
-                            <input type="number" class="form-control" name="addprice" id="addprice" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Product Quantity</label>
-                            <input type="number" class="form-control" name="addquantity" id="addquantity" required maxlength="100">
-                        </div>
-                        <div class="form-group">
-                            <label>Product Date Created</label>
-                            <input type="date" class="form-control" name="adddate_created" id="adddate_created" value="<?php echo date('Y-m-d');?>" required readonly>
-                        </div>
-                        <div class="form-group">
-                        <label>Product Image</label>
-                            <input type="file" name="fileToUpload" id="fileToUpload">
-                        </div>
-                        <div class="form-group">
-                            <label>Product Description</label>
-                            <textarea class="form-control" rows="10" placeholder="Main Description" name="adddescription" id="adddescription" maxlength="500"></textarea>
-                        </div>
-                        <input type="submit" class="btn btn-primary" value="Add" name="submit">
-                        <input type="reset" class="btn btn-default" value="Reset">
-                        <hr>
-                    </form>
-                </div>
-            </div>
 
         </div>
     </div>

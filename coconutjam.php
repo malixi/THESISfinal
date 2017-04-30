@@ -1,9 +1,4 @@
-<!--A Design by W3layouts
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,21 +27,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 <!--header-->
-<div class="header">
-	<div class="header-top">
-		<div class="container">
-
-			<div class="header-left">
-
-				<div class="search-box">
-					<div id="sb-search" class="sb-search">
-						<form action="searchproductuser.php" method="get">
-							<input class="sb-search-input" placeholder="Enter your search term..." type="text" name="search"  id="search">
-							<input class="sb-search-submit" type="submit" value="">
-							<span class="sb-icon-search"> </span>
-						</form>
-					</div>
-				</div>
+<?php include 'header.php';?>
 
 <!-- search-scripts -->
 					<script src="js/classie.js"></script>
@@ -73,49 +54,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 		</div>
 		<div class="container">
-			<div class="head-top">
-				<div class="logo">
-					<a href="index.html">
-<img src="images/logo.png" class="navbar-brand">
-</a>
-				</div>
-
-		  <div class=" h_menu4">
-&nbsp;&nbsp;&nbsp;
-				<ul class="memenu skyblue">
-					<li><a class="color8" href="about.html"><strong>ABOUT US</strong></a></li>
-						<li><a class="color1" href="products.html">PRODUCTS</a>
-							<div class="mepanel">
-					<div class="row">
-						<div class="col1">
-							<div class="h_nav">
-								<ul>
-									<li><a href="bananaproducts.html">Banana</a></li>
-									<li><a href="cocoaproducts.html">Cocoa</a></li>
-									<li><a href="coconutproducts.html">Coconut</a></li>
-									<li><a href="herbalproducts.html">Herbal</a></li>
-									<li><a href="mangoproducts.html">Mango</a></li>
-									<li><a href="pineappleproducts.html">Pineapple</a></li>
-
-								</ul>
-							</div>
-						</div>
-
-				</li>
-
-			<li><a class="color4" href="services.html">SERVICES</a></li>
-			<li><a class="color6" href="contact.html">CONTACT</a></li>
-			</ul>
-			</div>
-
-				<div class="clearfix"> </div>
-		</div>
-		</div>
+				<?php include 'navbar.php'; ?>
 	</div>
 	<!-- grow -->
 	<div class="grow">
 		<div class="container">
-			<h2>Mango Products</h2>
+			<h2>Coconut Products</h2>
 		</div>
 	</div>
 	<!-- grow -->
@@ -128,7 +72,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="flexslider">
 			  <ul class="slides">
 			    <li data-thumb="images/si.jpg">
-			        <div class="thumb-image"> <img src="images/sampledriedmango.png" data-imagezoom="true" class="img-responsive" width="50%"> </div>
+			        <div class="thumb-image"> <img src="images/coconutjam.png" data-imagezoom="true" class="img-responsive" width="7%"> </div>
 
 			    </li>
 			  </ul>
@@ -161,7 +105,7 @@ $(window).load(function() {
 					</div>
 					<div class="col-md-5 single-top-in simpleCart_shelfItem">
 						<div class="single-para ">
-						<h4>Dried Mango</h4>
+						<h4>Coconut Jam</h4>
 							<div class="star-on">
 
 								<div class="review">
@@ -172,24 +116,8 @@ $(window).load(function() {
 							</div>
 
 							<h5 class="item_price">$ 500.00</h5>
-							<p>Philippine mangoes have been receiving international attention and is recognized as one of the best in the world. Its export has seen a steady increase in the past 2 decades.
+							<p>Coco Jam with coconut syrup. Our coconut jam was produced using only organic and non-GMO coconut ingredients. It is purely made from the finest coconut milk extracted from newly harvested fresh coconuts with the addition of with organic coconut syrup. These coconut components were slow cooked to perfection to achieve its rich caramel color and develop its natural sweetness. Treat your taste buds to a delectable and nutritious jam made simply from nature’s finest ingredients. It is vegan, non-dairy & gluten-free. It is 100% chemical-free. No artificial flavors or coloring were added.</p>
 
-Dried Mango is one of the most nutritious and natural snacks available. It has been dehydrated and conveniently cut for your eating pleasure.
-<p>Available Packing for dried mangoes are the following:</p>
-<ul>
-											<li>100g. / bag</li>
-											<li>200g. / bag</li>
-											<li>200g. / giftbox.</li>
-
-										</ul>
-                    <p>Case packing are the following:</p>
-                    <ul>
-											<li>4x25x100g /case</li>
-											<li>2x25x200g /case</li>
-											<li>50x200g giftbox / case</li>
-										<ul>
-									<p></p>
-								</ul></ul>
 							<div class="available">
 								<ul>
 									<li>
@@ -286,7 +214,7 @@ Dried Mango is one of the most nutritious and natural snacks available. It has b
 				<div class="clearfix"> </div>
 			</div>
 		</div>
-		<div class="footer-class w3-agile">
+		<?php include 'footer.php'; ?>
 
 		</div>
 		</div>

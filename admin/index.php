@@ -52,7 +52,7 @@ if(isset($_POST['btn-login']))
         if(isset($_GET['error']))
 		{
 			?>
-            <div class='alert alert-success'>
+          <div class='alert alert-success'>
 				<button class='close' data-dismiss='alert'>&times;</button>
 				<strong>Wrong Details!</strong>
 			</div>

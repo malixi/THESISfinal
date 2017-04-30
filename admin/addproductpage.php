@@ -71,7 +71,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         <!-- Top Navigation: Left Menu -->
         <ul class="nav navbar-nav navbar-left navbar-top-links">
-            <li><a href="../index.html"><i class="fa fa-home fa-fw"></i> Website</a></li>
+            <li><a href="../index.php"><i class="fa fa-home fa-fw"></i> Website</a></li>
         </ul>
 
         <!-- Top Navigation: Right Menu -->
@@ -174,7 +174,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
             <!-- ... Your content goes here ... -->
             <div class="row">
                 <div class="col-lg-6">
-                    <form role="form" action="addproductprocess.php" method="post">
+                    <form role="form" action="addproductprocess.php" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label>Product Name</label>
                             <input type="text" class="form-control" name="addname" id="addname" required maxlength="50">
@@ -193,7 +193,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                         </div>
                         <div class="form-group">
                         <label>Product Image</label>
-                            <input type="file" name="fileToUpload" id="fileToUpload" maxlength="200">
+                            <input type="file" name="fileToUpload" id="fileToUpload">
                         </div>
                         <div class="form-group">
                             <label>Product Description</label>

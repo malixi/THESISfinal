@@ -2,6 +2,9 @@
 <html>
 <head>
 <title></title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -9,10 +12,7 @@
 <!--theme-style-->
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <!--//theme-style-->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Mattress Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!--fonts-->
 <link href='//fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
@@ -23,6 +23,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>
 <script src="js/simpleCart.min.js"> </script>
 </head>
+<body>
 <!--header-->
 <div class="header">
 	<div class="header-top">
@@ -32,8 +33,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<div class="search-box">
 					<div id="sb-search" class="sb-search">
-						<form action="searchproductuser.php" method="get">
-							<input class="sb-search-input" placeholder="Enter your search term..." type="text" name="search"  id="search">
+						<form action="#" method="post">
+							<input class="sb-search-input" placeholder="Enter your search term..." type="search"  id="search">
 							<input class="sb-search-submit" type="submit" value="">
 							<span class="sb-icon-search"> </span>
 						</form>
@@ -44,7 +45,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<script src="js/classie.js"></script>
 					<script src="js/uisearch.js"></script>
 						<script>
-							new UISearch( document.getElementById( 'searchproductuser.php' ) );
+							new UISearch( document.getElementById( 'sb-search' ) );
 						</script>
 					<!-- //search-scripts -->
 
@@ -65,50 +66,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 		</div>
 		<div class="container">
-			<div class="head-top">
-				<div class="logo">
-					<a href="index.php">
-<img src="images/logo.png" class="navbar-brand">
-</a>
-				</div>
-
-		  <div class=" h_menu4">
-&nbsp;&nbsp;&nbsp;
-
-
-				<ul class="memenu skyblue">
-				<li><a class="color8" href="about.php"><strong>ABOUT US</strong></a></li>";
-				      <li><a class="color1" href="products.html">PRODUCTS</a>
-				      	<div class="mepanel">
-						<div class="row">
-							<div class="col1">
-								<div class="h_nav">
-									<ul>
-										<li><a href="bananaproducts.html">Banana</a></li>
-										<li><a href="cocoaproducts.html">Cocoa</a></li>
-										<li><a href="coconutproducts.html">Coconut</a></li>
-										<li><a href="herbalproducts.html">Herbal</a></li>
-										<li><a href="mangoproducts.html">Mango</a></li>
-										<li><a href="pineappleproducts.html">Pineapple</a></li>
-
-									</ul>
-								</div>
-							</div>
-
-					</li>
-
-				<li><a class="color4" href="services.html">SERVICES</a></li>
-				<li><a class="color6" href="contact.html">CONTACT</a></li>
-			  </ul>
-			</div>
-
-				<div class="clearfix"> </div>
-		</div>
-		</div>
-	</div>
-</nav>
-
-
+			<?php include 'navbar.php'; ?>
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->

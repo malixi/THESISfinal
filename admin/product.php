@@ -1,16 +1,22 @@
 <?php
 session_start();
 require_once 'class.user.php';
+require_once 'connector.php';
 $user_home = new USER();
 
-if(!$user_home->is_logged_in())
-{
+if(!$user_home->is_logged_in()){
 	$user_home->redirect('index.php');
 }
 
 $stmt = $user_home->runQuery("SELECT * FROM admin WHERE userID=:uid");
 $stmt->execute(array(":uid"=>$_SESSION['userSession']));
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if(isset($_GET['dosearch'])){
+    $query=$_GET['doseach'];
+    echo $query;
+}
+
 
 ?>
 
@@ -187,7 +193,8 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 						<center>
 
 							<?php
-							$results = mysqli_query ($dbconn,'SELECT * FROM products');
+							$prodID=$_POST['PNAME'];
+							$results = mysqli_query ($dbconn ,"SELECT * FROM products WHERE productID = '". $prodID . "' LIMIT 1");
 
 
 						if($results->num_rows > 0) {
@@ -196,21 +203,21 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
 							echo '<a id="item-1" class="service1-item">
-								<img src="productimage/' .$row['productImage']. '" alt=""></img>';
-								?>
+								<img src="productimage/' .$row['image']. '" alt=""></img>
+
 
 							</a>
 						</center>
 					</div>
-				</div>
+				</div>';
 
-				<div class="col-md-7">
-					<div class="product-title"><?php echo $row['name'] ?></div>
-					<div class="product-desc"><?php echo $row['description'] ?></div>
-					<hr>
-					<div class="product-price"><?php echo $row['price'] ?></div>
-					<div class="product-stock">In Stock</div>
-					<hr>
+				echo '<div class="col-md-7">
+					<div class="product-title">'  .$row['name']. '</div>
+					<div class="product-desc">'  .$row['description']. '</div>
+					<div class="product-title">'  .$row['price']. '</div>';
+
+
+					'<hr>
 				</div>
 			</div>
 		</div>
@@ -222,11 +229,15 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 					</ul>
 				<div id="myTabContent" class="tab-content">
-						<div class="tab-pane fade in active" id="service-one">
+						<div class="tab-pane fade in active" id="service-one">';
 
-							<section class="container product-info">
-								<?php echo $row['description'] ?>
-							</section>
+							echo '<section class="container product-info">
+								<div class="product-title">'  .$row['description']. '</div>
+							</section>';
+
+						}
+					}
+							?>
 
 						</div>
 					<div class="tab-pane fade" id="service-two">

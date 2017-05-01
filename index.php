@@ -2,6 +2,9 @@
 <html>
 <head>
 <title></title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -9,10 +12,7 @@
 <!--theme-style-->
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <!--//theme-style-->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Mattress Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!--fonts-->
 <link href='//fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
@@ -23,6 +23,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>
 <script src="js/simpleCart.min.js"> </script>
 </head>
+<body>
 <!--header-->
 <div class="header">
 	<div class="header-top">
@@ -31,21 +32,67 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="header-left">
 
 				<div class="search-box">
-					<div id="sb-search" class="sb-search">
-						<form action="searchproductuser.php" method="get">
-							<input class="sb-search-input" placeholder="Enter your search term..." type="text" name="search"  id="search">
+					<div   class="sb-search sb-search-open">
+						<form action="#" method="post">
+							<input class="sb-search-input" placeholder="Enter your search term..."type="search" id="edit_search" onkeyup="find_my_div();">
 							<input class="sb-search-submit" type="submit" value="">
 							<span class="sb-icon-search"> </span>
-						</form>
-					</div>
-				</div>
 
+													</form>
+												</div>
+											</div></div>
+											<div class="cotainer">
+							<div id="product_0" class="name" style="display:none"><a href="http://localhost:8080/THESISfinal/coconutjam.php">Coconut Jam</a>
+  <br/>
+  <br/>
+  <br/>
+</div>
+<div id="product_1" class="name" style="display:none">PC
+  <br/>Windows
+  <br/>
+  <br/>
+</div>
+
+</div>
 <!-- search-scripts -->
-					<script src="js/classie.js"></script>
-					<script src="js/uisearch.js"></script>
-						<script>
-							new UISearch( document.getElementById( 'searchproductuser.php' ) );
-						</script>
+<script>
+function gid(a_id) {
+return document.getElementById(a_id);
+}
+
+function close_all() {
+
+for (i = 0; i < 999; i++) {
+var o = gid("product_" + i);
+if (o) {
+o.style.display = "none";
+}
+}
+
+}
+
+
+function find_my_div() {
+close_all();
+
+var o_edit = gid("edit_search");
+var str_needle = edit_search.value;
+str_needle = str_needle.toUpperCase();
+var searchStrings = str_needle.split(/\W/);
+
+for (var i = 0, len = searchStrings.length; i < len; i++) {
+var currentSearch = searchStrings[i].toUpperCase();
+if (currentSearch !== "") {
+nameDivs = document.getElementsByClassName("name");
+for (var j = 0, divsLen = nameDivs.length; j < divsLen; j++) {
+if (nameDivs[j].textContent.toUpperCase().indexOf(currentSearch) !== -1) {
+	nameDivs[j].style.display = "block";
+}
+}
+}
+}
+}
+</script>
 					<!-- //search-scripts -->
 
 				<div class="ca-r">
@@ -65,50 +112,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 		</div>
 		<div class="container">
-			<div class="head-top">
-				<div class="logo">
-					<a href="index.html">
-<img src="images/logo.png" class="navbar-brand">
-</a>
-				</div>
-
-		  <div class=" h_menu4">
-&nbsp;&nbsp;&nbsp;
-
-
-				<ul class="memenu skyblue">
-				<li><a class="color8" href="http://localhost:8080/THESISfinal-1/about.php"><strong>ABOUT US</strong></a></li>";
-				      <li><a class="color1" href="products.html">PRODUCTS</a>
-				      	<div class="mepanel">
-						<div class="row">
-							<div class="col1">
-								<div class="h_nav">
-									<ul>
-										<li><a href="bananaproducts.html">Banana</a></li>
-										<li><a href="cocoaproducts.html">Cocoa</a></li>
-										<li><a href="coconutproducts.html">Coconut</a></li>
-										<li><a href="herbalproducts.html">Herbal</a></li>
-										<li><a href="mangoproducts.html">Mango</a></li>
-										<li><a href="pineappleproducts.html">Pineapple</a></li>
-
-									</ul>
-								</div>
-							</div>
-
-					</li>
-
-				<li><a class="color4" href="services.html">SERVICES</a></li>
-				<li><a class="color6" href="contact.html">CONTACT</a></li>
-			  </ul>
-			</div>
-
-				<div class="clearfix"> </div>
-		</div>
-		</div>
-	</div>
-</nav>
-
-
+			<?php include 'navbar.php'; ?>
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->

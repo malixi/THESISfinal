@@ -48,7 +48,7 @@
   <br/>
 </div>
 <div id="product_1" class="name" style="display:none">PC
-  <br/>
+  <br/>Windows
   <br/>
   <br/>
 </div>

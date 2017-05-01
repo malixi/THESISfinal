@@ -180,12 +180,8 @@ $(window).load(function() {
 
         <!-- comment -->
         <div class="comments-app" ng-app="commentsApp" ng-controller="CommentsController as cmntCtrl">
-
-
           <!-- From -->
           <div class="comment-form">
-            <!-- Comment Avatar -->
-
             <form class="form" name="form" ng-submit="form.$valid && cmntCtrl.addComment()" novalidate>
               <div class="form-row">
                 <textarea
@@ -225,23 +221,25 @@ $(window).load(function() {
           <div class="comments">
             <!-- Comment -->
             <div class="comment" ng-repeat="comment in cmntCtrl.comments | orderBy: '-date'">
-            
+
 
               <!-- Comment Box -->
               <div class="comment-box">
-                <div class="comment-text">{{ comment.text }}</div>
-                <div class="comment-footer">
-                  <div class="comment-info">
-                    <span class="comment-author">
-                      <em ng-if="comment.anonymous">Anonymous</em>
-                      <a ng-if="!comment.anonymous" href="{{ comment.author }}">{{ comment.author }}</a>
-                    </span>
-                    <span class="comment-date">{{ comment.date | date: 'medium' }}</span>
-                  </div>
-
-
-          </div>
+  <div class="comment-text">{{ comment.text }}</div>
+  <div class="comment-footer">
+    <div class="comment-info">
+      <span class="comment-author">
+        <em ng-if="comment.anonymous">Anonymous</em>
+        <a ng-if="!comment.anonymous" href="{{ comment.author }}">{{ comment.author }}</a>
+      </span>
+      <span class="comment-date">{{ comment.date | date: 'medium' }}</span>
+    </div>
         </div>
+        </div>
+        </div>
+        </div>
+        </div>
+
 
         <!-- end comment-->
 

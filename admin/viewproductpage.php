@@ -242,6 +242,15 @@ if(isset($_GET['dosearch'])){
                                         <input type='submit' class='btn btn-primary value='Delete' name='submit' Onclick=\"return ConfirmDelete()\">
                                     </form>
                                 </div>
+<<<<<<< HEAD
+																<div>
+																		<form method='POST' action='product.php'>
+																				<input type='hidden' name='PNAME' value='".$row['productID']."' />
+																				<input type='submit' class='btn btn-primary' value='View Product' name='submit'>
+																		</form>
+																</div>
+=======
+>>>>>>> refs/remotes/origin/master
                             </td>
                         </tr>";
                     }

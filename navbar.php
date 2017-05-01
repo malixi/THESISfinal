@@ -15,12 +15,12 @@
         <div class="col1">
           <div class="h_nav">
             <ul>
-              <li><a href="http://localhost:8080/THESISfinal/bananaproducts.php">Banana</a></li>
-              <li><a href="http://localhost:8080/THESISfinal/cocoaproducts.php">Cocoa</a></li>
-              <li><a href="http://localhost:8080/THESISfinal/coconutproducts.php">Coconut</a></li>
-              <li><a href="http://localhost:8080/THESISfinal/herbalproducts.php">Herbal</a></li>
-              <li><a href="http://localhost:8080/THESISfinal/mangoproducts.php">Mango</a></li>
-              <li><a href="http://localhost:8080/THESISfinal/pineappleproducts.php">Pineapple</a></li>
+              <li><a href="bananaproducts.php">Banana</a></li>
+              <li><a href="cocoaproducts.php">Cocoa</a></li>
+              <li><a href="coconutproducts.php">Coconut</a></li>
+              <li><a href="herbalproducts.php">Herbal</a></li>
+              <li><a href="mangoproducts.php">Mango</a></li>
+              <li><a href="pineappleproducts.php">Pineapple</a></li>
 
             </ul>
           </div>

@@ -1,9 +1,3 @@
-<script>
-	function ConfirmDelete() {
-  return confirm("Are you sure you want to delete?");
-}
-</script>
-
 <?php
 session_start();
 require_once 'class.user.php';
@@ -37,6 +31,8 @@ if(isset($_GET['dosearch'])){
     <meta name="author" content="">
 
     <title>Llanes Farm</title>
+
+
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -82,7 +78,7 @@ if(isset($_GET['dosearch'])){
 
         <!-- Top Navigation: Left Menu -->
         <ul class="nav navbar-nav navbar-left navbar-top-links">
-            <li><a href="../index.php"><i class="fa fa-home fa-fw"></i> Website</a></li>
+            <li><a href="../index.html"><i class="fa fa-home fa-fw"></i> Website</a></li>
         </ul>
 
         <!-- Top Navigation: Right Menu -->
@@ -141,13 +137,13 @@ if(isset($_GET['dosearch'])){
                         </div>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="#" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="viewproductpage.php" class="active"><i class="fa fa-dashboard fa-fw"></i>Product</a>
+                        <a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i> Products</a>
                     </li>
 										<li>
-                        <a href="viewadminpage.php"><i class="fa fa-dashboard fa-fw"></i>Admin</a>
+                        <a href="viewadminpage.php" ><i class="fa fa-dashboard fa-fw"></i> Admin</a>
                     </li>
 										<li>
                         <a href="changemail.php" ><i class="fa fa-dashboard fa-fw"></i> Change email</a>
@@ -180,83 +176,86 @@ if(isset($_GET['dosearch'])){
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Add Product</h1>
+                    <h1 class="page-header">Page Title</h1>
                 </div>
             </div>
-
-            <?php
-
-            ?>
 
             <!-- ... Your content goes here ... -->
-            <div class="row">
-                <div class='col-lg-6'>
-                    <form role="form" action="addproductpage.php" method="post">
-                        <input type="submit" class="btn btn-primary" value="Add Products" name="submit">
-                        <hr>
-                    </form>
-                </div>
-                <div class='col-lg-6'>
-                    <form role="form" action="searchproductpage.php" method="GET" class="form-inline">
-                            <label>Search</label>
-                            <input type="text" class="form-control" name="search" id="search" placeholder="Search">
-                            <input type="submit" class="btn btn-primary" value="Search">
-                        <hr>
-                    </form>
-                </div>
 
-                <?php
-                $results = mysqli_query ($dbconn,'SELECT * FROM products');
 
-                echo "<table class='table table.bordered'>
-                    <thead>
-                        <tr>
-                            <th>Product Image</th>
-                            <th>Product ID</th>
-                            <th>Product Name</th>
-                            <th>Product Date Created</th>
-                            <th>Product Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>";
 
-                if($results->num_rows > 0) {
+		<div class="container-fluid">
+    <div class="content-wrapper">
+		<div class="item-container">
+			<div class="container">
+				<div class="col-md-12">
+					<div class="container service1-items col-sm-2 col-md-2 pull-left">
+						<center>
 
-                while($row = mysqli_fetch_array($results)){
-                    echo
-                        "<tr>
-                            <td><img id='prodImg' src='productimage/".$row['image']."' width='100px' heigh=''/></td>
-                            <td>" .$row['productID']. "</td>
-                            <td>" .$row['name']. "</td>
-                            <td>" .$row['date_created']. "</td>
-                            <td>
-                                <div>
-                                    <form method='POST' action='editproductpage.php'>
-                                        <input type='hidden' name='PNAME' value='".$row['productID']."' />
-                                        <input type='submit' class='btn btn-warning col-lg-4' value='Edit' name='submit'>
-                                    </form>
-                                </div>
-                                <div>
-                                    <form method='POST' action='delproductprocess.php'>
-                                        <input type='hidden' name='PNAME' value='".$row['productID']."' />
-                                        <input type='submit' class='btn btn-danger col-lg-4' value='Delete' name='submit' Onclick=\"return ConfirmDelete()\">
-                                    </form>
-                                </div>
-								<div>
-										<form method='POST' action='product.php'>
-												<input type='hidden' name='PNAME' value='".$row['productID']."' />
-												<input type='submit' class='btn btn-primary col-lg-4' value='View' name='submit'>
-										</form>
-								</div>
-                            </td>
-                        </tr>";
-                    }
-                }
+							<?php
+							$prodID=$_POST['PNAME'];
+							$results = mysqli_query ($dbconn ,"SELECT * FROM products WHERE productID = '". $prodID . "' LIMIT 1");
 
-                echo "</tbody>
-                    </table>";
-                ?>
-            </div>
+
+						if($results->num_rows > 0) {
+
+						while($row = mysqli_fetch_array($results)){
+
+
+							echo '<a id="item-1" class="service1-item">
+								<img src="productimage/' .$row['image']. '" alt=""></img>
+
+
+							</a>
+						</center>
+					</div>
+				</div>';
+
+				echo '<div class="col-md-7">
+					<div class="product-title">'  .$row['name']. '</div>
+					<div class="product-desc">'  .$row['description']. '</div>
+					<div class="product-title">'  .$row['price']. '</div>';
+
+
+					'<hr>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="col-md-12 product-info">
+					<ul id="myTab" class="nav nav-tabs nav_tabs">
+
+						<li class="active"><a href="#service-one" data-toggle="tab">DESCRIPTION</a></li>
+
+					</ul>
+				<div id="myTabContent" class="tab-content">
+						<div class="tab-pane fade in active" id="service-one">';
+
+							echo '<section class="container product-info">
+								<div class="product-title">'  .$row['description']. '</div>
+							</section>';
+
+						}
+					}
+							?>
+
+						</div>
+					<div class="tab-pane fade" id="service-two">
+
+						<section class="container">
+
+						</section>
+
+					</div>
+					<div class="tab-pane fade" id="service-three">
+					</div>
+				</div>
+				<hr>
+			</div>
+		</div>
+	</div>
+</div>
+
         </div>
     </div>
 

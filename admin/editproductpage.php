@@ -175,7 +175,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                     echo "
                 <div class='row'>
                     <div class='col-lg-6'>
-                        <form role='form' action='editproductprocess.php' method='post'>
+                        <form role='form' action='editproductprocess.php' method='post' enctype='multipart/form-data'>
                             <div class='form-group'>
                                 <label>Product ID</label>
                                 <input type='number' class='form-control'  name='editID' id='editID' maxlength='6' value=".$row['productID']." required readonly>
@@ -202,10 +202,10 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                                     <div class='img-thumbnail'>
                                     <img id='prodImg' src='productimage/".$row['image']."' width='150px' height='150px'/>
                                     <div class='caption'>
-                                        <label for='fileToUpload' class='btn btn-default'>Replace</label>
-                                        <input style='display:none; visibility:hidden;' class='btn btn-primary' type='file' name='fileToUpload' id='fileToUpload' maxlength='200'>
-                                        <label for='fileToUpload' class='btn btn-default'>Delete</label>
-                                        <input style='display:none; visibility:hidden;' class='btn btn-primary' type='file' name='fileToUpload' id='fileToUpload' maxlength='200'>
+                                        <label for='fileToReplace' name='test' class='btn btn-default'>Replace</label>
+                                        <input style='display:none; visibility:hidden;' class='btn btn-primary' type='file' name='fileToReplace' id='fileToReplace' maxlength='200'>
+                                        <label for='fileToDelete' class='btn btn-default'>Delete</label>
+                                        <input style='display:none; visibility:hidden;' class='btn btn-primary' type='text' value='' name='fileToDelete' id='fileToDelete' maxlength='200'>
                                     </div>
                                     </div>
                                 </p>

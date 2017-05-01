@@ -32,21 +32,67 @@
 			<div class="header-left">
 
 				<div class="search-box">
-					<div id="sb-search" class="sb-search">
+					<div   class="sb-search sb-search-open">
 						<form action="#" method="post">
-							<input class="sb-search-input" placeholder="Enter your search term..." type="search"  id="search">
+							<input class="sb-search-input" placeholder="Enter your search term..."type="search" id="edit_search" onkeyup="find_my_div();">
 							<input class="sb-search-submit" type="submit" value="">
 							<span class="sb-icon-search"> </span>
-						</form>
-					</div>
-				</div>
 
+													</form>
+												</div>
+											</div></div>
+											<div class="cotainer">
+							<div id="product_0" class="name" style="display:none"><a href="http://localhost:8080/THESISfinal/coconutjam.php">Coconut Jam</a>
+  <br/>
+  <br/>
+  <br/>
+</div>
+<div id="product_1" class="name" style="display:none">PC
+  <br/>
+  <br/>
+  <br/>
+</div>
+
+</div>
 <!-- search-scripts -->
-					<script src="js/classie.js"></script>
-					<script src="js/uisearch.js"></script>
-						<script>
-							new UISearch( document.getElementById( 'sb-search' ) );
-						</script>
+<script>
+function gid(a_id) {
+return document.getElementById(a_id);
+}
+
+function close_all() {
+
+for (i = 0; i < 999; i++) {
+var o = gid("product_" + i);
+if (o) {
+o.style.display = "none";
+}
+}
+
+}
+
+
+function find_my_div() {
+close_all();
+
+var o_edit = gid("edit_search");
+var str_needle = edit_search.value;
+str_needle = str_needle.toUpperCase();
+var searchStrings = str_needle.split(/\W/);
+
+for (var i = 0, len = searchStrings.length; i < len; i++) {
+var currentSearch = searchStrings[i].toUpperCase();
+if (currentSearch !== "") {
+nameDivs = document.getElementsByClassName("name");
+for (var j = 0, divsLen = nameDivs.length; j < divsLen; j++) {
+if (nameDivs[j].textContent.toUpperCase().indexOf(currentSearch) !== -1) {
+	nameDivs[j].style.display = "block";
+}
+}
+}
+}
+}
+</script>
 					<!-- //search-scripts -->
 
 				<div class="ca-r">

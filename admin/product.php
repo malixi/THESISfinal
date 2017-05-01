@@ -204,7 +204,7 @@ if(isset($_GET['dosearch'])){
 
 
 							echo '<a id="item-1" class="service1-item">
-								<img src="productimage/'.$row['image'].'" alt=""></img>
+								<img src="productimage/'.$row['image'].'" alt="">
 						</a>
 					</center>
 				</div>
@@ -240,9 +240,7 @@ if(isset($_GET['dosearch'])){
 					<div class="tab-pane fade" id="service-two">
 
 						<section class="container">
-
 						</section>
-
 					</div>
 					<div class="tab-pane fade" id="service-three">
 					</div>

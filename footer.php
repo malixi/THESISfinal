@@ -5,31 +5,33 @@
 				<div class="col-md-3 amet-sed w3l">
 				<h4>MORE INFO</h4>
 				<ul class="nav-bottom">
-						<li><a href="faq.html">FAQS</a></li>
-						<li><a href="forwarders.html">Forwarder</a></li>
-						<li><a href="contact.html">Location</a></li>
-						<li><a href="services.html">Other Services</a></li>
+						<li><a href="faq.php">FAQS</a></li>
+						<li><a href="forwarders.php">Forwarder</a></li>
+						<li><a href="contact.php">Location</a></li>
+						<li><a href="services.php">Other Services</a></li>
 
 					</ul>
 				</div>
 				<div class="col-md-3 amet-sed w3ls">
 					<h4>PRODUCTS</h4>
 					<ul class="nav-bottom">
-						<li><a href="bananaproducts.html">Banana</a></li>
-						<li><a href="cocoaproducts.html">Cocoa</a></li>
-						<li><a href="coconutproducts.html">Coconut</a></li>
-						<li><a href="herbalproducts.html">Herbal</a></li>
-						<li><a href="mangoproducts.html">Mango</a></li>
-						<li><a href="pineappleproducts.html">Pineapple</a></li>
+						<li><a href="bananaproducts.php">Banana</a></li>
+						<li><a href="cocoaproducts.php">Cocoa</a></li>
+						<li><a href="coconutproducts.php">Coconut</a></li>
+						<li><a href="herbalproducts.php">Herbal</a></li>
+						<li><a href="mangoproducts.php">Mango</a></li>
+						<li><a href="pineappleproducts.php">Pineapple</a></li>
 					</ul>
-
+					<br>
 				</div>
 
 				<div class="col-md-3 amet-sed agileits-w3layouts">
 				<h4>CONTACT US</h4>
-					<p>Lorem Ipsum</p>
-					<p>Lorem Ipsum</p>
-					<p>Lorem Ipsum</p>
+					<ul class="nav-bottom">
+					<li><a href="contact.php">Contact</a></li>
+					</ul>
+				<br>
+
 					<div class="social">
 						<ul>
 							<li><a href="https://www.facebook.com/cocosport.drink"  target="_blank"><i class="facebok"> </i></a></li>

@@ -67,15 +67,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="col-sm-4">
 			<div class="thumbnail">
 				<div class="grid-top simpleCart_shelfItem">
-					<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/samplemango1.png" width="50px" alt="">
+					<a href="coconutdiamond.php" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/samplecoconut1.png" width="50px" alt="">
 						<div class="b-wrapper">
 										<h3 class="b-animate b-from-left    b-delay03 ">
 											<span>COCONUT DIAMOND</span>
 										</h3>
 									</div>
 					</a>
-				<p><a href="single.html">COCONUT DIAMOND</a></p>
-				<a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>
+				<p><a href="coconutdiamond.php">COCONUT DIAMOND</a></p>
+				<a href="#" class="item_add"><p class="number item_price"><i> </i>₱550.00</p></a>
 				</div>
 			</div>
 		</div>
@@ -83,14 +83,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="col-sm-4">
 			<div class="thumbnail">
 		<div class="grid-top simpleCart_shelfItem">
-			<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/coconutvinegar.png" alt="">
+			<a href="coconutfiber.php" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/coconutvinegar.png" alt="">
 				<div class="b-wrapper">
 								<h3 class="b-animate b-from-left    b-delay03 ">
 									<span>COCONUT FIBER</span>
 								</h3>
 							</div>
 			</a>
-		<p><a href="single.html">COCONUT FIBER</a></p>
+		<p><a href="coconutfiber.php">COCONUT FIBER</a></p>
 		<a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>
 		</div>
 		</div>
@@ -99,14 +99,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="col-sm-4">
 		<div class="thumbnail">
 	<div class="grid-top simpleCart_shelfItem">
-		<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/frozenmango.png" width="50%" alt="">
+		<a href="coconutsugar.php" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/frozenmango.png" width="50%" alt="">
 			<div class="b-wrapper">
 							<h3 class="b-animate b-from-left    b-delay03 ">
 								<span>COCONUT SUGAR</span>
 							</h3>
 						</div>
 		</a>
-	<p><a href="single.html">COCONUT SUGAR</a></p>
+	<p><a href="coconutfiber.php">COCONUT SUGAR</a></p>
 	<a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>
 </div>
 </div>
@@ -115,14 +115,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="col-sm-4">
 	<div class="thumbnail">
 <div class="grid-top simpleCart_shelfItem">
-	<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/coconutvinegar.png" alt="">
+	<a href="coconutvinegar.php" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/coconutvinegar.png" alt="">
 		<div class="b-wrapper">
 						<h3 class="b-animate b-from-left    b-delay03 ">
 							<span>COCONUT VINEGAR</span>
 						</h3>
 					</div>
 	</a>
-<p><a href="single.html">COCONUT VINEGAR</a></p>
+<p><a href="coconutvinegar.php">COCONUT VINEGAR</a></p>
 <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>
 </div>
 </div>
@@ -130,14 +130,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="col-sm-4">
 	<div class="thumbnail">
 <div class="grid-top simpleCart_shelfItem">
-	<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/coconutjam.png" alt="">
+	<a href="coconutjam.php" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/coconutjam.png" alt="">
 		<div class="b-wrapper">
 						<h3 class="b-animate b-from-left    b-delay03 ">
 							<span>LLANES COCONUT FARM JAM</span>
 						</h3>
 					</div>
 	</a>
-<p><a href="single.html">LLANES COCONUT FARM JAM</a></p>
+<p><a href="coconutjam.php">LLANES COCONUT FARM JAM</a></p>
 <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>
 </div>
 </div>
@@ -145,14 +145,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="col-sm-4">
 	<div class="thumbnail">
 <div class="grid-top simpleCart_shelfItem">
-	<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/vco.png" alt="">
+	<a href="virgincoconutoil.php" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/vco.png" alt="">
 		<div class="b-wrapper">
 						<h3 class="b-animate b-from-left    b-delay03 ">
 							<span>VIRGIN COCONUT OIL</span>
 						</h3>
 					</div>
 	</a>
-<p><a href="single.html">VIRGIN COCONUT OIL</a></p>
+<p><a href="virgincoconutoil.php">VIRGIN COCONUT OIL</a></p>
 <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>
 </div>
 </div>

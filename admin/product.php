@@ -1,16 +1,22 @@
 <?php
 session_start();
 require_once 'class.user.php';
+require_once 'connector.php';
 $user_home = new USER();
 
-if(!$user_home->is_logged_in())
-{
+if(!$user_home->is_logged_in()){
 	$user_home->redirect('index.php');
 }
 
 $stmt = $user_home->runQuery("SELECT * FROM admin WHERE userID=:uid");
 $stmt->execute(array(":uid"=>$_SESSION['userSession']));
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if(isset($_GET['dosearch'])){
+    $query=$_GET['doseach'];
+    echo $query;
+}
+
 
 ?>
 
@@ -26,6 +32,8 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
     <title>Llanes Farm</title>
 
+
+
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -37,6 +45,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
     <!-- Custom CSS -->
     <link href="css/startmin.css" rel="stylesheet">
+    <link href="css/product.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
     <link href="css/morris.css" rel="stylesheet">
@@ -173,6 +182,86 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
             </div>
 
             <!-- ... Your content goes here ... -->
+
+
+
+		<div class="container-fluid">
+    <div class="content-wrapper">
+		<div class="item-container">
+			<div class="container">
+				<div class="col-md-12">
+					<div class="container service1-items col-sm-2 col-md-2 pull-left">
+						<center>
+
+							<?php
+							$prodID=$_POST['PNAME'];
+							$results = mysqli_query ($dbconn ,"SELECT * FROM products WHERE productID = '". $prodID . "' LIMIT 1");
+
+
+						if($results->num_rows > 0) {
+
+						while($row = mysqli_fetch_array($results)){
+
+
+							echo '<a id="item-1" class="service1-item">
+								<img src="productimage/'.$row['image'].'" alt="">
+						</a>
+					</center>
+				</div>
+			</div>';
+
+				echo '<div class="col-md-7">
+					<div class="product-title">'.$row['name'].'</div>
+					<div class="product-desc">'.$row['description'].'</div>
+					<div class="product-title">'.$row['price'].'</div>';
+								<img src="productimage/' .$row['image']. '" alt=""></img>
+							</a>
+						</center>
+					</div>
+				</div>';
+				echo '<div class="col-md-7">
+					<div class="product-title">'  .$row['name']. '</div>
+					<div class="product-desc">'  .$row['description']. '</div>
+					<div class="product-title">'  .$row['price']. '</div>';
+					'<hr>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="col-md-12 product-info">
+					<ul id="myTab" class="nav nav-tabs nav_tabs">
+
+						<li class="active"><a href="#service-one" data-toggle="tab">DESCRIPTION</a></li>
+
+					</ul>
+				<div id="myTabContent" class="tab-content">
+						<div class="tab-pane fade in active" id="service-one">';
+
+							echo '<section class="container product-info">
+								<div class="product-title">'  .$row['description']. '</div>
+							</section>';
+
+						}
+					}
+							?>
+
+						</div>
+					<div class="tab-pane fade" id="service-two">
+
+						<section class="container">
+						</section>
+
+						</section>
+
+					</div>
+					<div class="tab-pane fade" id="service-three">
+					</div>
+				</div>
+				<hr>
+			</div>
+		</div>
+	</div>
+</div>
 
         </div>
     </div>

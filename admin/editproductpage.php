@@ -197,8 +197,18 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                                 <input type='date' class='form-control' name='editdate_created' id='editdate_created' maxlength='50' value=".$row['date_created']." required readonly>
                             </div>
                             <div class='form-group'>
-                            <label>Product Image</label>
-                                <input type='file' name='fileToUpload' id='fileToUpload' maxlength='200'>
+                                <label>Product Image</label>
+                                <p>
+                                    <div class='img-thumbnail'>
+                                    <img id='prodImg' src='productimage/".$row['image']."' width='150px' height='150px'/>
+                                    <div class='caption'>
+                                        <label for='fileToUpload' class='btn btn-default'>Replace</label>
+                                        <input style='display:none; visibility:hidden;' class='btn btn-primary' type='file' name='fileToUpload' id='fileToUpload' maxlength='200'>
+                                        <label for='fileToUpload' class='btn btn-default'>Delete</label>
+                                        <input style='display:none; visibility:hidden;' class='btn btn-primary' type='file' name='fileToUpload' id='fileToUpload' maxlength='200'>
+                                    </div>
+                                    </div>
+                                </p>
                             </div>
                             <div class='form-group'>
                                 <label>Product Description</label>

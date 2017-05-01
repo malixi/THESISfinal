@@ -18,7 +18,7 @@
 	$result = $stmt->get_result();
 	if($rows = $result->fetch_assoc()) {
 		$stmt2 = $dbconn->prepare('UPDATE products SET name = ?, price = ?, image = ?, description = ?, quantity = ?, date_created = ? WHERE productID = ?');
-		$stmt2->bind_param('sdbsisi', $prodName, $prodPrice, $prodImage, $prodDesc, $prodQty, $prodCreated, $prodID);
+		$stmt2->bind_param('sdssisi', $prodName, $prodPrice, $prodImage, $prodDesc, $prodQty, $prodCreated, $prodID);
 		$stmt2->execute();
 
 		echo"<script>window.alert('Product updated.');</script>";

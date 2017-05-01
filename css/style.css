@@ -2979,6 +2979,25 @@ a.item_add p.number {
       background-color: red;
       color: orange;
   }
+	.name {
+		display:none;
+	background-color:white;
+	color: #3b3835;
+	border: 1px solid rgba(0,0,0,0.3);
+	border-top: 0;
+	float: right;
+	right: 330px;
+	list-style: none;
+	margin: 20px;
+	padding: 8px;
+	position: absolute;
+	top: 31px;
+	width: 180px;
+	z-index: 1000;
+	}
+	.name:hover{
+		 background-color: #ffffff;
+	}
 
 	/* SERVICES CSS */
 	hr.style14 {

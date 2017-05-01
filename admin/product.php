@@ -45,6 +45,10 @@ if(isset($_GET['dosearch'])){
 
     <!-- Custom CSS -->
     <link href="css/startmin.css" rel="stylesheet">
+<<<<<<< HEAD
+    <link href="css/product.css" rel="stylesheet">
+=======
+>>>>>>> refs/remotes/origin/master
 
     <!-- Morris Charts CSS -->
     <link href="css/morris.css" rel="stylesheet">
@@ -203,6 +207,18 @@ if(isset($_GET['dosearch'])){
 
 
 							echo '<a id="item-1" class="service1-item">
+<<<<<<< HEAD
+								<img src="productimage/'.$row['image'].'" alt="">
+						</a>
+					</center>
+				</div>
+			</div>';
+
+				echo '<div class="col-md-7">
+					<div class="product-title">'.$row['name'].'</div>
+					<div class="product-desc">'.$row['description'].'</div>
+					<div class="product-title">'.$row['price'].'</div>';
+=======
 								<img src="productimage/' .$row['image']. '" alt=""></img>
 
 
@@ -217,6 +233,7 @@ if(isset($_GET['dosearch'])){
 					<div class="product-title">'  .$row['price']. '</div>';
 
 
+>>>>>>> refs/remotes/origin/master
 					'<hr>
 				</div>
 			</div>
@@ -243,9 +260,13 @@ if(isset($_GET['dosearch'])){
 					<div class="tab-pane fade" id="service-two">
 
 						<section class="container">
+<<<<<<< HEAD
+						</section>
+=======
 
 						</section>
 
+>>>>>>> refs/remotes/origin/master
 					</div>
 					<div class="tab-pane fade" id="service-three">
 					</div>

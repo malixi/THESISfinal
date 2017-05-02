@@ -8,8 +8,12 @@
 <div class=" h_menu4">
 &nbsp;&nbsp;&nbsp;
   <ul class="memenu skyblue">
+
+      <li><a class="color8" href="about.php"><strong>ABOUT US</strong></a></li>
+        <li><a class="color1" href="products.php">PRODUCTS</a>
       <li><a class="color8" href="http://localhost:8080/THESISfinal/about.php"><strong>ABOUT US</strong></a></li>
-        <li><a class="color1" href="http://localhost:8080/THESISfinal/products.php"><strong>PRODUCTS</strong></a>
+        <li><a class="color1" href="products.php"><strong>PRODUCTS</strong></a>
+
           <div class="mepanel">
       <div class="row">
         <div class="col1">

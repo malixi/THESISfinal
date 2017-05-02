@@ -1,3 +1,15 @@
+<?php
+
+session_start();
+
+DEFINE ('DB_USER', 'root');
+DEFINE ('DB_PASSWORD', '');
+DEFINE ('DB_HOST', 'localhost');
+DEFINE ('DB_NAME', 'grayenterprise');
+
+
+?>﻿
+
 
 <!DOCTYPE html>
 <html>
@@ -183,12 +195,23 @@ label.star:before {
 		<div class="container">
 	<?php include 'navbar.php'; ?>
 	<!-- grow -->
-	<div class="grow">
+  <?php
+          $pNAME = $_GET['pname'];
+          $con=mysqli_connect('localhost','root','','grayenterprise');
+          $results = mysqli_query ($con,"SELECT * FROM products WHERE name = '". $pNAME . "' LIMIT 1");
+
+          while($row = mysqli_fetch_array($results)){
+
+              echo
+
+	'<div class="grow">
 		<div class="container">
-			<h2>Banana Products</h2>
+			<h2>'  .$row['name']. '</h2>
 		</div>
 	</div>
 	<!-- grow -->
+
+
 		<div class="product">
 			<div class="container">
 
@@ -198,7 +221,7 @@ label.star:before {
 						<div class="flexslider">
 			  <ul class="slides">
 			    <li data-thumb="images/si.jpg">
-			        <div class="thumb-image"> <img src="images/bananachips.png" data-imagezoom="true" class="img-responsive" width="50%"> </div>
+			        <div class="thumb-image"> <img src="admin/productimage/' .$row['image']. '" data-imagezoom="true" class="img-responsive" width="50%"> </div>
 
 			    </li>
 			  </ul>
@@ -208,19 +231,7 @@ label.star:before {
 <!-- slide -->
 
 
-						<!-- FlexSlider -->
-  <script defer src="js/jquery.flexslider.js"></script>
-<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
 
-<script>
-// Can also be used with $(document).ready()
-$(window).load(function() {
-  $('.flexslider').flexslider({
-    animation: "slide",
-    controlNav: "thumbnails"
-  });
-});
-</script>
 
 
 
@@ -230,7 +241,9 @@ $(window).load(function() {
 					</div>
 					<div class="col-md-5 single-top-in simpleCart_shelfItem">
 						<div class="single-para ">
-						<h4>Banana Chips</h4>
+						<h4>'  .$row['name']. '</h4>';
+          }
+          ?>
 
 
 						<div class="stars">
@@ -248,16 +261,7 @@ $(window).load(function() {
 							</form>
 						</div>
 					</div>
-					<script>
-						(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-						(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-						m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-						})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-						ga('create', 'UA-46156385-1', 'cssscript.com');
-						ga('send', 'pageview');
-
-					</script>
 
 							<div class="star-on">
 
@@ -378,12 +382,35 @@ $(window).load(function() {
         </div>
         </div>
 
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-46156385-1', 'cssscript.com');
+          ga('send', 'pageview');
+
+        </script>
+
 
         <!-- end comment-->
 				</div>
 
 
+        <!-- FlexSlider -->
+<script defer src="js/jquery.flexslider.js"></script>
+<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
 
+<script>
+// Can also be used with $(document).ready()
+$(window).load(function() {
+$('.flexslider').flexslider({
+animation: "slide",
+controlNav: "thumbnails"
+});
+});
+</script>
 
 
 			</div>

@@ -1,4 +1,14 @@
-﻿
+<?php
+
+session_start();
+
+DEFINE ('DB_USER', 'root');
+DEFINE ('DB_PASSWORD', '');
+DEFINE ('DB_HOST', 'localhost');
+DEFINE ('DB_NAME', 'grayenterprise');
+
+
+?>﻿
 <html>
 <head>
 <title></title>
@@ -194,50 +204,47 @@ if (nameDivs[j].textContent.toUpperCase().indexOf(currentSearch) !== -1) {
         width: 300px;
         border: 100;">
 
-        <div class="col-sm-4">
+				<?php
+
+			$con=mysqli_connect('localhost','root','','grayenterprise');
+
+
+
+
+
+			$results = mysqli_query ($con,'SELECT * FROM products  ORDER BY productID DESC LIMIT 3 ');
+
+			while($row = mysqli_fetch_array($results)){
+
+
+        echo '<div class="col-sm-4">
           <div class="thumbnail">
 					<div class="grid-top  simpleCart_shelfItem">
+
+
+						<a  href="bananachips.php?pname='  .$row['name']. '" class="b-link-stripe b-animate-go  thickbox">
+						<img class="img-responsive" src="admin/productimage/' .$row['image']. '" width="50%" alt="">
+							<div class="b-wrapper">
+								<h3 class="b-animate b-from-left    b-delay03 ">
+									<span>'  .$row['name']. '</span>
+
 
 						<a href="single.html" class="hover14 column"><div><figure><img class="img-responsive" src="images/sample.png" width="50%" alt=""></figure>
 </div>
 
 
-					<p><a href="single.html"><center>TRIBECA LIVING</center></a></p>
-					<a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>
+					<p><center>'  .$row['name']. '</center></a></p>
+					<a href="#" class="item_add"><p class="number item_price"><i> </i>&#8369;'  .$row['price']. '</p></a>
 					</div>
         </div>
-      </div>
-		</div>
-      <div class="col-sm-4">
-        <div class="thumbnail">
-					<div class="grid-top simpleCart_shelfItem">
-						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/sample.png" alt="">
-							<div class="b-wrapper">
-											<h3 class="b-animate b-from-left    b-delay03 ">
-												<span>ESSENTIAL</span>
-											</h3>
-										</div>
-						</a>
-					<p><a href="single.html">ESSENTIAL</a></p>
-					<a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>
-					</div>
-        </div>
-      </div>
-          <div class="col-sm-4">
-            <div class="thumbnail">
-					<div class="grid-top simpleCart_shelfItem">
-						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/sample.png" alt="">
-							<div class="b-wrapper">
-											<h3 class="b-animate b-from-left    b-delay03 ">
-												<span>CLARISSA</span>
-											</h3>
-										</div>
-						</a>
-					<p><a href="single.html">CLARISSA</a></p>
-					<a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>
-        </div>
-      </div>
-    </div>
+
+      </div>';
+
+
+		}
+		?>
+
+
 
 							<div class="clearfix"> </div>
 				</div>

@@ -1,3 +1,15 @@
+<?php
+
+session_start();
+
+DEFINE ('DB_USER', 'root');
+DEFINE ('DB_PASSWORD', '');
+DEFINE ('DB_HOST', 'localhost');
+DEFINE ('DB_NAME', 'grayenterprise');
+
+
+?>﻿
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,131 +72,49 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 	<!-- grow -->
-	<div class="pro-du">
+	<?php
+
+$con=mysqli_connect('localhost','root','','grayenterprise');
+
+
+
+
+
+$results = mysqli_query ($con,'SELECT * FROM products');
+
+while($row = mysqli_fetch_array($results)){
+
+
+	echo
+
+
+	'<div class="pro-du">
 		<div class="container">
 			<div class="col-sm-4">
 				<div class="thumbnail">
 				<div class="grid-top  simpleCart_shelfItem">
-					<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/samplebanana.png" width="50%" alt="">
+					<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="admin/productimage/' .$row['image']. '" width="50%" alt="">
 						<div class="b-wrapper">
 							<h3 class="b-animate b-from-left    b-delay03 ">
-								<span>BANANA</span>
+								<span>'  .$row['name']. '</span>
 
 							</h3>
 						</div>
 					</a>
 
 
-				<p><a href="single.html"><center>BANANA</center></a></p>
+				<p><a href="single.html"><center>'  .$row['name']. '</center></a></p>
 					<center><a href="#" class="add-cart item_add">SEE MORE</a></center>
 
 
 				</div>
 			</div>
-		</div>
-		<div class="col-sm-4">
-			<div class="thumbnail">
-			<div class="grid-top  simpleCart_shelfItem">
-				<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/samplecocoa.gif" width="50%" alt="">
-					<div class="b-wrapper">
-						<h3 class="b-animate b-from-left    b-delay03 ">
-							<span>COCOA</span>
+		</div>';
 
-						</h3>
-					</div>
-				</a>
+	}
+	?>
 
 
-			<p><a href="single.html"><center>COCOA</center></a></p>
-			&nbsp;&nbsp;
-				<center><a href="#" class="add-cart item_add">SEE MORE</a></center>
-
-
-			</div>
-		</div>
-	</div>
-	<div class="col-sm-4">
-		<div class="thumbnail">
-		<div class="grid-top  simpleCart_shelfItem">
-			<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/samplecocnut.png" width="50%" alt="">
-				<div class="b-wrapper">
-					<h3 class="b-animate b-from-left    b-delay03 ">
-						<span>COCONUT</span>
-
-					</h3>
-				</div>
-			</a>
-
-
-		<p><a href="single.html"><center>COCONUT</center></a></p>
-
-			<center><a href="#" class="add-cart item_add">SEE MORE</a></center>
-
-
-		</div>
-	</div>
-</div>
-<div class="col-sm-4">
-	<div class="thumbnail">
-	<div class="grid-top  simpleCart_shelfItem">
-		<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/sampleherbal.png" width="50%" alt="">
-			<div class="b-wrapper">
-				<h3 class="b-animate b-from-left    b-delay03 ">
-					<span>HERBAL</span>
-
-				</h3>
-			</div>
-		</a>
-
-
-	<p><a href="single.html"><center>HERBAL</center></a></p>
-
-		<center><a href="#" class="add-cart item_add">SEE MORE</a></center>
-
-
-	</div>
-</div>
-</div>
-<div class="col-sm-4">
-	<div class="thumbnail">
-	<div class="grid-top  simpleCart_shelfItem">
-		<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/samplemango.png" width="50%" alt="">
-			<div class="b-wrapper">
-				<h3 class="b-animate b-from-left    b-delay03 ">
-					<span>MANGO</span>
-
-				</h3>
-			</div>
-		</a>
-
-&nbsp;
-	<p><a href="single.html"><center>MANGO</center></a></p>
-	&nbsp;
-		<center><a href="#" class="add-cart item_add">SEE MORE</a></center>
-
-
-	</div>
-</div>
-</div>
-<div class="col-sm-4">
-	<div class="thumbnail">
-	<div class="grid-top  simpleCart_shelfItem">
-		<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/samplepineapple.png" width="50%" alt="">
-			<div class="b-wrapper">
-				<h3 class="b-animate b-from-left    b-delay03 ">
-					<span>PINEAPPLE</span>
-
-				</h3>
-			</div>
-		</a>
-
-
-	<p><a href="single.html"><center>PINEAPPLE</center></a></p>
-	&nbsp;&nbsp;
-		<center><a href="#" class="add-cart item_add">SEE MORE</a></center>
-
-
-	</div>
 </div>
 </div>
 

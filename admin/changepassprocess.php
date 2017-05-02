@@ -5,15 +5,25 @@
 
 
 	$passid=$_SESSION['userSession'];
+	$old_pass =md5($_POST['currentpassword']);
 	$newpassword=$_POST['newpassword'];
 	$newpassword2=$_POST['newpassword2'];
 	$encryptednewpassword = md5($_POST['newpassword']);
+
+	$chg_pwd=mysql_query("SELECT * from admin where userID='$passid'");
+	$chg_pwd1=mysql_fetch_array($chg_pwd);
+	$data_pwd=$chg_pwd1['userPass'];
+	if($old_pass!=$data_pwd)
+	{
+		echo "<script>alert('Current Password not match'); window.location='changepass.php'</script>";
+	}
 
 
 	$stmt = $dbconn->prepare('SELECT * FROM admin WHERE userID = ?');
 	$stmt->bind_param('s', $passid);
 	$stmt->execute();
 	$result = $stmt->get_result();
+
 
 
 	if($newpassword !=$newpassword2)

@@ -42,16 +42,32 @@
 												</div>
 											</div></div>
 											<div class="cotainer">
-							<div id="product_0" class="name" style="display:none"><a href="http://localhost:8080/THESISfinal/coconutjam.php">Coconut Jam</a>
+
+<div id="product_1" class="name" style="display:none"> Dried Mango
   <br/>
   <br/>
   <br/>
 </div>
-<div id="product_1" class="name" style="display:none">PC
-  <br/>Windows
+<div id="product_2" class="name" style="display:none"> Frozen Mango
+  <br/>
   <br/>
   <br/>
 </div>
+<div id="product_3" class="name" style="display:none"> Virgin Coconut Oil
+  <br/>
+  <br/>
+  <br/>
+</div>
+<div id="product_4" class="name" style="display:none"><a href="http://localhost:8080/THESISfinal/coconutjam.php">Coconut Jam</a></li>
+
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+</div>
+
 
 </div>
 <!-- search-scripts -->
@@ -181,14 +197,9 @@ if (nameDivs[j].textContent.toUpperCase().indexOf(currentSearch) !== -1) {
         <div class="col-sm-4">
           <div class="thumbnail">
 					<div class="grid-top  simpleCart_shelfItem">
-						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/sample.png" width="50%" alt="">
-							<div class="b-wrapper">
-								<h3 class="b-animate b-from-left    b-delay03 ">
-									<span>TRIBECA LIVING</span>
 
-								</h3>
-							</div>
-						</a>
+						<a href="single.html" class="hover14 column"><div><figure><img class="img-responsive" src="images/sample.png" width="50%" alt=""></figure>
+</div>
 
 
 					<p><a href="single.html"><center>TRIBECA LIVING</center></a></p>
@@ -196,6 +207,7 @@ if (nameDivs[j].textContent.toUpperCase().indexOf(currentSearch) !== -1) {
 					</div>
         </div>
       </div>
+		</div>
       <div class="col-sm-4">
         <div class="thumbnail">
 					<div class="grid-top simpleCart_shelfItem">

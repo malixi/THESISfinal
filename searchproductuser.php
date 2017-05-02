@@ -111,32 +111,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
+
+  <?php
   $search = $_GET['search'];
   $results = mysqli_query ($dbconn,'SELECT * FROM products WHERE name LIKE "%'.$search.'%"');
 
 if($results->num_rows > 0) {
 
-while($rows = mysqli_fetch_array($results)){
-  <?php
-echo"
+while($rows = mysqli_fetch_array($results)){?>
 <div class='col-sm-4'>
         <div class='thumbnail'>
       <div class='grid-top simpleCart_shelfItem'>
         <a href='single.html' class='b-link-stripe b-animate-go  thickbox'><img class='img-responsive' src='images/coconutvinegar.png' alt=''>
           <div class='b-wrapper'>
                   <h3 class='b-animate b-from-left b-delay03' >
-                    <span>".$rows['name']."</span>
+                    <span>"<?php echo $rows['name'] ?>"</span>
                   </h3>
                 </div>
         </a>
-      <p><a href='single.html'>".$rows['name']."</a></p>
+      <p><a href='single.html'>"<?php echo $rows['name'] ?>"</a></p>
       <a href='#' class='item_add'><p class='number item_price'><i> </i>$500.00</p></a>
       </div>
       </div>
       </div>
-  "; ?>
+<?php
 }
 }
+  ?>
+<br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/>
 
 
 

@@ -8,6 +8,55 @@
 <script src="js/jquery.min.js"></script>
 <!-- JS Comment -->
 <script src="js/comment.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js"></script>
+
+
+<script> (function(){
+  'use strict';
+
+  angular
+    .module('commentsApp', [])
+    .controller('CommentsController', CommentsController);
+
+  // Inject $scope dependency.
+  CommentsController.$inject = ['$scope'];
+
+  // Declare CommentsController.
+  function CommentsController($scope) {
+    var vm = this;
+
+    // Current comment.
+    vm.comment = {};
+
+    // Array where comments will be.
+    vm.comments = [];
+
+    // Fires when form is submited.
+    vm.addComment = function() {
+      // Fixed img.
+      vm.comment.avatarSrc = 'http://lorempixel.com/200/200/people/';
+
+      // Add current date to the comment.
+      vm.comment.date = Date.now();
+
+      vm.comments.push( vm.comment );
+      vm.comment = {};
+
+      // Reset clases of the form after submit.
+      $scope.form.$setPristine();
+    }
+
+    // Fires when the comment change the anonymous state.
+    vm.anonymousChanged = function(){
+      if(vm.comment.anonymous)
+        vm.comment.author = "";
+    }
+  }
+
+})();
+ </script>
+
 <!-- Custom Theme files -->
 <!--theme-style-->
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -29,6 +78,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/imagezoom.js"></script>
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 <style>
+
+
 @import url(http://fonts.googleapis.com/css?family=Roboto:500,100,300,700,400);
 
 * {
@@ -179,7 +230,9 @@ $(window).load(function() {
 
 
 
+
           </div>
+
 					</div>
 					<div class="col-md-5 single-top-in simpleCart_shelfItem">
 						<div class="single-para ">
@@ -260,6 +313,79 @@ $(window).load(function() {
 						</div>
 					</div>
 				<div class="clearfix"> </div>
+        <!-- comment -->
+        <div class="comments-app" ng-app="commentsApp" ng-controller="CommentsController as cmntCtrl">
+        <h1>Comment Section</h1>
+
+        <!-- From -->
+        <div class="comment-form">
+        <!-- Comment Avatar -->
+
+        <form class="form" name="form" ng-submit="form.$valid && cmntCtrl.addComment()" novalidate>
+        <div class="form-row">
+        <textarea
+                class="input"
+                ng-model="cmntCtrl.comment.text"
+                placeholder="Add comment..."
+                required></textarea>
+        </div>
+
+        <div class="form-row">
+        <input
+             class="input"
+             ng-class="{ disabled: cmntCtrl.comment.anonymous }"
+             ng-disabled="cmntCtrl.comment.anonymous"
+             ng-model="cmntCtrl.comment.author"
+             ng-required="!cmntCtrl.comment.anonymous"
+             placeholder="Email"
+             type="email">
+        </div>
+
+        <div class="form-row text-right">
+        <input
+             id="comment-anonymous"
+             ng-change="cmntCtrl.anonymousChanged()"
+             ng-model="cmntCtrl.comment.anonymous"
+             type="checkbox">
+        <label for="comment-anonymous">Anonymous</label>
+        </div>
+
+        <div class="form-row">
+        <input type="submit" value="Add Comment">
+        </div>
+        </form>
+        </div>
+
+        <!-- Comments List -->
+        <div class="comments">
+        <!-- Comment -->
+        <div class="comment" ng-repeat="comment in cmntCtrl.comments | orderBy: '-date'">
+        <!-- Comment Avatar -->
+        <div class="comment-avatar">
+
+        </div>
+
+        <!-- Comment Box -->
+        <div class="comment-box">
+        <div class="comment-text">{{ comment.text }}</div>
+        <div class="comment-footer">
+        <div class="comment-info">
+          <span class="comment-author">
+            <em ng-if="comment.anonymous">Anonymous</em>
+            <a ng-if="!comment.anonymous" href="{{ comment.author }}">{{ comment.author }}</a>
+          </span>
+          <span class="comment-date">{{ comment.date | date: 'medium' }}</span>
+        </div>
+
+        <div class="comment-actions">
+          <a href="#">Reply</a>
+        </div>
+        </div>
+        </div>
+        </div>
+
+
+        <!-- end comment-->
 				</div>
 
 
@@ -271,75 +397,6 @@ $(window).load(function() {
 
 
 
-            <!-- comment -->
-            <div class="comments-app" ng-app="commentsApp" ng-controller="CommentsController as cmntCtrl">
-              <!-- From -->
-              <div class="comment-form">
-                <form class="form" name="form" ng-submit="form.$valid && cmntCtrl.addComment()" novalidate>
-                  <div class="form-row">
-                    <textarea
-                              class="input"
-                              ng-model="cmntCtrl.comment.text"
-                              placeholder="Add comment..."
-                              required></textarea>
-                  </div>
-
-                  <div class="form-row">
-                    <input
-                           class="input"
-                           ng-class="{ disabled: cmntCtrl.comment.anonymous }"
-                           ng-disabled="cmntCtrl.comment.anonymous"
-                           ng-model="cmntCtrl.comment.author"
-                           ng-required="!cmntCtrl.comment.anonymous"
-                           placeholder="Email"
-                           type="email">
-                  </div>
-
-                  <div class="form-row text-right">
-                    <input
-                           id="comment-anonymous"
-                           ng-change="cmntCtrl.anonymousChanged()"
-                           ng-model="cmntCtrl.comment.anonymous"
-                           type="checkbox">
-                    <label for="comment-anonymous">Anonymous</label>
-                  </div>
-
-                  <div class="form-row">
-                    <input type="submit" value="Add Comment">
-                  </div>
-                </form>
-              </div>
-
-              <!-- Comments List -->
-              <div class="comments">
-                <!-- Comment -->
-                <div class="comment" ng-repeat="comment in cmntCtrl.comments | orderBy: '-date'">
-
-
-                  <!-- Comment Box -->
-         <div class="comment-box">
-           <div class="comment-text">{{ comment.text }}</div>
-           <div class="comment-footer">
-             <div class="comment-info">
-               <span class="comment-author">
-                 <em ng-if="comment.anonymous">Anonymous</em>
-                 <a ng-if="!comment.anonymous" href="{{ comment.author }}">{{ comment.author }}</a>
-               </span>
-               <span class="comment-date">{{ comment.date | date: 'medium' }}</span>
-             </div>
-
-             <div class="comment-actions">
-               <a href="#">Reply</a>
-             </div>
-           </div>
-         </div>
-       </div>
-            </div>
-            </div>
-
-
-
-            <!-- end comment-->
 
 	</div>
 </div>

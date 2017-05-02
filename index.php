@@ -33,8 +33,8 @@
 
 				<div class="search-box">
 					<div   class="sb-search sb-search-open">
-						<form action="#" method="post">
-							<input class="sb-search-input" placeholder="Enter your search term..."type="search" id="edit_search" onkeyup="find_my_div();">
+						<form action="searchproductuser.php" method="get">
+							<input class="sb-search-input" placeholder="Enter your search term..."type="search" name"search" id="edit_search" onkeyup="find_my_div();">
 							<input class="sb-search-submit" type="submit" value="">
 							<span class="sb-icon-search"> </span>
 

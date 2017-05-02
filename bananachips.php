@@ -149,12 +149,6 @@ label.star:before {
   content: '\f006';
   font-family: FontAwesome;
 }
-
-
-
-
-
-
 </style>
 
 </head>

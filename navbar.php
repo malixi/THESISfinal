@@ -8,12 +8,8 @@
 <div class=" h_menu4">
 &nbsp;&nbsp;&nbsp;
   <ul class="memenu skyblue">
-
       <li><a class="color8" href="about.php"><strong>ABOUT US</strong></a></li>
         <li><a class="color1" href="products.php">PRODUCTS</a>
-      <li><a class="color8" href="http://localhost:8080/THESISfinal/about.php"><strong>ABOUT US</strong></a></li>
-        <li><a class="color1" href="products.php"><strong>PRODUCTS</strong></a>
-
           <div class="mepanel">
       <div class="row">
         <div class="col1">
@@ -32,8 +28,8 @@
 
     </li>
 
-  <li><a class="color4" href="http://localhost:8080/THESISfinal/services.php"><strong>SERVICES</a></li></strong>
-  <li><a class="color6" href="http://localhost:8080/THESISfinal/contact.php"><strong>CONTACT</a></li></strong>
+  <li><a class="color4" href="http://localhost:8080/THESISfinal/services.php">SERVICES</a></li>
+  <li><a class="color6" href="http://localhost:8080/THESISfinal/contact.php">CONTACT</a></li>
   </ul>
 </div>
 

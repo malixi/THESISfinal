@@ -32,7 +32,7 @@ $search = $_GET['search'];
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Llanes Farm</title>
+    <title>Startmin - Bootstrap Admin Theme</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -78,7 +78,7 @@ $search = $_GET['search'];
 
         <!-- Top Navigation: Left Menu -->
         <ul class="nav navbar-nav navbar-left navbar-top-links">
-            <li><a href="../index.php"><i class="fa fa-home fa-fw"></i> Website</a></li>
+            <li><a href="../index.html"><i class="fa fa-home fa-fw"></i> Website</a></li>
         </ul>
 
         <!-- Top Navigation: Right Menu -->
@@ -174,7 +174,7 @@ $search = $_GET['search'];
                 </div>
             </div>
 
-            <?php
+            <?php 
 
             ?>
 
@@ -195,8 +195,8 @@ $search = $_GET['search'];
                     </form>
                 </div>
 
-                <?php
-
+                <?php 
+                
                     $results = mysqli_query ($dbconn,'SELECT * FROM products WHERE name LIKE "%'.$search.'%"');
 
                 echo "<table class='table table.bordered'>

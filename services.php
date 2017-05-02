@@ -63,20 +63,20 @@
 <div class="row">
   <div class="col-xs-6">
 
-                <br>
+                <br><br>
 
                 <h1><font color="green"><center>Acts as Buying Office</center></font></h1><br>
 								<hr class="style14">
                 <br>
-                <h5>Our office can act as your buying office, as your third party counterpart to ensure that you are buying the exact requirement from your. Philippine supplier. We shall check the volume, quality, time of delivery and capabilities of your prospective supplier or existing supplier.</h5>
+                <p align="center" style = "font-size:17px">Our office can act as your buying office, as your third party counterpart to ensure that you are buying the exact requirement from your Philippine supplier. We shall check the volume, quality, time of delivery and capabilities of your prospective supplier or existing supplier.</p>
 
   </div>
   <div class="col-xs-6">
-
+								<br>
                 <h1><font color="green"><center>Consolidator and booking coordinator</center></font></h1>
 								<hr class="style14">
                 <br>
-                <h5>Our office can act as your consolidator and manage different products from different suppliers to pull cargo into one container before dispatching to the pier. We can also stand as your broker for all the documentations and as your booking coordinator to your preferred shipping lines or air lines.</h5>
+                <p align="center" style = "font-size:17px">Our office can act as your consolidator and manage different products from different suppliers to pull cargo into one container before dispatching to the pier. We can also stand as your broker for all the documentations and as your booking coordinator to your preferred shipping lines or air lines.</p>
 
 
   </div>
@@ -84,7 +84,7 @@
 </div>
 
 
-<br><br><br>
+<br><br><br><br>
 
 <?php include 'footer.php'; ?>
 </body>

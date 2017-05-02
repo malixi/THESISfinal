@@ -69,8 +69,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-7 single-top">
 						<div class="flexslider">
 			  <ul class="slides">
-			    <li data-thumb="images/si.jpg">
-			        <div class="thumb-image"> <img src="images/vco.png" data-imagezoom="true" class="img-responsive" width="7%"> </div>
+			    <li data-thumb="images/si.png">
+			        <div class="thumb-image"> <img src="images/coconutvinegar.png" data-imagezoom="true" class="img-responsive" width="7%"> </div>
 
 			    </li>
 			  </ul>
@@ -97,13 +97,10 @@ $(window).load(function() {
 
 
 
-
-
-
 					</div>
 					<div class="col-md-5 single-top-in simpleCart_shelfItem">
 						<div class="single-para ">
-						<h4>Virgin Coconut Oil</h4>
+						<h4>Coconut Vinegar</h4>
 							<div class="star-on">
 
 								<div class="review">
@@ -115,44 +112,15 @@ $(window).load(function() {
 
 							<h5 class="item_price">$ 500.00</h5>
 							<p>
-										Our Virgin coconut oil is cold pressed and all the natural benefits are in tact, you know it's safer when we did not alter or added ingridients to make our product flavourful or any other. It comes to you pure and clean, ready to use; either for your skin, hair application or intake for health benefits.<br><br>
-
-										The Virgin Coconut Oil can also aid in removing the outer layer of dead skin cells, making your skin smoother, more evenly textured with a healthy shine. <br><br>
-
-										The Milea Premium Virgin Coconut Oil has been found to do the following:
+								The coconut tree is tapped to produce a highly nutrient-rich sap that is given off from the coconut blossoms – this is the lifeblood of the coconut tree. The sap contains phosphorus, potassium, iron, magnesium, sulfur, boron, zinc, manganese and copper. It is especially rich in potassium, containing an impressive 192 milligrams per tablespoon. This Nutrient-rich sap has a low glycemic index (GI 35) and is a plentiful source of 17 amino acids, minerals, vitamin C, broad-spectrum B vitamins and practically has a nearly neutral pH. Vinegar made from this natural sap ia unheated and naturally aged for almost a year hence it is ezymatically active and nutritionally exceeds other vinegars in its amino acid, vitamin and mineral contents as well as an excellent source of FOS (a prebiotic that promotes digestive health).
+<br><br>
+								One of the most unique characteristics of coconut vinegar is that it forms its own mother culture as it naturally ages. These cobweb strands are composed of raw enzymes and protein molecules and living gut-health promoting bacteria. In contrast to apple cider vinegar which often requires some of the mother cultue from previous batches in order to achieve the natural fermentation process. Coconut water vinegar undergoes a similar “assisted” process and is unable to form a mother culture resulting in a less nutritious end product. Coconut sap vinegar however is aged without a single alteration , thereby retaining and even enhancing its nutrient rich properties
+<br><br>
+								This product is naturally fermented using only organic and non-gmo ingredients. It is 100% chemical-free, gluten-free & non-dairy. The sediments at the bottom of the bottle are the raw enzymes, protein molecules and prebiotic that promotes digestive health which will settle as the vinegar ages. it is a sign that our vinegar is indeed organically processed
+<br><br>
+								Shake the bottle before serving to distribute the flavor.
 											</p>
-                      <ul>
-												<li>Prevents premature aging</li>
-												<li>Heal and repair damaged skin tissue</li>
-												<li>Helps bring back youthful appearance</li>
-												<li>Assist in preventing liver spots and other blemishes caused by aging and overexposure to sunlight</li>
-												<li>Stimulate metabolism</li>
-												<li>Lowers cholesterol</li>
-												<li>Helps weight loss</li>
-												<li>Diabetes in check</li>
-												<li>Reduces heart disease</li>
-												<li>Remedies gastrointestinal malabsorption</li>
-												<li>Brain nourishment</li>
-												<li>Speeds up recovery</li>
 
-											</ul>
-                      <p>Product Packaging/ Specification</p>
-                      <table>
-
-										<tbody><tr>
-											<td>Packaging and Safety-Packaging<br>
-											</td>
-											<td>300ml, 500ml, 1 liter and plastic drum<br>
-
-										</td></tr>
-
-
-
-
-
-
-
-									</tbody></table>
 
 							<div class="available">
 								<ul>

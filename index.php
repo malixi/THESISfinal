@@ -52,32 +52,16 @@ DEFINE ('DB_NAME', 'grayenterprise');
 												</div>
 											</div></div>
 											<div class="cotainer">
-
-<div id="product_1" class="name" style="display:none"> Dried Mango
+							<div id="product_0" class="name" style="display:none"><a href="http://localhost:8080/THESISfinal/coconutjam.php">Coconut Jam</a>
   <br/>
   <br/>
   <br/>
 </div>
-<div id="product_2" class="name" style="display:none"> Frozen Mango
-  <br/>
-  <br/>
-  <br/>
-</div>
-<div id="product_3" class="name" style="display:none"> Virgin Coconut Oil
-  <br/>
+<div id="product_1" class="name" style="display:none">PC
+  <br/>Windows
   <br/>
   <br/>
 </div>
-<div id="product_4" class="name" style="display:none"><a href="http://localhost:8080/THESISfinal/coconutjam.php">Coconut Jam</a></li>
-
-
-
-<br/>
-<br/>
-<br/>
-<br/>
-</div>
-
 
 </div>
 <!-- search-scripts -->
@@ -221,29 +205,26 @@ if (nameDivs[j].textContent.toUpperCase().indexOf(currentSearch) !== -1) {
           <div class="thumbnail">
 					<div class="grid-top  simpleCart_shelfItem">
 
-
 						<a  href="bananachips.php?pname='  .$row['name']. '" class="b-link-stripe b-animate-go  thickbox">
 						<img class="img-responsive" src="admin/productimage/' .$row['image']. '" width="50%" alt="">
 							<div class="b-wrapper">
 								<h3 class="b-animate b-from-left    b-delay03 ">
 									<span>'  .$row['name']. '</span>
 
-
-						<a href="single.html" class="hover14 column"><div><figure><img class="img-responsive" src="images/sample.png" width="50%" alt=""></figure>
-</div>
+								</h3>
+							</div>
+						</a>
 
 
 					<p><center>'  .$row['name']. '</center></a></p>
 					<a href="#" class="item_add"><p class="number item_price"><i> </i>&#8369;'  .$row['price']. '</p></a>
 					</div>
         </div>
-
       </div>';
 
 
 		}
 		?>
-
 
 
 							<div class="clearfix"> </div>

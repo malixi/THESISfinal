@@ -207,7 +207,7 @@ $search = $_GET['search'];
 
                 <?php
 
-                    $results = mysqli_query ($dbconn,'SELECT * FROM products WHERE name OR productID LIKE "%'.$search.'%"');
+                    $results = mysqli_query ($dbconn,'SELECT * FROM products WHERE name  LIKE "%'.$search.'%"');
 
 
                 echo "<table class='table table.bordered'>

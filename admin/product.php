@@ -45,7 +45,6 @@ if(isset($_GET['dosearch'])){
 
     <!-- Custom CSS -->
     <link href="css/startmin.css" rel="stylesheet">
-    <link href="css/product.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
     <link href="css/morris.css" rel="stylesheet">
@@ -204,25 +203,20 @@ if(isset($_GET['dosearch'])){
 
 
 							echo '<a id="item-1" class="service1-item">
-								<img src="productimage/'.$row['image'].'" alt="">
-						</a>
-					</center>
-				</div>
-			</div>';
-
-				echo '<div class="col-md-7">
-					<div class="product-title">'.$row['name'].'</div>
-					<div class="product-desc">'.$row['description'].'</div>
-					<div class="product-title">'.$row['price'].'</div>';
 								<img src="productimage/' .$row['image']. '" alt=""></img>
+
+
 							</a>
 						</center>
 					</div>
 				</div>';
+
 				echo '<div class="col-md-7">
 					<div class="product-title">'  .$row['name']. '</div>
 					<div class="product-desc">'  .$row['description']. '</div>
 					<div class="product-title">'  .$row['price']. '</div>';
+
+
 					'<hr>
 				</div>
 			</div>
@@ -249,7 +243,6 @@ if(isset($_GET['dosearch'])){
 					<div class="tab-pane fade" id="service-two">
 
 						<section class="container">
-						</section>
 
 						</section>
 

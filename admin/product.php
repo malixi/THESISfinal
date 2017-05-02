@@ -21,6 +21,7 @@ if(isset($_GET['dosearch'])){
 ?>
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,6 +37,7 @@ if(isset($_GET['dosearch'])){
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/product.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
     <link href="css/metisMenu.min.css" rel="stylesheet">
@@ -184,77 +186,74 @@ if(isset($_GET['dosearch'])){
 
 
 
-		<div class="container-fluid">
-    <div class="content-wrapper">
-		<div class="item-container">
-			<div class="container">
-				<div class="col-md-12">
-					<div class="container service1-items col-sm-2 col-md-2 pull-left">
-						<center>
-
-							<?php
-							$prodID=$_POST['PNAME'];
-							$results = mysqli_query ($dbconn ,"SELECT * FROM products WHERE productID = '". $prodID . "' LIMIT 1");
+													<?php
+													$prodID=$_POST['PNAME'];
+													$results = mysqli_query ($dbconn ,"SELECT * FROM products WHERE productID = '". $prodID . "' LIMIT 1");
 
 
-						if($results->num_rows > 0) {
+												if($results->num_rows > 0) {
 
-						while($row = mysqli_fetch_array($results)){
-
-
-							echo '<a id="item-1" class="service1-item">
-								<img src="productimage/' .$row['image']. '" alt=""></img>
+												while($row = mysqli_fetch_array($results)){
 
 
-							</a>
-						</center>
-					</div>
-				</div>';
+						echo '<div class="container-fluid">
+						    <div class="content-wrapper">
+								<div class="item-container">
+									<div class="container">
+										<div class="col-md-12">
+											<div class="product col-md-3 service-image-left">
 
-				echo '<div class="col-md-7">
-					<div class="product-title">'  .$row['name']. '</div>
-					<div class="product-desc">'  .$row['description']. '</div>
-					<div class="product-title">'  .$row['price']. '</div>';
+												<center>
+													<img id="item-display" src="productimage/' .$row['image']. '" alt=""></img>
+												</center>
+											</div>
 
 
-					'<hr>
-				</div>
-			</div>
-		</div>
-		<div class="container-fluid">
-			<div class="col-md-12 product-info">
-					<ul id="myTab" class="nav nav-tabs nav_tabs">
 
-						<li class="active"><a href="#service-one" data-toggle="tab">DESCRIPTION</a></li>
+										<div class="col-md-7">
+											<div class="product-title">'  .$row['name']. '</div>
+											<div class="product-desc">'  .$row['description']. '</div>
+											<hr>
+											<div class="product-price"> 	&#8369;'  .$row['price']. '</div>
 
-					</ul>
-				<div id="myTabContent" class="tab-content">
-						<div class="tab-pane fade in active" id="service-one">';
 
-							echo '<section class="container product-info">
-								<div class="product-title">'  .$row['description']. '</div>
-							</section>';
+											<hr>
 
-						}
-					}
-							?>
 
+										</div>
+									</div>
+								</div>
+			
+								<div class="container-fluid">
+									<div class="col-md-12 product-info">
+											<ul id="myTab" class="nav nav-tabs nav_tabs">
+
+												<li class="active"><a href="#service-one" data-toggle="tab">DESCRIPTION</a></li>
+
+
+											</ul>
+										<div id="myTabContent" class="tab-content">
+												<div class="tab-pane fade in active" id="service-one">
+
+													<section class="container product-info">
+
+														<h2> '.$row['description'].'</h2>
+
+													</section>
+
+												</div>
+
+										</div>';
+
+									}
+								}
+								?>
+										<hr>
+									</div>
+								</div>
+							</div>
 						</div>
-					<div class="tab-pane fade" id="service-two">
 
-						<section class="container">
-
-						</section>
-
-					</div>
-					<div class="tab-pane fade" id="service-three">
-					</div>
-				</div>
-				<hr>
-			</div>
-		</div>
-	</div>
-</div>
 
         </div>
     </div>

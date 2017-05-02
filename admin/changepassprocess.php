@@ -7,6 +7,7 @@
 	$passid=$_SESSION['userSession'];
 	$newpassword=$_POST['newpassword'];
 	$newpassword2=$_POST['newpassword2'];
+	$encryptednewpassword = md5($_POST['newpassword']);
 
 
 	$stmt = $dbconn->prepare('SELECT * FROM admin WHERE userID = ?');
@@ -18,13 +19,13 @@
 	if($newpassword !=$newpassword2)
 	{
 
-		echo"<script>window.alert('Email not match');</script>";
+		echo"<script>window.alert('Password not match');</script>";
 		echo"<script>location.href='changepass.php';</script>";
 	}
 	else if
 	 ($rows = $result->fetch_assoc()) {
 		$stmt2 = $dbconn->prepare('UPDATE admin SET userPass = ? WHERE userID = ?');
-		$stmt2->bind_param('si', $newpassword2, $passid);
+		$stmt2->bind_param('si', $encryptednewpassword, $passid);
 		$stmt2->execute();
 
 		echo"<script>window.alert('Password updated.');</script>";

@@ -179,10 +179,6 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
             <form class="col-md-5"  action="changepassprocess.php" method="post">
               <div class="form-group">
-                  <label for="exampleInputEmail1">Enter your email address</label>
-                  <input type="text" class="form-control input-lg" placeholder="example: user@gmail.com" name="email">
-              </div>
-              <div class="form-group">
                   <label for="exampleInputEmail1"> Enter your current password </label>
                   <input type="password" class="form-control input-lg" placeholder="Password" name="currentpassword">
               </div>

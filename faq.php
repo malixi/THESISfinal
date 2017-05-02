@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>I love the d</title>
+<title>FAQS</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
@@ -216,6 +216,6 @@ Frequently Asked Questions</p>
         </div>
 
 
-<?php include 'footer.php'; ?>        		
+<?php include 'footer.php'; ?>
             </body>
             </html>

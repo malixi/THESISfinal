@@ -175,7 +175,32 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                     echo "
                 <div class='row'>
                     <div class='col-lg-6'>
-                        <form role='form' action='editproductprocess.php' method='post' enctype='multipart/form-data'>
+                        <div class='form-group'>
+                            <label>Product Image</label>";
+                            if($row['image'] == NULL){
+                                echo "
+                                <form role='form' action='editproductprocess.php' method='post' enctype='multipart/form-data'>
+                                <input type='file' name='fileToReplace' id='fileToReplace' maxlength='200'>";
+                            } else {
+                                echo "
+                            <p>
+                                <div class='img-thumbnail'>
+                                <img id='prodImg' src='productimage/".$row['image']."' width='150px' height='150px'/>
+                                    <div class='caption'>
+                                        <form role='form' action='delproductphotoprocess.php' method='post' enctype='multipart/form-data'>
+                                            <input type='hidden' class='form-control'  name='delphotoID' id='delphotoID' maxlength='6' value=".$row['productID']." required readonly>
+                                            <label for='fileToDelete' class='btn btn-default'>Delete</label>
+                                            <input style='display:none; visibility:hidden;' class='btn btn-primary' type='submit' value='' name='fileToDelete' id='fileToDelete' maxlength='200'>
+                                        </form>
+                                        <form role='form' action='editproductprocess.php' method='post' enctype='multipart/form-data'>
+                                        <label for='fileToReplace' class='btn btn-default'>Replace</label>
+                                        <input style='display:none; visibility:hidden;' class='btn btn-primary' type='file' name='fileToReplace' id='fileToReplace' maxlength='200'>";
+                                    }
+                                    echo "
+                                    </div>
+                                </div>
+                            </p>
+                        </div>
                             <div class='form-group'>
                                 <label>Product ID</label>
                                 <input type='number' class='form-control'  name='editID' id='editID' maxlength='6' value=".$row['productID']." required readonly>
@@ -195,20 +220,6 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                             <div class='form-group'>
                                 <label>Product Date Created</label>
                                 <input type='date' class='form-control' name='editdate_created' id='editdate_created' maxlength='50' value=".$row['date_created']." required readonly>
-                            </div>
-                            <div class='form-group'>
-                                <label>Product Image</label>
-                                <p>
-                                    <div class='img-thumbnail'>
-                                    <img id='prodImg' src='productimage/".$row['image']."' width='150px' height='150px'/>
-                                    <div class='caption'>
-                                        <label for='fileToReplace' name='test' class='btn btn-default'>Replace</label>
-                                        <input style='display:none; visibility:hidden;' class='btn btn-primary' type='file' name='fileToReplace' id='fileToReplace' maxlength='200'>
-                                        <label for='fileToDelete' class='btn btn-default'>Delete</label>
-                                        <input style='display:none; visibility:hidden;' class='btn btn-primary' type='text' value='' name='fileToDelete' id='fileToDelete' maxlength='200'>
-                                    </div>
-                                    </div>
-                                </p>
                             </div>
                             <div class='form-group'>
                                 <label>Product Description</label>

@@ -14,14 +14,28 @@
 				</div>
 				<div class="col-md-3 amet-sed w3ls">
 					<h4>PRODUCTS</h4>
-					<ul class="nav-bottom">
-						<li><a href="bananaproducts.php">Banana</a></li>
-						<li><a href="cocoaproducts.php">Cocoa</a></li>
-						<li><a href="coconutproducts.php">Coconut</a></li>
-						<li><a href="herbalproducts.php">Herbal</a></li>
-						<li><a href="mangoproducts.php">Mango</a></li>
-						<li><a href="pineappleproducts.php">Pineapple</a></li>
-					</ul>
+					<ul class="nav-bottom">';
+					?>
+
+
+
+					<?php
+
+					$con=mysqli_connect('localhost','root','','grayenterprise');
+
+
+
+
+
+					$results = mysqli_query ($con,'SELECT * FROM products  ORDER BY productID DESC LIMIT 6 ');
+
+					while($row = mysqli_fetch_array($results)){
+
+
+		echo     '<li><a href="viewproducts.php?pname='  .$row['name']. '">'  .$row['name']. '</a></li>';
+	}
+		?>
+					<? php echo '</ul>
 					<br>
 				</div>
 

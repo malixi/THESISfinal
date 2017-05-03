@@ -66,6 +66,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 if($results->num_rows > 0) {
 
 while($rows = mysqli_fetch_array($results)){?>
+
 <div class='col-sm-4'>
         <div class='thumbnail'>
       <div class='grid-top simpleCart_shelfItem'>
@@ -83,7 +84,10 @@ while($rows = mysqli_fetch_array($results)){?>
       </div>
 <?php
 }
+
 }
+
+
   ?>
 <br/><br/><br/><br/><br/><br/>
 <br/><br/><br/><br/><br/><br/>

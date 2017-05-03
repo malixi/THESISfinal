@@ -25,91 +25,14 @@
 </head>
 <body>
 <!--header-->
-<div class="header">
-	<div class="header-top">
-		<div class="container">
+<?php include 'header.php';?>
 
-			<div class="header-left">
-
-				<div class="search-box">
-					<div   class="sb-search sb-search-open">
-						<form action="searchproductuser.php" method="get">
-							<input class="sb-search-input" placeholder="Enter your search term..."type="search" name"search" id="edit_search" onkeyup="find_my_div();">
-							<input class="sb-search-submit" type="submit" value="">
-							<span class="sb-icon-search"> </span>
-
-													</form>
-												</div>
-											</div></div>
-											<div class="cotainer">
-
-<div id="product_1" class="name" style="display:none"> Dried Mango
-  <br/>
-  <br/>
-  <br/>
-</div>
-<div id="product_2" class="name" style="display:none"> Frozen Mango
-  <br/>
-  <br/>
-  <br/>
-</div>
-<div id="product_3" class="name" style="display:none"> Virgin Coconut Oil
-  <br/>
-  <br/>
-  <br/>
-</div>
-<div id="product_4" class="name" style="display:none"><a href="http://localhost:8080/THESISfinal/coconutjam.php">Coconut Jam</a></li>
-
-
-
-<br/>
-<br/>
-<br/>
-<br/>
-</div>
-
-
-</div>
 <!-- search-scripts -->
-<script>
-function gid(a_id) {
-return document.getElementById(a_id);
-}
-
-function close_all() {
-
-for (i = 0; i < 999; i++) {
-var o = gid("product_" + i);
-if (o) {
-o.style.display = "none";
-}
-}
-
-}
-
-
-function find_my_div() {
-close_all();
-
-var o_edit = gid("edit_search");
-var str_needle = edit_search.value;
-str_needle = str_needle.toUpperCase();
-var searchStrings = str_needle.split(/\W/);
-
-for (var i = 0, len = searchStrings.length; i < len; i++) {
-var currentSearch = searchStrings[i].toUpperCase();
-if (currentSearch !== "") {
-nameDivs = document.getElementsByClassName("name");
-for (var j = 0, divsLen = nameDivs.length; j < divsLen; j++) {
-if (nameDivs[j].textContent.toUpperCase().indexOf(currentSearch) !== -1) {
-	nameDivs[j].style.display = "block";
-}
-}
-}
-}
-}
-</script>
-					<!-- //search-scripts -->
+					<script src="js/classie.js"></script>
+					<script src="js/uisearch.js"></script>
+						<script>
+							new UISearch( document.getElementById( 'sb-search' ) );
+						</script>
 
 				<div class="ca-r">
 					<div class="cart box_1">
@@ -187,62 +110,56 @@ if (nameDivs[j].textContent.toUpperCase().indexOf(currentSearch) !== -1) {
 
 				<br><br><h3 class="text-center">FEATURED PRODUCTS</h1>
         </font></h3>
-        <hr style="color: black;
-
-        background-color: black;
-        height: 4px;
-        width: 300px;
-        border: 100;">
-
-        <div class="col-sm-4">
-          <div class="thumbnail">
-					<div class="grid-top  simpleCart_shelfItem">
-
-						<a href="single.html" class="hover14 column"><div><figure><img class="img-responsive" src="images/sample.png" width="50%" alt=""></figure>
-</div>
 
 
-					<p><a href="single.html"><center>TRIBECA LIVING</center></a></p>
-					<a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>
-					</div>
-        </div>
-      </div>
+	        <div class="col-sm-4">
+						<div class="hover11 column grid-top simpleCart_shelfItem">
+		<div>
+			<figure><img src="images/coconutvinegar.png" /></figure>
+
 		</div>
-      <div class="col-sm-4">
-        <div class="thumbnail">
-					<div class="grid-top simpleCart_shelfItem">
-						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/sample.png" alt="">
-							<div class="b-wrapper">
-											<h3 class="b-animate b-from-left    b-delay03 ">
-												<span>ESSENTIAL</span>
-											</h3>
-										</div>
-						</a>
-					<p><a href="single.html">ESSENTIAL</a></p>
-					<a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>
-					</div>
-        </div>
-      </div>
-          <div class="col-sm-4">
-            <div class="thumbnail">
-					<div class="grid-top simpleCart_shelfItem">
-						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/sample.png" alt="">
-							<div class="b-wrapper">
-											<h3 class="b-animate b-from-left    b-delay03 ">
-												<span>CLARISSA</span>
-											</h3>
-										</div>
-						</a>
-					<p><a href="single.html">CLARISSA</a></p>
-					<a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>
-        </div>
-      </div>
-    </div>
+		<div class="b-wrapper">
 
-							<div class="clearfix"> </div>
+
+<p><a href="single.html">COCONUT VINEGAR</a></p>
+<center><a href="http://localhost:8080/THESISfinal/coconutvinegar.php" class="add-cart item_add">SEE MORE</a></center><br>
+</div>
+</div>
+</div>
+<div class="col-sm-4">
+	<div class="hover11 column grid-top simpleCart_shelfItem">
+<div>
+<figure><img src="images/coconutjam.png" /></figure>
+
+</div>
+<div class="b-wrapper">
+
+
+<p><a href="single.html">COCONUTJAM</a></p>
+<center><a href="http://localhost:8080/THESISfinal/coconutjam.php" class="add-cart item_add">SEE MORE</a></center><br>
+</div>
+</div>
+</div>
+<div class="col-sm-4">
+ <div class="hover11 column grid-top simpleCart_shelfItem">
+<div>
+<figure><img src="images/vco.png" /></figure>
+
+</div>
+<div class="b-wrapper">
+
+
+<p><a href="single.html">VIRGIN COCONUT OIl</a></p>
+<center><a href="http://localhost:8080/THESISfinal/virgincoconutoil.php" class="add-cart item_add">SEE MORE</a></center><br>
+</div>
+</div>
+</div>
+	    </div>
+
+								<div class="clearfix"> </div>
+					</div>
 				</div>
 			</div>
-		</div>
 	<!----->
 <?php include 'footer.php'; ?>
 </body>

@@ -69,7 +69,7 @@ while($rows = mysqli_fetch_array($results)){?>
 <div class='col-sm-4'>
         <div class='thumbnail'>
       <div class='grid-top simpleCart_shelfItem'>
-        <a href='single.html' class='b-link-stripe b-animate-go  thickbox'><img class='img-responsive' src='images/coconutvinegar.png' alt=''>
+        <a href='single.html' class='b-link-stripe b-animate-go  thickbox'><img class='img-responsive' src="admin/productimage/<?php echo $rows["image"];?>" alt=''>
           <div class='b-wrapper'>
                   <h3 class='b-animate b-from-left b-delay03' >
                     <span>"<?php echo $rows['name'] ?>"</span>
@@ -77,7 +77,7 @@ while($rows = mysqli_fetch_array($results)){?>
                 </div>
         </a>
       <p><a href='single.html'>"<?php echo $rows['name'] ?>"</a></p>
-      <a href='#' class='item_add'><p class='number item_price'><i> </i>$500.00</p></a>
+      <a href='#' class='item_add'><p class='number item_price'><i> </i>&#8369;<?php echo $rows['price'] ?></p></a>
       </div>
       </div>
       </div>

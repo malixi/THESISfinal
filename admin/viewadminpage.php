@@ -212,14 +212,18 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                                 <td>" .$row['FirstName']. "</td>
 																<td>" .$row['LastName']. "</td>
                                 <td>
-                                    <form method='POST' action='editadminpage.php'>
-                                        <input type='hidden' name='UNAME' value='".$row['userID']."' />
-                                        <input type='submit' class='btn btn-primary col-lg-6' value='Edit' name='submit'>
-                                    </form>
-                                    <form method='POST' action='deladminprocess.php' Onclick=\"return ConfirmDelete()\" /0>
-                                        <input type='hidden' name='UNAME' value='".$row['userID']."' />
-                                        <input type='submit' class='btn btn-primary col-lg-6' value='Delete'  name='submit'>
-                                    </form>
+																<div>
+																		<form method='POST' action='editadminpage.php'>
+																				<input type='hidden' name='UNAME' value='".$row['userID']."' />
+																				<input type='submit' class='btn btn-warning col-lg-4' value='Edit' name='submit'>
+																		</form>
+																</div>
+																<div>
+																		<form method='POST' action='deladminprocess.php'>
+																				<input type='hidden' name='UNAME' value='".$row['userID']."' />
+																				<input type='submit' class='btn btn-danger col-lg-4' value='Delete' name='submit' Onclick=\"return ConfirmDelete()\">
+																		</form>
+																</div>
                                 </td>
                             </tr>";
                     }

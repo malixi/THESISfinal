@@ -168,7 +168,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
             </div>
 
             <!-- ... Your content goes here ... -->
-                <?php 
+                <?php
                     $prodID=$_POST['PNAME'];
                     $result = mysqli_query($dbconn ,"SELECT * FROM products WHERE productID = '". $prodID . "' LIMIT 1");
                     $row = mysqli_fetch_assoc($result);
@@ -207,15 +207,15 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                             </div>
                             <div class='form-group'>
                                 <label>Product Name</label>
-                                <input type='text' class='form-control' name='editname' id='editname' maxlength='50' placeholder=".$row['name']." required>
+                                <input type='text' class='form-control' name='editname' id='editname' maxlength='50' value=".$row['name']." required>
                             </div>
                             <div class='form-group'>
                                 <label>Product Price</label>
-                                <input type='number' class='form-control' name='editprice' id='editprice' placeholder=".$row['price']." required>
+                                <input type='number' class='form-control' name='editprice' id='editprice' value=".$row['price']." required>
                             </div>
                             <div class='form-group'>
                                 <label>Product Quantity</label>
-                                <input type='number' class='form-control' name='editquantity' id='edituantity' maxlength='100' placeholder=".$row['quantity']." required>
+                                <input type='number' class='form-control' name='editquantity' id='edituantity' maxlength='100' value=".$row['quantity']." required>
                             </div>
                             <div class='form-group'>
                                 <label>Product Date Created</label>
@@ -223,7 +223,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                             </div>
                             <div class='form-group'>
                                 <label>Product Description</label>
-                                <textarea class='form-control' rows='10' name='editdescription' id='editdescription' maxlength='100' placeholder=".$row['description']." required></textarea>
+                                <textarea class='form-control' rows='10' name='editdescription' id='editdescription' maxlength='100' value=".$row['description']." required></textarea>
                             </div>
                             <input type='submit' class='btn btn-primary' value='Edit' name='submit'>
                             <input type='reset' class='btn btn-default' value='Reset'>

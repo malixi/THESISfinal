@@ -168,59 +168,29 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
             </div>
 
             <!-- ... Your content goes here ... -->
-                <?php
-                    $userID=$_POST['UNAME'];
-                    $result = mysqli_query($dbconn ,"SELECT * FROM admin WHERE userID = '". $userID . "' LIMIT 1");
-                    $row = mysqli_fetch_assoc($result);
-                    echo "<div class='col-lg-6'>
-                    <form role='form' action='editadminprocess.php' method='post'>
-                        <div class='form-group'>
-                            <label>Product ID</label>
-                            <input type='number' class='form-control' maxlength='6' value=".$row['userID']." required readonly>
-                        </div>
-                        <div class='form-group'>
-                            <label>First Name</label>
-                            <input type='text' class='form-control' maxlength='50' value=".$row['FirstName']." required readonly>
-                        </div>
-												<div class='form-group'>
-                            <label>Last Name</label>
-                            <input type='text' class='form-control' maxlength='50' value=".$row['LastName']." required readonly>
-                        </div>
 
-												<div class='form-group'>
-                            <label>User Name</label>
-                            <input type='text' class='form-control' maxlength='50' value=".$row['userName']." required readonly>
-                        </div>
-												<div class='form-group'>
-                            <label>Email address</label>
-                            <input type='text' class='form-control' maxlength='50' value=".$row['userEmail']." required readonly>
-                        </div>
-                        <hr>
-                    </form>
-                </div>";
-                ?>
                 <div class="row">
                 <div class="col-lg-6">
                     <form role="form" action="editadminprocess.php" method="post">
                         <div class="form-group">
-                            <label>Product ID</label>
+                            <label>Admin ID</label>
                             <input type="number" class="form-control" name="editID" id="editID" <?php echo "value='".$row['userID']."'" ?> maxlength="6" required readonly>
                         </div>
                         <div class="form-group">
                             <label>First Name</label>
-                            <input type="text" class="form-control" name="firstname1" id="editname" required maxlength="50">
+                            <input type="text" class="form-control" <?php echo "value='".$row['FirstName']."'" ?>name="firstname1" id="editname" required maxlength="50">
                         </div>
                         <div class="form-group">
                             <label>Last Name</label>
-                            <input type="text" class="form-control" name="lastname" id="editprice" required>
+                            <input type="text" class="form-control" name="lastname" <?php echo "value='".$row['LastName']."'" ?>id="editprice" required>
                         </div>
 												<div class="form-group">
 														<label>User Name</label>
-														<input type="text" class="form-control" name="username" id="editprice" required>
+														<input type="text" class="form-control" name="username" <?php echo "value='".$row['userName']."'" ?> id="editprice" required>
 												</div>
 												<div class="form-group">
 														<label>Email Address</label>
-														<input type="email" class="form-control" name="emailadd" id="editprice" required>
+														<input type="email" class="form-control" <?php echo "value='".$row['userEmail']."'" ?> name="emailadd" id="editprice" required>
 												</div>
 
                         <input type="submit" class="btn btn-primary" value="Edit" name="submit">

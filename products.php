@@ -93,7 +93,7 @@ while($row = mysqli_fetch_array($results)){
 			<div class="col-sm-4">
 				<div class="thumbnail">
 				<div class="grid-top  simpleCart_shelfItem">
-					<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="admin/productimage/' .$row['image']. '" width="50%" alt="">
+					<a href="viewproducts.php?pname='  .$row['name']. '" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="admin/productimage/' .$row['image']. '" width="50%" alt="">
 						<div class="b-wrapper">
 							<h3 class="b-animate b-from-left    b-delay03 ">
 								<span>'  .$row['name']. '</span>
@@ -103,8 +103,8 @@ while($row = mysqli_fetch_array($results)){
 					</a>
 
 
-				<p><a href="single.html"><center>'  .$row['name']. '</center></a></p>
-					<center><a href="#" class="add-cart item_add">SEE MORE</a></center>
+				<p><a href="viewproducts.php?pname='  .$row['name']. '"><center>'  .$row['name']. '</center></a></p>
+					<center><a href="viewproducts.php?pname='  .$row['name']. '" class="add-cart item_add">SEE MORE</a></center>
 
 
 				</div>

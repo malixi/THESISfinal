@@ -41,15 +41,22 @@ DEFINE ('DB_NAME', 'grayenterprise');
 
 			<div class="header-left">
 
+
+
+
 				<div class="search-box">
 					<div   class="sb-search sb-search-open">
 						<form action="searchproductuser.php" method="get">
-							<input class="sb-search-input" placeholder="Enter your search term..."type="search" name"search" id="edit_search" onkeyup="find_my_div();">
+							<input class="sb-search-input"  placeholder="Enter your search term..." type="search" name="search"  id="search">
 							<input class="sb-search-submit" type="submit" value="">
 							<span class="sb-icon-search"> </span>
 
 													</form>
 												</div>
+
+
+
+
 											</div></div>
 											<div class="cotainer">
 							<div id="product_0" class="name" style="display:none"><a href="http://localhost:8080/THESISfinal/coconutjam.php">Coconut Jam</a>
@@ -205,7 +212,7 @@ if (nameDivs[j].textContent.toUpperCase().indexOf(currentSearch) !== -1) {
           <div class="thumbnail">
 					<div class="grid-top  simpleCart_shelfItem">
 
-						<a  href="bananachips.php?pname='  .$row['name']. '" class="b-link-stripe b-animate-go  thickbox">
+						<a  href="viewproducts.php?pname='  .$row['name']. '" class="b-link-stripe b-animate-go  thickbox">
 						<img class="img-responsive" src="admin/productimage/' .$row['image']. '" width="50%" alt="">
 							<div class="b-wrapper">
 								<h3 class="b-animate b-from-left    b-delay03 ">
@@ -217,7 +224,7 @@ if (nameDivs[j].textContent.toUpperCase().indexOf(currentSearch) !== -1) {
 
 
 					<p><center>'  .$row['name']. '</center></a></p>
-					<a href="#" class="item_add"><p class="number item_price"><i> </i>&#8369;'  .$row['price']. '</p></a>
+					<a href="viewproducts.php?pname='  .$row['name']. '" class="item_add"><p class="number item_price"><i> </i>&#8369;'  .$row['price']. '</p></a>
 					</div>
         </div>
       </div>';

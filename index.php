@@ -205,7 +205,7 @@ if (nameDivs[j].textContent.toUpperCase().indexOf(currentSearch) !== -1) {
           <div class="thumbnail">
 					<div class="grid-top  simpleCart_shelfItem">
 
-						<a  href="bananachips.php?pname='  .$row['name']. '" class="b-link-stripe b-animate-go  thickbox">
+						<a  href="viewproducts.php?pname='  .$row['name']. '" class="b-link-stripe b-animate-go  thickbox">
 						<img class="img-responsive" src="admin/productimage/' .$row['image']. '" width="50%" alt="">
 							<div class="b-wrapper">
 								<h3 class="b-animate b-from-left    b-delay03 ">
@@ -217,7 +217,7 @@ if (nameDivs[j].textContent.toUpperCase().indexOf(currentSearch) !== -1) {
 
 
 					<p><center>'  .$row['name']. '</center></a></p>
-					<a href="#" class="item_add"><p class="number item_price"><i> </i>&#8369;'  .$row['price']. '</p></a>
+					<a href="viewproducts.php?pname='  .$row['name']. '" class="item_add"><p class="number item_price"><i> </i>&#8369;'  .$row['price']. '</p></a>
 					</div>
         </div>
       </div>';

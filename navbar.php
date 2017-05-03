@@ -1,6 +1,6 @@
 <?php echo '<div class="head-top">
   <div class="logo">
-    <a href="http://localhost:8080/THESISfinal/index.php">
+    <a href="index.php">
 <img src="images/logo.png" class="navbar-brand">
 </a>
   </div>

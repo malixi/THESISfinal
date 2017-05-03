@@ -41,15 +41,22 @@ DEFINE ('DB_NAME', 'grayenterprise');
 
 			<div class="header-left">
 
+
+
+
 				<div class="search-box">
 					<div   class="sb-search sb-search-open">
 						<form action="searchproductuser.php" method="get">
-							<input class="sb-search-input" placeholder="Enter your search term..."type="search" name"search" id="edit_search" onkeyup="find_my_div();">
+							<input class="sb-search-input"  placeholder="Enter your search term..." type="search" name="search"  id="search">
 							<input class="sb-search-submit" type="submit" value="">
 							<span class="sb-icon-search"> </span>
 
 													</form>
 												</div>
+
+
+
+
 											</div></div>
 											<div class="cotainer">
 							<div id="product_0" class="name" style="display:none"><a href="http://localhost:8080/THESISfinal/coconutjam.php">Coconut Jam</a>

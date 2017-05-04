@@ -188,12 +188,6 @@ if (nameDivs[j].textContent.toUpperCase().indexOf(currentSearch) !== -1) {
 
 				<br><br><h3 class="text-center">FEATURED PRODUCTS</h1>
         </font></h3>
-        <hr style="color: black;
-
-        background-color: black;
-        height: 4px;
-        width: 300px;
-        border: 100;">
 
 				<?php
 
@@ -209,18 +203,13 @@ if (nameDivs[j].textContent.toUpperCase().indexOf(currentSearch) !== -1) {
 
 
         echo '<div class="col-sm-4">
-          <div class="thumbnail">
-					<div class="grid-top  simpleCart_shelfItem">
 
-						<a  href="viewproducts.php?pname='  .$row['name']. '" class="b-link-stripe b-animate-go  thickbox">
-						<img class="img-responsive" src="admin/productimage/' .$row['image']. '" width="50%" alt="">
+					<div class="hover11 column grid-top  simpleCart_shelfItem">
+<div>
+<figure>
+						<a  href="viewproducts.php?pname='  .$row['name']. '" class="">
+						<img src="admin/productimage/' .$row['image']. '" width="50%" alt=""></a></figure></div>
 							<div class="b-wrapper">
-								<h3 class="b-animate b-from-left    b-delay03 ">
-									<span>'  .$row['name']. '</span>
-
-								</h3>
-							</div>
-						</a>
 
 
 					<p><center>'  .$row['name']. '</center></a></p>

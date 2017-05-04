@@ -1,4 +1,14 @@
-﻿
+<?php
+
+session_start();
+
+DEFINE ('DB_USER', 'root');
+DEFINE ('DB_PASSWORD', '');
+DEFINE ('DB_HOST', 'localhost');
+DEFINE ('DB_NAME', 'grayenterprise');
+
+
+?>﻿
 <html>
 <head>
 <title></title>
@@ -31,15 +41,22 @@
 
 			<div class="header-left">
 
+
+
+
 				<div class="search-box">
 					<div   class="sb-search sb-search-open">
-						<form action="#" method="post">
-							<input class="sb-search-input" placeholder="Enter your search term..."type="search" id="edit_search" onkeyup="find_my_div();">
+						<form action="searchproductuser.php" method="get">
+							<input class="sb-search-input"  placeholder="Enter your search term..." type="search" name="search"  id="search">
 							<input class="sb-search-submit" type="submit" value="">
 							<span class="sb-icon-search"> </span>
 
 													</form>
 												</div>
+
+
+
+
 											</div></div>
 											<div class="cotainer">
 							<div id="product_0" class="name" style="display:none"><a href="http://localhost:8080/THESISfinal/coconutjam.php">Coconut Jam</a>
@@ -171,61 +188,40 @@ if (nameDivs[j].textContent.toUpperCase().indexOf(currentSearch) !== -1) {
 
 				<br><br><h3 class="text-center">FEATURED PRODUCTS</h1>
         </font></h3>
-        <hr style="color: black;
 
-        background-color: black;
-        height: 4px;
-        width: 300px;
-        border: 100;">
+				<?php
 
-        <div class="col-sm-4">
-          <div class="thumbnail">
-					<div class="grid-top  simpleCart_shelfItem">
-						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/sample.png" width="50%" alt="">
+			$con=mysqli_connect('localhost','root','','grayenterprise');
+
+
+
+
+
+			$results = mysqli_query ($con,'SELECT * FROM products  ORDER BY productID DESC LIMIT 3 ');
+
+			while($row = mysqli_fetch_array($results)){
+
+
+        echo '<div class="col-sm-4">
+
+					<div class="hover11 column grid-top  simpleCart_shelfItem">
+<div>
+<figure>
+						<a  href="viewproducts.php?pname='  .$row['name']. '" class="">
+						<img src="admin/productimage/' .$row['image']. '" width="50%" alt=""></a></figure></div>
 							<div class="b-wrapper">
-								<h3 class="b-animate b-from-left    b-delay03 ">
-									<span>TRIBECA LIVING</span>
-
-								</h3>
-							</div>
-						</a>
 
 
-					<p><a href="single.html"><center>TRIBECA LIVING</center></a></p>
-					<a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>
+					<p><center>'  .$row['name']. '</center></a></p>
+					<a href="viewproducts.php?pname='  .$row['name']. '" class="item_add"><p class="number item_price"><i> </i>&#8369;'  .$row['price']. '</p></a>
 					</div>
         </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="thumbnail">
-					<div class="grid-top simpleCart_shelfItem">
-						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/sample.png" alt="">
-							<div class="b-wrapper">
-											<h3 class="b-animate b-from-left    b-delay03 ">
-												<span>ESSENTIAL</span>
-											</h3>
-										</div>
-						</a>
-					<p><a href="single.html">ESSENTIAL</a></p>
-					<a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>
-					</div>
-        </div>
-      </div>
-          <div class="col-sm-4">
-            <div class="thumbnail">
-					<div class="grid-top simpleCart_shelfItem">
-						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/sample.png" alt="">
-							<div class="b-wrapper">
-											<h3 class="b-animate b-from-left    b-delay03 ">
-												<span>CLARISSA</span>
-											</h3>
-										</div>
-						</a>
-					<p><a href="single.html">CLARISSA</a></p>
-					<a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>
-        </div>
-      </div>
-    </div>
+      </div>';
+
+
+		}
+		?>
+
 
 							<div class="clearfix"> </div>
 				</div>

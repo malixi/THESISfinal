@@ -135,7 +135,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                         </div>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
                         <a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i>Product</a>
@@ -145,6 +145,9 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                     </li>
 										<li>
                         <a href="changemail.php" ><i class="fa fa-dashboard fa-fw"></i> Change email</a>
+                    </li>
+										<li>
+                        <a href="changepass.php" ><i class="fa fa-dashboard fa-fw"></i> Change pass</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
@@ -174,7 +177,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Add Admin</h1>
+                    <h1 class="page-header">Admin</h1>
                 </div>
             </div>
 
@@ -212,14 +215,18 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                                 <td>" .$row['FirstName']. "</td>
 																<td>" .$row['LastName']. "</td>
                                 <td>
-                                    <form method='POST' action='editadminpage.php'>
-                                        <input type='hidden' name='UNAME' value='".$row['userID']."' />
-                                        <input type='submit' class='btn btn-primary col-lg-6' value='Edit' name='submit'>
-                                    </form>
-                                    <form method='POST' action='deladminprocess.php' Onclick=\"return ConfirmDelete()\" /0>
-                                        <input type='hidden' name='UNAME' value='".$row['userID']."' />
-                                        <input type='submit' class='btn btn-primary col-lg-6' value='Delete'  name='submit'>
-                                    </form>
+																<div>
+																		<form method='POST' action='editadminpage.php'>
+																				<input type='hidden' name='UNAME' value='".$row['userID']."' />
+																				<input type='submit' class='btn btn-warning col-lg-4' value='Edit' name='submit'>
+																		</form>
+																</div>
+																<div>
+																		<form method='POST' action='deladminprocess.php'>
+																				<input type='hidden' name='UNAME' value='".$row['userID']."' />
+																				<input type='submit' class='btn btn-danger col-lg-4' value='Delete' name='submit' Onclick=\"return ConfirmDelete()\">
+																		</form>
+																</div>
                                 </td>
                             </tr>";
                     }

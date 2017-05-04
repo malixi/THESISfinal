@@ -28,87 +28,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/simpleCart.min.js"> </script>
 </head>
 <body>
-  <div class="header">
-		<div class="header-top">
-			<div class="container">
+  <?php include 'header.php';?>
 
-				<div class="header-left">
+  <!-- search-scripts -->
+  					<script src="js/classie.js"></script>
+  					<script src="js/uisearch.js"></script>
+  						<script>
+  							new UISearch( document.getElementById( 'sb-search' ) );
+  						</script>
+  					<!-- //search-scripts -->
 
-					<div class="search-box">
-						<div id="sb-search" class="sb-search">
-							<form action="searchproductuser.php" method="get">
-								<input class="sb-search-input" placeholder="Enter your search term..." type="text" name="search"  id="search">
-								<input class="sb-search-submit" type="submit" value="">
-								<span class="sb-icon-search"> </span>
-							</form>
-						</div>
-					</div>
-	<!-- search-scripts -->
-						<script src="js/classie.js"></script>
-						<script src="js/uisearch.js"></script>
-							<script>
-								new UISearch( document.getElementById( 'sb-search' ) );
-							</script>
-						<!-- //search-scripts -->
+  				<div class="ca-r">
+  					<div class="cart box_1">
+  						<a href="checkout.html">
+  						<h3> <div class="total">
+  							<span class="simpleCart_total"></span> </div>
+  							<img src="images/cart.png" alt=""/></h3>
+  						</a>
+  						<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
 
-					<div class="ca-r">
-						<div class="cart box_1">
-							<a href="checkout.html">
-							<h3> <div class="total">
-								<span class="simpleCart_total"></span> </div>
-								<img src="images/cart.png" alt=""/></h3>
-							</a>
-							<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+  					</div>
+  				</div>
+  					<div class="clearfix"> </div>
+  			</div>
 
-						</div>
-					</div>
-						<div class="clearfix"> </div>
-				</div>
-
-			</div>
-			</div>
-			<div class="container">
-				<div class="head-top">
-					<div class="logo">
-						<a href="index.html">
-	<img src="images/logo.png" class="navbar-brand">
-	</a>
-					</div>
-
-			  <div class=" h_menu4">
-	&nbsp;&nbsp;&nbsp;
-					<ul class="memenu skyblue">
-						  <li><a class="color8" href="about.html"><strong>ABOUT US</strong></a></li>
-					      <li><a class="color1" href="products.html">PRODUCTS</a>
-					      	<div class="mepanel">
-							<div class="row">
-								<div class="col1">
-									<div class="h_nav">
-										<ul>
-											<li><a href="bananaproducts.html">Banana</a></li>
-											<li><a href="cocoaproducts.html">Cocoa</a></li>
-											<li><a href="coconutproducts.html">Coconut</a></li>
-											<li><a href="herbalproducts.html">Herbal</a></li>
-											<li><a href="mangoproducts.html">Mango</a></li>
-											<li><a href="pineappleproducts.html">Pineapple</a></li>
-
-										</ul>
-									</div>
-								</div>
-
-						</li>
-
-					<li><a class="color4" href="services.html">SERVICES</a></li>
-					<li><a class="color6" href="contact.html">CONTACT</a></li>
-				  </ul>
-				</div>
-
-					<div class="clearfix"> </div>
-			</div>
-			</div>
-		</div>
-	</nav>
-
+  		</div>
+  		</div>
+  		<div class="container">
+  	<?php include 'navbar.php'; ?>
 
 
 
@@ -119,24 +66,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 if($results->num_rows > 0) {
 
 while($rows = mysqli_fetch_array($results)){?>
+
 <div class='col-sm-4'>
         <div class='thumbnail'>
       <div class='grid-top simpleCart_shelfItem'>
-        <a href='single.html' class='b-link-stripe b-animate-go  thickbox'><img class='img-responsive' src='images/coconutvinegar.png' alt=''>
+        <a href="viewproducts.php?pname=<?php echo $rows['name'] ?>" class='b-link-stripe b-animate-go  thickbox'><img class='img-responsive' src="admin/productimage/<?php echo $rows["image"];?>" alt=''>
           <div class='b-wrapper'>
                   <h3 class='b-animate b-from-left b-delay03' >
                     <span>"<?php echo $rows['name'] ?>"</span>
                   </h3>
                 </div>
         </a>
-      <p><a href='single.html'>"<?php echo $rows['name'] ?>"</a></p>
-      <a href='#' class='item_add'><p class='number item_price'><i> </i>$500.00</p></a>
+      <p><a href="viewproducts.php?pname=<?php echo $rows['name'] ?>">"<?php echo $rows['name'] ?>"</a></p>
+      <a href="viewproducts.php?pname=<?php echo $rows['name'] ?>" class='item_add'><p class='number item_price'><i> </i>&#8369;<?php echo $rows['price'] ?></p></a>
       </div>
       </div>
       </div>
 <?php
 }
+
 }
+
+
   ?>
 <br/><br/><br/><br/><br/><br/>
 <br/><br/><br/><br/><br/><br/>

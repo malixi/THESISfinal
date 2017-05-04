@@ -47,8 +47,8 @@
     </li>
 
 <?php echo
-  '<li><a class="color4" href="http://localhost:8080/THESISfinal/services.php">SERVICES</a></li>
-  <li><a class="color6" href="http://localhost:8080/THESISfinal/contact.php">CONTACT</a></li>
+  '<li><a class="color4" href="http://localhost/THESISfinal/services.php">SERVICES</a></li>
+  <li><a class="color6" href="http://localhost/THESISfinal/contact.php">CONTACT</a></li>
   </ul>
 </div>
 

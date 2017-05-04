@@ -241,9 +241,7 @@ label.star:before {
 					</div>
 					<div class="col-md-5 single-top-in simpleCart_shelfItem">
 						<div class="single-para ">
-						<h4>'  .$row['name']. '</h4>';
-          }
-          ?>
+						<h4>'  .$row['name']. '</h4>
 
 
     	     <?php include 'starratingproducts.php';?>
@@ -258,18 +256,13 @@ label.star:before {
 							<div class="clearfix"> </div>
 							</div>
 
-							<h5 class="item_price">$ 500.00</h5>
+							<h5 class="item_price">	&#8369;'  .$row['price']. '</h5>
 							<p><ul>
-										<li>Sweet, delectable, crunchy chips</li>
-										<li>Coated in brown sugar to preserve its freshness</li>
-										<li>Best for breakfast or snacks</li>
-									</ul></p>
-											Product Packaging/ Specification
-									<p><ul>
-										<li>Shelf life: 6 months</li>
-										<li>100 grams packaging with local label</li>
-										<li>can be packed in big plastic without the label for bulk orders </li>
-									</ul></p>
+										<li>'  .$row['description']. '</li>
+
+									</ul></p>';
+                }
+                ?>
 
 <br>
 							<div class="available">

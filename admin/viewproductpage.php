@@ -141,16 +141,19 @@ if(isset($_GET['dosearch'])){
                         </div>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="viewproductpage.php" class="active"><i class="fa fa-dashboard fa-fw"></i>Product</a>
+                        <a href="viewproductpage.php" class="active"><i class="fa fa-dashboard fa-fw"></i>Products</a>
                     </li>
 										<li>
                         <a href="viewadminpage.php"><i class="fa fa-dashboard fa-fw"></i>Admin</a>
                     </li>
 										<li>
                         <a href="changemail.php" ><i class="fa fa-dashboard fa-fw"></i> Change email</a>
+                    </li>
+										<li>
+                        <a href="changepass.php" ><i class="fa fa-dashboard fa-fw"></i> Change pass</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
@@ -180,7 +183,7 @@ if(isset($_GET['dosearch'])){
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Add Product</h1>
+                    <h1 class="page-header">Products</h1>
                 </div>
             </div>
 

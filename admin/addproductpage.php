@@ -59,7 +59,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Startmin</a>
+            <a class="navbar-brand" href="home.php">Llanes Farm</a>
         </div>
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -129,11 +129,20 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                                 </span>
                         </div>
                     </li>
-                    <li>
-                        <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+										<li>
+                        <a href="home.php" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i> Product</a>
+                        <a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i> Products</a>
+                    </li>
+										<li>
+                        <a href="viewadminpage.php" ><i class="fa fa-dashboard fa-fw"></i> Admin</a>
+                    </li>
+										<li>
+                        <a href="changemail.php" ><i class="fa fa-dashboard fa-fw"></i> Change email</a>
+                    </li>
+										<li>
+                        <a href="changepass.php" ><i class="fa fa-dashboard fa-fw"></i> Change pass</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>

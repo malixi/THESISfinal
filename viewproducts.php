@@ -246,21 +246,7 @@ label.star:before {
           ?>
 
 
-						<div class="stars">
-							<form action="">
-								<input class="star star-5" id="star-5-2" type="radio" name="star"/>
-								<label class="star star-5" for="star-5-2"></label>
-								<input class="star star-4" id="star-4-2" type="radio" name="star"/>
-								<label class="star star-4" for="star-4-2"></label>
-								<input class="star star-3" id="star-3-2" type="radio" name="star"/>
-								<label class="star star-3" for="star-3-2"></label>
-								<input class="star star-2" id="star-2-2" type="radio" name="star"/>
-								<label class="star star-2" for="star-2-2"></label>
-								<input class="star star-1" id="star-1-2" type="radio" name="star"/>
-								<label class="star star-1" for="star-1-2"></label>
-							</form>
-						</div>
-					</div>
+    	     <?php include 'starratingproducts.php';?>
 
 
 							<div class="star-on">
@@ -319,17 +305,20 @@ label.star:before {
         <div class="comment-form">
         <!-- Comment Avatar -->
 
-        <form class="form" name="form" ng-submit="form.$valid && cmntCtrl.addComment()" novalidate>
+        <form action="comment2.php" class="form" name="form" ng-submit="form.$valid && cmntCtrl.addComment()" novalidate>
         <div class="form-row">
         <textarea
+                name="message"
                 class="input"
                 ng-model="cmntCtrl.comment.text"
                 placeholder="Add comment..."
                 required></textarea>
+
         </div>
 
         <div class="form-row">
         <input
+            name="email"
              class="input"
              ng-class="{ disabled: cmntCtrl.comment.anonymous }"
              ng-disabled="cmntCtrl.comment.anonymous"
@@ -341,6 +330,7 @@ label.star:before {
 
         <div class="form-row text-right">
         <input
+            name="anonymous"
              id="comment-anonymous"
              ng-change="cmntCtrl.anonymousChanged()"
              ng-model="cmntCtrl.comment.anonymous"
@@ -349,7 +339,7 @@ label.star:before {
         </div>
 
         <div class="form-row">
-        <input type="submit" value="Add Comment">
+        <input type="submit" value="Add Comment" name="submit">
         </div>
         </form>
         </div>
@@ -375,9 +365,7 @@ label.star:before {
           <span class="comment-date">{{ comment.date | date: 'medium' }}</span>
         </div>
 
-        <div class="comment-actions">
-          <a href="#">Reply</a>
-        </div>
+
         </div>
         </div>
         </div>
@@ -396,6 +384,30 @@ label.star:before {
 
         <!-- end comment-->
 				</div>
+        </div>
+
+
+
+
+<?php
+if(isset($_POST["submit"]))
+{
+
+//Including dbconfig file.
+include 'dbconfigcomment.php';
+
+$anonymous = $_POST["anonymous"];
+$email = $_POST["email"];
+$message = $_POST["message"];
+
+
+mysql_query("INSERT INTO comment_form (anonymous,email,message) VALUES ('$anonymous','$email','$message')");
+
+/*echo '<center> Comment Successfully Submitted </center>';*/
+
+}
+
+?>
 
 
         <!-- FlexSlider -->

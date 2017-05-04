@@ -58,7 +58,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Startmin</a>
+            <a class="navbar-brand" href="home.php">Llanes Farm</a>
         </div>
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -128,22 +128,20 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                                 </span>
                         </div>
                     </li>
-                    <li>
-                        <a href="#" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+										<li>
+                        <a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-sitemap fa-fw"></i> Product<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="addproductpage.php">Add</a>
-                            </li>
-                            <li>
-                                <a href="editproductpage.php">Edit</a>
-                            </li>
-                            <li>
-                                <a href="deleteproductpage.php">Delete</a>
-                            </li>
-                        </ul>
+                        <a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i>Product</a>
+                    </li>
+										<li>
+                        <a href="viewadminpage.php" class="active"><i class="fa fa-dashboard fa-fw"></i>Admin</a>
+                    </li>
+										<li>
+                        <a href="changemail.php" ><i class="fa fa-dashboard fa-fw"></i> Change email</a>
+                    </li>
+										<li>
+                        <a href="changepass.php" ><i class="fa fa-dashboard fa-fw"></i> Change pass</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
@@ -173,15 +171,12 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Page Title</h1>
+                    <h1 class="page-header">Change Password</h1>
                 </div>
             </div>
 
             <form class="col-md-5"  action="changepassprocess.php" method="post">
-              <div class="form-group">
-                  <label for="exampleInputEmail1"> Enter your current password </label>
-                  <input type="password" class="form-control input-lg" placeholder="Password" name="currentpassword">
-              </div>
+
               <div class="form-group">
                   <label for="exampleInputEmail1"> Enter The new password </label>
                   <input type="password" class="form-control input-lg" placeholder="Password" name="newpassword">
@@ -201,7 +196,6 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                  Change
                 </button>
                 <button type="reset" class="btn btn-default">Clear</button> <br>
-                <span><a href="#">Need help?</a></span>
                </div>
               </div>
            </form>

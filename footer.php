@@ -35,7 +35,7 @@
 		echo     '<li><a href="viewproducts.php?pname='  .$row['name']. '">'  .$row['name']. '</a></li>';
 	}
 		?>
-					<? php echo '</ul>
+					<?php echo '</ul>
 					<br>
 				</div>
 

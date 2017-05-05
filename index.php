@@ -207,7 +207,7 @@ if (nameDivs[j].textContent.toUpperCase().indexOf(currentSearch) !== -1) {
 					<div class="hover11 column grid-top  simpleCart_shelfItem">
 <div>
 <figure>
-						<a  href="viewproducts.php?pname='  .$row['name']. '" class="">
+						<a  href="viewproducts.php?pname='  .$row['productID']. '" class="">
 						<img src="admin/productimage/' .$row['image']. '" width="50%" alt=""></a></figure></div>
 							<div class="b-wrapper">
 

@@ -27,6 +27,7 @@ $query =   mysql_query("INSERT INTO comment (anonymous,email,message) VALUES ('$
         <textarea
                 name= "message"
                 class="input"
+                placeholder="Add comment..."
                 required>
         </textarea>
         </div>
@@ -41,7 +42,7 @@ $query =   mysql_query("INSERT INTO comment (anonymous,email,message) VALUES ('$
 
 
         <div class="form-row">
-        <input type="submit" value="Add Comment">
+        <input type="submit" value="Comment">
         </div>
         </form>
         </div>
@@ -72,7 +73,7 @@ if ($result->num_rows > 0) {
 
    <form action="commentprocess.php" class="form" name="form" method="POST">
    <div class="form-row">
-   <textarea name= "message" class="input" >
+   <textarea name= "message" class="input" placeholder="Add comment..." >
            '. $row['message'] .'
    </textarea>
    </div>

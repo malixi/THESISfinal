@@ -187,10 +187,15 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
             <!-- ... Your content goes here ... -->
             <div class="row">
+							<div class='col-lg-8'>
+
                 <form role="form" action="addadminpage.php" method="post">
-                    <input type="submit" class="btn btn-primary" value="Add Admin" name="submit">
+
+				<input align="right" type="submit" class="btn btn-primary" value="Add Admin" name="submit">
                     <hr>
+
                 </form>
+							</div>
 
                 <?php
                 $results = mysqli_query ($dbconn,'SELECT * FROM admin');

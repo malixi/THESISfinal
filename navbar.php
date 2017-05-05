@@ -34,7 +34,7 @@
               while($row = mysqli_fetch_array($results)){
 
 
-        echo     '<li><a href="viewproducts.php?pname='  .$row['name']. '">'  .$row['name']. '</a></li>';
+        echo     '<li><a href="viewproducts.php?pname='  .$row['productID']. '">'  .$row['name']. '</a></li>';
           }
               ?>
 

@@ -3065,10 +3065,12 @@ body{
 .text-right{ text-align: right; }
 
 .comments-app{
-  margin: 50px auto;
+  margin-left: 10px;
   max-width: 680px;
   padding: 0 50px;
   width: 100%;
+
+
 }
 
 .comments-app h1{
@@ -3093,10 +3095,12 @@ body{
   box-shadow: 0 1px 1px rgba(0, 0, 0, .15);
   color: #555f77;
   font-family: inherit;
+
   font-size: 14px;
   padding: 5px 10px;
   outline: none;
   width: 100%;
+
 
   -webkit-transition: 350ms box-shadow;
   -moz-transition: 350ms box-shadow;
@@ -3155,6 +3159,7 @@ body{
 
 .comment-form,
 .comment{
+
   margin-bottom: 20px;
   position: relative;
   z-index: 0;
@@ -3165,12 +3170,13 @@ body{
   border: 2px solid #fff;
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
-  height: 80px;
+  height: 50px;
   left: 0;
   overflow: hidden;
   position: absolute;
+	margin-left: 40px;
   top: 0;
-  width: 80px;
+  width: 50px;
 }
 
 .comment-form .comment-avatar img,
@@ -3188,11 +3194,12 @@ body{
   min-height: 60px;
   position: relative;
   padding: 15px;
+	width: 43%;
 }
 
 .comment .comment-box:before,
 .comment .comment-box:after{
-  border-width: 10px 10px 10px 0;
+
   border-style: solid;
   border-color: transparent #FCFCFC;
   content: "";
@@ -3206,9 +3213,9 @@ body{
    top: 22px;
 }
 
-.comment .comment-text{
+.comment .comment-message{
   color: #555f77;
-  font-size: 15px;
+  font-size: 16px;
   margin-bottom: 25px;
 }
 
@@ -3244,13 +3251,6 @@ body{
   width: 85%;
 }
 
-.comment .comment-author{ }
-.comment .comment-date{ }
-
-.comment .comment-date:before{
-  content: "|";
-  margin: 0 10px;
-}
 
 .comment-actions{
   float: left;

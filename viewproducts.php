@@ -210,6 +210,8 @@ label.star:before {
 		</div>
 	</div>
 	<!-- grow -->
+
+
 		<div class="product">
 			<div class="container">
 
@@ -224,8 +226,16 @@ label.star:before {
 			    </li>
 			  </ul>
 		</div>
+
 	<div class="clearfix"> </div>
 <!-- slide -->
+
+
+
+
+
+
+
           </div>
 
 					</div>
@@ -249,15 +259,21 @@ label.star:before {
 							</form>
 						</div>
 					</div>
+
+
 							<div class="star-on">
+
 								<div class="review">
 									<a href="#"> 1 customer review </a>
+
 								</div>
 							<div class="clearfix"> </div>
 							</div>
+
 							<h5 class="item_price">	&#8369;'  .$row['price']. '</h5>
 							<p><ul>
 										<li>'  .$row['description']. '</li>
+
 									</ul></p>';
                 }
                 ?>

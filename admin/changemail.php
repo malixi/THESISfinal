@@ -124,10 +124,10 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                     </li>
 
 										<li>
-                        <a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i>Product</a>
+                        <a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i> Products</a>
                     </li>
 										<li>
-                        <a href="viewadminpage.php"><i class="fa fa-dashboard fa-fw"></i>Admin</a>
+                        <a href="viewadminpage.php"><i class="fa fa-dashboard fa-fw"></i> Admins</a>
                     </li>
 										<li>
                         <a href="changemail.php" class="active"><i class="fa fa-dashboard fa-fw"></i> Change email</a>
@@ -161,43 +161,30 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <!-- Page Content -->
     <div id="page-wrapper">
         <div class="container-fluid">
-
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Change Email</h1>
                 </div>
             </div>
-
             <form class="col-md-5"  action="changemailprocess.php" method="post">
-
-              <div class="form-group">
-                  <label for="exampleInputEmail1">Enter new email address</label>
-                  <input type="text" class="form-control input-lg" placeholder="user@gmail.com" name="email">
-              </div>
-
-              <div class="form-group">
-                  <input type="text" class="form-control input-lg" placeholder="Confirm email address" name="email1">
-              </div>
-
-
-
-
-
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Enter new email address</label>
+                    <input type="text" class="form-control input-lg" placeholder="user@gmail.com" name="email">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control input-lg" placeholder="Confirm email address" name="email1">
+                </div>
               <br>
-
               <div class="form-group">
-               <div>
-                <button class="btn btn-danger" name="submit" type="submit">
-                 Change
-                </button>
-                <button type="reset" class="btn btn-default">Clear</button> <br>
-               </div>
+                <div>
+                    <button class="btn btn-danger" name="submit" type="submit">Change</button>
+                    <button type="reset" class="btn btn-default">Clear</button> <br>
+                </div>
               </div>
            </form>
-
         </div>
     </div>
-
+    
 </div>
 
 <!-- jQuery -->

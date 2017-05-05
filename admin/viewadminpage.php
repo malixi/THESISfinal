@@ -129,10 +129,10 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                         <a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i>Product</a>
+                        <a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i> Products</a>
                     </li>
 										<li>
-                        <a href="viewadminpage.php" class="active"><i class="fa fa-dashboard fa-fw"></i>Admin</a>
+                        <a href="viewadminpage.php" class="active"><i class="fa fa-dashboard fa-fw"></i> Admins</a>
                     </li>
 										<li>
                         <a href="changemail.php" ><i class="fa fa-dashboard fa-fw"></i> Change email</a>

@@ -123,10 +123,10 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                         <a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i>Product</a>
+                        <a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i> Products</a>
                     </li>
 										<li>
-                        <a href="viewadminpage.php" ><i class="fa fa-dashboard fa-fw"></i>Admin</a>
+                        <a href="viewadminpage.php" ><i class="fa fa-dashboard fa-fw"></i> Admins</a>
                     </li>
 										<li>
                         <a href="changemail.php" ><i class="fa fa-dashboard fa-fw"></i> Change email</a>
@@ -159,7 +159,6 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <!-- Page Content -->
     <div id="page-wrapper">
         <div class="container-fluid">
-
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Change Password</h1>
@@ -167,30 +166,23 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
             </div>
 
             <form class="col-md-5"  action="changepassprocess.php" method="post">
-
-              <div class="form-group">
-                  <label for="exampleInputEmail1"> Enter The new password </label>
-                  <input type="password" class="form-control input-lg" placeholder="Password" name="newpassword">
-              </div>
-              <div class="form-group">
-                  <input type="password" class="form-control input-lg" placeholder="Confirm Password" name="newpassword2">
-              </div>
-
-              <input type="hidden" name="type" value="customer">
-
-
-              <br>
-
-              <div class="form-group">
-               <div>
-                <button class="btn btn-danger" name="submit" type="submit">
-                 Change
-                </button>
-                <button type="reset" class="btn btn-default">Clear</button> <br>
-               </div>
-              </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1"> Enter The new password </label>
+                    <input type="password" class="form-control input-lg" placeholder="Password" name="newpassword">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control input-lg" placeholder="Confirm Password" name="newpassword2">
+                </div>
+                <input type="hidden" name="type" value="customer">
+                <br>
+                <div class="form-group">
+                    <div>
+                        <button class="btn btn-danger" name="submit" type="submit">Change</button>
+                        <button type="reset" class="btn btn-default">Clear</button> 
+                        <br>
+                    </div>
+                </div>
            </form>
-
         </div>
     </div>
 

@@ -116,7 +116,7 @@ if(isset($_GET['dosearch'])){
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
                     </li>
-                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                    <li><a href="usersettings.php"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
                     <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -137,31 +137,10 @@ if(isset($_GET['dosearch'])){
                     <li>
                         <a href="viewproductpage.php" class="active"><i class="fa fa-dashboard fa-fw"></i> Products</a>
                     </li>
-										<li>
+					<li>
                         <a href="viewadminpage.php"><i class="fa fa-dashboard fa-fw"></i> Admins</a>
                     </li>
-										<li>
-                        <a href="changemail.php" ><i class="fa fa-dashboard fa-fw"></i> Change email</a>
-                    </li>
-										<li>
-                        <a href="changepass.php" ><i class="fa fa-dashboard fa-fw"></i> Change pass</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">Second Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Third Level <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
+                    
                 </ul>
 
             </div>

@@ -166,6 +166,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                     <h1 class="page-header">Change Email</h1>
                 </div>
             </div>
+            
             <form class="col-md-5"  action="changemailprocess.php" method="post">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Enter new email address</label>
@@ -182,9 +183,10 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 </div>
               </div>
            </form>
+
         </div>
     </div>
-    
+
 </div>
 
 <!-- jQuery -->

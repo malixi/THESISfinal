@@ -110,7 +110,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
                     </li>
-                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                    <li><a href="usersettings.php"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
                     <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -129,33 +129,12 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                         <a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i> Products</a>
-                    </li>
-										<li>
-                        <a href="viewadminpage.php" class="active"><i class="fa fa-dashboard fa-fw"></i> Admins</a>
-                    </li>
-										<li>
-                        <a href="changemail.php" ><i class="fa fa-dashboard fa-fw"></i> Change email</a>
-                    </li>
-										<li>
-                        <a href="changepass.php" ><i class="fa fa-dashboard fa-fw"></i> Change pass</a>
+                        <a href="viewproductpage.php" class="active"><i class="fa fa-dashboard fa-fw"></i> Products</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">Second Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Third Level <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
+                        <a href="viewadminpage.php"><i class="fa fa-dashboard fa-fw"></i> Admins</a>
                     </li>
+                    
                 </ul>
 
             </div>
@@ -208,20 +187,20 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                         "<tr>
 
                                 <td>" .$row['FirstName']. "</td>
-																<td>" .$row['LastName']. "</td>
+									<td>" .$row['LastName']. "</td>
                                 <td>
-																<div>
-																		<form method='POST' action='editadminpage.php'>
-																				<input type='hidden' name='UNAME' value='".$row['userID']."' />
-																				<input type='submit' class='btn btn-warning col-lg-4' value='Edit' name='submit'>
-																		</form>
-																</div>
-																<div>
-																		<form method='POST' action='deladminprocess.php'>
-																				<input type='hidden' name='UNAME' value='".$row['userID']."' />
-																				<input type='submit' class='btn btn-danger col-lg-4' value='Delete' name='submit' Onclick=\"return ConfirmDelete()\">
-																		</form>
-																</div>
+									<div>
+											<form method='POST' action='editadminpage.php'>
+													<input type='hidden' name='UNAME' value='".$row['userID']."' />
+													<input type='submit' class='btn btn-warning col-lg-4' value='Edit' name='submit'>
+											</form>
+									</div>
+									<div>
+											<form method='POST' action='deladminprocess.php'>
+													<input type='hidden' name='UNAME' value='".$row['userID']."' />
+													<input type='submit' class='btn btn-danger col-lg-4' value='Delete' name='submit' Onclick=\"return ConfirmDelete()\">
+											</form>
+									</div>
                                 </td>
                             </tr>";
                     }

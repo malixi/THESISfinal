@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once 'class.user.php';
+require_once 'connector.php';
 $user_home = new USER();
 
 if(!$user_home->is_logged_in())
@@ -104,7 +105,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
                     </li>
-                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                    <li><a href="usersettings.php"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
                     <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -120,36 +121,15 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 <ul class="nav" id="side-menu">
                     
                     <li>
-                        <a href="home.php" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i> Products</a>
-                    </li>
-										<li>
-                        <a href="viewadminpage.php" ><i class="fa fa-dashboard fa-fw"></i> Admins</a>
-                    </li>
-										<li>
-                        <a href="changemail.php" ><i class="fa fa-dashboard fa-fw"></i> Change email</a>
-                    </li>
-										<li>
-                        <a href="changepass.php" ><i class="fa fa-dashboard fa-fw"></i> Change pass</a>
+                        <a href="viewproductpage.php" class="active"><i class="fa fa-dashboard fa-fw"></i> Products</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">Second Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Third Level <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
+                        <a href="viewadminpage.php"><i class="fa fa-dashboard fa-fw"></i> Admins</a>
                     </li>
+                    
                 </ul>
 
             </div>
@@ -159,14 +139,50 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <!-- Page Content -->
     <div id="page-wrapper">
         <div class="container-fluid">
-
             <div class="row">
                 <div class="col-lg-12">
-
+                    <h1 class="page-header">Settings</h1>
                 </div>
             </div>
-
             <!-- ... Your content goes here ... -->
+            <?php
+                $results = mysqli_query ($dbconn,'SELECT * FROM admin WHERE userID = "'.$_SESSION['userSession'].'" LIMIT 1');
+
+                echo "<table class='table table.bordered'>
+                    <thead>
+                        <tr>
+                            <th>Account</th>
+                            <th>Information</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>";
+
+                if($results->num_rows > 0) {
+
+                while($row = mysqli_fetch_array($results)){
+                    echo
+                        "<tr>
+                            <td>Name</td>
+                            <td>".$row['FirstName']." ".$row['LastName']."</td>
+                            <td><a href='#' class='btn btn-warning'>Edit</a></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>".$row['userEmail']."</td>
+                            <td><a href='changemail.php' class='btn btn-warning'>Edit</a></td>
+                        </tr>
+                        <tr>
+                            <td>Password</td>
+                            <td>Change Password</td>
+                            <td><a href='changepass.php' class='btn btn-warning'>Edit</a></td>
+                        </tr>";
+                    }
+                }
+
+                echo "</tbody>
+                    </table>";
+            ?>
 
         </div>
     </div>

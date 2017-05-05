@@ -136,12 +136,7 @@ $search = $_GET['search'];
                                 </span>
                         </div>
                     </li>
-                    <li>
-                        <a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                    </li>
+                  
                     <li>
                         <a href="viewproductpage.php" class="active"><i class="fa fa-dashboard fa-fw"></i>Product</a>
                     </li>
@@ -190,19 +185,20 @@ $search = $_GET['search'];
             <!-- ... Your content goes here ... -->
             <div class="row">
                 <div class='col-lg-6'>
-                    <form role="form" action="addproductpage.php" method="post">
-                        <input type="submit" class="btn btn-primary" value="Add Products" name="submit">
-                        <hr>
-                    </form>
-                </div>
+                  <form role="form" action="searchproductpage.php" method="GET" class="form-inline">
+                             <label>Search</label>
+                             <input type="text" class="form-control" name="search" id="search" placeholder="Search">
+                             <input type="submit" class="btn btn-primary" value="Search">
+                         <hr>
+                     </form>
+                 </div>
                 <div class='col-lg-6'>
-                    <form role="form" action="searchproductpage.php" method="GET" class="form-inline">
-                            <label>Search</label>
-                            <input type="text" class="form-control" name="search" id="search" placeholder="Search">
-                            <input type="submit" class="btn btn-primary" value="Search">
-                        <hr>
-                    </form>
-                </div>
+                  <form role="form" action="addproductpage.php" method="post">
+                      <input type="submit" class="btn btn-primary" value="Add Products" name="submit">
+                      <hr>
+                  </form>
+              </div>
+                <!--
 
 
                 <?php

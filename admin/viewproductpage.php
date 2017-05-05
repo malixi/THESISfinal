@@ -137,7 +137,7 @@ if(isset($_GET['dosearch'])){
                     <li>
                         <a href="viewproductpage.php" class="active"><i class="fa fa-dashboard fa-fw"></i> Products</a>
                     </li>
-					<li>
+                    <li>
                         <a href="viewadminpage.php"><i class="fa fa-dashboard fa-fw"></i> Admins</a>
                     </li>
                     

@@ -64,7 +64,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" href="home.php">Llanes Farm</a>
+            <a class="navbar-brand" href="home.php">GREY ENTERPRISE</a>
         </div>
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -129,10 +129,10 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                         <a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="viewproductpage.php" class="active"><i class="fa fa-dashboard fa-fw"></i> Products</a>
+                        <a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i> Products</a>
                     </li>
                     <li>
-                        <a href="viewadminpage.php"><i class="fa fa-dashboard fa-fw"></i> Admins</a>
+                        <a href="viewadminpage.php" class="active"><i class="fa fa-dashboard fa-fw"></i> Admins</a>
                     </li>
                     
                 </ul>

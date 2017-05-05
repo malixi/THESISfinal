@@ -205,7 +205,7 @@ label.star:before {
 
     	'<div class="grow">
     		<div class="container">
-    			<h2>'  .$row['name']. '</h2>0
+    			<h2>'  .$row['name']. '</h2>
     		</div>
     	</div>
     	<!-- grow -->

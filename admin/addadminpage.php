@@ -206,6 +206,16 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                             <label>Email Address</label>
                             <input type="email" class="form-control" name="emailaddress" id="addquantity" required maxlength="100">
                         </div>
+
+												<div class="form-group">
+					                  <label for="exampleInputEmail1"> Enter password </label>
+					                  <input type="password" class="form-control input-lg" placeholder="Password" name="newpassword">
+					              </div>
+					              <div class="form-group">
+					                  <input type="password" class="form-control input-lg" placeholder="Confirm Password" name="newpassword2">
+					              </div>
+
+
                         <input type="submit" class="btn btn-primary" value="Add" name="submit">
                         <input type="reset" class="btn btn-default" value="Reset">
                         <hr>

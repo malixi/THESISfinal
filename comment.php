@@ -44,30 +44,28 @@ $result = $con->query($sql);
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
+     echo '<!-- Comments List -->
+            <div class="comments">
+            <!-- Comment -->
+            <div class="comment" ng-repeat="comment in cmntCtrl.comments">
+            <!-- Comment Avatar -->
+            <div class="comment-avatar">
+            <img src="images/personicon.png"/>
+            </div>
 
-
-   echo '<div class="comment-form">
-   <!-- Comment Avatar -->
-
-   <form action="commentprocess.php" class="form" name="form" method="POST">
-   <div class="form-row">
-   <textarea name= "message" class="input" placeholder="Add comment..." >
-           '.$row['message'].'
-   </textarea>
-   </div>
-
-   <div class="form-row">
-   <input
-        class="input"
-        placeholder="'.$row['email'].'"
-        type="email"
-        name="email">
-   </div>
-
-
-   </form>
-   </div>';
-  }
+            <!-- Comment Box -->
+            <div class="comment-box">
+            <div class="comment-message"> <p>'. $row['message'] .'</p></div>
+            <div class="comment-footer">
+            <div class="comment-info">
+              <span class="comment.email"><p>'. $row['email'] .'</p></span>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            ';}
 } else {
   echo "0 results";
 }

@@ -278,16 +278,18 @@ label.star:before {
 								</select></li>
 								<div class="clearfix"> </div>
 							</ul>
+
 						</div>
 
 								<a href="#" class="add-cart item_add">ADD TO CART</a>
 
 						</div>
+
 					</div>
 				<div class="clearfix"> </div>
 
 
-    <?php include 'comment.php';?>
+
         <!-- FlexSlider -->
 <script defer src="js/jquery.flexslider.js"></script>
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
@@ -305,11 +307,10 @@ controlNav: "thumbnails"
 
 			</div>
 		</div>
-
-
-
-
 	</div>
+<?php include 'comment.php';?>
+</div>
+
 </div>
 			<!---->
 

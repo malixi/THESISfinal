@@ -1,13 +1,5 @@
 <?php
 
-session_start();
-
-DEFINE ('DB_USER', 'root');
-DEFINE ('DB_PASSWORD', '');
-DEFINE ('DB_HOST', 'localhost');
-DEFINE ('DB_NAME', 'grayenterprise');
-
-
 
 echo '<div class="stars">
               <form action="">

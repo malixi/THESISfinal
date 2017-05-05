@@ -85,6 +85,8 @@ while($rows = mysqli_fetch_array($results)){?>
 <?php
 }
 
+} else {
+      echo 'no results found';
 }
 
 

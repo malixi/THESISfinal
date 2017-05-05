@@ -36,7 +36,7 @@ if(isset($_GET['dosearch'])){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Llanes Farm</title>
+    <title>GREY ENTERPRISE</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -70,7 +70,7 @@ if(isset($_GET['dosearch'])){
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" href="home.php">Llanes Farm</a>
+            <a class="navbar-brand" href="home.php">GREY ENTERPRISE</a>
         </div>
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -130,16 +130,7 @@ if(isset($_GET['dosearch'])){
             <div class="sidebar-nav navbar-collapse">
 
                 <ul class="nav" id="side-menu">
-                    <li class="sidebar-search">
-                        <div class="input-group custom-search-form">
-                            <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary" type="button">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
-                        </div>
-                    </li>
+                    
                     <li>
                         <a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
@@ -191,21 +182,26 @@ if(isset($_GET['dosearch'])){
 
             ?>
 
-            <!-- ... Your content goes here ... -->
+            <!-- ...<div class='col-lg-6'>
+								//*<form role="form" action="addproductpage.php" method="post">
+										<input type="submit" class="btn btn-primary" value="Add Products" name="submit">
+										<hr>
+								</form> Your content goes here ... -->
             <div class="row">
                 <div class='col-lg-6'>
-                    <form role="form" action="addproductpage.php" method="post">
-                        <input type="submit" class="btn btn-primary" value="Add Products" name="submit">
-                        <hr>
-                    </form>
+									<form role="form" action="searchproductpage.php" method="GET" class="form-inline">
+													<label>Search</label>
+													<input type="text" class="form-control" name="search" id="search" placeholder="Search">
+													<input type="submit" class="btn btn-primary" value="Search">
+											<hr>
+									</form>
+
                 </div>
-                <div class='col-lg-6'>
-                    <form role="form" action="searchproductpage.php" method="GET" class="form-inline">
-                            <label>Search</label>
-                            <input type="text" class="form-control" name="search" id="search" placeholder="Search">
-                            <input type="submit" class="btn btn-primary" value="Search">
-                        <hr>
-                    </form>
+
+								<form role="form" action="addproductpage.php" method="post">
+										<align="right"><input type="submit" class="btn btn-primary" value="Add Product" name="submit">
+										<hr>
+								</form>
                 </div>
 
                 <?php

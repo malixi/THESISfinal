@@ -124,16 +124,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
             <div class="sidebar-nav navbar-collapse">
 
                 <ul class="nav" id="side-menu">
-                    <li class="sidebar-search">
-                        <div class="input-group custom-search-form">
-                            <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary" type="button">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
-                        </div>
-                    </li>
+                    
                     <li>
                         <a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
@@ -187,10 +178,15 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
             <!-- ... Your content goes here ... -->
             <div class="row">
+							<div class='col-lg-8'>
+
                 <form role="form" action="addadminpage.php" method="post">
-                    <input type="submit" class="btn btn-primary" value="Add Admin" name="submit">
+
+				<input align="right" type="submit" class="btn btn-primary" value="Add Admin" name="submit">
                     <hr>
+
                 </form>
+							</div>
 
                 <?php
                 $results = mysqli_query ($dbconn,'SELECT * FROM admin');
@@ -198,7 +194,6 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 echo "<table class='table table.bordered'>
                     <thead>
                         <tr>
-                            <th>User ID</th>
                             <th>First Name</th>
 														<th>Last Name</th>
                             <th>Actions</th>
@@ -211,7 +206,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 while($row = mysqli_fetch_array($results)){
                     echo
                         "<tr>
-                                <td>" .$row['userID']. "</td>
+
                                 <td>" .$row['FirstName']. "</td>
 																<td>" .$row['LastName']. "</td>
                                 <td>

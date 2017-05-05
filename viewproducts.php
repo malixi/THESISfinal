@@ -197,85 +197,66 @@ label.star:before {
 	<!-- grow -->
   <?php
           $pNAME = $_GET['pname'];
-          $con=mysqli_connect('localhost','root','','grayenterprise');
-          $results = mysqli_query ($con,"SELECT * FROM products WHERE name = '". $pNAME . "' LIMIT 1");
+          $results = mysqli_query ($con,"SELECT * FROM products WHERE productID = '". $pNAME . "' LIMIT 1");
 
           while($row = mysqli_fetch_array($results)){
-
+            $_SESSION["test1"] = $pNAME;
               echo
 
-	'<div class="grow">
-		<div class="container">
-			<h2>'  .$row['name']. '</h2>
-		</div>
-	</div>
-	<!-- grow -->
+    	'<div class="grow">
+    		<div class="container">
+    			<h2>'  .$row['name']. '</h2>
+    		</div>
+    	</div>
+    	<!-- grow -->
 
 
-		<div class="product">
-			<div class="container">
+    		<div class="product">
+    			<div class="container">
 
-				<div class="product-price1">
-				<div class="top-sing">
-				<div class="col-md-7 single-top">
-						<div class="flexslider">
-			  <ul class="slides">
-			    <li data-thumb="images/si.jpg">
-			        <div class="thumb-image"> <img src="admin/productimage/' .$row['image']. '" data-imagezoom="true" class="img-responsive" width="50%"> </div>
+    				<div class="product-price1">
+    				<div class="top-sing">
+    				<div class="col-md-7 single-top">
+    						<div class="flexslider">
+    			  <ul class="slides">
+    			    <li data-thumb="images/si.jpg">
+    			        <div class="thumb-image"> <img src="admin/productimage/' .$row['image']. '" data-imagezoom="true" class="img-responsive" width="50%"> </div>
 
-			    </li>
-			  </ul>
-		</div>
+    			    </li>
+    			  </ul>
+    		</div>
 
-	<div class="clearfix"> </div>
-<!-- slide -->
+    	<div class="clearfix"> </div>
+    <!-- slide -->
 
+              </div>
 
+    					</div>
+    					<div class="col-md-5 single-top-in simpleCart_shelfItem">
+    						<div class="single-para ">
+    						<h4>'  .$row['name']. '</h4>
 
+              include "starratingproducts.php"
 
+    							<div class="star-on">
 
+    								<div class="review">
+    									<a href="#"> 1 customer review </a>
 
-
-          </div>
-
-					</div>
-					<div class="col-md-5 single-top-in simpleCart_shelfItem">
-						<div class="single-para ">
-						<h4>'  .$row['name']. '</h4>
-
-
-						<div class="stars">
-							<form action="">
-								<input class="star star-5" id="star-5-2" type="radio" name="star"/>
-								<label class="star star-5" for="star-5-2"></label>
-								<input class="star star-4" id="star-4-2" type="radio" name="star"/>
-								<label class="star star-4" for="star-4-2"></label>
-								<input class="star star-3" id="star-3-2" type="radio" name="star"/>
-								<label class="star star-3" for="star-3-2"></label>
-								<input class="star star-2" id="star-2-2" type="radio" name="star"/>
-								<label class="star star-2" for="star-2-2"></label>
-								<input class="star star-1" id="star-1-2" type="radio" name="star"/>
-								<label class="star star-1" for="star-1-2"></label>
-							</form>
-						</div>
-					</div>
+    								</div>
 
 
-							<div class="star-on">
+    							<div class="clearfix"> </div>
+    							</div>
 
-								<div class="review">
-									<a href="#"> 1 customer review </a>
 
-								</div>
-							<div class="clearfix"> </div>
-							</div>
 
-							<h5 class="item_price">	&#8369;'  .$row['price']. '</h5>
-							<p><ul>
-										<li>'  .$row['description']. '</li>
+    							<h5 class="item_price">	&#8369;'  .$row['price']. '</h5>
+    							<p><ul>
+    										<li>'  .$row['description']. '</li>
 
-									</ul></p>';
-                }
+    									</ul></p>';
+                    }
                 ?>
 
 <br>
@@ -304,93 +285,9 @@ label.star:before {
 						</div>
 					</div>
 				<div class="clearfix"> </div>
-        <!-- comment -->
-        <div class="comments-app" ng-app="commentsApp" ng-controller="CommentsController as cmntCtrl">
-        <h1>Comment Section</h1>
-
-        <!-- From -->
-        <div class="comment-form">
-        <!-- Comment Avatar -->
-
-        <form class="form" name="form" ng-submit="form.$valid && cmntCtrl.addComment()" novalidate>
-        <div class="form-row">
-        <textarea
-                class="input"
-                ng-model="cmntCtrl.comment.text"
-                placeholder="Add comment..."
-                required></textarea>
-        </div>
-
-        <div class="form-row">
-        <input
-             class="input"
-             ng-class="{ disabled: cmntCtrl.comment.anonymous }"
-             ng-disabled="cmntCtrl.comment.anonymous"
-             ng-model="cmntCtrl.comment.author"
-             ng-required="!cmntCtrl.comment.anonymous"
-             placeholder="Email"
-             type="email">
-        </div>
-
-        <div class="form-row text-right">
-        <input
-             id="comment-anonymous"
-             ng-change="cmntCtrl.anonymousChanged()"
-             ng-model="cmntCtrl.comment.anonymous"
-             type="checkbox">
-        <label for="comment-anonymous">Anonymous</label>
-        </div>
-
-        <div class="form-row">
-        <input type="submit" value="Add Comment">
-        </div>
-        </form>
-        </div>
-
-        <!-- Comments List -->
-        <div class="comments">
-        <!-- Comment -->
-        <div class="comment" ng-repeat="comment in cmntCtrl.comments | orderBy: '-date'">
-        <!-- Comment Avatar -->
-        <div class="comment-avatar">
-
-        </div>
-
-        <!-- Comment Box -->
-        <div class="comment-box">
-        <div class="comment-text">{{ comment.text }}</div>
-        <div class="comment-footer">
-        <div class="comment-info">
-          <span class="comment-author">
-            <em ng-if="comment.anonymous">Anonymous</em>
-            <a ng-if="!comment.anonymous" href="{{ comment.author }}">{{ comment.author }}</a>
-          </span>
-          <span class="comment-date">{{ comment.date | date: 'medium' }}</span>
-        </div>
-
-        <div class="comment-actions">
-          <a href="#">Reply</a>
-        </div>
-        </div>
-        </div>
-        </div>
-
-        <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-          ga('create', 'UA-46156385-1', 'cssscript.com');
-          ga('send', 'pageview');
-
-        </script>
 
 
-        <!-- end comment-->
-				</div>
-
-
+    <?php include 'comment.php';?>
         <!-- FlexSlider -->
 <script defer src="js/jquery.flexslider.js"></script>
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
@@ -415,6 +312,18 @@ controlNav: "thumbnails"
 	</div>
 </div>
 			<!---->
+
+
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-46156385-1', 'cssscript.com');
+        ga('send', 'pageview');
+
+      </script>
 
 
 <!--//content-->

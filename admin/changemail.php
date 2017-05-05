@@ -120,17 +120,17 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 <ul class="nav" id="side-menu">
                     
                     <li>
-                        <a href="#" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="home.php" ><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
 
 										<li>
-                        <a href="viewproductpage.php" class="active"><i class="fa fa-dashboard fa-fw"></i>Product</a>
+                        <a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i>Product</a>
                     </li>
 										<li>
                         <a href="viewadminpage.php"><i class="fa fa-dashboard fa-fw"></i>Admin</a>
                     </li>
 										<li>
-                        <a href="changemail.php" ><i class="fa fa-dashboard fa-fw"></i> Change email</a>
+                        <a href="changemail.php" class="active"><i class="fa fa-dashboard fa-fw"></i> Change email</a>
                     </li>
 										<li>
                         <a href="changepass.php" ><i class="fa fa-dashboard fa-fw"></i> Change pass</a>

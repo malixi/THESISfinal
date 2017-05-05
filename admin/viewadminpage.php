@@ -194,7 +194,6 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 echo "<table class='table table.bordered'>
                     <thead>
                         <tr>
-                            <th>User ID</th>
                             <th>First Name</th>
 														<th>Last Name</th>
                             <th>Actions</th>
@@ -207,7 +206,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 while($row = mysqli_fetch_array($results)){
                     echo
                         "<tr>
-                                <td>" .$row['userID']. "</td>
+
                                 <td>" .$row['FirstName']. "</td>
 																<td>" .$row['LastName']. "</td>
                                 <td>

@@ -23,7 +23,7 @@
 		$stmt2 = $dbconn->prepare('INSERT INTO admin (userID, FirstName, LastName, userStatus, userName, userEmail) VALUES (?, ?, ?, ?, ?, ?)');
 		$stmt2->bind_param('isssss', $adminID, $wew, $wew1, $userstatus1, $username1, $email1);
 		$stmt2->execute();
-		echo"<script>window.alert('Product added.');</script>";
+		echo"<script>window.alert('New admininistrator added.');</script>";
 		echo"<script>location.href='viewadminpage.php';</script>";
 	}
 

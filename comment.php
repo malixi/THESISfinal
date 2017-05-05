@@ -1,80 +1,103 @@
+
+  <?php
+  $con=mysqli_connect('localhost','root','','grayenterprise');
+
+
+
+  if(isset($_GET['submit'])){ // Fetching variables of the form which travels in URL
+  $anonymous = $_GET['anonymous'];
+  $email = $_GET['email'];
+  $message = $_GET['message'];
+
+  $query =   mysql_query("INSERT INTO comment (anonymous,email,message) VALUES ('$anonymous','$email','$message')");
+}
+  ?>
+
+<html>
+<body>
+  <!-- comment -->
+          <div class="comments-app" ng-app="commentsApp" ng-controller="CommentsController as cmntCtrl">
+          <h1>Comment Section</h1>
+
+          <!-- From -->
+          <div class="comment-form">
+          <!-- Comment Avatar -->
+
+          <form action="commentprocess.php" class="form" name="form" method="POST">
+          <div class="form-row">
+          <textarea
+                  name= "message"
+                  class="input"
+                  required>
+          </textarea>
+          </div>
+
+          <div class="form-row">
+          <input
+               class="input"
+               placeholder="Email"
+               type="email"
+               name="email">
+          </div>
+
+
+          <div class="form-row">
+          <input type="submit" value="Add Comment">
+          </div>
+          </form>
+          </div>
+
+          <!-- Comments List -->
+
+          </div>
+          </div>
+          </div>
+
+<!-- end comment-->
+
+
 <?php
 
-session_start();
+$test2=$_SESSION["test1"];
 
-DEFINE ('DB_USER', 'root');
-DEFINE ('DB_PASSWORD', '');
-DEFINE ('DB_HOST', 'localhost');
-DEFINE ('DB_NAME', 'grayenterprise');
+$sql = "SELECT * FROM comment WHERE productID = '". $test2 . "' ";
+$result = $con->query($sql);
 
-
-          echo'  <!-- comment -->
-            <div class="comments-app" ng-app="commentsApp" ng-controller="CommentsController as cmntCtrl">
-              <!-- From -->
-              <div class="comment-form">
-                <form class="form" name="form" ng-submit="form.$valid && cmntCtrl.addComment()" novalidate>
-                  <div class="form-row">
-                    <textarea
-                              class="input"
-                              ng-model="cmntCtrl.comment.text"
-                              placeholder="Add comment..."
-                              required></textarea>
-                  </div>
-
-                  <div class="form-row">
-                    <input
-                           class="input"
-                           ng-class="{ disabled: cmntCtrl.comment.anonymous }"
-                           ng-disabled="cmntCtrl.comment.anonymous"
-                           ng-model="cmntCtrl.comment.author"
-                           ng-required="!cmntCtrl.comment.anonymous"
-                           placeholder="Email"
-                           type="email">
-                  </div>
-
-                  <div class="form-row text-right">
-                    <input
-                           id="comment-anonymous"
-                           ng-change="cmntCtrl.anonymousChanged()"
-                           ng-model="cmntCtrl.comment.anonymous"
-                           type="checkbox">
-                    <label for="comment-anonymous">Anonymous</label>
-                  </div>
-
-                  <div class="form-row">
-                    <input type="submit" value="Add Comment">
-                  </div>
-                </form>
-              </div>
-
-              <!-- Comments List -->
-              <div class="comments">
-                <!-- Comment -->
-                <div class="comment" ng-repeat="comment in cmntCtrl.comments | orderBy: '-date'">
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
 
 
-                  <!-- Comment Box -->
-         <div class="comment-box">
-           <div class="comment-text">{{ comment.text }}</div>
-           <div class="comment-footer">
-             <div class="comment-info">
-               <span class="comment-author">
-                 <em ng-if="comment.anonymous">Anonymous</em>
-                 <a ng-if="!comment.anonymous" href="{{ comment.author }}">{{ comment.author }}</a>
-               </span>
-               <span class="comment-date">{{ comment.date | date: 'medium' }}</span>
-             </div>
+     echo '<div class="comment-form">
+     <!-- Comment Avatar -->
 
-             <div class="comment-actions">
-               <a href="#">Reply</a>
-             </div>
-           </div>
-         </div>
-       </div>
-            </div>
-            </div>
+     <form action="commentprocess.php" class="form" name="form" method="POST">
+     <div class="form-row">
+     <textarea name= "message" class="input" >
+             '. $row['message'] .'
+     </textarea>
+     </div>
+
+     <div class="form-row">
+     <input
+          class="input"
+          placeholder="'. $row['email'] .'"
+          type="email"
+          name="email">
+     </div>
 
 
+     </form>
+     </div>';
 
-            <!-- end comment-->'
+
+    }
+} else {
+    echo "0 results";
+}
+$con->close();
 ?>
+
+
+</body>
+</html>

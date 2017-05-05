@@ -103,7 +103,7 @@ while($row = mysqli_fetch_array($results)){
 					</a>
 
 
-				<p><a href="viewproducts.php?pname='  .$row['name']. '"><center>'  .$row['name']. '</center></a></p>
+				<p><a href="viewproducts.php?pname='  .$row['productID']. '"><center>'  .$row['name']. '</center></a></p>
 					<center><a href="viewproducts.php?pname='  .$row['name']. '" class="add-cart item_add">SEE MORE</a></center>
 
 

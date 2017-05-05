@@ -188,6 +188,10 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                             <label>Product Name</label>
                             <input type="text" class="form-control" name="addname" id="addname" required maxlength="50">
                         </div>
+												<div class="form-group">
+                            <label>Product Code</label>
+                            <input type="text" class="form-control" name="addproductcode" id="addproductcode" required maxlength="50">
+                        </div>
                         <div class="form-group">
                             <label>Product Price</label>
                             <input type="number" class="form-control" name="addprice" id="addprice" required>

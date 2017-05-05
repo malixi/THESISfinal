@@ -197,73 +197,66 @@ label.star:before {
 	<!-- grow -->
   <?php
           $pNAME = $_GET['pname'];
-          $con=mysqli_connect('localhost','root','','grayenterprise');
-          $results = mysqli_query ($con,"SELECT * FROM products WHERE name = '". $pNAME . "' LIMIT 1");
+          $results = mysqli_query ($con,"SELECT * FROM products WHERE productID = '". $pNAME . "' LIMIT 1");
 
           while($row = mysqli_fetch_array($results)){
-
+            $_SESSION["test1"] = $pNAME;
               echo
 
-	'<div class="grow">
-		<div class="container">
-			<h2>'  .$row['name']. '</h2>
-		</div>
-	</div>
-	<!-- grow -->
+    	'<div class="grow">
+    		<div class="container">
+    			<h2>'  .$row['name']. '</h2>0
+    		</div>
+    	</div>
+    	<!-- grow -->
 
 
-		<div class="product">
-			<div class="container">
+    		<div class="product">
+    			<div class="container">
 
-				<div class="product-price1">
-				<div class="top-sing">
-				<div class="col-md-7 single-top">
-						<div class="flexslider">
-			  <ul class="slides">
-			    <li data-thumb="images/si.jpg">
-			        <div class="thumb-image"> <img src="admin/productimage/' .$row['image']. '" data-imagezoom="true" class="img-responsive" width="50%"> </div>
+    				<div class="product-price1">
+    				<div class="top-sing">
+    				<div class="col-md-7 single-top">
+    						<div class="flexslider">
+    			  <ul class="slides">
+    			    <li data-thumb="images/si.jpg">
+    			        <div class="thumb-image"> <img src="admin/productimage/' .$row['image']. '" data-imagezoom="true" class="img-responsive" width="50%"> </div>
 
-			    </li>
-			  </ul>
-		</div>
+    			    </li>
+    			  </ul>
+    		</div>
 
-	<div class="clearfix"> </div>
-<!-- slide -->
+    	<div class="clearfix"> </div>
+    <!-- slide -->
 
+              </div>
 
+    					</div>
+    					<div class="col-md-5 single-top-in simpleCart_shelfItem">
+    						<div class="single-para ">
+    						<h4>'  .$row['name']. '</h4>
 
+              include "starratingproducts.php"
 
+    							<div class="star-on">
 
+    								<div class="review">
+    									<a href="#"> 1 customer review </a>
 
-
-          </div>
-
-					</div>
-					<div class="col-md-5 single-top-in simpleCart_shelfItem">
-						<div class="single-para ">
-						<h4>'  .$row['name']. '</h4>
-
-
-
-							<div class="star-on">
-
-								<div class="review">
-									<a href="#"> 1 customer review </a>
-
-								</div>
+    								</div>
 
 
-							<div class="clearfix"> </div>
-							</div>
+    							<div class="clearfix"> </div>
+    							</div>
 
 
 
-							<h5 class="item_price">	&#8369;'  .$row['price']. '</h5>
-							<p><ul>
-										<li>'  .$row['description']. '</li>
+    							<h5 class="item_price">	&#8369;'  .$row['price']. '</h5>
+    							<p><ul>
+    										<li>'  .$row['description']. '</li>
 
-									</ul></p>';
-                }
+    									</ul></p>';
+                    }
                 ?>
 
 <br>
@@ -319,6 +312,18 @@ controlNav: "thumbnails"
 	</div>
 </div>
 			<!---->
+
+
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-46156385-1', 'cssscript.com');
+        ga('send', 'pageview');
+
+      </script>
 
 
 <!--//content-->

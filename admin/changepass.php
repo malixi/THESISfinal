@@ -135,13 +135,13 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                         <a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i>Product</a>
                     </li>
 										<li>
-                        <a href="viewadminpage.php" class="active"><i class="fa fa-dashboard fa-fw"></i>Admin</a>
+                        <a href="viewadminpage.php" ><i class="fa fa-dashboard fa-fw"></i>Admin</a>
                     </li>
 										<li>
                         <a href="changemail.php" ><i class="fa fa-dashboard fa-fw"></i> Change email</a>
                     </li>
 										<li>
-                        <a href="changepass.php" ><i class="fa fa-dashboard fa-fw"></i> Change pass</a>
+                        <a href="changepass.php" class="active"><i class="fa fa-dashboard fa-fw"></i> Change password</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>

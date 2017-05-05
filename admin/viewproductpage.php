@@ -161,32 +161,26 @@ if(isset($_GET['dosearch'])){
 
             ?>
 
-            <!-- ...<div class='col-lg-6'>
-								//*<form role="form" action="addproductpage.php" method="post">
-										<input type="submit" class="btn btn-primary" value="Add Products" name="submit">
-										<hr>
-								</form> Your content goes here ... -->
+            <!-- ... Your content goes here ... -->
             <div class="row">
                 <div class='col-lg-6'>
-									<form role="form" action="searchproductpage.php" method="GET" class="form-inline">
-													<label>Search</label>
-													<input type="text" class="form-control" name="search" id="search" placeholder="Search">
-													<input type="submit" class="btn btn-primary" value="Search">
-											<hr>
-									</form>
-
+					<form role="form" action="searchproductpage.php" method="GET" class="form-inline">
+						<label>Search</label>
+						<input type="text" class="form-control" name="search" id="search" placeholder="Search">
+						<input type="submit" class="btn btn-primary" value="Search">
+					</form>
                 </div>
-
-								<form role="form" action="addproductpage.php" method="post">
-										<align="right"><input type="submit" class="btn btn-primary" value="Add Product" name="submit">
-										<hr>
-								</form>
+                <div class='col-lg-6'>
+    				<form role="form" action="addproductpage.php" method="post">
+    				<input type="submit" class="btn btn-primary" value="Add Product" name="submit">
+    				</form>
                 </div>
+            </div>
 
                 <?php
                 $results = mysqli_query ($dbconn,'SELECT * FROM products');
-
-                echo "<table class='table table.bordered'>
+                echo "
+                <table class='table table-hover'>
                     <thead>
                         <tr>
                             <th>Product Image</th>
@@ -199,40 +193,40 @@ if(isset($_GET['dosearch'])){
                     <tbody>";
 
                 if($results->num_rows > 0) {
-
-                while($row = mysqli_fetch_array($results)){
-                    echo
-                        "<tr>
-                            <td><img id='prodImg' src='productimage/".$row['image']."' width='100px' heigh=''/></td>
-                            <td>" .$row['productID']. "</td>
-                            <td>" .$row['name']. "</td>
-                            <td>" .$row['date_created']. "</td>
-                            <td>
-                                <div>
-                                    <form method='POST' action='editproductpage.php'>
-                                        <input type='hidden' name='PNAME' value='".$row['productID']."' />
-                                        <input type='submit' class='btn btn-warning col-lg-4' value='Edit' name='submit'>
-                                    </form>
-                                </div>
-                                <div>
-                                    <form method='POST' action='delproductprocess.php'>
-                                        <input type='hidden' name='PNAME' value='".$row['productID']."' />
-                                        <input type='submit' class='btn btn-danger col-lg-4' value='Delete' name='submit' Onclick=\"return ConfirmDelete()\">
-                                    </form>
-                                </div>
-								<div>
-										<form method='POST' action='product.php'>
-												<input type='hidden' name='PNAME' value='".$row['productID']."' />
-												<input type='submit' class='btn btn-primary col-lg-4' value='View' name='submit'>
-										</form>
-								</div>
-                            </td>
-                        </tr>";
+                    while($row = mysqli_fetch_array($results)){
+                        echo
+                            "<tr>
+                                <td><img id='prodImg' src='productimage/".$row['image']."' width='100px' heigh=''/></td>
+                                <td>" .$row['productID']. "</td>
+                                <td>" .$row['name']. "</td>
+                                <td>" .$row['date_created']. "</td>
+                                <td>
+                                    <div>
+                                        <form method='POST' action='editproductpage.php'>
+                                            <input type='hidden' name='PNAME' value='".$row['productID']."' />
+                                            <input type='submit' class='btn btn-warning col-lg-4' value='Edit' name='submit'>
+                                        </form>
+                                    </div>
+                                    <div>
+                                        <form method='POST' action='delproductprocess.php'>
+                                            <input type='hidden' name='PNAME' value='".$row['productID']."' />
+                                            <input type='submit' class='btn btn-danger col-lg-4' value='Delete' name='submit' Onclick=\"return ConfirmDelete()\">
+                                        </form>
+                                    </div>
+    								<div>
+    										<form method='POST' action='product.php'>
+    												<input type='hidden' name='PNAME' value='".$row['productID']."' />
+    												<input type='submit' class='btn btn-primary col-lg-4' value='View' name='submit'>
+    										</form>
+    								</div>
+                                </td>
+                            </tr>";
+                        }
                     }
-                }
 
-                echo "</tbody>
-                    </table>";
+                echo "
+                    </tbody>
+                </table>";
                 ?>
             </div>
         </div>

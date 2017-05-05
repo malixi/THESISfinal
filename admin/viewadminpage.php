@@ -157,57 +157,53 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
             <!-- ... Your content goes here ... -->
             <div class="row">
-							<div class='col-lg-8'>
-
-                <form role="form" action="addadminpage.php" method="post">
-
-				<input align="right" type="submit" class="btn btn-primary" value="Add Admin" name="submit">
+				<div class='col-lg-8'>
+                    <form role="form" action="addadminpage.php" method="post">
+    				<input align="right" type="submit" class="btn btn-primary" value="Add Admin" name="submit">
                     <hr>
-
-                </form>
-							</div>
+                    </form>
+				</div>
 
                 <?php
                 $results = mysqli_query ($dbconn,'SELECT * FROM admin');
 
-                echo "<table class='table table.bordered'>
+                echo "
+                <table class='table table-hover'>
                     <thead>
                         <tr>
                             <th>First Name</th>
-														<th>Last Name</th>
+							<th>Last Name</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>";
 
                 if($results->num_rows > 0) {
-
-                while($row = mysqli_fetch_array($results)){
-                    echo
-                        "<tr>
-
+                    while($row = mysqli_fetch_array($results)){
+                        echo
+                            "<tr>
                                 <td>" .$row['FirstName']. "</td>
-									<td>" .$row['LastName']. "</td>
+        						<td>" .$row['LastName']. "</td>
                                 <td>
-									<div>
-											<form method='POST' action='editadminpage.php'>
-													<input type='hidden' name='UNAME' value='".$row['userID']."' />
-													<input type='submit' class='btn btn-warning col-lg-4' value='Edit' name='submit'>
-											</form>
-									</div>
-									<div>
-											<form method='POST' action='deladminprocess.php'>
-													<input type='hidden' name='UNAME' value='".$row['userID']."' />
-													<input type='submit' class='btn btn-danger col-lg-4' value='Delete' name='submit' Onclick=\"return ConfirmDelete()\">
-											</form>
-									</div>
+        							<div>
+    									<form method='POST' action='editadminpage.php'>
+    											<input type='hidden' name='UNAME' value='".$row['userID']."' />
+    											<input type='submit' class='btn btn-warning col-lg-4' value='Edit' name='submit'>
+    									</form>
+        							</div>
+        							<div>
+    									<form method='POST' action='deladminprocess.php'>
+    											<input type='hidden' name='UNAME' value='".$row['userID']."' />
+    											<input type='submit' class='btn btn-danger col-lg-4' value='Delete' name='submit' Onclick=\"return ConfirmDelete()\">
+    									</form>
+        							</div>
                                 </td>
                             </tr>";
+                        }
                     }
-                }
-
-                echo "</tbody>
-                    </table>";
+                echo "
+                    </tbody>
+                </table>";
                 ?>
             </div>
 

@@ -59,7 +59,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" href="home.php">Llanes Farm</a>
+            <a class="navbar-brand" href="#">Startmin</a>
         </div>
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -129,21 +129,9 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                                 </span>
                         </div>
                     </li>
-										<li>
-												<a href="home.php" ><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-										</li>
-										<li>
-												<a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i> Products</a>
-										</li>
-										<li>
-												<a href="viewadminpage.php" class="active" ><i class="fa fa-dashboard fa-fw"></i> Admin</a>
-										</li>
-										<li>
-												<a href="changemail.php" ><i class="fa fa-dashboard fa-fw"></i> Change email</a>
-										</li>
-										<li>
-												<a href="changepass.php" ><i class="fa fa-dashboard fa-fw"></i> Change pass</a>
-										</li>
+                    <li>
+                        <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                    </li>
                     <li>
                         <a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i> Product</a>
                     </li>
@@ -175,7 +163,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Administrator</h1>
+                    <h1 class="page-header">Add Product</h1>
                 </div>
             </div>
 
@@ -200,22 +188,13 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                             <input type="text" class="form-control" name="username" id="addprice" required>
                         </div>
 												<div class="form-group">
+                            <label>Userstatus</label>
                             <input type="hidden" value="Y" class="form-control" name="userstatus" id="userstatus" required>
                         </div>
                         <div class="form-group">
                             <label>Email Address</label>
                             <input type="email" class="form-control" name="emailaddress" id="addquantity" required maxlength="100">
                         </div>
-
-												<div class="form-group">
-					                  <label for="exampleInputEmail1"> Enter password </label>
-					                  <input type="password" class="form-control input-lg" placeholder="Password" name="newpassword">
-					              </div>
-					              <div class="form-group">
-					                  <input type="password" class="form-control input-lg" placeholder="Confirm Password" name="newpassword2">
-					              </div>
-
-
                         <input type="submit" class="btn btn-primary" value="Add" name="submit">
                         <input type="reset" class="btn btn-default" value="Reset">
                         <hr>

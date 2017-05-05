@@ -1153,7 +1153,7 @@ a.item_add p.number {
     font-size: 1.1em;
     color: #6e7786;
     text-align: center;
-    padding: 0em 1em;
+    padding: 1em 1em;
 }
 a.item_add p.number:hover{
 		background: none;

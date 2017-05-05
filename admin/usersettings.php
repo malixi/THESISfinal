@@ -25,7 +25,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Llanes Farm</title>
+    <title>GREY ENTERPRISE	</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -124,7 +124,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                         <a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="viewproductpage.php" class="active"><i class="fa fa-dashboard fa-fw"></i> Products</a>
+                        <a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i> Products</a>
                     </li>
                     <li>
                         <a href="viewadminpage.php"><i class="fa fa-dashboard fa-fw"></i> Admins</a>
@@ -139,55 +139,50 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <!-- Page Content -->
     <div id="page-wrapper">
         <div class="container-fluid">
-
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Add Product</h1>
+                    <h1 class="page-header">Settings</h1>
                 </div>
             </div>
-
-            <?php
-
-            ?>
-
             <!-- ... Your content goes here ... -->
-            <div class="row">
-                <div class="col-lg-6">
-                    <form role="form" action="addproductprocess.php" method="post" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label>Product Name</label>
-                            <input type="text" class="form-control" name="addname" id="addname" required maxlength="50">
-                        </div>
-												<div class="form-group">
-                            <label>Product Code</label>
-                            <input type="text" class="form-control" name="addproductcode" id="addproductcode" required maxlength="50">
-                        </div>
-                        <div class="form-group">
-                            <label>Product Price</label>
-                            <input type="number" class="form-control" name="addprice" id="addprice" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Product Quantity</label>
-                            <input type="number" class="form-control" name="addquantity" id="addquantity" required maxlength="100">
-                        </div>
-                        <div class="form-group">
-                            <label>Product Date Created</label>
-                            <input type="date" class="form-control" name="adddate_created" id="adddate_created" value="<?php echo date('Y-m-d');?>" required readonly>
-                        </div>
-                        <div class="form-group">
-                        <label>Product Image</label>
-                            <input type="file" name="fileToUpload" id="fileToUpload">
-                        </div>
-                        <div class="form-group">
-                            <label>Product Description</label>
-                            <textarea class="form-control" rows="10" placeholder="Main Description" name="adddescription" id="adddescription" maxlength="500"></textarea>
-                        </div>
-                        <input type="submit" class="btn btn-primary" value="Add" name="submit">
-                        <input type="reset" class="btn btn-default" value="Reset">
-                        <hr>
-                    </form>
-                </div>
-            </div>
+            <?php
+                $results = mysqli_query ($dbconn,'SELECT * FROM admin WHERE userID = "'.$_SESSION['userSession'].'" LIMIT 1');
+
+                echo "<table class='table table.bordered'>
+                    <thead>
+                        <tr>
+                            <th>Account</th>
+                            <th>Information</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>";
+
+                if($results->num_rows > 0) {
+
+                while($row = mysqli_fetch_array($results)){
+                    echo
+                        "<tr>
+                            <td>Name</td>
+                            <td>".$row['FirstName']." ".$row['LastName']."</td>
+                            <td><a href='#' class='btn btn-warning'>Edit</a></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>".$row['userEmail']."</td>
+                            <td><a href='changemail.php' class='btn btn-warning'>Edit</a></td>
+                        </tr>
+                        <tr>
+                            <td>Password</td>
+                            <td>Change Password</td>
+                            <td><a href='changepass.php' class='btn btn-warning'>Edit</a></td>
+                        </tr>";
+                    }
+                }
+
+                echo "</tbody>
+                    </table>";
+            ?>
 
         </div>
     </div>

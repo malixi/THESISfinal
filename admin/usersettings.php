@@ -3,13 +3,16 @@ session_start();
 require_once 'class.user.php';
 require_once 'connector.php';
 $user_home = new USER();
+
 if(!$user_home->is_logged_in())
 {
 	$user_home->redirect('index.php');
 }
+
 $stmt = $user_home->runQuery("SELECT * FROM admin WHERE userID=:uid");
 $stmt->execute(array(":uid"=>$_SESSION['userSession']));
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
 ?>
 
 
@@ -22,7 +25,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Llanes Farm</title>
+    <title>GREY ENTERPRISE	</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -56,9 +59,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-
             <a class="navbar-brand" href="home.php">GREY ENTERPRISE</a>
-
         </div>
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -118,35 +119,15 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
             <div class="sidebar-nav navbar-collapse">
 
                 <ul class="nav" id="side-menu">
-
-                    <li class="sidebar-search">
-                        <div class="input-group custom-search-form">
-                            <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary" type="button">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
-                        </div>
-                    </li>
-										<li>
-                        <a href="home.php" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                    
+                    <li>
+                        <a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
                         <a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i> Products</a>
                     </li>
-										<li>
-                        <a href="viewadminpage.php" ><i class="fa fa-dashboard fa-fw"></i> Admin</a>
-                    </li>
-										<li>
-                        <a href="changemail.php" ><i class="fa fa-dashboard fa-fw"></i> Change email</a>
-                    </li>
-										<li>
-                        <a href="changepass.php" ><i class="fa fa-dashboard fa-fw"></i> Change pass</a>
-
-                    </li>
                     <li>
-                        <a href="viewadminpage.php" class="active"><i class="fa fa-dashboard fa-fw"></i> Admins</a>
+                        <a href="viewadminpage.php"><i class="fa fa-dashboard fa-fw"></i> Admins</a>
                     </li>
                     
                 </ul>
@@ -158,46 +139,50 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <!-- Page Content -->
     <div id="page-wrapper">
         <div class="container-fluid">
-
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Edit Administrator</h1>
+                    <h1 class="page-header">Settings</h1>
                 </div>
             </div>
-
             <!-- ... Your content goes here ... -->
+            <?php
+                $results = mysqli_query ($dbconn,'SELECT * FROM admin WHERE userID = "'.$_SESSION['userSession'].'" LIMIT 1');
 
-                <div class="row">
-                <div class="col-lg-6">
-                    <form role="form" action="editadminprocess.php" method="post">
-                        <div class="form-group">
-                            <label>Admin ID</label>
-                            <input type="number" class="form-control" name="editID" id="editID" <?php echo "value='".$row['userID']."'" ?> maxlength="6" required readonly>
-                        </div>
-                        <div class="form-group">
-                            <label>First Name</label>
-                            <input type="text" class="form-control" <?php echo "value='".$row['FirstName']."'" ?>name="firstname1" id="editname" required maxlength="50">
-                        </div>
-                        <div class="form-group">
-                            <label>Last Name</label>
-                            <input type="text" class="form-control" name="lastname" <?php echo "value='".$row['LastName']."'" ?>id="editprice" required>
-                        </div>
-												<div class="form-group">
-														<label>User Name</label>
-														<input type="text" class="form-control" name="username" <?php echo "value='".$row['userName']."'" ?> id="editprice" required>
-												</div>
-												<div class="form-group">
-														<label>Email Address</label>
-														<input type="email" class="form-control" <?php echo "value='".$row['userEmail']."'" ?> name="emailadd" id="editprice" required>
-												</div>
+                echo "<table class='table table.bordered'>
+                    <thead>
+                        <tr>
+                            <th>Account</th>
+                            <th>Information</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>";
 
-                        <input type="submit" class="btn btn-primary" value="Edit" name="submit">
-                        <input type="reset" class="btn btn-default" value="Reset">
-                        <hr>
-                    </form>
-                </div>
+                if($results->num_rows > 0) {
 
-            </div>
+                while($row = mysqli_fetch_array($results)){
+                    echo
+                        "<tr>
+                            <td>Name</td>
+                            <td>".$row['FirstName']." ".$row['LastName']."</td>
+                            <td><a href='#' class='btn btn-warning'>Edit</a></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>".$row['userEmail']."</td>
+                            <td><a href='changemail.php' class='btn btn-warning'>Edit</a></td>
+                        </tr>
+                        <tr>
+                            <td>Password</td>
+                            <td>Change Password</td>
+                            <td><a href='changepass.php' class='btn btn-warning'>Edit</a></td>
+                        </tr>";
+                    }
+                }
+
+                echo "</tbody>
+                    </table>";
+            ?>
 
         </div>
     </div>

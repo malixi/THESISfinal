@@ -58,7 +58,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" href="home.php">Llanes Farm</a>
+            <a class="navbar-brand" href="home.php">GREY ENTERPRISE</a>
         </div>
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -104,7 +104,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
                     </li>
-                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                    <li><a href="usersettings.php"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
                     <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -120,38 +120,15 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 <ul class="nav" id="side-menu">
                     
                     <li>
-                        <a href="home.php" ><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
-
-										<li>
-                        <a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i>Product</a>
-                    </li>
-										<li>
-                        <a href="viewadminpage.php"><i class="fa fa-dashboard fa-fw"></i>Admin</a>
-                    </li>
-										<li>
-                        <a href="changemail.php" class="active"><i class="fa fa-dashboard fa-fw"></i> Change email</a>
-                    </li>
-										<li>
-                        <a href="changepass.php" ><i class="fa fa-dashboard fa-fw"></i> Change pass</a>
-                    </li>
-
                     <li>
-                        <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">Second Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Third Level <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
+                        <a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i> Products</a>
                     </li>
+                    <li>
+                        <a href="viewadminpage.php"><i class="fa fa-dashboard fa-fw"></i> Admins</a>
+                    </li>
+                    
                 </ul>
 
             </div>
@@ -161,37 +138,26 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <!-- Page Content -->
     <div id="page-wrapper">
         <div class="container-fluid">
-
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Change Email</h1>
                 </div>
             </div>
-
+            
             <form class="col-md-5"  action="changemailprocess.php" method="post">
-
-              <div class="form-group">
-                  <label for="exampleInputEmail1">Enter new email address</label>
-                  <input type="text" class="form-control input-lg" placeholder="user@gmail.com" name="email">
-              </div>
-
-              <div class="form-group">
-                  <input type="text" class="form-control input-lg" placeholder="Confirm email address" name="email1">
-              </div>
-
-
-
-
-
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Enter new email address</label>
+                    <input type="text" class="form-control input-lg" placeholder="user@gmail.com" name="email">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control input-lg" placeholder="Confirm email address" name="email1">
+                </div>
               <br>
-
               <div class="form-group">
-               <div>
-                <button class="btn btn-danger" name="submit" type="submit">
-                 Change
-                </button>
-                <button type="reset" class="btn btn-default">Clear</button> <br>
-               </div>
+                <div>
+                    <button class="btn btn-danger" name="submit" type="submit">Change</button>
+                    <button type="reset" class="btn btn-default">Clear</button> <br>
+                </div>
               </div>
            </form>
 

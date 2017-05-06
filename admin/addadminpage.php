@@ -3,16 +3,13 @@ session_start();
 require_once 'class.user.php';
 require_once 'connector.php';
 $user_home = new USER();
-
 if(!$user_home->is_logged_in())
 {
 	$user_home->redirect('index.php');
 }
-
 $stmt = $user_home->runQuery("SELECT * FROM admin WHERE userID=:uid");
 $stmt->execute(array(":uid"=>$_SESSION['userSession']));
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
 ?>
 
 
@@ -59,7 +56,9 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
+
             <a class="navbar-brand" href="home.php">GREY ENTERPRISE</a>
+
         </div>
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -119,10 +118,33 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
             <div class="sidebar-nav navbar-collapse">
 
                 <ul class="nav" id="side-menu">
-                    
-                    <li>
-                        <a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+
+                    <li class="sidebar-search">
+                        <div class="input-group custom-search-form">
+                            <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                        </div>
                     </li>
+										<li>
+												<a href="home.php" ><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+										</li>
+										<li>
+												<a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i> Products</a>
+										</li>
+										<li>
+												<a href="viewadminpage.php" class="active" ><i class="fa fa-dashboard fa-fw"></i> Admin</a>
+										</li>
+										<li>
+												<a href="changemail.php" ><i class="fa fa-dashboard fa-fw"></i> Change email</a>
+										</li>
+										<li>
+												<a href="changepass.php" ><i class="fa fa-dashboard fa-fw"></i> Change pass</a>
+										</li>
+
                     <li>
                         <a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i> Products</a>
                     </li>
@@ -142,12 +164,11 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Add Product</h1>
+                    <h1 class="page-header">Administrator</h1>
                 </div>
             </div>
 
             <?php
-
             ?>
 
             <!-- ... Your content goes here ... -->
@@ -166,13 +187,25 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                             <label>UserName</label>
                             <input type="text" class="form-control" name="username" id="addprice" required>
                         </div>
-						<div class="form-group">
+
+												<div class="form-group">
+
                             <input type="hidden" value="Y" class="form-control" name="userstatus" id="userstatus" required>
                         </div>
                         <div class="form-group">
                             <label>Email Address</label>
                             <input type="email" class="form-control" name="emailaddress" id="addquantity" required maxlength="100">
                         </div>
+
+												<div class="form-group">
+					                  <label for="exampleInputEmail1"> Enter password </label>
+					                  <input type="password" class="form-control input-lg" placeholder="Password" name="newpassword">
+					              </div>
+					              <div class="form-group">
+					                  <input type="password" class="form-control input-lg" placeholder="Confirm Password" name="newpassword2">
+					              </div>
+
+
                         <input type="submit" class="btn btn-primary" value="Add" name="submit">
                         <input type="reset" class="btn btn-default" value="Reset">
                         <hr>

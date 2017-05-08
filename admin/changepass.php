@@ -118,7 +118,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
             <div class="sidebar-nav navbar-collapse">
 
                 <ul class="nav" id="side-menu">
-                    
+
                     <li>
                         <a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
@@ -128,7 +128,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                     <li>
                         <a href="viewadminpage.php"><i class="fa fa-dashboard fa-fw"></i> Admins</a>
                     </li>
-                    
+
                 </ul>
 
             </div>
@@ -145,7 +145,11 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
             </div>
 
             <form class="col-md-5"  action="changepassprocess.php" method="post">
-                <div class="form-group">
+							<div class="form-group">
+									<label for="exampleInputEmail1"> Enter your current password </label>
+									<input type="password" class="form-control input-lg" placeholder="Password" name="oldPassword">
+							</div>
+								<div class="form-group">
                     <label for="exampleInputEmail1"> Enter The new password </label>
                     <input type="password" class="form-control input-lg" placeholder="Password" name="newpassword">
                 </div>
@@ -157,12 +161,12 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 <div class="form-group">
                     <div>
                         <button class="btn btn-danger" name="submit" type="submit">Change</button>
-                        <button type="reset" class="btn btn-default">Clear</button> 
+                        <button type="reset" class="btn btn-default">Clear</button>
                         <br>
                     </div>
                 </div>
             </form>
-            
+
         </div>
     </div>
 

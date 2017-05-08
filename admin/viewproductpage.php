@@ -116,7 +116,7 @@ if(isset($_GET['dosearch'])){
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
                     </li>
-                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                    <li><a href="usersettings.php"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
                     <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -135,33 +135,12 @@ if(isset($_GET['dosearch'])){
                         <a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="viewproductpage.php" class="active"><i class="fa fa-dashboard fa-fw"></i>Products</a>
-                    </li>
-										<li>
-                        <a href="viewadminpage.php"><i class="fa fa-dashboard fa-fw"></i>Admin</a>
-                    </li>
-										<li>
-                        <a href="changemail.php" ><i class="fa fa-dashboard fa-fw"></i> Change email</a>
-                    </li>
-										<li>
-                        <a href="changepass.php" ><i class="fa fa-dashboard fa-fw"></i> Change pass</a>
+                        <a href="viewproductpage.php" class="active"><i class="fa fa-dashboard fa-fw"></i> Products</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">Second Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Third Level <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
+                        <a href="viewadminpage.php"><i class="fa fa-dashboard fa-fw"></i> Admins</a>
                     </li>
+                    
                 </ul>
 
             </div>
@@ -182,32 +161,26 @@ if(isset($_GET['dosearch'])){
 
             ?>
 
-            <!-- ...<div class='col-lg-6'>
-								//*<form role="form" action="addproductpage.php" method="post">
-										<input type="submit" class="btn btn-primary" value="Add Products" name="submit">
-										<hr>
-								</form> Your content goes here ... -->
+            <!-- ... Your content goes here ... -->
             <div class="row">
                 <div class='col-lg-6'>
-									<form role="form" action="searchproductpage.php" method="GET" class="form-inline">
-													<label>Search</label>
-													<input type="text" class="form-control" name="search" id="search" placeholder="Search">
-													<input type="submit" class="btn btn-primary" value="Search">
-											<hr>
-									</form>
-
+					<form role="form" action="searchproductpage.php" method="GET" class="form-inline">
+						<label>Search</label>
+						<input type="text" class="form-control" name="search" id="search" placeholder="Search">
+						<input type="submit" class="btn btn-primary" value="Search">
+					</form>
                 </div>
-
-								<form role="form" action="addproductpage.php" method="post">
-										<align="right"><input type="submit" class="btn btn-primary" value="Add Product" name="submit">
-										<hr>
-								</form>
+                <div class='col-lg-6'>
+    				<form role="form" action="addproductpage.php" method="post">
+    				<input type="submit" class="btn btn-primary" value="Add Product" name="submit">
+    				</form>
                 </div>
+            </div>
 
                 <?php
                 $results = mysqli_query ($dbconn,'SELECT * FROM products');
-
-                echo "<table class='table table.bordered'>
+                echo "
+                <table class='table table-hover'>
                     <thead>
                         <tr>
                             <th>Product Image</th>
@@ -220,40 +193,40 @@ if(isset($_GET['dosearch'])){
                     <tbody>";
 
                 if($results->num_rows > 0) {
-
-                while($row = mysqli_fetch_array($results)){
-                    echo
-                        "<tr>
-                            <td><img id='prodImg' src='productimage/".$row['image']."' width='100px' heigh=''/></td>
-                            <td>" .$row['productID']. "</td>
-                            <td>" .$row['name']. "</td>
-                            <td>" .$row['date_created']. "</td>
-                            <td>
-                                <div>
-                                    <form method='POST' action='editproductpage.php'>
-                                        <input type='hidden' name='PNAME' value='".$row['productID']."' />
-                                        <input type='submit' class='btn btn-warning col-lg-4' value='Edit' name='submit'>
-                                    </form>
-                                </div>
-                                <div>
-                                    <form method='POST' action='delproductprocess.php'>
-                                        <input type='hidden' name='PNAME' value='".$row['productID']."' />
-                                        <input type='submit' class='btn btn-danger col-lg-4' value='Delete' name='submit' Onclick=\"return ConfirmDelete()\">
-                                    </form>
-                                </div>
-								<div>
-										<form method='POST' action='product.php'>
-												<input type='hidden' name='PNAME' value='".$row['productID']."' />
-												<input type='submit' class='btn btn-primary col-lg-4' value='View' name='submit'>
-										</form>
-								</div>
-                            </td>
-                        </tr>";
+                    while($row = mysqli_fetch_array($results)){
+                        echo
+                            "<tr>
+                                <td><img id='prodImg' src='productimage/".$row['image']."' width='100px' heigh=''/></td>
+                                <td>" .$row['productID']. "</td>
+                                <td>" .$row['name']. "</td>
+                                <td>" .$row['date_created']. "</td>
+                                <td>
+                                    <div>
+                                        <form method='POST' action='editproductpage.php'>
+                                            <input type='hidden' name='PNAME' value='".$row['productID']."' />
+                                            <input type='submit' class='btn btn-warning col-lg-4' value='Edit' name='submit'>
+                                        </form>
+                                    </div>
+                                    <div>
+                                        <form method='POST' action='delproductprocess.php'>
+                                            <input type='hidden' name='PNAME' value='".$row['productID']."' />
+                                            <input type='submit' class='btn btn-danger col-lg-4' value='Delete' name='submit' Onclick=\"return ConfirmDelete()\">
+                                        </form>
+                                    </div>
+    								<div>
+    										<form method='POST' action='product.php'>
+    												<input type='hidden' name='PNAME' value='".$row['productID']."' />
+    												<input type='submit' class='btn btn-primary col-lg-4' value='View' name='submit'>
+    										</form>
+    								</div>
+                                </td>
+                            </tr>";
+                        }
                     }
-                }
 
-                echo "</tbody>
-                    </table>";
+                echo "
+                    </tbody>
+                </table>";
                 ?>
             </div>
         </div>

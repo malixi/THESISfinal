@@ -5,6 +5,7 @@
 
 	$prodName=$_POST['addname'];
 	$prodCode=$_POST['addproductcode'];
+	$prodID=$_POST['addproductcode'];
 	$prodPrice=$_POST['addprice'];
 	$prodDesc=$_POST['adddescription'];
 	$prodQty=$_POST['addquantity'];
@@ -59,7 +60,7 @@
 				$stmt->close();
 				exit;
 			} else {
-				$stmt2 = $dbconn->prepare('INSERT INTO products (productID, product_code, name, price, image, description, quantity, date_created) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
+				$stmt2 = $dbconn->prepare('INSERT INTO products (productID, product_code, name, price, image, description, quantity, date_created) VALUES (?,?, ?, ?, ?, ?, ?, ?)');
 				$stmt2->bind_param('issdssis', $prodID, $prodCode, $prodName, $prodPrice, $prodphoto, $prodDesc, $prodQty, $prodCreated);
 				$stmt2->execute();
 				echo"<script>window.alert('Product added.');</script>";

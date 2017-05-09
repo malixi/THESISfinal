@@ -1,5 +1,3 @@
-
-
 <?php echo '<div class="head-top">
   <div class="logo">
     <a href="index.php">
@@ -47,7 +45,7 @@
     </li>
 
 <?php echo
-  '<li><a class="color4" href="http://localhost/THESISfinal/services.php"><strong>SERVICES</strong</a></li>
+  '<li><a class="color4" href="http://localhost/THESISfinal/services.php"><strong>SERVICES</strong></a></li>
   <li><a class="color6" href="http://localhost/THESISfinal/contact.php"><strong>CONTACT</strong></a></li>
   </ul>
 </div>

@@ -14,7 +14,7 @@
 
 <?php echo
 '<li>
-        <a class="color1" href="products.php">PRODUCTS</a>
+        <a class="color1" href="products.php"><strong>PRODUCTS</strong></a>
           <div class="mepanel">
       <div class="row">
         <div class="col1">
@@ -47,8 +47,8 @@
     </li>
 
 <?php echo
-  '<li><a class="color4" href="http://localhost/THESISfinal/services.php">SERVICES</a></li>
-  <li><a class="color6" href="http://localhost/THESISfinal/contact.php">CONTACT</a></li>
+  '<li><a class="color4" href="http://localhost/THESISfinal/services.php"><strong>SERVICES</strong</a></li>
+  <li><a class="color6" href="http://localhost/THESISfinal/contact.php"><strong>CONTACT</strong></a></li>
   </ul>
 </div>
 

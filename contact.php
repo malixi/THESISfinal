@@ -66,17 +66,20 @@
 			<div class="contact-form">
 
 				<div class="col-md-8 contact-grid">
-					<form action="#" method="post">
-						<input type="text" value="Name" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Name';}">
 
-						<input type="text" value="Email" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Email';}">
-						<input type="text" value="Subject" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Subject';}">
+					  					  <form form="contactemail.php" method="post">
+					  					    <input type="text" value="Name" name="Name" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Name';}" required />
 
-						<textarea cols="77" rows="6" value=" " onfocus="this.value='';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
-						<div class="send">
-							<input type="submit" value="Send">
-						</div>
-					</form>
+					  					    <input type="text" value="Email" name="Email" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Email';}" required />
+					  					    <input type="text" value="Subject" name="Subject" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Subject';}" required />
+
+					  					    <textarea cols="77" rows="6" value=" " name="Message" onfocus="this.value='';" onblur="if (this.value == '') {this.value = 'Message';}" required>Message</textarea>
+					  					    <div class="send">
+					  					      <input type="submit" name="submit" value="Send">
+					  					    </div>
+					  					  </form>
+
+
 				</div>
 
 				<div class="col-md-4 contact-in">

@@ -67,7 +67,6 @@
 
 				<div class="col-md-8 contact-grid">
 
-
 					  					  <form form="contactemail.php" method="post">
 					  					    <input type="text" value="Name" name="Name" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Name';}" required />
 

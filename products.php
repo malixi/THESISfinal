@@ -1,7 +1,11 @@
 <?php
 
 session_start();
-require_once 'connector.php';
+
+DEFINE ('DB_USER', 'root');
+DEFINE ('DB_PASSWORD', '');
+DEFINE ('DB_HOST', 'localhost');
+DEFINE ('DB_NAME', 'grayenterprise');
 
 
 ?>﻿
@@ -70,29 +74,51 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	<!-- grow -->
 	<?php
-		$results = mysqli_query ($con,'SELECT * FROM products');
-		while($row = mysqli_fetch_array($results)){
-			echo
-			'<div class="pro-du">
-			  <div class="container">
-			  <div class="col-sm-4">
 
-			    <div class="hover11 column grid-top  simpleCart_shelfItem">
-			<div>
-			<figure>
-			      <a  href="viewproducts.php?pname='  .$row['productID']. '" class="">
-			      <center><img src="admin/productimage/' .$row['image']. '" width="50%" alt=""></center></a></figure></div>
-			        <div class="b-wrapper">
-						<p><a href="viewproducts.php?pname='  .$row['productID']. '"><center>'  .$row['name']. '</center></a></p>
-							<center><a href="viewproducts.php?pname='.$row['productID'].'" class="add-cart item_add">SEE MORE</a></center>
-					</div>
+$con=mysqli_connect('localhost','root','','grayenterprise');
+
+
+
+
+
+$results = mysqli_query ($con,'SELECT * FROM products');
+
+while($row = mysqli_fetch_array($results)){
+
+
+	echo
+
+
+	'<div class="pro-du">
+	  <div class="container">
+	  <div class="col-sm-4">
+
+	    <div class="hover11 column grid-top  simpleCart_shelfItem">
+	<div>
+	<figure>
+	      <a  href="viewproducts.php?pname='  .$row['productID']. '" class="">
+	      <center><img src="admin/productimage/' .$row['image']. '" width="50%" alt=""></center></a></figure></div>
+	        <div class="b-wrapper">
+
+
+				<p><a href="viewproducts.php?pname='  .$row['productID']. '"><center>'  .$row['name']. '</center></a></p>
+					<center><a href="viewproducts.php?pname='  .$row['name']. '" class="add-cart item_add">SEE MORE</a></center>
+
+
 				</div>
-			</div>';
-		}
+			</div>
+		</div>';
+
+	}
 	?>
-						</div>
-					</div>
-				<div class="clearfix"> </div>
+
+
+</div>
+</div>
+
+
+
+						<div class="clearfix"> </div>
 			</div>
 		</div>
 	</div>

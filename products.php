@@ -63,6 +63,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 		</div>
 		</div>
+		<div class="container">
 		<?php include 'navbar.php';  ?>
 <!-- products -->
 	<!-- grow -->
@@ -89,18 +90,15 @@ while($row = mysqli_fetch_array($results)){
 
 
 	'<div class="pro-du">
-		<div class="container">
-			<div class="col-sm-4">
-				<div class="thumbnail">
-				<div class="grid-top  simpleCart_shelfItem">
-					<a href="viewproducts.php?pname='  .$row['productID']. '" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="admin/productimage/' .$row['image']. '" width="50%" alt="">
-						<div class="b-wrapper">
-							<h3 class="b-animate b-from-left    b-delay03 ">
-								<span>'  .$row['name']. '</span>
+	  <div class="container">
+	  <div class="col-sm-4">
 
-							</h3>
-						</div>
-					</a>
+	    <div class="hover11 column grid-top  simpleCart_shelfItem">
+	<div>
+	<figure>
+	      <a  href="viewproducts.php?pname='  .$row['productID']. '" class="">
+	      <center><img src="admin/productimage/' .$row['image']. '" width="50%" alt=""></center></a></figure></div>
+	        <div class="b-wrapper">
 
 
 				<p><a href="viewproducts.php?pname='  .$row['productID']. '"><center>'  .$row['name']. '</center></a></p>

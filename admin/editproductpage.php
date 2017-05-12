@@ -1,3 +1,8 @@
+<script>
+	function ConfirmDelete() {
+  return confirm("Are you sure you want to delete?");
+}
+</script>
 <?php
 session_start();
 require_once 'class.user.php';
@@ -59,7 +64,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" href="home.php">GREY ENTERPRISE</a>
+            <a class="navbar-brand" href="home.php">GRAY ENTERPRISE</a>
         </div>
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -119,7 +124,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
             <div class="sidebar-nav navbar-collapse">
 
                 <ul class="nav" id="side-menu">
-                    
+
                     <li>
                         <a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
@@ -129,7 +134,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                     <li>
                         <a href="viewadminpage.php"><i class="fa fa-dashboard fa-fw"></i> Admins</a>
                     </li>
-                    
+
                 </ul>
 
             </div>
@@ -169,7 +174,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                                         <form role='form' action='delproductphotoprocess.php' method='post' enctype='multipart/form-data'>
                                             <input type='hidden' class='form-control'  name='delphotoID' id='delphotoID' maxlength='6' value=".$row['productID']." required readonly>
                                             <label for='fileToDelete' class='btn btn-default'>Delete</label>
-                                            <input style='display:none; visibility:hidden;' class='btn btn-primary' type='submit' value='' name='fileToDelete' id='fileToDelete' maxlength='200'>
+                                            <input style='display:none; visibility:hidden;' class='btn btn-primary' type='submit' value='' name='fileToDelete' id='fileToDelete' maxlength='200' Onclick=\"return ConfirmDelete()\">
                                         </form>
                                         <form role='form' action='editproductprocess.php' method='post' enctype='multipart/form-data'>
                                         <label for='fileToReplace' class='btn btn-default'>Replace</label>
@@ -202,7 +207,8 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                             </div>
                             <div class='form-group'>
                                 <label>Product Description</label>
-                                <textarea class='form-control' rows='10' name='editdescription' id='editdescription' maxlength='100' value=".$row['description']." required></textarea>
+                                <textarea class='form-control' rows='10' name='editdescription' id='editdescription'  required>".$row['description']."
+                                </textarea>
                             </div>
                             <input type='submit' class='btn btn-primary' value='Edit' name='submit'>
                             <input type='reset' class='btn btn-default' value='Reset'>

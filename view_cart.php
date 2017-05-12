@@ -11,7 +11,7 @@ include_once("configuration.php");
 <body>
 <h1 align="center">View Cart</h1>
 <div class="cart-view-table-back">
-<form method="post" action="https://www.sandbox.paypal.com/cgi-bin/webscr">
+<form method="post" action="cart_update.php">
 <table width="100%"  cellpadding="6" cellspacing="0"><thead><tr><th>Quantity</th><th>Name</th><th>Price</th><th>Total</th><th>Remove</th></tr></thead>
   <tbody>
  	<?php
@@ -51,12 +51,10 @@ include_once("configuration.php");
 			$list_tax .= $key. ' : '. $currency. sprintf("%01.2f", $value).'<br />';
 		}
 		$shipping_cost = ($shipping_cost)?'Shipping Cost : '.$currency. sprintf("%01.2f", $shipping_cost).'<br />':'';
-
-		
 	}
     ?>
     <tr><td colspan="5"><span style="float:right;text-align: right;"><?php echo $shipping_cost. $list_tax; ?>Amount Payable : <?php echo sprintf("%01.2f", $grand_total);?></span></td></tr>
-    <tr><td colspan="5"><a href="products1.php" class="button">Add More Items</a><button type="submit">Update</button><a href="https://www.sandbox.paypal.com/cgi-bin/webscr" class="button">Check Out With Paypal</a></td></tr>
+    <tr><td colspan="5"><a href="products1.php" class="button">Add More Items</a><button type="submit">Update</button></td></tr>
   </tbody>
 </table>
 <input type="hidden" name="return_url" value="<?php

@@ -61,6 +61,24 @@ include_once("configuration.php");
 $current_url = urlencode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 echo $current_url; ?>" />
 </form>
+<?php 
+
+echo '<form method="POST" action="https://www.sandbox.paypal.com/cgi-bin/webscr">
+	<input type="hidden" name="business" value="carlolo@gmail.com">
+	<input type="hidden" name="cmd" value="_xclick">
+	<input type="hidden" name="item_name" value="'.$product_name.'">
+	<input type="hidden" name="item_number" value="'.$product_code.'">
+	<input type="hidden" name="amount" value="'.sprintf("%01.2f", $grand_total).'">
+	<input type="hidden" name="currency_code" value="USD">
+
+	<input type="hidden" name="cancel_return" value="http://localhost/paypal_integration_php/cancel.php">
+    <input type="hidden" name="return" value="http://localhost/paypal_integration_php/success.php">
+
+    <input type="image" name="submit" border="0" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" alt="PayPal - The safer, easier way to pay online">
+    <img alt="" border="0" width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif">'
+?>
+
+</form>
 </div>
 
 </body>

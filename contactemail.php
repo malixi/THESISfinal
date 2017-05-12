@@ -1,22 +1,21 @@
 <?php
-re
+
 //if "email" variable is filled out, send email
   //Email information
-  require 'admin/mailer/PHPMailerAutoload.php';
+  require './admin/mailer/PHPMailerAutoload.php';
 
   $mail = new PHPMailer;
   $mail->SMTPDebug = 3;
   $mail->isSMTP();                                   // Set mailer to use SMTP
   $mail->Host = 'smtp.gmail.com';                    // Specify main and backup SMTP servers
   $mail->SMTPAuth = true;                            // Enable SMTP authentication
-  $mail->Username = '';          // SMTP username
-  $mail->Password = ''; // SMTP password
+  $mail->Username = 'grayenterprise.mailserver@gmail.com';    // SMTP username/
+  $mail->Password = '*1973nutrifarmcorporation';             // SMTP password
   $mail->SMTPSecure = 'tls';                         // Enable TLS encryption, `ssl` also accepted
   $mail->Port = 587;
-  $mail->addAddress('');
+  $mail->addAddress('jamielousulit@gmail.com');
 
-
-  $email=$_POST['Email'];
+  $email=$_POST['Email'];             // email kong san sya mag rereply
   $name=$_POST['Name'];
   $mail->setFrom( $email, $name);
   $mail->addReplyTo($email, $name);
@@ -24,13 +23,13 @@ re
 
   $subject=$_POST['Subject'];
   $message=$_POST['Message'];
-  $bodyContent = '<h1>Hello!</h1>';
-  $bodyContent .= '<p>You received a message from ' .$name. '</p>';
-  $bodyContent .= 'Message:';
-  $bodyContent .= ' "' .$message. '"';
-  $bodyContent .= '<p>Reply to: ' .$email. '</p>';
+  $contactMessage = '<h1>Hello!</h1>';
+  $contactMessage .= '<p>From: ' .$name. '</p>';
+  $contactMessage .= 'Message: <br>';
+  $contactMessage .= '           "' .$message. '"';
+  $contactMessage .= '<p>Reply to: ' .$email. '</p>';
   $mail->Subject = $subject;
-  $mail->Body    = $bodyContent;
+  $mail->Body    = $contactMessage;
 
   //send email
 

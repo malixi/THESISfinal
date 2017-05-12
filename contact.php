@@ -36,7 +36,7 @@
 
 				<div class="ca-r">
 					<div class="cart box_1">
-						<a href="view_cart.php">
+						<a href="checkout.html">
 						<h3> <div class="total">
 							<span class="simpleCart_total"></span> </div>
 							<img src="images/cart.png" alt=""/></h3>

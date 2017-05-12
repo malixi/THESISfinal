@@ -12,7 +12,7 @@
 
 <?php echo
 '<li>
-        <a class="color1" href="products.php"><strong>PRODUCTS</strong></a>
+        <a class="color1" href="products1.php"><strong>PRODUCTS</strong></a>
           <div class="mepanel">
       <div class="row">
         <div class="col1">

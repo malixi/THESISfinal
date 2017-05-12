@@ -120,8 +120,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<input type="hidden" name="cmd" value="_xclick">
 				<input type="hidden" name="item_name" value="'.$product_name.'">
 				<input type="hidden" name="item_number" value="'.$product_code.'">
-				<input type="hidden" name="amount" value="'.sprintf("%01.2f", $grand_total).'">
-				<input type="hidden" name="currency_code" value="USD">
+				<input type="hidden" name="quantity" value="'.$product_qty.'">
+				<input type="hidden" name="shipping" value="'.$shipping_cost.'">
+				
+				
+				<input type="hidden" name="amount" value="'.$product_price.'">
+				<input type="hidden" name="currency_code" value="PHP">
 
 				<input type="hidden" name="cancel_return" value="http://localhost/paypal_integration_php/cancel.php">
 			    <input type="hidden" name="return" value="http://localhost/paypal_integration_php/success.php">

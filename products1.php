@@ -1,3 +1,66 @@
+	<html>
+<head>
+<title></title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery.min.js"></script>
+<!-- Custom Theme files -->
+<!--theme-style-->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!--//theme-style-->
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--fonts-->
+<link href='//fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'><!--//fonts-->
+<!-- start menu -->
+<link href="css/memenu.css" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="js/memenu.js"></script>
+<script>$(document).ready(function(){$(".memenu").memenu();});</script>
+<script src="js/simpleCart.min.js"> </script>
+</head>
+<body>
+	<?php include 'header.php';    ?>
+	<!-- search-scripts -->
+						<script src="js/classie.js"></script>
+						<script src="js/uisearch.js"></script>
+							<script>
+								new UISearch( document.getElementById( 'sb-search' ) );
+							</script>
+						<!-- //search-scripts -->
+
+					<div class="ca-r">
+						<div class="cart box_1">
+							<a href="checkout.html">
+							<h3> <div class="total">
+								<span class="simpleCart_total"></span> </div>
+								<img src="images/cart.png" alt=""/></h3>
+							</a>
+							<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+
+						</div>
+					</div>
+						<div class="clearfix"> </div>
+				</div>
+
+			</div>
+			</div>
+			<div class="container">
+				<?php include 'navbar.php'; ?>
+				
+
+<!-- products -->
+	<!-- grow -->
+	<div class="grow">
+		<div class="container">
+			<h2>Products</h2>
+		</div>
+	</div>
+	<!-- grow -->
+
 <?php
 session_start();
 include_once("configuration.php");
@@ -6,14 +69,9 @@ include_once("configuration.php");
 //current URL of the Page. cart_update.php redirects back to this URL
 $current_url = urlencode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Shopping Cart</title>
+<
 <link href="style/style.css" rel="stylesheet" type="text/css">
-</head>
-<body>
+
 
 <h1 align="center">Products </h1>
 

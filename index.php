@@ -61,6 +61,7 @@ DEFINE ('DB_NAME', 'grayenterprise');
 			</div>
 			<div class="container">
 				<?php include 'navbar.php'; ?>
+        
 
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">

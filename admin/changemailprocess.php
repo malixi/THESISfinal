@@ -30,10 +30,6 @@
 		echo"<script>window.alert('Email updated.');</script>";
 		echo"<script>location.href='home.php';</script>";
 }
- else {
-		echo"<script>window.alert('Product Code incorrect');</script>";
-		echo"<script>location.href='home.php';</script>";
-	}
 
 
 ?>

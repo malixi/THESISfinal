@@ -12,6 +12,7 @@
 	$newpassword=$_POST['newpassword'];
 	$newpassword2=$_POST['newpassword2'];
 	$encryptednewpassword = md5($_POST['newpassword']);
+	$code = md5(uniqid(rand()));
 
 	$stmt = $dbconn->prepare('SELECT * FROM admin WHERE userID = ?');
 	$stmt->bind_param('i', $adminID);
@@ -29,8 +30,8 @@
 		echo"<script>location.href='addadminpage.php';</script>";
 	}
 	 else {
-		$stmt2 = $dbconn->prepare('INSERT INTO admin (userID, FirstName, LastName, userStatus, userName, userEmail, userPass) VALUES (?, ?, ?, ?, ?, ?,?)');
-		$stmt2->bind_param('issssss', $adminID, $wew, $wew1, $userstatus1, $username1, $email1, $encryptednewpassword );
+		$stmt2 = $dbconn->prepare('INSERT INTO admin (userID, FirstName, LastName, userStatus, userName, userEmail, userPass, tokenCode) VALUES (?, ?, ?, ?, ?, ?,?, ?)');
+		$stmt2->bind_param('issssssi', $adminID, $wew, $wew1, $userstatus1, $username1, $email1, $encryptednewpassword, $code);
 		$stmt2->execute();
 		echo"<script>window.alert('New admininistrator added.');</script>";
 		echo"<script>location.href='viewadminpage.php';</script>";

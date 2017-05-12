@@ -73,7 +73,6 @@ $current_url = urlencode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_
 <link href="style/style.css" rel="stylesheet" type="text/css">
 
 
-<h1 align="center">Products </h1>
 
 <!-- View Cart Box Start -->
 <?php
@@ -129,9 +128,10 @@ while($obj = $results->fetch_object())
 $products_item .= <<<EOT
 	<li class="product">
 	<form method="post" action="cart_update.php">
+	<div class="hover11">
+
+	<div class="product-thumb"><figure><img src="admin/productimage/{$obj->image}" width="150px" height="150px"></figure></div>
 	<div class="product-content"><h3>{$obj->name}</h3>
-	<div class="product-thumb"><img src="admin/productimage/{$obj->image}" width="150px" height="150px"></div>
-	<div class="product-desc">{$obj->description}</div>
 	<div class="product-info">
 	Price {$currency}{$obj->price}
 

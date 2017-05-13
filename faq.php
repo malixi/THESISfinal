@@ -41,7 +41,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<div class="ca-r">
 					<div class="cart box_1">
-						<a href="checkout.html">
+						<a href="view_cart.php">
 						<h3> <div class="total">
 							<span class="simpleCart_total"></span> </div>
 							<img src="images/cart.png" alt=""/></h3>
@@ -57,6 +57,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 		<div class="container">
 	<?php include 'navbar.php'; ?>
+    <!-- grow -->
+    <div class="grow">
+        <div class="container">
+            <h2>FAQ</h2>
+        </div>
+    </div>
+    <!-- grow -->
 
 
 

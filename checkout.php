@@ -53,7 +53,7 @@ DEFINE ('DB_NAME', 'grayenterprise');
 
 				<div class="ca-r">
 					<div class="cart box_1">
-						<a href="checkout.php">
+						<a href="view_cart.php">
 						<h3> <div class="total">
 							<span class="simpleCart_total"></span> </div>
 							<img src="images/cart.png" alt=""/></h3>

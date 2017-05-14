@@ -66,7 +66,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="container">
 		<?php
 			if($_SESSION["cart_products"] == NULL){
-				echo "<br><h2>No Products In Cart.</h2><br><br><br><br><br><br><br><br><br>";
+				echo "<br><br><br><br><h2>No Products In Cart.</h2><br><br><br><br>";
 			} else {
 		?>
 		<form method="post" action="cart_update.php">

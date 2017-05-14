@@ -1,34 +1,32 @@
 body{
 	margin: 0px;
 	padding: 0px;
-	font-family: Georgia, "Times New Roman", Times, serif;
+	
 }
-h1, h2, h3{
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;	
-}
+
 
 ul.products {
 	padding: 0;
 	margin: 0;
-	max-width: 740px;
+	max-width: 80%;
 	margin-left: auto;
 	margin-right: auto;
 }
 ul.products li {
 	display: inline-block;
-	max-width: 200px;
-	padding: 10px;
-	background-color: #FFFFFF;
+	max-width: 288px;
+	padding: 28px;
+	background-color: rgba(255, 255, 255, 0);
 	margin: 10px;
-	border: 1px solid #EAEAEA;  
+	border: 1px solid rgba(255, 255, 255, 0);  
 	color: #3D3D3D;
 }
 ul.products li h3 {
 	margin: -10px -10px 10px -10px;
 	padding: 10px;
 	text-align: center;
-	background-color: #F5F5F5;
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	background-color:rgba(255, 255, 255, 0);
+
 	font-size: 1.1em;
 	color: #5A5A5A;
 }

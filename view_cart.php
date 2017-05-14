@@ -10,6 +10,11 @@ include_once("configuration.php");
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
+<script>
+	function ConfirmDelete() {
+  return confirm("Are you sure you want to delete?");
+}
+</script>
 <!-- Custom Theme files -->
 <!--theme-style-->
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -53,10 +58,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <div class="container">
 	<?php include 'navbar.php'; ?>
+	<div class="grow">
+		<div class="container">
+			<h2>Shopping Cart</h2>
+		</div>
+	</div>
 	<div class="container">
-		<h1 align="center">View Cart</h1>
+		<?php
+			if($_SESSION["cart_products"] == NULL){
+				echo "<br><br><br><br><h2>No Products In Cart.</h2><br><br><br><br>";
+			} else {
+		?>
 		<form method="post" action="cart_update.php">
-			<table class="table table-windowed"><thead><tr><th>Quantity</th><th>Name</th><th>Price</th><th>Total</th><th>Remove</th></tr></thead>
+			<table class="table table-windowed"><thead><tr><th>Name</th><th>Quantity</th><th>Price</th><th>Total</th><th>Action</th></tr></thead>
 				<tbody>
 				 	<?php
 						if(isset($_SESSION["cart_products"])){ //check session var
@@ -72,11 +86,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 							   	$bg_color = ($b++%2==1) ? 'odd' : 'even'; //class for zebra stripe
 							    echo '<tr class="'.$bg_color.'">';
-								echo '<td><input type="text" size="2" maxlength="2" name="product_qty['.$product_code.']" value="'.$product_qty.'" /></td>';
-								echo '<td>'.$product_name.'</td>';
+							    echo '<td>'.$product_name.'</td>';
+								echo '<td><input type="number" maxlength="2" name="product_qty['.$product_code.']" value="'.$product_qty.'" /></td>';
 								echo '<td>'.$currency.$product_price.'</td>';
 								echo '<td>'.$currency.$subtotal.'</td>';
-								echo '<td><input type="checkbox" name="remove_code[]" value="'.$product_code.'" /></td>';
+								echo '<td><label class="btn btn-danger" for="delete">Remove</label><input Onclick=\'return ConfirmDelete()\' type="submit" style="display:none; visibility:hidden;" class="btn btn-primary" id="delete" name="remove_code[]" value="'.$product_code.'" /></td>';
 					            echo '</tr>';
 								$total = ($total + $subtotal); //add subtotal to total var
 					        }
@@ -95,7 +109,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						}
 				    ?>
 				    <tr><td colspan="5"><span style="float:right;text-align: right;"><?php echo $shipping_cost. $list_tax; ?>Amount Payable : <?php echo sprintf("%01.2f", $grand_total);?></span></td></tr>
-				    <tr><td colspan="5"><a href="products.php" class="button">Add More Items</a><button type="submit">Update</button></td></tr>
+				    <tr><td colspan="5"><a href="products.php" class="btn btn-primary">Add More Items</a><button type="submit" class="btn btn-primary">Update</button></td></tr>
 				</tbody>
 			</table>
 			<input type="hidden" name="return_url" value="<?php $current_url = urlencode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']); echo $current_url; ?>"/>
@@ -106,18 +120,44 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<input type="hidden" name="cmd" value="_xclick">
 				<input type="hidden" name="item_name" value="'.$product_name.'">
 				<input type="hidden" name="item_number" value="'.$product_code.'">
-				<input type="hidden" name="amount" value="'.sprintf("%01.2f", $grand_total).'">
-				<input type="hidden" name="currency_code" value="USD">
+				<input type="hidden" name="quantity" value="'.$product_qty.'">
+				<input type="hidden" name="shipping" value="'.$shipping_cost.'">
+				
+				
+				<input type="hidden" name="amount" value="'.$product_price.'">
+				<input type="hidden" name="currency_code" value="PHP">
 
 				<input type="hidden" name="cancel_return" value="http://localhost/paypal_integration_php/cancel.php">
 			    <input type="hidden" name="return" value="http://localhost/paypal_integration_php/success.php">
 
 			    <input type="image" name="submit" border="0" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" alt="PayPal - The safer, easier way to pay online">
 			    <img alt="" border="0" width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif">
-			</form>'
+			</form>';
+			}
 		?>
 	</div>
 </div>
+<script>
+$(document).ready(function () {
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            $('.scrollup').fadeIn();
+        } else {
+            $('.scrollup').fadeOut();
+        }
+    });
+
+    $('.scrollup').click(function () {
+        $("html, body").animate({
+            scrollTop: 0
+        }, 600);
+        return false;
+    });
+
+});
+</script>
+<a href="#" class="scrollup">Scroll</a>
 <?php include 'footer.php'; ?>
 </body>
 </html>

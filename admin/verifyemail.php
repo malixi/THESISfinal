@@ -24,7 +24,7 @@ if(isset($_GET['email']) && isset($_GET['code']))
 		$stmt2->bind_param('ss', $email2, $code);
 		$stmt2->execute();
 
-		echo"<script>window.alert('Email updated.');</script>";
+		echo"<script>window.alert('Your new contact email $email2 has been confirmed.');</script>";
 		echo"<script>location.href='home.php';</script>";
 }
 

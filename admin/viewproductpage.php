@@ -179,6 +179,9 @@ if(isset($_GET['dosearch'])){
 
                 <?php
                 $results = mysqli_query ($dbconn,'SELECT * FROM products');
+                if (empty($results->num_rows > 0)) {
+                    echo "<br><h2>No Products Avaiable</h2></br>";
+                } else {
                 echo "
                 <table class='table table-hover'>
                     <thead>
@@ -227,6 +230,7 @@ if(isset($_GET['dosearch'])){
                 echo "
                     </tbody>
                 </table>";
+            }
                 ?>
             </div>
         </div>

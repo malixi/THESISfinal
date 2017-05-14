@@ -13,20 +13,24 @@
 	$emailname = "Gray Enterprise";
 
 
-	$stmt = $dbconn->prepare('SELECT * FROM admin WHERE userID = ?');
-	$stmt->bind_param('s', $emailid);
+	$stmt = $dbconn->prepare('SELECT * FROM admin WHERE  userEmail= ?');
+	$stmt->bind_param('s', $email1);
 	$stmt->execute();
 	$result = $stmt->get_result();
 
+	if ($rows = $result->fetch_assoc())
+	{
+		echo"<script>window.alert('Email already exist');</script>";
+		echo"<script>location.href='changemail.php';</script>";
+	}
 
-	if($email1 !=$email2)
+	else if($email1 !=$email2)
 	{
 
 		echo"<script>window.alert('Email not match');</script>";
 		echo"<script>location.href='changemail.php';</script>";
 	}
-	else if
-	 ($rows = $result->fetch_assoc()) {
+	else {
 		$stmt2 = $dbconn->prepare('UPDATE admin SET tokenCode = ? WHERE userID = ?');
 		$stmt2->bind_param('si', $coded, $emailid);
 		$stmt2->execute();

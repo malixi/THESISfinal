@@ -184,10 +184,13 @@ $search = $_GET['search'];
                 <?php
 
                     $results = mysqli_query ($dbconn,'SELECT * FROM products WHERE name LIKE "%'.$search.'%"');
-
+                    if(isset($search)){
+                        echo "<h2>No Results Found.</h2>";
+                    }else {
                 echo "<table class='table table.bordered'>
                     <thead>
                         <tr>
+                            <th>Product Image</th>
                             <th>Product ID</th>
                             <th>Product Name</th>
                             <th>Product Date Created</th>
@@ -200,26 +203,37 @@ $search = $_GET['search'];
 
                 while($row = mysqli_fetch_array($results)){
                     echo
-                        "<tr>
+                            "<tr>
+                                <td><img id='prodImg' src='productimage/".$row['image']."' width='100px' heigh=''/></td>
                                 <td>" .$row['productID']. "</td>
                                 <td>" .$row['name']. "</td>
                                 <td>" .$row['date_created']. "</td>
                                 <td>
-                                    <form method='POST' action='editproductpage.php'>
-                                        <input type='hidden' name='PNAME' value='".$row['productID']."' />
-                                        <input type='submit' class='btn btn-primary col-lg-6' value='Edit' name='submit'>
-                                    </form>
-                                    <form method='POST' action='delproductprocess.php'>
-                                        <input type='hidden' name='PNAME' value='".$row['productID']."' />
-                                        <input type='submit' class='btn btn-primary col-lg-6' value='Delete' name='submit'>
-                                    </form>
+                                    <div>
+                                        <form method='POST' action='editproductpage.php'>
+                                            <input type='hidden' name='PNAME' value='".$row['productID']."' />
+                                            <input type='submit' class='btn btn-warning col-lg-4' value='Edit' name='submit'>
+                                        </form>
+                                    </div>
+                                    <div>
+                                        <form method='POST' action='delproductprocess.php'>
+                                            <input type='hidden' name='PNAME' value='".$row['productID']."' />
+                                            <input type='submit' class='btn btn-danger col-lg-4' value='Delete' name='submit' Onclick=\"return ConfirmDelete()\">
+                                        </form>
+                                    </div>
+                                    <div>
+                                            <form method='POST' action='product.php'>
+                                                    <input type='hidden' name='PNAME' value='".$row['productID']."' />
+                                                    <input type='submit' class='btn btn-primary col-lg-4' value='View' name='submit'>
+                                            </form>
+                                    </div>
                                 </td>
                             </tr>";
                     }
                 }
 
                 echo "</tbody>
-                    </table>";
+                    </table>";}
                 ?>
             </div>
         </div>

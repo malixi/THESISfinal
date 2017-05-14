@@ -127,8 +127,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<input type="hidden" name="amount" value="'.$product_price.'">
 				<input type="hidden" name="currency_code" value="PHP">
 
-				<input type="hidden" name="cancel_return" value="http://localhost/paypal_integration_php/cancel.php">
-			    <input type="hidden" name="return" value="http://localhost/paypal_integration_php/success.php">
+				<input type="hidden" name="cancel_return" value="http://localhost/THESISfinal/cancel.php">
+			    <input type="hidden" name="return" value="http://localhost/THESISfinal/success.php">
 
 			    <input type="image" name="submit" border="0" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" alt="PayPal - The safer, easier way to pay online">
 			    <img alt="" border="0" width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif">

@@ -93,7 +93,7 @@ if(isset($_SESSION["cart_products"]) && count($_SESSION["cart_products"])>0){
 <!-- Products List Start -->
 <?php
 $results = $mysqli->query("SELECT productID, product_code, name, description, image, price FROM products");
-if($results == NULL){
+if($results->num_rows > 0){
 $products_item = '<ul class="products">';
 //fetch results set as object and output HTML
 while($obj = $results->fetch_object()){

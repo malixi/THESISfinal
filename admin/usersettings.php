@@ -119,7 +119,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
             <div class="sidebar-nav navbar-collapse">
 
                 <ul class="nav" id="side-menu">
-                    
+
                     <li>
                         <a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
@@ -129,7 +129,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                     <li>
                         <a href="viewadminpage.php"><i class="fa fa-dashboard fa-fw"></i> Admins</a>
                     </li>
-                    
+
                 </ul>
 
             </div>
@@ -165,7 +165,6 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                         "<tr>
                             <td>Name</td>
                             <td>".$row['FirstName']." ".$row['LastName']."</td>
-                            <td><a href='#' class='btn btn-warning'>Edit</a></td>
                         </tr>
                         <tr>
                             <td>Email</td>

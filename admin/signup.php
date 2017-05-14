@@ -28,7 +28,7 @@ if(isset($_POST['btn-signup']))
 		$msg = "
 		      <div class='alert alert-error'>
 				<button class='close' data-dismiss='alert'>&times;</button>
-					<strong>Sorry !</strong>  email allready exists , Please Try another one
+					<strong>Sorry!</strong> email already exist! Please Try again!
 			  </div>
 			  ";
 	}
@@ -81,6 +81,8 @@ if(isset($_POST['btn-signup']))
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+
   </head>
   <body id="login">
     <div class="container">
@@ -93,7 +95,7 @@ if(isset($_POST['btn-signup']))
         <input type="email" class="input-block-level" placeholder="Email address" name="txtemail" required />
         <input type="password" class="input-block-level"  placeholder="Password" name="txtpass" required />
      	<hr />
-        <button class="btn btn-large btn-primary" type="submit" name="btn-signup">Sign Up</button>
+        <button class="btn btn-large btn-primary" type="submit" name="btn-signup" >Sign Up</button>
         <a href="index.php" style="float:right;" class="btn btn-large">Sign In</a>
       </form>
 

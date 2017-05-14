@@ -56,6 +56,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   		</div>
   		<div class="container">
   	<?php include 'navbar.php'; ?>
+    <!-- grow -->
+    <div class="grow">
+      <div class="container">
+        <h2>Search</h2>
+      </div>
+    </div>
 
 
 
@@ -86,14 +92,12 @@ while($rows = mysqli_fetch_array($results)){?>
 }
 
 } else {
-      echo 'no results found';
-}
+  echo "<div class='container'>";
+  echo "<br><br><br><br><h2>No Results Found</h2><br><br><br><br>";
+  echo "</div>";}
 
 
   ?>
-<br/><br/><br/><br/><br/><br/>
-<br/><br/><br/><br/><br/><br/>
-<br/><br/><br/><br/><br/><br/>
 
 
 

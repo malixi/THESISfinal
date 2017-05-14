@@ -10,22 +10,27 @@
 	$email1=$_POST['email'];
 	$email2=$_POST['email1'];
 	$coded= md5(uniqid(rand()));
+	$emailname = "Gray Enterprise";
 
 
-	$stmt = $dbconn->prepare('SELECT * FROM admin WHERE userID = ?');
-	$stmt->bind_param('s', $emailid);
+	$stmt = $dbconn->prepare('SELECT * FROM admin WHERE  userEmail= ?');
+	$stmt->bind_param('s', $email1);
 	$stmt->execute();
 	$result = $stmt->get_result();
 
+	if ($rows = $result->fetch_assoc())
+	{
+		echo"<script>window.alert('Email already exist');</script>";
+		echo"<script>location.href='changemail.php';</script>";
+	}
 
-	if($email1 !=$email2)
+	else if($email1 !=$email2)
 	{
 
 		echo"<script>window.alert('Email not match');</script>";
 		echo"<script>location.href='changemail.php';</script>";
 	}
-	else if
-	 ($rows = $result->fetch_assoc()) {
+	else {
 		$stmt2 = $dbconn->prepare('UPDATE admin SET tokenCode = ? WHERE userID = ?');
 		$stmt2->bind_param('si', $coded, $emailid);
 		$stmt2->execute();
@@ -44,7 +49,7 @@
 		$mail->addAddress($email1);
 
 		$email=$email2;            // email kong san sya mag rereply
-		$mail->setFrom( $email, $firstname.' '.$lastname);
+		$mail->setFrom( $email, $emailname);
 		$mail->addReplyTo($email, $firstname);
 		$mail->isHTML(true);  // Set email format to HTML
 
@@ -68,8 +73,8 @@
 		    echo 'Message could not be sent.';
 		    echo 'Mailer Error: ' . $mail->ErrorInfo;
 		} else {
-		  echo"<script>window.alert('Please check your email to verify it');</script>";
-		  echo"<script>location.href='emailchange.php';</script>";
+		  echo"<script>window.alert('A confirmation email was sent to $email1. Your email will not be changed until you confirm!');</script>";
+		  echo"<script>location.href='home.php';</script>";
 		}
 }
 

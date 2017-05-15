@@ -131,10 +131,10 @@ $search = $_GET['search'];
                         <a href="home.php" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i> Products</a>
+                        <a href="viewproductpage.php"><i class="glyphicon glyphicon-shopping-cart"></i> Products</a>
                     </li>
                     <li>
-                        <a href="viewadminpage.php"><i class="fa fa-dashboard fa-fw"></i> Admins</a>
+                        <a href="viewadminpage.php"><i class="glyphicon glyphicon-user"></i> Admins</a>
                     </li>
 
                 </ul>

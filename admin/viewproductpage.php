@@ -126,26 +126,26 @@ if(isset($_GET['dosearch'])){
         </ul>
 
         <!-- Sidebar -->
-        <div class="navbar-default sidebar" role="navigation">
-            <div class="sidebar-nav navbar-collapse">
+				<div class="navbar-default sidebar" role="navigation">
+						<div class="sidebar-nav navbar-collapse">
 
-                <ul class="nav" id="side-menu">
+								<ul class="nav" id="side-menu">
 
-                    <li>
-                        <a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="viewproductpage.php" class="active"><i class="fa fa-dashboard fa-fw"></i> Products</a>
-                    </li>
-                    <li>
-                        <a href="viewadminpage.php"><i class="fa fa-dashboard fa-fw"></i> Admins</a>
-                    </li>
+										<li>
+												<a href="home.php" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+										</li>
+										<li>
+												<a href="viewproductpage.php"><i class="glyphicon glyphicon-shopping-cart"></i> Products</a>
+										</li>
+										<li>
+												<a href="viewadminpage.php"><i class="glyphicon glyphicon-user"></i> Admins</a>
+										</li>
 
-                </ul>
+								</ul>
 
-            </div>
-        </div>
-    </nav>
+						</div>
+				</div>
+		</nav>
 
     <!-- Page Content -->
     <div id="page-wrapper">

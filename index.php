@@ -177,6 +177,7 @@ $products_item .= <<<EOT
   <input type="hidden" name="type" value="add" />
   <input type="hidden" name="return_url" value="{$current_url}" />
   <div align="center"><button type="submit" class="add_to_cart">Add</button></div>
+  
   </div></div>
   </form>
   </li>

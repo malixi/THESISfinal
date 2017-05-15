@@ -24,7 +24,7 @@
 $con=mysqli_connect('localhost','root','','grayenterprise');
 $results = mysqli_query ($con,'SELECT * FROM products  ORDER BY productID DESC LIMIT 6 ');
 while($row = mysqli_fetch_array($results)){
-echo     '<li><a href="viewproducts.php?pname='  .$row['name']. '">'  .$row['name']. '</a></li>';
+echo     '<li><a href="viewproducts.php?pname='.$row['productID'].'">'.$row['name'].'</a></li>';
 }
 		?>
 					<?php echo '</ul>

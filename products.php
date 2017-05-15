@@ -93,7 +93,7 @@ if(isset($_SESSION["cart_products"]) && count($_SESSION["cart_products"])>0){
 <!-- Products List Start -->
 <?php
 $results = $mysqli->query("SELECT productID, product_code, name, description, image, price FROM products");
-if($results == NULL){
+if($results->num_rows > 0){
 $products_item = '<ul class="products">';
 //fetch results set as object and output HTML
 while($obj = $results->fetch_object()){
@@ -128,12 +128,30 @@ EOT;
 }
 $products_item .= '</ul>';
 echo $products_item;
-} else {
-	echo "<div class='container'>";
-	echo "<br><br><br><br><h2>No Products Available.</h2><br><br><br><br>";
-	echo "</div>";
+
 }
 ?>
+<script>
+$(document).ready(function () {
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            $('.scrollup').fadeIn();
+        } else {
+            $('.scrollup').fadeOut();
+        }
+    });
+
+    $('.scrollup').click(function () {
+        $("html, body").animate({
+            scrollTop: 0
+        }, 600);
+        return false;
+    });
+
+});
+</script>
+<a href="#" class="scrollup">Scroll</a>
 <!-- Products List End -->
 <?php include 'footer.php'; ?>
 </body>

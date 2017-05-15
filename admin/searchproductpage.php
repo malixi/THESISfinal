@@ -171,7 +171,6 @@ $search = $_GET['search'];
 
             <!-- ... Your content goes here ... -->
             <div class="row">
-
                 <div class='col-lg-6'>
                     <form role="form" action="searchproductpage.php" method="GET" class="form-inline">
                             <label>Search</label>
@@ -184,7 +183,7 @@ $search = $_GET['search'];
                 <?php
 
                     $results = mysqli_query ($dbconn,'SELECT * FROM products WHERE name LIKE "%'.$search.'%"');
-                    if(isset($search)){
+                    if(empty($results->num_rows > 0 && $search)){
                         echo "<h2>No Results Found.</h2>";
                     }else {
                 echo "<table class='table table.bordered'>
@@ -200,7 +199,6 @@ $search = $_GET['search'];
                     <tbody>";
 
                 if($results->num_rows > 0) {
-
                 while($row = mysqli_fetch_array($results)){
                     echo
                             "<tr>

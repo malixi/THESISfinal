@@ -1,6 +1,7 @@
 <?php session_start();?>
 <html>
 <head>
+  <?php include_once("analyticstracking.php") ?>
 <title></title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
@@ -25,7 +26,7 @@
 
 
 <style>
-  
+
 .testing1 {
   position: absolute;
     left: 0px;
@@ -67,7 +68,7 @@
 			</div>
 			<div class="container">
 				<?php include 'navbar.php'; ?>
-        
+
 
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -177,6 +178,7 @@ $products_item .= <<<EOT
   <input type="hidden" name="type" value="add" />
   <input type="hidden" name="return_url" value="{$current_url}" />
   <div align="center"><button type="submit" class="add_to_cart">Add</button></div>
+  
   </div></div>
   </form>
   </li>

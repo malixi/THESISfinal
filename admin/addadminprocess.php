@@ -14,13 +14,14 @@
 	$encryptednewpassword = md5($_POST['newpassword']);
 	$code = md5(uniqid(rand()));
 
-	$stmt = $dbconn->prepare('SELECT * FROM admin WHERE userID = ?');
-	$stmt->bind_param('i', $adminID);
+	$stmt = $dbconn->prepare('SELECT * FROM admin WHERE userEmail = ?');
+	$stmt->bind_param('s', $email1);
 	$stmt->execute();
 	$result = $stmt->get_result();
 	if($rows = $result->fetch_assoc()) {
 		header("Content-Type: text/html; charset=UTF-8");
-		echo "<script>alert('Admin already exists.');history.back();</script>";
+		echo"<script>window.alert('Email already exist. Try again with different email');</script>";
+		echo"<script>location.href='addadminpage.php';</script>";
 		$stmt->close();
 		exit;
 	}

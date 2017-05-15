@@ -66,8 +66,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <br>
 <br>
+<br>
 <h2>Payment Cancelled</h2>
 <p>For more information please check your paypal account or email. Thank you.</p>
+<br>
 <br>
 
 <p> &nbsp;&nbsp;</p>

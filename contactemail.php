@@ -13,7 +13,7 @@
   $mail->Password = '*1973nutrifarmcorporation';             // SMTP password
   $mail->SMTPSecure = 'tls';                         // Enable TLS encryption, `ssl` also accepted
   $mail->Port = 587;
-  $mail->addAddress('jamielousulit@gmail.com');
+  $mail->addAddress('grayenterprisethesis@gmail.com');
 
   $email=$_POST['Email'];             // email kong san sya mag rereply
   $name=$_POST['Name'];
@@ -23,11 +23,10 @@
 
   $subject=$_POST['Subject'];
   $message=$_POST['Message'];
-  $contactMessage = '<h1>Hello!</h1>';
-  $contactMessage .= '<p>From: ' .$name. '</p>';
+  $contactMessage = '<h1>Good Day! You have receive an email from ' .$name. '</h1>';
+  $contactMessage .= '<p>Email: ' .$email. '</p>';
   $contactMessage .= 'Message: <br>';
   $contactMessage .= '           "' .$message. '"';
-  $contactMessage .= '<p>Reply to: ' .$email. '</p>';
   $mail->Subject = $subject;
   $mail->Body    = $contactMessage;
 

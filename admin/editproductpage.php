@@ -174,7 +174,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                                         <form role='form' action='delproductphotoprocess.php' method='post' enctype='multipart/form-data'>
                                             <input type='hidden' class='form-control'  name='delphotoID' id='delphotoID' maxlength='6' value=".$row['productID']." required readonly>
                                             <label for='fileToDelete' class='btn btn-default'>Delete</label>
-                                            <input style='display:none; visibility:hidden;' class='btn btn-primary' type='submit' value='' name='fileToDelete' id='fileToDelete' maxlength='200' Onclick=\"return ConfirmDelete()\">
+                                            <input style='display:none; visibility:hidden;' class='btn btn-primary' type='submit'  name='fileToDelete' id='fileToDelete' maxlength='200' Onclick=\"return ConfirmDelete()\">
                                         </form>
                                         <form role='form' action='editproductprocess.php' method='post' enctype='multipart/form-data'>
                                         <label for='fileToReplace' class='btn btn-default'>Replace</label>

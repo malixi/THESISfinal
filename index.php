@@ -154,15 +154,18 @@ $products_item = '<ul class="products">';
 //fetch results set as object and output HTML
 while($obj = $results->fetch_object())
 {
+if($obj->image == NULL){
+
 $products_item .= <<<EOT
   <li class="product">
   <form method="post" action="cart_update.php">
   <div class="hover11">
 
-  <div class="product-thumb"><figure> <a href="viewproducts.php?pname={$obj->productID}" class=""><img src="admin/productimage/{$obj->image}" width="150px" height="150px"></a></figure></div>
+  <div class="product-thumb"><figure> <a href="viewproducts.php?pname={$obj->productID}" class=""><img src="admin/productimage/default.png" width="150px" height="150px"></a></figure></div>
   <div class="product-content"><h3>{$obj->name}</h3>
   <div class="product-info">
   Price {$currency}{$obj->price}
+
 
   <fieldset>
 
@@ -178,11 +181,45 @@ $products_item .= <<<EOT
   <input type="hidden" name="type" value="add" />
   <input type="hidden" name="return_url" value="{$current_url}" />
   <div align="center"><button type="submit" class="add_to_cart">Add</button></div>
-  
+
   </div></div>
   </form>
   </li>
 EOT;
+}
+else{
+
+$products_item .= <<<EOT
+  <li class="product">
+  <form method="post" action="cart_update.php">
+  <div class="hover11">
+
+  <div class="product-thumb"><figure> <a href="viewproducts.php?pname={$obj->productID}" class=""><img src="admin/productimage/{$obj->image}" width="150px" height="150px"></a></figure></div>
+  <div class="product-content"><h3>{$obj->name}</h3>
+  <div class="product-info">
+  Price {$currency}{$obj->price}
+
+
+  <fieldset>
+
+
+
+  <label>
+    <span>Quantity</span>
+    <input type="text" size="2" maxlength="2" name="product_qty" value="1" />
+  </label>
+
+  </fieldset>
+  <input type="hidden" name="product_code" value="{$obj->product_code}"  />
+  <input type="hidden" name="type" value="add" />
+  <input type="hidden" name="return_url" value="{$current_url}" />
+  <div align="center"><button type="submit" class="add_to_cart">Add</button></div>
+
+  </div></div>
+  </form>
+  </li>
+EOT;
+}
 }
 $products_item .= '</ul>';
 echo $products_item;

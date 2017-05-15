@@ -130,7 +130,7 @@ if(isset($_GET['dosearch'])){
             <div class="sidebar-nav navbar-collapse">
 
                 <ul class="nav" id="side-menu">
-                    
+
                     <li>
                         <a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
@@ -140,7 +140,7 @@ if(isset($_GET['dosearch'])){
                     <li>
                         <a href="viewadminpage.php"><i class="fa fa-dashboard fa-fw"></i> Admins</a>
                     </li>
-                    
+
                 </ul>
 
             </div>
@@ -186,7 +186,7 @@ if(isset($_GET['dosearch'])){
                 <table class='table table-hover'>
                     <thead>
                         <tr>
-                            <th>Product Image</th>
+                            <th>Product</th>
                             <th>Product ID</th>
                             <th>Product Name</th>
                             <th>Product Date Created</th>

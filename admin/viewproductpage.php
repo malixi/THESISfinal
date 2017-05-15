@@ -199,7 +199,16 @@ if(isset($_GET['dosearch'])){
                     while($row = mysqli_fetch_array($results)){
                         echo
                             "<tr>
-                                <td><img id='prodImg' src='productimage/".$row['image']."' width='100px' heigh=''/></td>
+                                <td>";
+
+																if($row['image'] == NULL){
+		                                echo "
+		                                <img id='prodImg' src='productimage/default.png' width='100px' heigh=''/></td>";
+		                            } else{
+																	echo "
+																<img id='prodImg' src='productimage/".$row['image']."' width='100px' heigh=''/></td>";
+															}
+															echo "
                                 <td>" .$row['product_code']. "</td>
                                 <td>" .$row['name']. "</td>
                                 <td>" .$row['date_created']. "</td>

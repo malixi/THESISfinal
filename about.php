@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	  <?php include_once("analyticstracking.php") ?>
 <title></title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -36,7 +37,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<div class="ca-r">
 					<div class="cart box_1">
-						<a href="checkout.html">
+						<a href="view_cart.php">
 						<h3> <div class="total">
 							<span class="simpleCart_total"></span> </div>
 							<img src="images/cart.png" alt=""/></h3>
@@ -52,6 +53,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 		<div class="container">
 			<?php include 'navbar.php'; ?>
+		<!-- grow -->
+	<div class="grow">
+		<div class="container">
+			<h2>About Us</h2>
+		</div>
+	</div>
+	<!-- grow -->
 
 
 
@@ -79,6 +87,27 @@ Now, with more than 40 years of expertise in farming and export, Gray Enterprise
             </div>
           </div>
         </div>
+        <script>
+$(document).ready(function () {
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            $('.scrollup').fadeIn();
+        } else {
+            $('.scrollup').fadeOut();
+        }
+    });
+
+    $('.scrollup').click(function () {
+        $("html, body").animate({
+            scrollTop: 0
+        }, 600);
+        return false;
+    });
+
+});
+</script>
+<a href="#" class="scrollup">Scroll</a>
 
 				<?php include 'footer.php'; ?>
 				</body>

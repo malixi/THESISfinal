@@ -4,6 +4,7 @@
 	require_once('connector.php');
 
 	$prodName=$_POST['addname'];
+	$prodCode=$_POST['addproductcode'];
 	$prodID=$_POST['addproductcode'];
 	$prodPrice=$_POST['addprice'];
 	$prodDesc=$_POST['adddescription'];
@@ -59,10 +60,10 @@
 				$stmt->close();
 				exit;
 			} else {
-				$stmt2 = $dbconn->prepare('INSERT INTO products (productID, name, price, image, description, quantity, date_created) VALUES (?, ?, ?, ?, ?, ?, ?)');
-				$stmt2->bind_param('isdssis', $prodID, $prodName, $prodPrice, $prodphoto, $prodDesc, $prodQty, $prodCreated);
+				$stmt2 = $dbconn->prepare('INSERT INTO products (productID, product_code, name, price, image, description, quantity, date_created) VALUES (?,?, ?, ?, ?, ?, ?, ?)');
+				$stmt2->bind_param('issdssis', $prodID, $prodCode, $prodName, $prodPrice, $prodphoto, $prodDesc, $prodQty, $prodCreated);
 				$stmt2->execute();
-				echo"<script>window.alert('Product added.');</script>";
+				echo"<script>toastr.options.onShown = function() { console.log('hello'); };</script>";
 				echo"<script>location.href='viewproductpage.php';</script>";
 			}
 	    } else {

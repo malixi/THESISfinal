@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<?php include_once("analyticstracking.php") ?>
 <title></title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -36,7 +37,7 @@
 
 				<div class="ca-r">
 					<div class="cart box_1">
-						<a href="checkout.html">
+						<a href="view_cart.php">
 						<h3> <div class="total">
 							<span class="simpleCart_total"></span> </div>
 							<img src="images/cart.png" alt=""/></h3>
@@ -66,17 +67,20 @@
 			<div class="contact-form">
 
 				<div class="col-md-8 contact-grid">
-					<form action="#" method="post">
-						<input type="text" value="Name" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Name';}">
 
-						<input type="text" value="Email" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Email';}">
-						<input type="text" value="Subject" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Subject';}">
+					  					  <form action="contactemail.php" method="post">
+					  					    <input type="text" value="Name" name="Name" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Name';}" required />
 
-						<textarea cols="77" rows="6" value=" " onfocus="this.value='';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
-						<div class="send">
-							<input type="submit" value="Send">
-						</div>
-					</form>
+					  					    <input type="text" value="Email" name="Email" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Email';}" required />
+					  					    <input type="text" value="Subject" name="Subject" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Subject';}" required />
+
+					  					    <textarea cols="77" rows="6" value=" " name="Message" onfocus="this.value='';" onblur="if (this.value == '') {this.value = 'Message';}" required>Message</textarea>
+					  					    <div class="send">
+					  					      <input type="submit" name="submit" value="Send">
+					  					    </div>
+					  					  </form>
+
+
 				</div>
 
 				<div class="col-md-4 contact-in">
@@ -111,6 +115,27 @@ llanesfarm@gmail.com
 
 
 	</div>
+	<script>
+$(document).ready(function () {
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            $('.scrollup').fadeIn();
+        } else {
+            $('.scrollup').fadeOut();
+        }
+    });
+
+    $('.scrollup').click(function () {
+        $("html, body").animate({
+            scrollTop: 0
+        }, 600);
+        return false;
+    });
+
+});
+</script>
+<a href="#" class="scrollup">Scroll</a>
 
 	<?php include 'footer.php'; ?>
 

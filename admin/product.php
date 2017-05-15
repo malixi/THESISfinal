@@ -128,7 +128,7 @@ if(isset($_GET['dosearch'])){
             <div class="sidebar-nav navbar-collapse">
 
                 <ul class="nav" id="side-menu">
-                    
+
                     <li>
                         <a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
@@ -138,7 +138,7 @@ if(isset($_GET['dosearch'])){
                     <li>
                         <a href="viewadminpage.php"><i class="fa fa-dashboard fa-fw"></i> Admins</a>
                     </li>
-                    
+
                 </ul>
 
             </div>
@@ -173,15 +173,23 @@ if(isset($_GET['dosearch'])){
 								<div class="item-container">
 									<div class="container">
 										<div class="col-md-12">
-											<div class="product col-md-3 service-image-left">
+											<div class="product col-md-3 service-image-left">';
 
+											if($row['image'] == NULL)
+											echo '
+											<center>
+												<img id="item-display" src="productimage/default.png" alt=""></img>
+											</center>
+											';
+											else{
+echo '
 												<center>
 													<img id="item-display" src="productimage/' .$row['image']. '" alt=""></img>
 												</center>
-											</div>
+											</div>';
+}
 
-
-
+echo '
 										<div class="col-md-7">
 											<div class="product-title">'  .$row['name']. '</div>
 											<div class="product-desc">'  .$row['description']. '</div>

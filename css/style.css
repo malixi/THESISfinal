@@ -3276,4 +3276,16 @@ hr.style14 {
   background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
   background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
 }
- /* end service*/
+ 
+ .scrollup {
+    width: 22%;
+    height: 29%;
+    position: fixed;
+    bottom: -125px;
+    right: -250px;
+    display: none;
+    text-indent: -9999px;
+    background: url('http://1.bp.blogspot.com/-Ll6d8n0qamQ/VP3lZ8Q7n9I/AAAAAAAALrw/Yur7cKlr9WU/s1600/arrow-up-icon(1).png') no-repeat;
+    background-size: 70px, auto, 150px;
+    
+}

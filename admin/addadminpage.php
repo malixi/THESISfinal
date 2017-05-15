@@ -56,9 +56,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-
-            <a class="navbar-brand" href="home.php">GREY ENTERPRISE</a>
-
+            <a class="navbar-brand" href="home.php">Llanes Farm</a>
         </div>
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -114,44 +112,21 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
         </ul>
 
         <!-- Sidebar -->
-        <div class="navbar-default sidebar" role="navigation">
+				<div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
 
                 <ul class="nav" id="side-menu">
 
-                    <li class="sidebar-search">
-                        <div class="input-group custom-search-form">
-                            <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary" type="button">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
-                        </div>
+                    <li>
+                        <a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
-										<li>
-												<a href="home.php" ><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-										</li>
-										<li>
-												<a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i> Products</a>
-										</li>
-										<li>
-												<a href="viewadminpage.php" class="active" ><i class="fa fa-dashboard fa-fw"></i> Admin</a>
-										</li>
-										<li>
-												<a href="changemail.php" ><i class="fa fa-dashboard fa-fw"></i> Change email</a>
-										</li>
-										<li>
-												<a href="changepass.php" ><i class="fa fa-dashboard fa-fw"></i> Change pass</a>
-										</li>
+                    <li>
+                        <a href="viewproductpage.php"><i class="glyphicon glyphicon-shopping-cart"></i> Products</a>
+                    </li>
+                    <li>
+                        <a href="viewadminpage.php" class="active"><i class="glyphicon glyphicon-user"></i> Admins</a>
+                    </li>
 
-                    <li>
-                        <a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i> Products</a>
-                    </li>
-                    <li>
-                        <a href="viewadminpage.php" class="active"><i class="fa fa-dashboard fa-fw active"></i> Admins</a>
-                    </li>
-                    
                 </ul>
 
             </div>
@@ -187,9 +162,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                             <label>UserName</label>
                             <input type="text" class="form-control" name="username" id="addprice" required>
                         </div>
-
 												<div class="form-group">
-
                             <input type="hidden" value="Y" class="form-control" name="userstatus" id="userstatus" required>
                         </div>
                         <div class="form-group">

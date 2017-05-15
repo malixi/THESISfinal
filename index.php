@@ -1,16 +1,7 @@
-<?php
-
-session_start();
-
-DEFINE ('DB_USER', 'root');
-DEFINE ('DB_PASSWORD', '');
-DEFINE ('DB_HOST', 'localhost');
-DEFINE ('DB_NAME', 'grayenterprise');
-
-
-?>﻿
+<?php session_start();?>
 <html>
 <head>
+  <?php include_once("analyticstracking.php") ?>
 <title></title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
@@ -32,104 +23,53 @@ DEFINE ('DB_NAME', 'grayenterprise');
 <script type="text/javascript" src="js/memenu.js"></script>
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>
 <script src="js/simpleCart.min.js"> </script>
+
+
+<style>
+
+.testing1 {
+  position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 4;
+}
+
+
+</style>
+
+
+
 </head>
 <body>
-<!--header-->
-<div class="header">
-	<div class="header-top">
-		<div class="container">
+	<?php include 'header.php';    ?>
+	<!-- search-scripts -->
+						<script src="js/classie.js"></script>
+						<script src="js/uisearch.js"></script>
+							<script>
+								new UISearch( document.getElementById( 'sb-search' ) );
+							</script>
+						<!-- //search-scripts -->
 
-			<div class="header-left">
+					<div class="ca-r">
+						<div class="cart box_1">
+							<a href="view_cart.php">
+							<h3> <div class="total">
+								<span class="simpleCart_total"></span> </div>
+								<img src="images/cart.png" alt=""/></h3>
+							</a>
+							<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
 
-
-
-
-				<div class="search-box">
-					<div   class="sb-search sb-search-open">
-						<form action="searchproductuser.php" method="get">
-							<input class="sb-search-input"  placeholder="Enter your search term..." type="search" name="search"  id="search">
-							<input class="sb-search-submit" type="submit" value="">
-							<span class="sb-icon-search"> </span>
-
-													</form>
-												</div>
-
-
-
-
-											</div></div>
-											<div class="cotainer">
-							<div id="product_0" class="name" style="display:none"><a href="http://localhost:8080/THESISfinal/coconutjam.php">Coconut Jam</a>
-  <br/>
-  <br/>
-  <br/>
-</div>
-<div id="product_1" class="name" style="display:none">PC
-  <br/>Windows
-  <br/>
-  <br/>
-</div>
-
-</div>
-<!-- search-scripts -->
-<script>
-function gid(a_id) {
-return document.getElementById(a_id);
-}
-
-function close_all() {
-
-for (i = 0; i < 999; i++) {
-var o = gid("product_" + i);
-if (o) {
-o.style.display = "none";
-}
-}
-
-}
-
-
-function find_my_div() {
-close_all();
-
-var o_edit = gid("edit_search");
-var str_needle = edit_search.value;
-str_needle = str_needle.toUpperCase();
-var searchStrings = str_needle.split(/\W/);
-
-for (var i = 0, len = searchStrings.length; i < len; i++) {
-var currentSearch = searchStrings[i].toUpperCase();
-if (currentSearch !== "") {
-nameDivs = document.getElementsByClassName("name");
-for (var j = 0, divsLen = nameDivs.length; j < divsLen; j++) {
-if (nameDivs[j].textContent.toUpperCase().indexOf(currentSearch) !== -1) {
-	nameDivs[j].style.display = "block";
-}
-}
-}
-}
-}
-</script>
-					<!-- //search-scripts -->
-
-				<div class="ca-r">
-					<div class="cart box_1">
-						<a href="checkout.html">
-						<h3> <div class="total">
-							<span class="simpleCart_total"></span> </div>
-							<img src="images/cart.png" alt=""/></h3>
-						</a>
-						<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
-
+						</div>
 					</div>
+						<div class="clearfix"> </div>
 				</div>
-					<div class="clearfix"> </div>
-			</div>
 
-		</div>
-		</div>
-		<div class="container">
-			<?php include 'navbar.php'; ?>
+			</div>
+			</div>
+			<div class="container">
+				<?php include 'navbar.php'; ?>
+
+
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
@@ -175,59 +115,137 @@ if (nameDivs[j].textContent.toUpperCase().indexOf(currentSearch) !== -1) {
       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
-</div>
+</div></div></div>
+
 <!--content-->
-<div id="tour" class="bg-1">
-  <div class="container">
 
 
-
+<div class="container">
     <div class="row text-center">
 
 
 
 				<br><br><h3 class="text-center">FEATURED PRODUCTS</h1>
         </font></h3>
+</div></div></div>
+		<?php
 
-				<?php
-
-			$con=mysqli_connect('localhost','root','','grayenterprise');
-
-
+include_once("configuration.php");
 
 
-
-			$results = mysqli_query ($con,'SELECT * FROM products  ORDER BY productID DESC LIMIT 3 ');
-
-			while($row = mysqli_fetch_array($results)){
-
-
-        echo '<div class="col-sm-4">
-
-					<div class="hover11 column grid-top  simpleCart_shelfItem">
-<div>
-<figure>
-						<a  href="viewproducts.php?pname='  .$row['productID']. '" class="">
-						<img src="admin/productimage/' .$row['image']. '" width="50%" alt=""></a></figure></div>
-							<div class="b-wrapper">
+//current URL of the Page. cart_update.php redirects back to this URL
+$current_url = urlencode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+?>
+<link href="style/style.css" rel="stylesheet" type="text/css">
 
 
-					<p><center>'  .$row['name']. '</center></a></p>
-					<a href="viewproducts.php?pname='  .$row['name']. '" class="item_add"><p class="number item_price"><i> </i>&#8369;'  .$row['price']. '</p></a>
-					</div>
-        </div>
-      </div>';
+
+<!-- View Cart Box Start -->
+<div class="container testing1">
+</div>
+<!-- View Cart Box End -->
 
 
-		}
-		?>
+<!-- Products List Start -->
+<?php
+$results = $mysqli->query("SELECT productID, product_code, name, description, image, price FROM products ORDER BY productID LIMIT 4");
+if($results){
+$products_item = '<ul class="products">';
+//fetch results set as object and output HTML
+while($obj = $results->fetch_object())
+{
+if($obj->image == NULL){
+
+$products_item .= <<<EOT
+  <li class="product">
+  <form method="post" action="cart_update.php">
+  <div class="hover11">
+
+  <div class="product-thumb"><figure> <a href="viewproducts.php?pname={$obj->productID}" class=""><img src="admin/productimage/default.png" width="150px" height="150px"></a></figure></div>
+  <div class="product-content"><h3>{$obj->name}</h3>
+  <div class="product-info">
+  Price {$currency}{$obj->price}
 
 
-							<div class="clearfix"> </div>
-				</div>
-			</div>
-		</div>
-	<!----->
+  <fieldset>
+
+
+
+  <label>
+    <span>Quantity</span>
+    <input type="text" size="2" maxlength="2" name="product_qty" value="1" />
+  </label>
+
+  </fieldset>
+  <input type="hidden" name="product_code" value="{$obj->product_code}"  />
+  <input type="hidden" name="type" value="add" />
+  <input type="hidden" name="return_url" value="{$current_url}" />
+  <div align="center"><button type="submit" class="add_to_cart">Add</button></div>
+
+  </div></div>
+  </form>
+  </li>
+EOT;
+}
+else{
+
+$products_item .= <<<EOT
+  <li class="product">
+  <form method="post" action="cart_update.php">
+  <div class="hover11">
+
+  <div class="product-thumb"><figure> <a href="viewproducts.php?pname={$obj->productID}" class=""><img src="admin/productimage/{$obj->image}" width="150px" height="150px"></a></figure></div>
+  <div class="product-content"><h3>{$obj->name}</h3>
+  <div class="product-info">
+  Price {$currency}{$obj->price}
+
+
+  <fieldset>
+
+
+
+  <label>
+    <span>Quantity</span>
+    <input type="text" size="2" maxlength="2" name="product_qty" value="1" />
+  </label>
+
+  </fieldset>
+  <input type="hidden" name="product_code" value="{$obj->product_code}"  />
+  <input type="hidden" name="type" value="add" />
+  <input type="hidden" name="return_url" value="{$current_url}" />
+  <div align="center"><button type="submit" class="add_to_cart">Add</button></div>
+
+  </div></div>
+  </form>
+  </li>
+EOT;
+}
+}
+$products_item .= '</ul>';
+echo $products_item;
+}
+?>
+<script>
+$(document).ready(function () {
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            $('.scrollup').fadeIn();
+        } else {
+            $('.scrollup').fadeOut();
+        }
+    });
+
+    $('.scrollup').click(function () {
+        $("html, body").animate({
+            scrollTop: 0
+        }, 600);
+        return false;
+    });
+
+});
+</script>
+<a href="#" class="scrollup">Scroll</a>
 <?php include 'footer.php'; ?>
 </body>
 </html>

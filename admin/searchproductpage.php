@@ -32,7 +32,7 @@ $search = $_GET['search'];
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Llanes Farm</title>
+    <title>Gray EnterPrise</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -66,7 +66,7 @@ $search = $_GET['search'];
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" href="home.php">GREY ENTERPRISE</a>
+            <a class="navbar-brand" href="home.php">Gray Enterprise</a>
         </div>
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -78,7 +78,7 @@ $search = $_GET['search'];
 
         <!-- Top Navigation: Left Menu -->
         <ul class="nav navbar-nav navbar-left navbar-top-links">
-            <li><a href="../index.php"><i class="fa fa-home fa-fw"></i> Website</a></li>
+            <li><a href="../index.html" target="_blank"><i class="fa fa-home fa-fw"></i> Website</a></li>
         </ul>
 
         <!-- Top Navigation: Right Menu -->
@@ -126,17 +126,17 @@ $search = $_GET['search'];
             <div class="sidebar-nav navbar-collapse">
 
                 <ul class="nav" id="side-menu">
-                    
+
                     <li>
-                        <a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="home.php" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="viewproductpage.php" class="active"><i class="fa fa-dashboard fa-fw"></i> Products</a>
+                        <a href="viewproductpage.php"><i class="glyphicon glyphicon-shopping-cart"></i> Products</a>
                     </li>
                     <li>
-                        <a href="viewadminpage.php"><i class="fa fa-dashboard fa-fw"></i> Admins</a>
+                        <a href="viewadminpage.php"><i class="glyphicon glyphicon-user"></i> Admins</a>
                     </li>
-                    
+
                 </ul>
 
             </div>
@@ -149,7 +149,7 @@ $search = $_GET['search'];
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Add Product</h1>
+                    <h1 class="page-header"></h1>
                 </div>
             </div>
 
@@ -160,32 +160,25 @@ $search = $_GET['search'];
             <!-- ... Your content goes here ... -->
             <div class="row">
                 <div class='col-lg-6'>
-                  <form role="form" action="searchproductpage.php" method="GET" class="form-inline">
-                             <label>Search</label>
-                             <input type="text" class="form-control" name="search" id="search" placeholder="Search">
-                             <input type="submit" class="btn btn-primary" value="Search">
-                         <hr>
-                     </form>
-                 </div>
-                <div class='col-lg-6'>
-                  <form role="form" action="addproductpage.php" method="post">
-                      <input type="submit" class="btn btn-primary" value="Add Products" name="submit">
-                      <hr>
-                  </form>
-              </div>
-                <!--
-
+                    <form role="form" action="searchproductpage.php" method="GET" class="form-inline">
+                            <label>Search</label>
+                            <input type="text" class="form-control" name="search" id="search" placeholder="Search">
+                            <input type="submit" class="btn btn-primary" value="Search">
+                        <hr>
+                    </form>
+                </div>
 
                 <?php
 
-                    $results = mysqli_query ($dbconn,'SELECT * FROM products WHERE name  LIKE "%'.$search.'%"');
-
-
+                    $results = mysqli_query ($dbconn,'SELECT * FROM products WHERE name LIKE "%'.$search.'%"');
+                    if(empty($results->num_rows > 0 && $search)){
+                        echo "<h2>No Results Found.</h2>";
+                    }else {
                 echo "<table class='table table.bordered'>
                     <thead>
                         <tr>
-                        	<th>Product Image</th>
-                            <th>Product ID</th>
+                            <th>Product</th>
+                            <th>Product Code</th>
                             <th>Product Name</th>
                             <th>Product Date Created</th>
                             <th>Product Actions</th>
@@ -193,41 +186,43 @@ $search = $_GET['search'];
                     </thead>
                     <tbody>";
 
-                if($results->num_rows > 0) {
+                    if($results->num_rows > 0) {
+                        while($row = mysqli_fetch_array($results)){
+                            echo
+                                "<tr>
+                                    <td>";
 
-                while($row = mysqli_fetch_array($results)){
-                    echo
-                        "<tr>
-                            <td><img id='prodImg' src='productimage/".$row['image']."' width='100px' heigh=''/></td>
-                            <td>" .$row['productID']. "</td>
-                            <td>" .$row['name']. "</td>
-                            <td>" .$row['date_created']. "</td>
-                            <td>
-                                <div>
-                                    <form method='POST' action='editproductpage.php'>
-                                        <input type='hidden' name='PNAME' value='".$row['productID']."' />
-                                        <input type='submit' class='btn btn-warning col-lg-4' value='Edit' name='submit'>
-                                    </form>
-                                </div>
-                                <div>
-                                    <form method='POST' action='delproductprocess.php'>
-                                        <input type='hidden' name='PNAME' value='".$row['productID']."' />
-                                        <input type='submit' class='btn btn-danger col-lg-4' value='Delete' name='submit' Onclick=\"return ConfirmDelete()\">
-                                    </form>
-                                </div>
-								<div>
-										<form method='POST' action='product.php'>
-												<input type='hidden' name='PNAME' value='".$row['productID']."' />
-												<input type='submit' class='btn btn-primary col-lg-4' value='View' name='submit'>
-										</form>
-								</div>
-                            </td>
-                        </tr>";
+    																if($row['image'] == NULL){
+    		                                echo "
+    		                                <img id='prodImg' src='productimage/default.png' width='100px' heigh=''/></td>";
+    		                            } else{
+    																	echo "
+    																<img id='prodImg' src='productimage/".$row['image']."' width='100px' heigh=''/></td>";
+    															}
+    															echo "
+                                    <td>" .$row['product_code']. "</td>
+                                    <td>" .$row['name']. "</td>
+                                    <td>" .$row['date_created']. "</td>
+                                    <td>
+                                        <div>
+                                        <form method='POST' action='delproductprocess.php'>
+                                            <input type='hidden' name='PNAME' value='".$row['productID']."' />
+                                            <input type='submit' class='btn btn-danger col-lg-4' value='Delete' name='submit' Onclick=\"return ConfirmDelete()\">
+                                        </form>
+                                    </div>
+                                    <div>
+                                            <form method='POST' action='product.php'>
+                                                    <input type='hidden' name='PNAME' value='".$row['productID']."' />
+                                                    <input type='submit' class='btn btn-primary col-lg-4' value='View' name='submit'>
+                                            </form>
+                                    </div>
+                                </td>
+                            </tr>";
                     }
                 }
 
                 echo "</tbody>
-                    </table>";
+                    </table>";}
                 ?>
             </div>
         </div>

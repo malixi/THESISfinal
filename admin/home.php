@@ -18,6 +18,15 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<script>
+	(function(w,d,s,g,js,fs){
+	  g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(f){this.q.push(f);}};
+	  js=d.createElement(s);fs=d.getElementsByTagName(s)[0];
+	  js.src='https://apis.google.com/js/platform.js';
+	  fs.parentNode.insertBefore(js,fs);js.onload=function(){g.load('analytics');};
+	}(window,document,'script'));
+	</script>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -58,7 +67,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" href="home.php">GREY ENTERPRISE</a>
+            <a class="navbar-brand" href="home.php">GRAY ENTERPRISE</a>
         </div>
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -70,7 +79,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         <!-- Top Navigation: Left Menu -->
         <ul class="nav navbar-nav navbar-left navbar-top-links">
-            <li><a href="../index.php"><i class="fa fa-home fa-fw"></i> Website</a></li>
+            <li><a href="../index.php" target="_blank"><i class="fa fa-home fa-fw"></i> Website</a></li>
         </ul>
 
         <!-- Top Navigation: Right Menu -->
@@ -118,17 +127,17 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
             <div class="sidebar-nav navbar-collapse">
 
                 <ul class="nav" id="side-menu">
-                    
+
                     <li>
                         <a href="home.php" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i> Products</a>
+                        <a href="viewproductpage.php"><i class="glyphicon glyphicon-shopping-cart"></i> Products</a>
                     </li>
                     <li>
-                        <a href="viewadminpage.php"><i class="fa fa-dashboard fa-fw"></i> Admins</a>
+                        <a href="viewadminpage.php"><i class="glyphicon glyphicon-user"></i> Admins</a>
                     </li>
-                    
+
                 </ul>
 
             </div>
@@ -145,7 +154,68 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 </div>
             </div>
 
-            <!-- ... Your content goes here ... -->
+						<div id="embed-api-auth-container"></div>
+	<div id="chart-container"></div>
+	<div id="view-selector-container"></div>
+
+	<script>
+
+gapi.analytics.ready(function() {
+
+  /**
+   * Authorize the user immediately if the user has already granted access.
+   * If no access has been created, render an authorize button inside the
+   * element with the ID "embed-api-auth-container".
+   */
+  gapi.analytics.auth.authorize({
+    container: 'embed-api-auth-container',
+    clientid: '948177923930-lj3pj0e4vo8p996n3nvbfp4l4nupciqc.apps.googleusercontent.com'
+  });
+
+
+  /**
+   * Create a new ViewSelector instance to be rendered inside of an
+   * element with the id "view-selector-container".
+   */
+  var viewSelector = new gapi.analytics.ViewSelector({
+    container: 'view-selector-container'
+  });
+
+  // Render the view selector to the page.
+  viewSelector.execute();
+
+
+  /**
+   * Create a new DataChart instance with the given query parameters
+   * and Google chart options. It will be rendered inside an element
+   * with the id "chart-container".
+   */
+  var dataChart = new gapi.analytics.googleCharts.DataChart({
+    query: {
+      metrics: 'ga:sessions',
+      dimensions: 'ga:date',
+      'start-date': '30daysAgo',
+      'end-date': 'yesterday'
+    },
+    chart: {
+      container: 'chart-container',
+      type: 'LINE',
+      options: {
+        width: '100%'
+      }
+    }
+  });
+
+
+  /**
+   * Render the dataChart on the page whenever a new view is selected.
+   */
+  viewSelector.on('change', function(ids) {
+    dataChart.set({query: {ids: ids}}).execute();
+  });
+
+});
+</script>
 
         </div>
     </div>

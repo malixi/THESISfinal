@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<?php include_once("analyticstracking.php") ?>
 	<title></title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
@@ -40,7 +41,7 @@
 
 					<div class="ca-r">
 						<div class="cart box_1">
-							<a href="checkout.html">
+							<a href="view_cart.php">
 							<h3> <div class="total">
 								<span class="simpleCart_total"></span> </div>
 								<img src="images/cart.png" alt=""/></h3>
@@ -56,6 +57,13 @@
 			</div>
 			<div class="container">
 	<?php include 'navbar.php'; ?>
+	<!-- grow -->
+	<div class="grow">
+		<div class="container">
+			<h2>Services</h2>
+		</div>
+	</div>
+	<!-- grow -->
 
 
 <br>
@@ -85,7 +93,27 @@
 
 
 <br><br><br><br>
+<script>
+$(document).ready(function () {
 
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            $('.scrollup').fadeIn();
+        } else {
+            $('.scrollup').fadeOut();
+        }
+    });
+
+    $('.scrollup').click(function () {
+        $("html, body").animate({
+            scrollTop: 0
+        }, 600);
+        return false;
+    });
+
+});
+</script>
+<a href="#" class="scrollup">Scroll</a>
 <?php include 'footer.php'; ?>
 </body>
 </html>

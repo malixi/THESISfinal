@@ -3,13 +3,16 @@ session_start();
 require_once 'class.user.php';
 require_once 'connector.php';
 $user_home = new USER();
+
 if(!$user_home->is_logged_in())
 {
 	$user_home->redirect('index.php');
 }
+
 $stmt = $user_home->runQuery("SELECT * FROM admin WHERE userID=:uid");
 $stmt->execute(array(":uid"=>$_SESSION['userSession']));
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
 ?>
 
 
@@ -57,7 +60,9 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
 
-            <a class="navbar-brand" href="home.php">GREY ENTERPRISE</a>
+
+            <a class="navbar-brand" href="home.php">GRAY ENTERPRISE</a>
+
 
         </div>
 
@@ -70,7 +75,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         <!-- Top Navigation: Left Menu -->
         <ul class="nav navbar-nav navbar-left navbar-top-links">
-            <li><a href="../index.php"><i class="fa fa-home fa-fw"></i> Website</a></li>
+            <li><a href="../index.php" target="_blank"><i class="fa fa-home fa-fw"></i> Website</a></li>
         </ul>
 
         <!-- Top Navigation: Right Menu -->
@@ -119,36 +124,16 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
                 <ul class="nav" id="side-menu">
 
-                    <li class="sidebar-search">
-                        <div class="input-group custom-search-form">
-                            <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary" type="button">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
-                        </div>
-                    </li>
-										<li>
-                        <a href="home.php" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                    <li>
+                        <a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
                         <a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i> Products</a>
                     </li>
-										<li>
-                        <a href="viewadminpage.php" ><i class="fa fa-dashboard fa-fw"></i> Admin</a>
-                    </li>
-										<li>
-                        <a href="changemail.php" ><i class="fa fa-dashboard fa-fw"></i> Change email</a>
-                    </li>
-										<li>
-                        <a href="changepass.php" ><i class="fa fa-dashboard fa-fw"></i> Change pass</a>
-
-                    </li>
                     <li>
                         <a href="viewadminpage.php" class="active"><i class="fa fa-dashboard fa-fw"></i> Admins</a>
                     </li>
-                    
+
                 </ul>
 
             </div>
@@ -161,46 +146,46 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Edit Administrator</h1>
+                    <h1 class="page-header">Edit Admin</h1>
                 </div>
             </div>
 
             <!-- ... Your content goes here ... -->
 
-                <div class="row">
-                <div class="col-lg-6">
-                    <form role="form" action="editadminprocess.php" method="post">
-                        <div class="form-group">
-                            <label>Admin ID</label>
-                            <input type="number" class="form-control" name="editID" id="editID" <?php echo "value='".$row['userID']."'" ?> maxlength="6" required readonly>
-                        </div>
-                        <div class="form-group">
-                            <label>First Name</label>
-                            <input type="text" class="form-control" <?php echo "value='".$row['FirstName']."'" ?>name="firstname1" id="editname" required maxlength="50">
-                        </div>
-                        <div class="form-group">
-                            <label>Last Name</label>
-                            <input type="text" class="form-control" name="lastname" <?php echo "value='".$row['LastName']."'" ?>id="editprice" required>
-                        </div>
-												<div class="form-group">
-														<label>User Name</label>
-														<input type="text" class="form-control" name="username" <?php echo "value='".$row['userName']."'" ?> id="editprice" required>
-												</div>
-												<div class="form-group">
-														<label>Email Address</label>
-														<input type="email" class="form-control" <?php echo "value='".$row['userEmail']."'" ?> name="emailadd" id="editprice" required>
-												</div>
+						<div class='row'>
+						 <form role="form" action="editadminprocess.php" method="post">
+							 <?php
+	 								$adminID=$_POST['UNAME'];
+	 								$result = mysqli_query($dbconn ,"SELECT * FROM admin WHERE userID = '". $adminID . "' LIMIT 1");
+	 								$row = mysqli_fetch_assoc($result);
+	 								echo "
+								<div class='col-lg-6'>
+										<div class='form-group'>
+										<div class='form-group'>
 
-                        <input type="submit" class="btn btn-primary" value="Edit" name="submit">
-                        <input type="reset" class="btn btn-default" value="Reset">
-                        <hr>
-                    </form>
-                </div>
+												<input type='hidden' class='form-control'  name='editID' id='editID' maxlength='6' value=".$row['userID']." required readonly>
+										</div>
+												<label>First Name</label>
+												<input type='text' class='form-control' name='firstname1' id='editname' maxlength='50' value=".$row['FirstName']." required>
+										</div>
+										<div class='form-group'>
+														<label>Last Name</label>
+														<input type='text' class='form-control' name='lastname' id='editname' maxlength='50' value=".$row['LastName']." required>
+										</div>
+										<div class='form-group'>
+														<label>UserName</label>
+														<input type='text' class='form-control' name='username' id='editname' maxlength='50' value=".$row['userName']." required>
+										</div>
 
-            </div>
-
-        </div>
-    </div>
+												<input type='submit' class='btn btn-primary' value='Edit' name='submit'>
+												<input type='reset' class='btn btn-default' value='Reset'>
+												<hr>
+										</form>
+								</div>
+						</div>";
+						?>
+		</div>
+</div>
 
 </div>
 

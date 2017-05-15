@@ -40,7 +40,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
   				<div class="ca-r">
   					<div class="cart box_1">
-  						<a href="checkout.html">
+  						<a href="view_cart.php">
   						<h3> <div class="total">
   							<span class="simpleCart_total"></span> </div>
   							<img src="images/cart.png" alt=""/></h3>
@@ -56,48 +56,47 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   		</div>
   		<div class="container">
   	<?php include 'navbar.php'; ?>
+    <!-- grow -->
+    <div class="grow">
+      <div class="container">
+        <h2>Search</h2>
+      </div>
+    </div>
 
 
 
-  <?php
-  $search = $_GET['search'];
-  $results = mysqli_query ($dbconn,'SELECT * FROM products WHERE name LIKE "%'.$search.'%"');
-
+<?php
+$search = $_GET['search'];
+$results = mysqli_query ($dbconn,'SELECT * FROM products WHERE name LIKE "%'.$search.'%"');
 if($results->num_rows > 0) {
-
 while($rows = mysqli_fetch_array($results)){?>
 
 <div class='col-sm-4'>
-        <div class='thumbnail'>
-      <div class='grid-top simpleCart_shelfItem'>
-        <a href="viewproducts.php?pname=<?php echo $rows['name'] ?>" class='b-link-stripe b-animate-go  thickbox'><img class='img-responsive' src="admin/productimage/<?php echo $rows["image"];?>" alt=''>
-          <div class='b-wrapper'>
-                  <h3 class='b-animate b-from-left b-delay03' >
-                    <span>"<?php echo $rows['name'] ?>"</span>
-                  </h3>
-                </div>
-        </a>
-      <p><a href="viewproducts.php?pname=<?php echo $rows['name'] ?>">"<?php echo $rows['name'] ?>"</a></p>
-      <a href="viewproducts.php?pname=<?php echo $rows['name'] ?>" class='item_add'><p class='number item_price'><i> </i>&#8369;<?php echo $rows['price'] ?></p></a>
-      </div>
-      </div>
-      </div>
+  <div class='thumbnail'>
+    <div class='grid-top simpleCart_shelfItem'>
+      <a href="viewproducts.php?pname=<?php echo $rows['name'] ?>" class='b-link-stripe b-animate-go  thickbox'><img class='img-responsive' src="admin/productimage/<?php echo $rows["image"];?>" alt=''>
+        <div class='b-wrapper'>
+          <h3 class='b-animate b-from-left b-delay03' >
+            <span>"<?php echo $rows['name'] ?>"</span>
+          </h3>
+        </div>
+      </a>
+    <p><a href="viewproducts.php?pname=<?php echo $rows['name'] ?>">"<?php echo $rows['name'] ?>"</a></p>
+    <a href="viewproducts.php?pname=<?php echo $rows['name'] ?>" class='item_add'><p class='number item_price'><i> </i>&#8369;<?php echo $rows['price'] ?></p></a>
+    </div>
+  </div>
+</div>
 <?php
 }
 
 } else {
-      echo 'no results found';
+  echo "<div class='container'>";
+  echo "<br><br><br><br><h2>No Results Found</h2><br><br><br><br>";
+  echo "</div>";
 }
 
 
   ?>
-<br/><br/><br/><br/><br/><br/>
-<br/><br/><br/><br/><br/><br/>
-<br/><br/><br/><br/><br/><br/>
-
-
-
-<!----->
 <?php include 'footer.php'; ?>
 </body>
 </html>

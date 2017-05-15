@@ -14,6 +14,10 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 ?>
 
+<?php $_SESSION['FirstName1'] = $row['FirstName']; ?>
+<?php $_SESSION['LastName1'] = $row['LastName']; ?>
+<?php $_SESSION['Token'] = $row['TokenCode']; ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -118,7 +122,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
             <div class="sidebar-nav navbar-collapse">
 
                 <ul class="nav" id="side-menu">
-                    
+
                     <li>
                         <a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
@@ -128,7 +132,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                     <li>
                         <a href="viewadminpage.php"><i class="fa fa-dashboard fa-fw"></i> Admins</a>
                     </li>
-                    
+
                 </ul>
 
             </div>
@@ -143,14 +147,14 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                     <h1 class="page-header">Change Email</h1>
                 </div>
             </div>
-            
-            <form class="col-md-5"  action="changemailprocess.php" method="post">
+
+            <form class="col-md-5"  action="changemailprocess.php" method="POST">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Enter new email address</label>
-                    <input type="text" class="form-control input-lg" placeholder="user@gmail.com" name="email">
+                    <input type="email" class="form-control input-lg" placeholder="user@gmail.com" name="email">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control input-lg" placeholder="Confirm email address" name="email1">
+                    <input type="email" class="form-control input-lg" placeholder="Confirm email address" name="email1">
                 </div>
               <br>
               <div class="form-group">

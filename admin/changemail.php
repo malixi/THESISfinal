@@ -151,10 +151,10 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
             <form class="col-md-5"  action="changemailprocess.php" method="POST">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Enter new email address</label>
-                    <input type="text" class="form-control input-lg" placeholder="user@gmail.com" name="email">
+                    <input type="email" class="form-control input-lg" placeholder="user@gmail.com" name="email">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control input-lg" placeholder="Confirm email address" name="email1">
+                    <input type="email" class="form-control input-lg" placeholder="Confirm email address" name="email1">
                 </div>
               <br>
               <div class="form-group">

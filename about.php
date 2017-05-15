@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	  <?php include_once("analyticstracking.php") ?>
 <title></title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

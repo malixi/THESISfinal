@@ -132,11 +132,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					echo '<input type="hidden" name="item_name_'.$x.'" value="'.$product_name.'">';	
 					echo '<input type="hidden" name="item_number_'.$x.'" value="'.$product_code.'">';
 					echo '<input type="hidden" name="amount_'.$x.'" value="'.$product_price.'">';
-					echo '<input type="hidden" name="quantity" value="'.$product_qty.'">';
+					echo '<input type="hidden" name="quantity_'.$x.'" value="'.$product_qty.'">';
 				}
 
-		echo'	
+		echo'		
 				<input type="hidden" name="shipping" value="'.$shipping_cost.'">
+				<input type="hidden" name="tax" value="0.12">
 				<input type="hidden" name="currency_code" value="PHP">
 
 				<input type="hidden" name="cancel_return" value="http://localhost/THESISfinal/cancel.php">

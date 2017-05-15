@@ -13,7 +13,7 @@
   $mail->Password = '*1973nutrifarmcorporation';             // SMTP password
   $mail->SMTPSecure = 'tls';                         // Enable TLS encryption, `ssl` also accepted
   $mail->Port = 587;
-  $mail->addAddress('jamielousulit@gmail.com');
+  $mail->addAddress('grayenterprisethesis@gmail.com');
 
   $email=$_POST['Email'];             // email kong san sya mag rereply
   $name=$_POST['Name'];

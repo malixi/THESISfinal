@@ -65,7 +65,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	<div class="container">
 		<?php
-			if($_SESSION["cart_products"] == NULL){
+			if(empty($_SESSION['cart_products'])){
 				echo "<br><br><br><br><h2>No Products In Cart.</h2><br><br><br><br>";
 			} else {
 		?>
@@ -109,29 +109,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						}
 				    ?>
 				    <tr><td colspan="5"><span style="float:right;text-align: right;"><?php echo $shipping_cost. $list_tax; ?>Amount Payable : <?php echo sprintf("%01.2f", $grand_total);?></span></td></tr>
-				    <tr><td colspan="5"><a href="products.php" class="btn btn-primary">Add More Items</a><button type="submit" class="btn btn-primary">Update</button></td></tr>
+				    <tr><td colspan="5"><a href="products.php" class="btn btn-primary">Continue Shopp</a><button type="submit" class="btn btn-primary">Update</button></td></tr>
 				</tbody>
 			</table>
 			<input type="hidden" name="return_url" value="<?php $current_url = urlencode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']); echo $current_url; ?>"/>
 		</form>
 		<?php 
+
 		echo '<form method="POST" action="https://www.sandbox.paypal.com/cgi-bin/webscr">
 				<input type="hidden" name="business" value="carlolo@gmail.com">
-				<input type="hidden" name="cmd" value="_xclick">
-				<input type="hidden" name="item_name" value="'.$product_name.'">
-				<input type="hidden" name="item_number" value="'.$product_code.'">
-				<input type="hidden" name="quantity" value="'.$product_qty.'">
+				<input type="hidden" name="cmd" value="_cart">
+				<input type="hidden" name="upload" value="1">';
+					$x = 0;
+				foreach ($_SESSION["cart_products"] as $cart_itm){
+					//set variables to use in content below
+					$product_name = $cart_itm["product_name"];
+					$product_qty = $cart_itm["product_qty"];
+					$product_price = $cart_itm["product_price"];
+					$product_code = $cart_itm["product_code"];
+					$num = 'product_qty['.$product_code.']';
+						$x++;			
+					echo '<input type="hidden" name="item_name_'.$x.'" value="'.$product_name.'">';	
+					echo '<input type="hidden" name="item_number_'.$x.'" value="'.$product_code.'">';
+					echo '<input type="hidden" name="amount_'.$x.'" value="'.$product_price.'">';
+					echo '<input type="hidden" name="quantity_'.$x.'" value="'.$product_qty.'">';
+				}
+
+		echo'		
 				<input type="hidden" name="shipping" value="'.$shipping_cost.'">
-				
-				
-				<input type="hidden" name="amount" value="'.$product_price.'">
+				<input type="hidden" name="tax" value="0.12">
 				<input type="hidden" name="currency_code" value="PHP">
 
-				<input type="hidden" name="cancel_return" value="http://localhost/paypal_integration_php/cancel.php">
-			    <input type="hidden" name="return" value="http://localhost/paypal_integration_php/success.php">
+				<input type="hidden" name="cancel_return" value="http://localhost/THESISfinal/cancel.php">
+			    <input type="hidden" name="return" value="http://localhost/THESISfinal/success.php">
 
-			    <input type="image" name="submit" border="0" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" alt="PayPal - The safer, easier way to pay online">
-			    <img alt="" border="0" width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif">
+			    <input type="image" name="submit" border="0" src="https://www.paypalobjects.com/webstatic/en_US/i/btn/png/gold-rect-paypalcheckout-60px.png" alt="PayPal - The safer, easier way to pay online">
 			</form>';
 			}
 		?>

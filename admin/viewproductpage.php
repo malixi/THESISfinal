@@ -126,26 +126,26 @@ if(isset($_GET['dosearch'])){
         </ul>
 
         <!-- Sidebar -->
-        <div class="navbar-default sidebar" role="navigation">
-            <div class="sidebar-nav navbar-collapse">
+				<div class="navbar-default sidebar" role="navigation">
+						<div class="sidebar-nav navbar-collapse">
 
-                <ul class="nav" id="side-menu">
-                    
-                    <li>
-                        <a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="viewproductpage.php" class="active"><i class="fa fa-dashboard fa-fw"></i> Products</a>
-                    </li>
-                    <li>
-                        <a href="viewadminpage.php"><i class="fa fa-dashboard fa-fw"></i> Admins</a>
-                    </li>
-                    
-                </ul>
+								<ul class="nav" id="side-menu">
 
-            </div>
-        </div>
-    </nav>
+										<li>
+												<a href="home.php" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+										</li>
+										<li>
+												<a href="viewproductpage.php"><i class="glyphicon glyphicon-shopping-cart"></i> Products</a>
+										</li>
+										<li>
+												<a href="viewadminpage.php"><i class="glyphicon glyphicon-user"></i> Admins</a>
+										</li>
+
+								</ul>
+
+						</div>
+				</div>
+		</nav>
 
     <!-- Page Content -->
     <div id="page-wrapper">
@@ -186,8 +186,8 @@ if(isset($_GET['dosearch'])){
                 <table class='table table-hover'>
                     <thead>
                         <tr>
-                            <th>Product Image</th>
-                            <th>Product ID</th>
+                            <th>Product</th>
+                            <th>Product Code</th>
                             <th>Product Name</th>
                             <th>Product Date Created</th>
                             <th>Product Actions</th>
@@ -200,7 +200,7 @@ if(isset($_GET['dosearch'])){
                         echo
                             "<tr>
                                 <td><img id='prodImg' src='productimage/".$row['image']."' width='100px' heigh=''/></td>
-                                <td>" .$row['productID']. "</td>
+                                <td>" .$row['product_code']. "</td>
                                 <td>" .$row['name']. "</td>
                                 <td>" .$row['date_created']. "</td>
                                 <td>

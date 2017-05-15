@@ -109,7 +109,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						}
 				    ?>
 				    <tr><td colspan="5"><span style="float:right;text-align: right;"><?php echo $shipping_cost. $list_tax; ?>Amount Payable : <?php echo sprintf("%01.2f", $grand_total);?></span></td></tr>
-				    <tr><td colspan="5"><a href="products.php" class="btn btn-primary">Continue Shopp</a><button type="submit" class="btn btn-primary">Update</button></td></tr>
+				    <tr><td colspan="5"><a href="products.php" class="btn btn-primary">Continue Shop</a><button type="submit" class="btn btn-primary">Update</button></td></tr>
 				</tbody>
 			</table>
 			<input type="hidden" name="return_url" value="<?php $current_url = urlencode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']); echo $current_url; ?>"/>

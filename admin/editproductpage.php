@@ -76,7 +76,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         <!-- Top Navigation: Left Menu -->
         <ul class="nav navbar-nav navbar-left navbar-top-links">
-            <li><a href="../index.php"><i class="fa fa-home fa-fw"></i> Website</a></li>
+            <li><a href="../index.php" target="_blank"><i class="fa fa-home fa-fw"></i> Website</a></li>
         </ul>
 
         <!-- Top Navigation: Right Menu -->
@@ -174,7 +174,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                                         <form role='form' action='delproductphotoprocess.php' method='post' enctype='multipart/form-data'>
                                             <input type='hidden' class='form-control'  name='delphotoID' id='delphotoID' maxlength='6' value=".$row['productID']." required readonly>
                                             <label for='fileToDelete' class='btn btn-default'>Delete</label>
-                                            <input style='display:none; visibility:hidden;' class='btn btn-primary' type='submit' value='' name='fileToDelete' id='fileToDelete' maxlength='200' Onclick=\"return ConfirmDelete()\">
+                                            <input style='display:none; visibility:hidden;' class='btn btn-primary' type='submit'  name='fileToDelete' id='fileToDelete' maxlength='200' Onclick=\"return ConfirmDelete()\">
                                         </form>
                                         <form role='form' action='editproductprocess.php' method='post' enctype='multipart/form-data'>
                                         <label for='fileToReplace' class='btn btn-default'>Replace</label>

@@ -32,7 +32,7 @@
 <div class="ca-r">
 	<div class="cart box_1">
 		<a href="view_cart.php">
-			<h3> 
+			<h3>
 				<div class="total">
 					<span class="simpleCart_total"></span>
 				</div>
@@ -48,7 +48,7 @@
 </div>
 <div class="container">
 <?php include 'navbar.php'; ?>
-				
+
 
 <!-- products -->
 <!-- grow -->
@@ -92,39 +92,78 @@ if(isset($_SESSION["cart_products"]) && count($_SESSION["cart_products"])>0){
 
 <!-- Products List Start -->
 <?php
-$results = $mysqli->query("SELECT productID, product_code, name, description, image, price FROM products");
-if($results->num_rows > 0){
+$results = $mysqli->query("SELECT productID, product_code, name, description, image, price FROM products ORDER BY productID LIMIT 4");
+if($results){
 $products_item = '<ul class="products">';
 //fetch results set as object and output HTML
-while($obj = $results->fetch_object()){
-	$products_item .= <<<EOT
-	<li class="product">
-		<form method="post" action="cart_update.php">
-	<div class="hover11">
+while($obj = $results->fetch_object())
+{
+if($obj->image == NULL){
 
-	<div class="product-thumb"><figure>	<a href="viewproducts.php?pname={$obj->productID}" class=""><img src="admin/productimage/{$obj->image}" width="150px" height="150px"></a></figure></div>
-	<div class="product-content"><h3>{$obj->name}</h3>
-	<div class="product-info">
-	Price {$currency}{$obj->price}
+$products_item .= <<<EOT
+  <li class="product">
+  <form method="post" action="cart_update.php">
+  <div class="hover11">
 
-	<fieldset>
+  <div class="product-thumb"><figure> <a href="viewproducts.php?pname={$obj->productID}" class=""><img src="admin/productimage/default.png" width="150px" height="150px"></a></figure></div>
+  <div class="product-content"><h3>{$obj->name}</h3>
+  <div class="product-info">
+  Price {$currency}{$obj->price}
+
+
+  <fieldset>
 
 
 
-	<label>
-		<span>Quantity</span>
-		<input type="text" size="2" maxlength="2" name="product_qty" value="1" />
-	</label>
+  <label>
+    <span>Quantity</span>
+    <input type="text" size="2" maxlength="2" name="product_qty" value="1" />
+  </label>
 
-	</fieldset>
-	<input type="hidden" name="product_code" value="{$obj->product_code}"  />
-	<input type="hidden" name="type" value="add" />
-	<input type="hidden" name="return_url" value="{$current_url}" />
-	<div align="center"><button type="submit" class="add_to_cart">Add</button></div>
-	</div></div>
-	</form>
-	</li>
+  </fieldset>
+  <input type="hidden" name="product_code" value="{$obj->product_code}"  />
+  <input type="hidden" name="type" value="add" />
+  <input type="hidden" name="return_url" value="{$current_url}" />
+  <div align="center"><button type="submit" class="add_to_cart">Add</button></div>
+
+  </div></div>
+  </form>
+  </li>
 EOT;
+}
+else{
+
+$products_item .= <<<EOT
+  <li class="product">
+  <form method="post" action="cart_update.php">
+  <div class="hover11">
+
+  <div class="product-thumb"><figure> <a href="viewproducts.php?pname={$obj->productID}" class=""><img src="admin/productimage/{$obj->image}" width="150px" height="150px"></a></figure></div>
+  <div class="product-content"><h3>{$obj->name}</h3>
+  <div class="product-info">
+  Price {$currency}{$obj->price}
+
+
+  <fieldset>
+
+
+
+  <label>
+    <span>Quantity</span>
+    <input type="text" size="2" maxlength="2" name="product_qty" value="1" />
+  </label>
+
+  </fieldset>
+  <input type="hidden" name="product_code" value="{$obj->product_code}"  />
+  <input type="hidden" name="type" value="add" />
+  <input type="hidden" name="return_url" value="{$current_url}" />
+  <div align="center"><button type="submit" class="add_to_cart">Add</button></div>
+
+  </div></div>
+  </form>
+  </li>
+EOT;
+}
 }
 $products_item .= '</ul>';
 echo $products_item;

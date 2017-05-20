@@ -203,10 +203,10 @@ if(isset($_GET['dosearch'])){
 
 																if($row['image'] == NULL){
 		                                echo "
-		                                <img id='prodImg' src='productimage/default.png' width='100px' heigh=''/></td>";
+		                                <img id='prodImg' src='productimage/default.png' width='100px' height='100px'/></td>";
 		                            } else{
 																	echo "
-																<img id='prodImg' src='productimage/".$row['image']."' width='100px' heigh=''/></td>";
+																<img id='prodImg' src='productimage/".$row['image']."' width='100px' height='100px'/></td>";
 															}
 															echo "
                                 <td>" .$row['product_code']. "</td>

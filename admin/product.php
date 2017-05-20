@@ -147,97 +147,38 @@ if(isset($_GET['dosearch'])){
     <!-- Page Content -->
     <div id="page-wrapper">
         <div class="container-fluid">
-
+            <?php
+                $prodID=$_POST['PNAME'];
+                $results = mysqli_query ($dbconn ,"SELECT * FROM products WHERE productID = '". $prodID . "'");
+                if($results->num_rows > 0) {
+                    while($row = mysqli_fetch_array($results)){
+            ?>
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Page Title</h1>
+                    <h1 class="page-header"><?php echo $row['name']; ?></h1>
                 </div>
             </div>
 
             <!-- ... Your content goes here ... -->
-
-
-
-													<?php
-													$prodID=$_POST['PNAME'];
-													$results = mysqli_query ($dbconn ,"SELECT * FROM products WHERE productID = '". $prodID . "' LIMIT 1");
-
-
-												if($results->num_rows > 0) {
-
-												while($row = mysqli_fetch_array($results)){
-
-
-						echo '<div class="container-fluid">
-						    <div class="content-wrapper">
-								<div class="item-container">
-									<div class="container">
-										<div class="col-md-12">
-											<div class="product col-md-3 service-image-left">';
-
-											if($row['image'] == NULL)
-											echo '
-											<center>
-												<img id="item-display" src="productimage/default.png" alt=""></img>
-											</center>
-											';
-											else{
-echo '
-												<center>
-													<img id="item-display" src="productimage/' .$row['image']. '" alt=""></img>
-												</center>
-											</div>';
-}
-
-echo '
-										<div class="col-md-7">
-											<div class="product-title">'  .$row['name']. '</div>
-											<div class="product-desc">'  .$row['description']. '</div>
-											<hr>
-											<div class="product-price"> 	&#8369;'  .$row['price']. '</div>
-
-
-											<hr>
-
-
-										</div>
-									</div>
-								</div>
-
-								<div class="container-fluid">
-									<div class="col-md-12 product-info">
-											<ul id="myTab" class="nav nav-tabs nav_tabs">
-
-												<li class="active"><a href="#service-one" data-toggle="tab">DESCRIPTION</a></li>
-
-
-											</ul>
-										<div id="myTabContent" class="tab-content">
-												<div class="tab-pane fade in active" id="service-one">
-
-													<section class="container product-info">
-
-														<h2> '.$row['description'].'</h2>
-
-													</section>
-
-												</div>
-
-										</div>';
-
-									}
-								}
-								?>
-										<hr>
-									</div>
-								</div>
-							</div>
-						</div>
-
-
+            <div class="row">
+                <div class="col-lg-6">
+                    <?php
+                        echo '<img class="col-lg-6" src="productimage/' .$row['image']. '" alt="" ></img>';
+                    ?>
+                </div>
+                <div class="col-lg-6">
+                    <?php
+                        echo '<div class="product-desc"><h2>'  .$row['description']. '</h2></div>';
+                    ?>
+                </div>
+            </div>
+            <!-- ... Your content ends here ... -->
+            <?php
+                    }
+                }
+            ?>
         </div>
     </div>
-
 </div>
 
 <!-- jQuery -->

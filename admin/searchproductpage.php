@@ -32,7 +32,7 @@ $search = $_GET['search'];
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Gray EnterPrise</title>
+    <title>GRAY ENTERPRISE</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -66,7 +66,7 @@ $search = $_GET['search'];
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" href="home.php">Gray Enterprise</a>
+            <a class="navbar-brand" href="home.php">GREY ENTERPISE</a>
         </div>
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -149,7 +149,7 @@ $search = $_GET['search'];
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header"></h1>
+                    <h1 class="page-header">Search</h1>
                 </div>
             </div>
 
@@ -164,15 +164,14 @@ $search = $_GET['search'];
                             <label>Search</label>
                             <input type="text" class="form-control" name="search" id="search" placeholder="Search">
                             <input type="submit" class="btn btn-primary" value="Search">
-                        <hr>
                     </form>
                 </div>
-
+            </div>
                 <?php
 
                     $results = mysqli_query ($dbconn,'SELECT * FROM products WHERE name LIKE "%'.$search.'%"');
                     if(empty($results->num_rows > 0 && $search)){
-                        echo "<h2>No Results Found.</h2>";
+                        echo "<div><h2>No Results Found.</h2></div>";
                     }else {
                 echo "<table class='table table.bordered'>
                     <thead>
@@ -194,17 +193,23 @@ $search = $_GET['search'];
 
     																if($row['image'] == NULL){
     		                                echo "
-    		                                <img id='prodImg' src='productimage/default.png' width='100px' heigh=''/></td>";
+    		                                <img id='prodImg' src='productimage/default.png' width='100px' height='100px'/></td>";
     		                            } else{
     																	echo "
-    																<img id='prodImg' src='productimage/".$row['image']."' width='100px' heigh=''/></td>";
+    																<img id='prodImg' src='productimage/".$row['image']."' width='100px' height='100px'/></td>";
     															}
     															echo "
                                     <td>" .$row['product_code']. "</td>
                                     <td>" .$row['name']. "</td>
                                     <td>" .$row['date_created']. "</td>
                                     <td>
-                                        <div>
+                                    <div>
+                                        <form method='POST' action='editproductpage.php'>
+                                            <input type='hidden' name='PNAME' value='".$row['productID']."' />
+                                            <input type='submit' class='btn btn-warning col-lg-4' value='Edit' name='submit'>
+                                        </form>
+                                    </div>
+                                    <div>
                                         <form method='POST' action='delproductprocess.php'>
                                             <input type='hidden' name='PNAME' value='".$row['productID']."' />
                                             <input type='submit' class='btn btn-danger col-lg-4' value='Delete' name='submit' Onclick=\"return ConfirmDelete()\">
@@ -226,8 +231,6 @@ $search = $_GET['search'];
                 ?>
             </div>
         </div>
-    </div>
-
 </div>
 
 <!-- jQuery -->

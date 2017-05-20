@@ -78,7 +78,7 @@ $search = $_GET['search'];
 
         <!-- Top Navigation: Left Menu -->
         <ul class="nav navbar-nav navbar-left navbar-top-links">
-            <li><a href="../index.html"><i class="fa fa-home fa-fw"></i> Website</a></li>
+            <li><a href="../index.html" target="_blank"><i class="fa fa-home fa-fw"></i> Website</a></li>
         </ul>
 
         <!-- Top Navigation: Right Menu -->
@@ -112,7 +112,7 @@ $search = $_GET['search'];
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
                     </li>
-                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                    <li><a href="usersettings.php"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
                     <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -128,27 +128,15 @@ $search = $_GET['search'];
                 <ul class="nav" id="side-menu">
 
                     <li>
-                        <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="home.php" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="viewproductpage.php"><i class="fa fa-dashboard fa-fw"></i>Product</a>
+                        <a href="viewproductpage.php"><i class="glyphicon glyphicon-shopping-cart"></i> Products</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">Second Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Third Level <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
+                        <a href="viewadminpage.php"><i class="glyphicon glyphicon-user"></i> Admins</a>
                     </li>
+
                 </ul>
 
             </div>
@@ -189,8 +177,8 @@ $search = $_GET['search'];
                 echo "<table class='table table.bordered'>
                     <thead>
                         <tr>
-                            <th>Product Image</th>
-                            <th>Product ID</th>
+                            <th>Product</th>
+                            <th>Product Code</th>
                             <th>Product Name</th>
                             <th>Product Date Created</th>
                             <th>Product Actions</th>
@@ -198,22 +186,25 @@ $search = $_GET['search'];
                     </thead>
                     <tbody>";
 
-                if($results->num_rows > 0) {
-                while($row = mysqli_fetch_array($results)){
-                    echo
-                            "<tr>
-                                <td><img id='prodImg' src='productimage/".$row['image']."' width='100px' heigh=''/></td>
-                                <td>" .$row['productID']. "</td>
-                                <td>" .$row['name']. "</td>
-                                <td>" .$row['date_created']. "</td>
-                                <td>
-                                    <div>
-                                        <form method='POST' action='editproductpage.php'>
-                                            <input type='hidden' name='PNAME' value='".$row['productID']."' />
-                                            <input type='submit' class='btn btn-warning col-lg-4' value='Edit' name='submit'>
-                                        </form>
-                                    </div>
-                                    <div>
+                    if($results->num_rows > 0) {
+                        while($row = mysqli_fetch_array($results)){
+                            echo
+                                "<tr>
+                                    <td>";
+
+    																if($row['image'] == NULL){
+    		                                echo "
+    		                                <img id='prodImg' src='productimage/default.png' width='100px' heigh=''/></td>";
+    		                            } else{
+    																	echo "
+    																<img id='prodImg' src='productimage/".$row['image']."' width='100px' heigh=''/></td>";
+    															}
+    															echo "
+                                    <td>" .$row['product_code']. "</td>
+                                    <td>" .$row['name']. "</td>
+                                    <td>" .$row['date_created']. "</td>
+                                    <td>
+                                        <div>
                                         <form method='POST' action='delproductprocess.php'>
                                             <input type='hidden' name='PNAME' value='".$row['productID']."' />
                                             <input type='submit' class='btn btn-danger col-lg-4' value='Delete' name='submit' Onclick=\"return ConfirmDelete()\">

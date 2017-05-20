@@ -6,7 +6,7 @@ $db_password = '';
 $db_name = 'grayenterprise';
 $db_host = 'localhost';
 
-$shipping_cost      = 1.50; //shipping cost
+$shipping_cost      = 0; //shipping cost
 $taxes              = array( //List your Taxes percent here.
                             'VAT' => 0,
                             'Service Tax' => 0

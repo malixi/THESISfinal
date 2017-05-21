@@ -92,7 +92,7 @@ if(isset($_SESSION["cart_products"]) && count($_SESSION["cart_products"])>0){
 
 <!-- Products List Start -->
 <?php
-$results = $mysqli->query("SELECT productID, product_code, name, description, image, price FROM products ORDER BY productID LIMIT 4");
+$results = $mysqli->query("SELECT productID, product_code, name, description, image, price FROM products ORDER BY productID");
 if($results){
 $products_item = '<ul class="products">';
 //fetch results set as object and output HTML
@@ -103,7 +103,7 @@ if($obj->image == NULL){
 $products_item .= <<<EOT
   <li class="product">
   <form method="post" action="cart_update.php">
-  <div class="hover11">
+  <div class="hover11 well">
 
   <div class="product-thumb"><figure> <a href="viewproducts.php?pname={$obj->productID}" class=""><img src="admin/productimage/default.png" width="150px" height="150px"></a></figure></div>
   <div class="product-content"><h3>{$obj->name}</h3>
@@ -136,7 +136,7 @@ else{
 $products_item .= <<<EOT
   <li class="product">
   <form method="post" action="cart_update.php">
-  <div class="hover11">
+  <div class="hover11 well">
 
   <div class="product-thumb"><figure> <a href="viewproducts.php?pname={$obj->productID}" class=""><img src="admin/productimage/{$obj->image}" width="150px" height="150px"></a></figure></div>
   <div class="product-content"><h3>{$obj->name}</h3>

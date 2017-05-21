@@ -160,10 +160,9 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 				<div class='col-lg-8'>
                     <form role="form" action="addadminpage.php" method="post">
     				<input align="right" type="submit" class="btn btn-primary" value="Add Admin" name="submit">
-                    <hr>
                     </form>
 				</div>
-
+            </div>
                 <?php
                 $results = mysqli_query ($dbconn,'SELECT * FROM admin');
 

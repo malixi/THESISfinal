@@ -92,15 +92,6 @@ require_once 'configuration.php';
     <div class="container">
         <div class="check">
             <div class="col-md-9 cart-items">
-                <script>
-                    $(document).ready(function(c) {
-                        $('.close1').on('click', function(c) {
-                            $('.cart-header').fadeOut('slow', function(c) {
-                                $('.cart-header').remove();
-                            });
-                        });
-                    });
-                </script>
                 <!-- LOOP THIS -->
                 <?php 
                   if(empty($_SESSION['cart_products'])){
@@ -126,7 +117,7 @@ require_once 'configuration.php';
                       </div>
                       <div class="cart-sec simpleCart_shelfItem">
                           <div class="cart-item cyc">
-                              <img src=<?php echo "admin/productimage/".$product_image."" ?> class="img-responsive" alt="" />
+                              <img src=<?php if(empty($product_image)){ echo "admin/productimage/logo.png"; } else { echo "admin/productimage/".$product_image.""; } ?> class="img-responsive" alt="" />
                           </div>
                           <div class="cart-item-info">
                               <h3><a href="#"><?php echo $product_name; ?></a><span><?php echo $product_code; ?></span></h3>
@@ -164,15 +155,6 @@ require_once 'configuration.php';
                 }
                 ?>
                 <!-- LOOP END -->
-                <script>
-                    $(document).ready(function(c) {
-                        $('.close2').on('click', function(c) {
-                            $('.cart-header2').fadeOut('slow', function(c) {
-                                $('.cart-header2').remove();
-                            });
-                        });
-                    });
-                </script>
             </div>
             <div class="col-md-3 cart-total">
                 <a class="continue" href="products.php">Continue Shopping</a>

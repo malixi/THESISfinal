@@ -168,7 +168,7 @@ if($obj->image == NULL){
 $products_item .= <<<EOT
   <li class="product">
   <form method="post" action="cart_update.php">
-  <div class="hover11">
+  <div class="hover11 well">
 
   <div class="product-thumb"><figure> <a href="viewproducts.php?pname={$obj->productID}" class=""><img src="admin/productimage/default.png" width="150px" height="150px"></a></figure></div>
   <div class="product-content"><h3>{$obj->name}</h3>

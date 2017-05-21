@@ -37,7 +37,6 @@ if(isset($_GET['dosearch'])){
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="css/product.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
     <link href="css/metisMenu.min.css" rel="stylesheet">
@@ -61,6 +60,10 @@ if(isset($_GET['dosearch'])){
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+
+
+
+
 <body>
 
 <div id="wrapper">
@@ -163,12 +166,29 @@ if(isset($_GET['dosearch'])){
             <div class="row">
                 <div class="col-lg-6">
                     <?php
-                        echo '<img class="col-lg-6" src="productimage/' .$row['image']. '" alt="" ></img>';
+                        echo '<img class="img-responsive" src="productimage/'.$row['image'].'" alt="" ></img>';
                     ?>
                 </div>
                 <div class="col-lg-6">
                     <?php
-                        echo '<div class="product-desc"><h2>'  .$row['description']. '</h2></div>';
+                        echo '<div><h2>'.$row['name'].'</h2></div>';
+                        echo '<table class="table">';
+                        echo '
+                            <tbody>
+                                <tr>
+                                    <td>Description</td>
+                                    <td>'.$row['description'].'</td>
+                                </tr>
+                                <tr>
+                                    <td>Date Created</td>
+                                    <td>'.$row['date_created'].'</td>
+                                <tr>
+                                </tr>
+                                    <td>Quanity</td>
+                                    <td>'.$row['quantity'].'</td>
+                                </tr>
+                            </tbody>';
+                        echo '</table>';
                     ?>
                 </div>
             </div>

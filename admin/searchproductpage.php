@@ -167,13 +167,14 @@ $search = $_GET['search'];
                     </form>
                 </div>
             </div>
+            <div class="table-responsive">
                 <?php
 
                     $results = mysqli_query ($dbconn,'SELECT * FROM products WHERE name LIKE "%'.$search.'%"');
                     if(empty($results->num_rows > 0 && $search)){
                         echo "<div><h2>No Results Found.</h2></div>";
                     }else {
-                echo "<table class='table table.bordered'>
+                echo "<table class='table table-hover'>
                     <thead>
                         <tr>
                             <th>Product</th>
@@ -203,25 +204,25 @@ $search = $_GET['search'];
                                     <td>" .$row['name']. "</td>
                                     <td>" .$row['date_created']. "</td>
                                     <td>
-                                    <div>
-                                        <form method='POST' action='editproductpage.php'>
-                                            <input type='hidden' name='PNAME' value='".$row['productID']."' />
-                                            <input type='submit' class='btn btn-warning col-lg-4' value='Edit' name='submit'>
-                                        </form>
-                                    </div>
-                                    <div>
-                                        <form method='POST' action='delproductprocess.php'>
-                                            <input type='hidden' name='PNAME' value='".$row['productID']."' />
-                                            <input type='submit' class='btn btn-danger col-lg-4' value='Delete' name='submit' Onclick=\"return ConfirmDelete()\">
-                                        </form>
-                                    </div>
-                                    <div>
-                                            <form method='POST' action='product.php'>
-                                                    <input type='hidden' name='PNAME' value='".$row['productID']."' />
-                                                    <input type='submit' class='btn btn-primary col-lg-4' value='View' name='submit'>
+                                        <div>
+                                            <form method='POST' action='editproductpage.php'>
+                                                <input type='hidden' name='PNAME' value='".$row['productID']."' />
+                                                <input type='submit' class='btn btn-warning col-lg-4' value='Edit' name='submit'>
                                             </form>
-                                    </div>
-                                </td>
+                                        </div>
+                                        <div>
+                                            <form method='POST' action='delproductprocess.php'>
+                                                <input type='hidden' name='PNAME' value='".$row['productID']."' />
+                                                <input type='submit' class='btn btn-danger col-lg-4' value='Delete' name='submit' Onclick=\"return ConfirmDelete()\">
+                                            </form>
+                                        </div>
+                                        <div>
+                                                <form method='POST' action='product.php'>
+                                                        <input type='hidden' name='PNAME' value='".$row['productID']."' />
+                                                        <input type='submit' class='btn btn-primary col-lg-4' value='View' name='submit'>
+                                                </form>
+                                        </div>
+                                    </td>
                             </tr>";
                     }
                 }
@@ -231,6 +232,7 @@ $search = $_GET['search'];
                 ?>
             </div>
         </div>
+</div>
 </div>
 
 <!-- jQuery -->

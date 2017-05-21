@@ -99,7 +99,8 @@ $results = $mysqli->query("SELECT productID, product_code, name, description, im
 if($results){
 $products_item = '<ul class="products">';
 //fetch results set as object and output HTML
-while($obj = $results->fetch_object()){
+while($obj = $results->fetch_object())
+{
 if($obj->image == NULL){
 
 $products_item .= <<<EOT

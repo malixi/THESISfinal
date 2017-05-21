@@ -166,15 +166,26 @@ if(isset($_GET['dosearch'])){
             <div class="row">
                 <div class="col-lg-6">
                     <?php
-                        echo '<img class="img-responsive" src="productimage/'.$row['image'].'" alt="" ></img>';
+                        if($row['image'] == NULL){
+                            echo '
+                           <img src="admin/productimage/default.png" data-imagezoom="true" class="img-responsive" width="50%"> </div>';
+                         }
+                         else{
+                           echo '
+                          <img src="admin/productimage/' .$row['image']. '" data-imagezoom="true" class="img-responsive" width="50%"> </div>';
+                         }
                     ?>
                 </div>
                 <div class="col-lg-6">
                     <?php
                         echo '<div><h2>'.$row['name'].'</h2></div>';
-                        echo '<table class="table">';
+                        echo '<table class="table table-hover">';
                         echo '
                             <tbody>
+                                </tr>
+                                    <td>Product ID</td>
+                                    <td>'.$row['productID'].'</td>
+                                </tr>
                                 <tr>
                                     <td>Description</td>
                                     <td>'.$row['description'].'</td>
@@ -183,6 +194,10 @@ if(isset($_GET['dosearch'])){
                                     <td>Date Created</td>
                                     <td>'.$row['date_created'].'</td>
                                 <tr>
+                                </tr>
+                                    <td>Price</td>
+                                    <td>'.$row['price'].'</td>
+                                </tr>
                                 </tr>
                                     <td>Quanity</td>
                                     <td>'.$row['quantity'].'</td>

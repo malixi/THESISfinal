@@ -229,42 +229,7 @@ label.star:before {
                    echo '
                   <img src="admin/productimage/' .$row['image']. '" data-imagezoom="true" class="img-responsive" width="50%"> </div>';
                  }
-echo '
-    			    </li>
-    			  </ul>
-    		</div>
-
-    	<div class="clearfix"> </div>
-    <!-- slide -->
-
-              </div>
-
-    					</div>
-    					<div class="col-md-5 single-top-in simpleCart_shelfItem">
-    						<div class="single-para ">
-    						<h4>'  .$row['name']. '</h4>
-
-              include "starratingproducts.php"
-
-    							<div class="star-on">
-
-    								<div class="review">
-    									<a href="#"> 1 customer review </a>
-
-    								</div>
-
-
-    							<div class="clearfix"> </div>
-    							</div>
-
-
-
-    							<h5 class="item_price">	&#8369;'  .$row['price']. '</h5>
-    							<p><ul>
-    										<li>'  .$row['description']. '</li>
-
-    									</ul></p>';
-                    }
+               }
                 ?>
 
 <br>
@@ -316,7 +281,6 @@ controlNav: "thumbnails"
 			</div>
 		</div>
 	</div>
-<?php include 'comment.php';?>
 </div>
 
 </div>

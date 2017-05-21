@@ -5,7 +5,7 @@ $user_home = new USER();
 
 if(!$user_home->is_logged_in())
 {
-	$user_home->redirect('index.php');
+	$user_home->redirect('index');
 }
 
 $stmt = $user_home->runQuery("SELECT * FROM admin WHERE userID=:uid");
@@ -33,7 +33,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>GREY ENTERPRISE	</title>
+    <title>GRAY ENTERPRISE	</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -67,7 +67,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" href="home.php">GREY ENTERPRISE</a>
+            <a class="navbar-brand" href="home">GREY ENTERPRISE</a>
         </div>
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -79,7 +79,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         <!-- Top Navigation: Left Menu -->
         <ul class="nav navbar-nav navbar-left navbar-top-links">
-            <li><a href="../index.php" target="_blank"><i class="fa fa-home fa-fw"></i> Website</a></li>
+            <li><a href="../index" target="_blank"><i class="fa fa-home fa-fw"></i> Website</a></li>
         </ul>
 
         <!-- Top Navigation: Right Menu -->
@@ -113,10 +113,10 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
                     </li>
-                    <li><a href="usersettings.php"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                    <li><a href="usersettings"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <li><a href="logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                     </li>
                 </ul>
             </li>
@@ -129,13 +129,13 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 <ul class="nav" id="side-menu">
 
                     <li>
-                        <a href="home.php" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="home" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="viewproductpage.php"><i class="glyphicon glyphicon-shopping-cart"></i> Products</a>
+                        <a href="viewproductpage"><i class="glyphicon glyphicon-shopping-cart"></i> Products</a>
                     </li>
                     <li>
-                        <a href="viewadminpage.php"><i class="glyphicon glyphicon-user"></i> Admins</a>
+                        <a href="viewadminpage"><i class="glyphicon glyphicon-user"></i> Admins</a>
                     </li>
 
                 </ul>

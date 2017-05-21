@@ -18,7 +18,8 @@
 <script src="js/jquery.min.js"></script>
 <!-- Custom Theme files -->
 <!--theme-style-->
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="style/style.css" rel="stylesheet" type="text/css" media="all" /">
+<link href="css/style.css" rel="stylesheet" type="text/css"/>
 <!--//theme-style-->
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -48,33 +49,34 @@
 
 </head>
 <body>
-	<?php include 'header.php';    ?>
-	<!-- search-scripts -->
-						<script src="js/classie.js"></script>
-						<script src="js/uisearch.js"></script>
-							<script>
-								new UISearch( document.getElementById( 'sb-search' ) );
-							</script>
-						<!-- //search-scripts -->
+<!--header-->
+    <?php include 'header.php';    ?>
 
-					<div class="ca-r">
-						<div class="cart box_1">
-							<a href="view_cart.php">
-							<h3> <div class="total">
-								<span class="simpleCart_total"></span> </div>
-								<img src="images/cart.png" alt=""/></h3>
-							</a>
-							<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+    <!-- search-scripts -->
+    <script src="js/classie.js"></script>
+    <script src="js/uisearch.js"></script>
+    <script>
+        new UISearch(document.getElementById('sb-search'));
+    </script>
+    <!-- //search-scripts -->
 
-						</div>
-					</div>
-						<div class="clearfix"> </div>
-				</div>
+    <div class="ca-r">
+        <div class="cart box_1">
+            <a href="view_cart.php">
+                <h3> <div class="total">
+            <span class="">My Cart</span> </div>
+            <img src="images/cart.png" alt=""/></h3>
+            </a>
+        </div>
+    </div>
+    <div class="clearfix"> </div>
+    </div>
 
-			</div>
-			</div>
-			<div class="container">
-				<?php include 'navbar.php'; ?>
+    </div>
+    </div>
+    <div class="container">
+        <?php include 'navbar.php'; ?>
+    </div>
 
 
 
@@ -143,7 +145,7 @@ include_once("configuration.php");
 //current URL of the Page. cart_update.php redirects back to this URL
 $current_url = urlencode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 ?>
-<link href="style/style.css" rel="stylesheet" type="text/css">
+
 
 
 
@@ -199,7 +201,7 @@ else{
 $products_item .= <<<EOT
   <li class="product">
   <form method="post" action="cart_update.php">
-  <div class="hover11">
+  <div class="hover11 well">
 
   <div class="product-thumb"><figure> <a href="viewproducts.php?pname={$obj->productID}" class=""><img src="admin/productimage/{$obj->image}" width="150px" height="150px"></a></figure></div>
   <div class="product-content"><h3>{$obj->name}</h3>

@@ -166,34 +166,33 @@ label.star:before {
 </head>
 <body>
 <!--header-->
-<?php include 'header.php';?>
+    <?php include 'header.php';    ?>
 
-<!-- search-scripts -->
-					<script src="js/classie.js"></script>
-					<script src="js/uisearch.js"></script>
-						<script>
-							new UISearch( document.getElementById( 'sb-search' ) );
-						</script>
-					<!-- //search-scripts -->
+    <!-- search-scripts -->
+    <script src="js/classie.js"></script>
+    <script src="js/uisearch.js"></script>
+    <script>
+        new UISearch(document.getElementById('sb-search'));
+    </script>
+    <!-- //search-scripts -->
 
-				<div class="ca-r">
-					<div class="cart box_1">
-						<a href="view_cart.php">
-						<h3> <div class="total">
-							<span class="simpleCart_total"></span> </div>
-							<img src="images/cart.png" alt=""/></h3>
-						</a>
-						<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+    <div class="ca-r">
+        <div class="cart box_1">
+            <a href="view_cart.php">
+                <h3> <div class="total">
+            <span class="">My Cart</span> </div>
+            <img src="images/cart.png" alt=""/></h3>
+            </a>
+        </div>
+    </div>
+    <div class="clearfix"> </div>
+    </div>
 
-					</div>
-				</div>
-					<div class="clearfix"> </div>
-			</div>
-
-		</div>
-		</div>
-		<div class="container">
-	<?php include 'navbar.php'; ?>
+    </div>
+    </div>
+    <div class="container">
+        <?php include 'navbar.php'; ?>
+    </div>
 	<!-- grow -->
   <?php
           $pNAME = $_GET['pname'];
@@ -208,97 +207,48 @@ label.star:before {
     			<h2>'  .$row['name']. '</h2>
     		</div>
     	</div>
-    	<!-- grow -->
+    	<!-- grow -->';
+      ?>
 
-
-    		<div class="product">
-    			<div class="container">
-
-    				<div class="product-price1">
-    				<div class="top-sing">
-    				<div class="col-md-7 single-top">
-    						<div class="flexslider">
-    			  <ul class="slides">
-    			    <li data-thumb="images/si.jpg">
-    			        <div class="thumb-image">';
-                  if($row['image'] == NULL){
-                    echo '
-                   <img src="admin/productimage/default.png" data-imagezoom="true" class="img-responsive" width="50%"> </div>';
-                 }
-                 else{
-                   echo '
-                  <img src="admin/productimage/' .$row['image']. '" data-imagezoom="true" class="img-responsive" width="50%"> </div>';
-                 }
-echo '
-    			    </li>
-    			  </ul>
-    		</div>
-
-    	<div class="clearfix"> </div>
-    <!-- slide -->
-
-              </div>
-
-    					</div>
-    					<div class="col-md-5 single-top-in simpleCart_shelfItem">
-    						<div class="single-para ">
-    						<h4>'  .$row['name']. '</h4>
-
-              include "starratingproducts.php"
-
-    							<div class="star-on">
-
-    								<div class="review">
-    									<a href="#"> 1 customer review </a>
-
-    								</div>
-
-
-    							<div class="clearfix"> </div>
-    							</div>
-
-
-
-    							<h5 class="item_price">	&#8369;'  .$row['price']. '</h5>
-    							<p><ul>
-    										<li>'  .$row['description']. '</li>
-
-    									</ul></p>';
-                    }
-                ?>
-
-<br>
-							<div class="available">
-								<ul>
-									<li>
-										<select>
-										<option>-</option>
-										<option>-</option>
-										<option>-</option>
-										<option>-</option>
-									</select></li>
-								<li class="size-in">-<select>
-									<option>-</option>
-									<option>-</option>
-									<option>-</option>
-									<option>-</option>
-									<option>-</option>
-								</select></li>
-								<div class="clearfix"> </div>
-							</ul>
-
-						</div>
-
-								<a href="#" class="add-cart item_add">ADD TO CART</a>
-
-						</div>
-
-					</div>
-				<div class="clearfix"> </div>
-
-
-
-        <!-- FlexSlider -->
+    		<div class="row">
+                <div class="col-lg-6">
+                    <?php
+                        echo '<img class="img-responsive" src="admin/productimage/'.$row['image'].'" alt="" ></img>';
+                    ?>
+                </div>
+                <div class="col-lg-6">
+                    <?php
+                        echo '<div><h2>'.$row['name'].'</h2></div>';
+                        echo '<table class="table table-hover">';
+                        echo '
+                            <tbody>
+                                </tr>
+                                    <td>Product ID</td>
+                                    <td>'.$row['productID'].'</td>
+                                </tr>
+                                <tr>
+                                    <td>Description</td>
+                                    <td>'.$row['description'].'</td>
+                                </tr>
+                                <tr>
+                                    <td>Date Created</td>
+                                    <td>'.$row['date_created'].'</td>
+                                <tr>
+                                </tr>
+                                    <td>Price</td>
+                                    <td>'.$row['price'].'</td>
+                                </tr>
+                                </tr>
+                                    <td>Quanity</td>
+                                    <td>'.$row['quantity'].'</td>
+                                </tr>
+                            </tbody>';
+                        echo '</table>';
+                    ?>
+                </div>
+            </div>
+            <?php } ?>
+<!-- FlexSlider -->
 <script defer src="js/jquery.flexslider.js"></script>
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
 
@@ -312,28 +262,21 @@ controlNav: "thumbnails"
 });
 </script>
 
-
-			</div>
-		</div>
-	</div>
-<?php include 'comment.php';?>
+  			</div>
+  		</div>
+  	</div>
+  </div>
 </div>
 
-</div>
-			<!---->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-
-      <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-46156385-1', 'cssscript.com');
-        ga('send', 'pageview');
-
-      </script>
-
+  ga('create', 'UA-46156385-1', 'cssscript.com');
+  ga('send', 'pageview');
+</script>
 
 <!--//content-->
 <?php include 'footer.php'; ?>

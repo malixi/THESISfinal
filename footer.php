@@ -6,10 +6,10 @@
 				<div class="col-md-3 amet-sed w3l">
 				<h4>MORE INFO</h4>
 				<ul class="nav-bottom">
-						<li><a href="faq.php">FAQS</a></li>
-						<li><a href="forwarders.php">Forwarder</a></li>
-						<li><a href="contact.php">Location</a></li>
-						<li><a href="services.php">Other Services</a></li>
+						<li><a href="faq">FAQS</a></li>
+						<li><a href="forwarders">Forwarder</a></li>
+						<li><a href="contact">Location</a></li>
+						<li><a href="services">Other Services</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 amet-sed w3ls">
@@ -24,7 +24,7 @@
 $con=mysqli_connect('localhost','root','','grayenterprise');
 $results = mysqli_query ($con,'SELECT * FROM products  ORDER BY productID DESC LIMIT 6 ');
 while($row = mysqli_fetch_array($results)){
-echo     '<li><a href="viewproducts.php?pname='.$row['productID'].'">'.$row['name'].'</a></li>';
+echo     '<li><a href="viewproducts?pname='.$row['productID'].'">'.$row['name'].'</a></li>';
 }
 		?>
 					<?php echo '</ul>
@@ -34,7 +34,7 @@ echo     '<li><a href="viewproducts.php?pname='.$row['productID'].'">'.$row['nam
 				<div class="col-md-3 amet-sed agileits-w3layouts">
 				<h4>CONTACT US</h4>
 					<ul class="nav-bottom">
-					<li><a href="contact.php">Contact</a></li>
+					<li><a href="contact">Contact</a></li>
 					</ul>
 				<br>
 

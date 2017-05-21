@@ -5,7 +5,7 @@ $user_login = new USER();
 
 if($user_login->is_logged_in()!="")
 {
-	$user_login->redirect('home.php');
+	$user_login->redirect('home');
 }
 
 if(isset($_POST['btn-login']))
@@ -15,7 +15,7 @@ if(isset($_POST['btn-login']))
 
 	if($user_login->login($email,$upass))
 	{
-		$user_login->redirect('home.php');
+		$user_login->redirect('home');
 	}
 }
 ?>
@@ -64,7 +64,7 @@ if(isset($_POST['btn-login']))
         <input type="email" class="input-block-level" placeholder="Email address" name="txtemail" required />
         <input type="password" class="input-block-level" placeholder="Password" name="txtupass" required />
      	<hr />
-			
+
         <button class="btn btn-large btn-primary" type="submit" name="btn-login">Sign in</button>
         <a href="signup.php" style="float:right;" class="btn btn-large">Sign Up</a><hr />
         <a href="fpass.php">Lost your Password ? </a>

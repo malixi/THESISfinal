@@ -36,34 +36,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/simpleCart.min.js"> </script>
 </head>
 <body>
-  <?php include 'header.php';?>
+<!--header-->
+    <?php include 'header.php';    ?>
 
-  <!-- search-scripts -->
-  					<script src="js/classie.js"></script>
-  					<script src="js/uisearch.js"></script>
-  						<script>
-  							new UISearch( document.getElementById( 'sb-search' ) );
-  						</script>
-  					<!-- //search-scripts -->
+    <!-- search-scripts -->
+    <script src="js/classie.js"></script>
+    <script src="js/uisearch.js"></script>
+    <script>
+        new UISearch(document.getElementById('sb-search'));
+    </script>
+    <!-- //search-scripts -->
 
-  				<div class="ca-r">
-  					<div class="cart box_1">
-  						<a href="view_cart.php">
-  						<h3> <div class="total">
-  							<span class="simpleCart_total"></span> </div>
-  							<img src="images/cart.png" alt=""/></h3>
-  						</a>
-  						<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+    <div class="ca-r">
+        <div class="cart box_1">
+            <a href="view_cart.php">
+                <h3> <div class="total">
+            <span class="">My Cart</span> </div>
+            <img src="images/cart.png" alt=""/></h3>
+            </a>
+        </div>
+    </div>
+    <div class="clearfix"> </div>
+    </div>
 
-  					</div>
-  				</div>
-  					<div class="clearfix"> </div>
-  			</div>
-
-  		</div>
-  		</div>
-  		<div class="container">
-  	<?php include 'navbar.php'; ?>
+    </div>
+    </div>
+    <div class="container">
+        <?php include 'navbar.php'; ?>
+    </div>
     <!-- grow -->
     <div class="grow">
       <div class="container">

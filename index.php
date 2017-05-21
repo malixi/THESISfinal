@@ -134,7 +134,7 @@
 
 
 
-				<br><br><h3 class="text-center">FEATURED PRODUCTS</h1>
+				<br><br><h3 class="text-center">NEW PRODUCTS</h1>
         </font></h3>
 </div></div></div>
 		<?php

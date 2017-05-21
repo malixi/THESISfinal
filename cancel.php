@@ -25,33 +25,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 <!--header-->
-<?php include 'header.php';    ?>
-<!-- search-scripts -->
-					<script src="js/classie.js"></script>
-					<script src="js/uisearch.js"></script>
-						<script>
-							new UISearch( document.getElementById( 'sb-search' ) );
-						</script>
-					<!-- //search-scripts -->
+    <?php include 'header.php';    ?>
 
-				<div class="ca-r">
-					<div class="cart box_1">
-						<a href="view_cart.php">
-						<h3> <div class="total">
-							<span class="simpleCart_total"></span> </div>
-							<img src="images/cart.png" alt=""/></h3>
-						</a>
-						<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+    <!-- search-scripts -->
+    <script src="js/classie.js"></script>
+    <script src="js/uisearch.js"></script>
+    <script>
+        new UISearch(document.getElementById('sb-search'));
+    </script>
+    <!-- //search-scripts -->
 
-					</div>
-				</div>
-					<div class="clearfix"> </div>
-			</div>
+    <div class="ca-r">
+        <div class="cart box_1">
+            <a href="view_cart.php">
+                <h3> <div class="total">
+            <span class="">My Cart</span> </div>
+            <img src="images/cart.png" alt=""/></h3>
+            </a>
+        </div>
+    </div>
+    <div class="clearfix"> </div>
+    </div>
 
-		</div>
-		</div>
-		<div class="container">
-			<?php include 'navbar.php'; ?>
+    </div>
+    </div>
+    <div class="container">
+        <?php include 'navbar.php'; ?>
+    </div> 	
 		<!-- grow -->
 	<div class="grow">
 		<div class="container">

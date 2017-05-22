@@ -192,7 +192,7 @@ gapi.analytics.ready(function() {
    */
   var dataChart = new gapi.analytics.googleCharts.DataChart({
     query: {
-      metrics: 'ga:sessions',
+      metrics: 'ga:pageviews',
       dimensions: 'ga:date',
       'start-date': '30daysAgo',
       'end-date': 'yesterday'

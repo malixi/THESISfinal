@@ -4,14 +4,22 @@
   <?php include_once("analyticstracking.php") ?>
 <title></title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" type="text/javascript"/>
+
+<script src="js/toastrInit.js"> </script>
+
+</script>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
 <!-- Custom Theme files -->
 <!--theme-style-->
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="style/style.css" rel="stylesheet" type="text/css" media="all" /">
+<link href="css/style.css" rel="stylesheet" type="text/css"/>
 <!--//theme-style-->
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -41,33 +49,34 @@
 
 </head>
 <body>
-	<?php include 'header.php';    ?>
-	<!-- search-scripts -->
-						<script src="js/classie.js"></script>
-						<script src="js/uisearch.js"></script>
-							<script>
-								new UISearch( document.getElementById( 'sb-search' ) );
-							</script>
-						<!-- //search-scripts -->
+<!--header-->
+    <?php include 'header.php';    ?>
 
-					<div class="ca-r">
-						<div class="cart box_1">
-							<a href="view_cart.php">
-							<h3> <div class="total">
-								<span class="simpleCart_total"></span> </div>
-								<img src="images/cart.png" alt=""/></h3>
-							</a>
-							<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+    <!-- search-scripts -->
+    <script src="js/classie.js"></script>
+    <script src="js/uisearch.js"></script>
+    <script>
+        new UISearch(document.getElementById('sb-search'));
+    </script>
+    <!-- //search-scripts -->
 
-						</div>
-					</div>
-						<div class="clearfix"> </div>
-				</div>
+    <div class="ca-r">
+        <div class="cart box_1">
+            <a href="view_cart.php">
+                <h3> <div class="total">
+            <span class="">My Cart</span> </div>
+            <img src="images/cart.png" alt=""/></h3>
+            </a>
+        </div>
+    </div>
+    <div class="clearfix"> </div>
+    </div>
 
-			</div>
-			</div>
-			<div class="container">
-				<?php include 'navbar.php'; ?>
+    </div>
+    </div>
+    <div class="container">
+        <?php include 'navbar.php'; ?>
+    </div>
 
 
 
@@ -82,7 +91,7 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="images\lg.png" alt="New York" width="100%">
+        <img src="images\banner1.jpg" alt="New York" width="100%">
         <div class="carousel-caption">
           <h3>Lorem Ipsum </h3>
           <p>Lorem Ipsum Lorem Ipsum </p>
@@ -90,7 +99,7 @@
       </div>
 
       <div class="item">
-        <img src="images\sony.png" alt="Chicago" width="100%">
+        <img src="images\banner2.jpg" alt="Chicago" width="100%">
         <div class="carousel-caption">
           <h3>Lorem Ipsum </h3>
           <p>Lorem Ipsum Lorem Ipsum </p>
@@ -125,7 +134,7 @@
 
 
 
-				<br><br><h3 class="text-center">FEATURED PRODUCTS</h1>
+				<br><br><h3 class="text-center">NEW PRODUCTS</h1>
         </font></h3>
 </div></div></div>
 		<?php
@@ -136,7 +145,7 @@ include_once("configuration.php");
 //current URL of the Page. cart_update.php redirects back to this URL
 $current_url = urlencode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 ?>
-<link href="style/style.css" rel="stylesheet" type="text/css">
+
 
 
 
@@ -159,7 +168,7 @@ if($obj->image == NULL){
 $products_item .= <<<EOT
   <li class="product">
   <form method="post" action="cart_update.php">
-  <div class="hover11">
+  <div class="hover11 well">
 
   <div class="product-thumb"><figure> <a href="viewproducts.php?pname={$obj->productID}" class=""><img src="admin/productimage/default.png" width="150px" height="150px"></a></figure></div>
   <div class="product-content"><h3>{$obj->name}</h3>
@@ -192,7 +201,7 @@ else{
 $products_item .= <<<EOT
   <li class="product">
   <form method="post" action="cart_update.php">
-  <div class="hover11">
+  <div class="hover11 well">
 
   <div class="product-thumb"><figure> <a href="viewproducts.php?pname={$obj->productID}" class=""><img src="admin/productimage/{$obj->image}" width="150px" height="150px"></a></figure></div>
   <div class="product-content"><h3>{$obj->name}</h3>

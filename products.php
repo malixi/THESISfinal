@@ -23,31 +23,34 @@
 <script src="js/simpleCart.min.js"> </script>
 </head>
 <body>
-	<?php include 'header.php';    ?>
-<!-- search-scripts -->
-<script src="js/classie.js"></script>
-<script src="js/uisearch.js"></script>
-<script>new UISearch( document.getElementById( 'sb-search' ) );</script>
-<!-- //search-scripts -->
-<div class="ca-r">
-	<div class="cart box_1">
-		<a href="view_cart.php">
-			<h3>
-				<div class="total">
-					<span class="simpleCart_total"></span>
-				</div>
-				<img src="images/cart.png" alt=""/>
-			</h3>
-		</a>
-		<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
-	</div>
-</div>
-	<div class="clearfix"> </div>
-</div>
-</div>
-</div>
-<div class="container">
-<?php include 'navbar.php'; ?>
+<!--header-->
+<!--header-->
+    <?php include 'header.php';    ?>
+    <!-- search-scripts -->
+    <script src="js/classie.js"></script>
+    <script src="js/uisearch.js"></script>
+    <script>
+        new UISearch(document.getElementById('sb-search'));
+    </script>
+    <!-- //search-scripts -->
+
+    <div class="ca-r">
+        <div class="cart box_1">
+            <a href="view_cart.php">
+                <h3> <div class="total">
+            <span class="">My Cart</span> </div>
+            <img src="images/cart.png" alt=""/></h3>
+            </a>
+        </div>
+    </div>
+    <div class="clearfix"> </div>
+    </div>
+
+    </div>
+    </div>
+    <div class="container">
+        <?php include 'navbar.php'; ?>
+    </div>
 
 
 <!-- products -->
@@ -92,7 +95,7 @@ if(isset($_SESSION["cart_products"]) && count($_SESSION["cart_products"])>0){
 
 <!-- Products List Start -->
 <?php
-$results = $mysqli->query("SELECT productID, product_code, name, description, image, price FROM products ORDER BY productID LIMIT 4");
+$results = $mysqli->query("SELECT productID, product_code, name, description, image, price FROM products ORDER BY productID");
 if($results){
 $products_item = '<ul class="products">';
 //fetch results set as object and output HTML
@@ -103,7 +106,7 @@ if($obj->image == NULL){
 $products_item .= <<<EOT
   <li class="product">
   <form method="post" action="cart_update.php">
-  <div class="hover11">
+  <div class="hover11 well">
 
   <div class="product-thumb"><figure> <a href="viewproducts.php?pname={$obj->productID}" class=""><img src="admin/productimage/default.png" width="150px" height="150px"></a></figure></div>
   <div class="product-content"><h3>{$obj->name}</h3>
@@ -136,7 +139,7 @@ else{
 $products_item .= <<<EOT
   <li class="product">
   <form method="post" action="cart_update.php">
-  <div class="hover11">
+  <div class="hover11 well">
 
   <div class="product-thumb"><figure> <a href="viewproducts.php?pname={$obj->productID}" class=""><img src="admin/productimage/{$obj->image}" width="150px" height="150px"></a></figure></div>
   <div class="product-content"><h3>{$obj->name}</h3>

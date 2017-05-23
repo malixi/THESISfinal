@@ -25,11 +25,11 @@
 <script src="js/simpleCart.min.js"> </script>
 <script src="js/toastrInit.js"> </script>
 <style>
-	 #map {
-        height: 400px;
-        width: 100%;
-       }
-</style>
+ 	 #map {
+         height: 400px;
+         width: 100%;
+        }
+ </style>
 </head>
 <body>
 <!--header-->
@@ -129,11 +129,12 @@ llanesfarm@gmail.com
 				<div class="clearfix"> </div>
 
 
-			</div>
  <div id="map"></div>
     <script>
       function initMap() {
+        var uluru = {lat: 14.5498, lng: 121.0552};
         var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 18,
           center: uluru
         });
         var marker = new google.maps.Marker({
@@ -145,31 +146,7 @@ llanesfarm@gmail.com
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpCS10WHMsQHLui52S6KBWj-o3vhKFcU0&callback=initMap">
     </script>
-			</div>
-		</div>
-
-
-	</div>
-	<script>
-$(document).ready(function () {
-
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 100) {
-            $('.scrollup').fadeIn();
-        } else {
-            $('.scrollup').fadeOut();
-        }
-    });
-
-    $('.scrollup').click(function () {
-        $("html, body").animate({
-            scrollTop: 0
-        }, 600);
-        return false;
-    });
-
-});
-</script>
+    </div></div></div>
 <a href="#" class="scrollup">Scroll</a>
 
 	<?php include 'footer.php'; ?>

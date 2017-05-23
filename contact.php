@@ -24,6 +24,12 @@
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>
 <script src="js/simpleCart.min.js"> </script>
 <script src="js/toastrInit.js"> </script>
+<style>
+	 #map {
+        height: 400px;
+        width: 100%;
+       }
+</style>
 </head>
 <body>
 <!--header-->
@@ -124,7 +130,21 @@ llanesfarm@gmail.com
 
 
 			</div>
-<script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height:440px;width:100%;'><div id='gmap_canvas' style='height:440px;width:100%;'></div><div><small><a href="http://embedgooglemaps.com">embed google maps</a></small></div><div><small><a href="https://buywebsitetrafficreviews.org/trafficwebsites/">find the best traffic website here!</a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><script type='text/javascript'>function init_map(){var myOptions = {zoom:17,center:new google.maps.LatLng(14.5495599,121.05608419999999),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(14.5495599,121.05608419999999)});infowindow = new google.maps.InfoWindow({content:'<strong>Title</strong><br>Market Market Philippines<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+ <div id="map"></div>
+    <script>
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpCS10WHMsQHLui52S6KBWj-o3vhKFcU0&callback=initMap">
+    </script>
 			</div>
 		</div>
 

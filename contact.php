@@ -92,20 +92,18 @@
 	</div>
 	<!-- grow -->
 <!--content-->
-<div class="contact">
 	<div class="container">
 		<div class="contact-form">
 			<div class="col-md-8 contact-grid">
 				<form action="contactemail.php" method="post">
-				<input type="text" value="Name" name="Name" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Name';}" required />
+  				<input type="text" placeholder="Name" name="Name" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Name';}" required />
+  				<input type="text" placeholder="Email" name="Email" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Email';}" required />
+  				<input type="text" placeholder="Subject" name="Subject" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Subject';}" required />
 
-				<input type="text" value="Email" name="Email" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Email';}" required />
-				<input type="text" value="Subject" name="Subject" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Subject';}" required />
-
-				<textarea cols="77" rows="6" value=" " name="Message" onfocus="this.value='';" onblur="if (this.value == '') {this.value = 'Message';}" required>Message</textarea>
-				<div class="send">
-					<input type="submit" name="submit" value="Send">
-				</div>
+  				<textarea cols="77" rows="6" placeholder="Message" name="Message" onfocus="this.value='';" onblur="if (this.value == '') {this.value = 'Message';}" required></textarea>
+  				<div class="send">
+  					<input type="submit" name="submit" value="Send">
+  				</div>
 				</form>
 			</div>
 				<div class="col-md-4 contact-in">
@@ -117,17 +115,21 @@
 						<p><b>Tel:</b>	+63 02 9752098, +63 917 8320162 , +63 921 4713575</p>
 					</div>
 					<div class="address-more">
-					<h4>US Address</h4>
+					 <h4>US Address</h4>
 						<p><b>Address:</b> PG&L Imports, LLC 147 West Northfield Rd Livingston NJ 07039</p>
 						<p><b>Tel:</b> 	973.533.4437</p>
 						<p><b>Mobile:</b> 	201.618.7671</p>
-						<p><b>Email:</b> 	gary@llanesfarm.com
-						Info@llanesfarm.com
-						llanesfarm@gmail.com
 						</p>
 					</div>
+          <div class="address-more">
+            <h4>Email Address</h4>  
+            <p>gary@llanesfarm.com</p>
+            <p>Info@llanesfarm.com</p>
+            <p>llanesfarm@gmail.com</p>
+          </div>
 				</div>
 				<div class="clearfix"> </div>
+        <br>
 
  <div id="map"></div>
     <script>

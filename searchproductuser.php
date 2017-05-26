@@ -75,7 +75,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- grow -->
     <div class="grow">
       <div class="container">
-        <h2>Search</h2>
+        <h2>Search > <?php echo $search; ?></h2>
       </div>
     </div>
 

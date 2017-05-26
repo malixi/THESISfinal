@@ -147,7 +147,9 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
             </div>
 
             <?php
-
+                $results = mysqli_query ($dbconn,'SELECT * FROM products ORDER BY productID DESC LIMIT 1');
+                    if($results->num_rows > 0) {
+                        while($row = mysqli_fetch_array($results)){
             ?>
 
             <!-- ... Your content goes here ... -->
@@ -155,19 +157,18 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 <div class="col-lg-6">
                     <form role="form" action="addproductprocess.php" method="post" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label>Product Name</label>
+                            <label>Product Name</label>*
                             <input type="text" class="form-control" name="addname" id="addname" required maxlength="50">
                         </div>
-							<div class="form-group">
-                            <label>Product Code</label>
-                            <input type="text" class="form-control" name="addproductcode" id="addproductcode" required maxlength="50">
+						<div class="form-group">
+                            <input type="hidden" class="form-control" value=<?php echo $row['productID']+1; ?> name="addproductcode" id="addproductcode" required maxlength="50">
                         </div>
                         <div class="form-group">
-                            <label>Product Price</label>
+                            <label>Product Price</label>*
                             <input type="number" class="form-control" name="addprice" id="addprice" required>
                         </div>
                         <div class="form-group">
-                            <label>Product Quantity</label>
+                            <label>Product Quantity</label>*
                             <input type="number" class="form-control" name="addquantity" id="addquantity" required maxlength="100">
                         </div>
                         <div class="form-group">
@@ -179,7 +180,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                             <input type="file" name="fileToUpload" id="fileToUpload">
                         </div>
                         <div class="form-group">
-                            <label>Product Description</label>
+                            <label>Product Description</label>*
                             <textarea class="form-control" rows="10" placeholder="Main Description" name="adddescription" id="adddescription" maxlength="500"></textarea>
                         </div>
                         <input type="submit" class="btn btn-primary" value="Add" name="submit">
@@ -188,6 +189,11 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                     </form>
                 </div>
             </div>
+
+            <?php 
+                }
+            }
+            ?>
 
         </div>
     </div>

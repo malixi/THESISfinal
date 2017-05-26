@@ -123,18 +123,16 @@ $products_item .= <<<EOT
   <div class="hover11 well">
 
   <div class="product-thumb"><figure> <a href="viewproducts.php?pname={$obj->productID}" class=""><img src="admin/productimage/logo.png" width="150px" height="150px"></a></figure></div>
-  <div class="product-content"><h3>{$obj->name}</h3>
+  <div class="product-content"><label><h3>{$obj->name}</h3></label>
   <div class="product-info">
   Price {$currency}{$obj->price}
 
 
   <fieldset>
-  <label>
-    <span>Quantity</span>
+    <span>Quantity:</span>
     <input type="text" size="2" maxlength="2" name="product_qty" value="1" />
-  </label>
-
   </fieldset>
+
   <input type="hidden" name="product_code" value="{$obj->product_code}"  />
   <input type="hidden" name="type" value="add" />
   <input type="hidden" name="return_url" value="{$current_url}" />
@@ -151,17 +149,15 @@ $products_item .= <<<EOT
   <div class="hover11 well">
 
   <div class="product-thumb"><figure> <a href="viewproducts.php?pname={$obj->productID}" class=""><img src="admin/productimage/{$obj->image}" width="150px" height="150px"></a></figure></div>
-  <div class="product-content"><h3>{$obj->name}</h3>
+  <div class="product-content"><label><h3>{$obj->name}</h3></label>
   <div class="product-info">
   Price {$currency}{$obj->price}
 
   <fieldset>
-  <label>
-    <span>Quantity</span>
+    <span>Quantity:</span>
     <input type="text" size="2" maxlength="2" name="product_qty" value="1" />
-  </label>
-
   </fieldset>
+
   <input type="hidden" name="product_code" value="{$obj->product_code}"  />
   <input type="hidden" name="type" value="add" />
   <input type="hidden" name="return_url" value="{$current_url}" />

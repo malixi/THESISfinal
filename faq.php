@@ -79,11 +79,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <div class="container" >
 <div class="row">
-
-<div class="jumbotron">
+<br>
+<br>
  <div class="col-sm-9">
- <p class="text-justify">
-Frequently Asked Questions</p>
 
 
 </div>
@@ -221,8 +219,8 @@ Frequently Asked Questions</p>
 
 
 
-</div>
-</div>
+</div><br>
+<br>
 </div>
 
 

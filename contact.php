@@ -1,4 +1,6 @@
-
+<?php 
+	session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +13,8 @@
 <!--theme-style-->
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <!--//theme-style-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" type="text/javascript"/>
 
@@ -54,9 +58,17 @@
     <div class="ca-r">
         <div class="cart box_1">
             <a href="view_cart.php">
-                <h3> <div class="total">
-            <span class="">My Cart</span> </div>
-            <img src="images/cart.png" alt=""/></h3>
+              <h3> 
+                <div class="total">
+                  <span class="">My Cart</span> 
+                </div>
+                <img src="images/cart.png" alt=""/>
+                  <?php
+                    if(isset($_SESSION["cart_products"])){
+                        echo count($_SESSION["cart_products"]);
+                    }
+                  ?>
+              </h3>
             </a>
         </div>
     </div>
@@ -77,58 +89,45 @@
 	<!-- grow -->
 <!--content-->
 <div class="contact">
+	<div class="container">
+		<div class="contact-form">
+			<div class="col-md-8 contact-grid">
+				<form action="contactemail.php" method="post">
+				<input type="text" value="Name" name="Name" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Name';}" required />
 
-			<div class="container">
-			<div class="contact-form">
+				<input type="text" value="Email" name="Email" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Email';}" required />
+				<input type="text" value="Subject" name="Subject" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Subject';}" required />
 
-				<div class="col-md-8 contact-grid">
-
-					  					  <form action="contactemail.php" method="post">
-					  					    <input type="text" value="Name" name="Name" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Name';}" required />
-
-					  					    <input type="text" value="Email" name="Email" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Email';}" required />
-					  					    <input type="text" value="Subject" name="Subject" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Subject';}" required />
-
-					  					    <textarea cols="77" rows="6" value=" " name="Message" onfocus="this.value='';" onblur="if (this.value == '') {this.value = 'Message';}" required>Message</textarea>
-					  					    <div class="send">
-					  					      <input type="submit" name="submit" value="Send">
-					  					    </div>
-					  					  </form>
-
-
+				<textarea cols="77" rows="6" value=" " name="Message" onfocus="this.value='';" onblur="if (this.value == '') {this.value = 'Message';}" required>Message</textarea>
+				<div class="send">
+					<input type="submit" name="submit" value="Send">
 				</div>
-
+				</form>
+			</div>
 				<div class="col-md-4 contact-in">
-
-						<div class="address-more">
+					<div class="address-more">
 						<h4>Philippines Address</h4>
-							<p>GRAY ENTERPRISE</p>
-							<p><b>Address:</b> no. 17 Market Market, Bonifacio Global City</p>
-							<p><b>Plant/ Warehouse:</b> no.38 Bugtong Lipa City, Batangas, 4217</p>
-							<p><b>Tel:</b>	+63 02 9752098, +63 917 8320162 , +63 921 4713575</p>
-						</div>
-						<div class="address-more">
-						<h4>US Address</h4>
-							<p><b>Address:</b> PG&L Imports, LLC 147 West Northfield Rd Livingston NJ 07039</p>
-							<p><b>Tel:</b> 	973.533.4437</p>
-							<p><b>Mobile:</b> 	201.618.7671</p>
-							<p><b>Email:</b> 	gary@llanesfarm.com
-Info@llanesfarm.com
-llanesfarm@gmail.com
-</p>
-						</div>
-
-
+						<p>GRAY ENTERPRISE</p>
+						<p><b>Address:</b> no. 17 Market Market, Bonifacio Global City</p>
+						<p><b>Plant/ Warehouse:</b> no.38 Bugtong Lipa City, Batangas, 4217</p>
+						<p><b>Tel:</b>	+63 02 9752098, +63 917 8320162 , +63 921 4713575</p>
+					</div>
+					<div class="address-more">
+					<h4>US Address</h4>
+						<p><b>Address:</b> PG&L Imports, LLC 147 West Northfield Rd Livingston NJ 07039</p>
+						<p><b>Tel:</b> 	973.533.4437</p>
+						<p><b>Mobile:</b> 	201.618.7671</p>
+						<p><b>Email:</b> 	gary@llanesfarm.com
+						Info@llanesfarm.com
+						llanesfarm@gmail.com
+						</p>
+					</div>
 				</div>
 				<div class="clearfix"> </div>
-
-
 			</div>
 <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height:440px;width:100%;'><div id='gmap_canvas' style='height:440px;width:100%;'></div><div><small><a href="http://embedgooglemaps.com">embed google maps</a></small></div><div><small><a href="https://buywebsitetrafficreviews.org/trafficwebsites/">find the best traffic website here!</a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><script type='text/javascript'>function init_map(){var myOptions = {zoom:17,center:new google.maps.LatLng(14.5495599,121.05608419999999),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(14.5495599,121.05608419999999)});infowindow = new google.maps.InfoWindow({content:'<strong>Title</strong><br>Market Market Philippines<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
 			</div>
 		</div>
-
-
 	</div>
 	<script>
 $(document).ready(function () {

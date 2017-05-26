@@ -1,4 +1,6 @@
-
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +10,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="js/jquery.min.js"></script>
 	<!-- Custom Theme files -->
@@ -43,9 +47,17 @@
     <div class="ca-r">
         <div class="cart box_1">
             <a href="view_cart.php">
-                <h3> <div class="total">
-            <span class="">My Cart</span> </div>
-            <img src="images/cart.png" alt=""/></h3>
+              <h3> 
+                <div class="total">
+                  <span class="">My Cart</span> 
+                </div>
+                <img src="images/cart.png" alt=""/>
+                  <?php
+                    if(isset($_SESSION["cart_products"])){
+                        echo count($_SESSION["cart_products"]);
+                    }
+                  ?>
+              </h3>
             </a>
         </div>
     </div>
@@ -68,27 +80,24 @@
 
 <br>
 <div class="container">
-<div class="row">
-  <div class="col-xs-6">
-
-                <br><br>
-
-                <h1><font color="green"><center>Acts as Buying Office</center></font></h1><br>
-								<hr class="style14">
-                <br>
-                <p align="center" style = "font-size:17px">Our office can act as your buying office, as your third party counterpart to ensure that you are buying the exact requirement from your Philippine supplier. We shall check the volume, quality, time of delivery and capabilities of your prospective supplier or existing supplier.</p>
-
-  </div>
-  <div class="col-xs-6">
-								<br>
-                <h1><font color="green"><center>Consolidator and booking coordinator</center></font></h1>
-								<hr class="style14">
-                <br>
-                <p align="center" style = "font-size:17px">Our office can act as your consolidator and manage different products from different suppliers to pull cargo into one container before dispatching to the pier. We can also stand as your broker for all the documentations and as your booking coordinator to your preferred shipping lines or air lines.</p>
-
-
-  </div>
-</div>
+    <div class="row">
+        <div class="col-lg-6">
+            <br>
+            <h1><font color="green"><center>Acts as Buying Office</center></font></h1>
+            <br>
+            <br>
+            <hr class="style14">
+            <br>
+            <p align="center" style = "font-size:17px">Our office can act as your buying office, as your third party counterpart to ensure that you are buying the exact requirement from your Philippine supplier. We shall check the volume, quality, time of delivery and capabilities of your prospective supplier or existing supplier.</p>
+        </div>
+        <div class="col-lg-6">
+    		<br>
+            <h1><font color="green"><center>Consolidator and booking coordinator</center></font></h1>
+    		<hr class="style14">
+            <br>
+            <p align="center" style = "font-size:17px">Our office can act as your consolidator and manage different products from different suppliers to pull cargo into one container before dispatching to the pier. We can also stand as your broker for all the documentations and as your booking coordinator to your preferred shipping lines or air lines.</p>
+        </div>
+    </div>
 </div>
 
 

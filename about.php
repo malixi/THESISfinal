@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,9 +42,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="ca-r">
         <div class="cart box_1">
             <a href="view_cart.php">
-                <h3> <div class="total">
-            <span class="">My Cart</span> </div>
-            <img src="images/cart.png" alt=""/></h3>
+              <h3> 
+                <div class="total">
+                  <span class="">My Cart</span> 
+                </div>
+                <img src="images/cart.png" alt=""/>
+                  <?php
+                    if(isset($_SESSION["cart_products"])){
+                        echo count($_SESSION["cart_products"]);
+                    }
+                  ?>
+              </h3>
             </a>
         </div>
     </div>
@@ -63,30 +74,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
-<div class="container" >
-
-<div class="jumbotron">
- <div class="col-md-6">
-                <img class="img-responsive" src="images/lg.png" style="width:400px;height:300px;">
-            </div>
-            <div class="col-md-6">
-                <h1><font color="green">Who we are</font></h1>
-              It is our mission to provide the highest quality produce in the shortest time possible. It is by serving our clients and their shipments in the least amount of time that we ensure that they are supplied with the freshest fruit and produce available today. Established since 1973, LLANES NUTRIFARM CORPORATION was centered on supplying fresh coconuts to local and international markets. Following the demand of the market, we have successfully ventured into diversifying our products. What first started as a small family business in 1973 has grown to offer a wide range of the highest-quality fresh, frozen and dried products to the global market as GRAY ENTERPRISE.
-Now, with more than 40 years of expertise in farming and export, Gray Enterprise is continuing the mission to provide the freshest produce both to our international and local clients. At Gray Enterprise, we believe that our core values determine how we treat our staff, clients, and partners. They define who we are and how we do our jobs. It also enables us to work together in the most effective way. We believe our name is synonymous to superior quality, integrity and dependability. This is why we take great pride in what we do and safeguard the highest quality and standards as well as ensuring that all necessary requirements are met prior to delivery. Gray Enterprise also supports neighboring farmers as well as the farms from remote areas. When purchasing our products, on top of receiving superior quality produce, you will also be supporting the local Philippine farmers generate income. On the behalf of the marginal small farmers, as our partners, we would like to thank you for patronizing our produce. We aim to be the number one coconut and farm products producer in the country. At Gray Enterprise, we strive to further improve our products and services by keeping up with the latest sciences and through upholding and preserving our long-term business relationships with our partners. We value quality, integrity and dependability in terms of supplying fresh young coconuts, fruits, dried leaves and powdered products.
+<div class="container">
+    <div class="jumbotron">
+        <div class="col-md-6">
+            <h1><font color="green">Who we are</font></h1>
+            It is our mission to provide the highest quality produce in the shortest time possible. It is by serving our clients and their shipments in the least amount of time that we ensure that they are supplied with the freshest fruit and produce available today. Established since 1973, LLANES NUTRIFARM CORPORATION was centered on supplying fresh coconuts to local and international markets. Following the demand of the market, we have successfully ventured into diversifying our products. What first started as a small family business in 1973 has grown to offer a wide range of the highest-quality fresh, frozen and dried products to the global market as GRAY ENTERPRISE. Now, with more than 40 years of expertise in farming and export, Gray Enterprise is continuing the mission to provide the freshest produce both to our international and local clients. At Gray Enterprise, we believe that our core values determine how we treat our staff, clients, and partners. They define who we are and how we do our jobs. It also enables us to work together in the most effective way. We believe our name is synonymous to superior quality, integrity and dependability. This is why we take great pride in what we do and safeguard the highest quality and standards as well as ensuring that all necessary requirements are met prior to delivery. Gray Enterprise also supports neighboring farmers as well as the farms from remote areas. When purchasing our products, on top of receiving superior quality produce, you will also be supporting the local Philippine farmers generate income. On the behalf of the marginal small farmers, as our partners, we would like to thank you for patronizing our produce. We aim to be the number one coconut and farm products producer in the country. At Gray Enterprise, we strive to further improve our products and services by keeping up with the latest sciences and through upholding and preserving our long-term business relationships with our partners. We value quality, integrity and dependability in terms of supplying fresh young coconuts, fruits, dried leaves and powdered products.
+        </div>
+        <p> &nbsp;&nbsp;</p>
+    </div>
 </div>
 
-
-
-
-
-<p> &nbsp;&nbsp;</p>
-
-
-
-
-            </div>
-          </div>
-        </div>
         <script>
 $(document).ready(function () {
 
@@ -108,7 +105,6 @@ $(document).ready(function () {
 });
 </script>
 <a href="#" class="scrollup">Scroll</a>
-
-				<?php include 'footer.php'; ?>
-				</body>
-				</html>
+<?php include 'footer.php'; ?>
+</body>
+</html>

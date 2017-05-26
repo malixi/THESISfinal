@@ -50,9 +50,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="ca-r">
         <div class="cart box_1">
             <a href="view_cart.php">
-                <h3> <div class="total">
-            <span class="">My Cart</span> </div>
-            <img src="images/cart.png" alt=""/></h3>
+              <h3> 
+                <div class="total">
+                  <span class="">My Cart</span> 
+                </div>
+                <img src="images/cart.png" alt=""/>
+                  <?php
+                    if(isset($_SESSION["cart_products"])){
+                        echo count($_SESSION["cart_products"]);
+                    }
+                  ?>
+              </h3>
             </a>
         </div>
     </div>
@@ -115,7 +123,7 @@ $products_item .= <<<EOT
   <form method="post" action="cart_update.php">
   <div class="hover11 well">
 
-  <div class="product-thumb"><figure> <a href="viewproducts.php?pname={$obj->productID}" class=""><img src="admin/productimage/default.png" width="150px" height="150px"></a></figure></div>
+  <div class="product-thumb"><figure> <a href="viewproducts.php?pname={$obj->productID}" class=""><img src="admin/productimage/logo.png" width="150px" height="150px"></a></figure></div>
   <div class="product-content"><h3>{$obj->name}</h3>
   <div class="product-info">
   Price {$currency}{$obj->price}

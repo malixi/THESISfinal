@@ -165,9 +165,13 @@ if(isset($_GET['dosearch'])){
             <div class="row">
                 <div class='col-lg-6'>
 					<form role="form" action="searchproductpage.php" method="GET" class="form-inline">
-						<label>Search</label>
+                    <label>Search</label>
+                    <div class="input-group">
 						<input type="text" class="form-control" name="search" id="search" placeholder="Search">
+                        <span class="input-group-btn">
 						<input type="submit" class="btn btn-primary" value="Search">
+                        </span>
+                    </div>
 					</form>
                 </div>
                 <div class='col-lg-6'>
@@ -203,7 +207,7 @@ if(isset($_GET['dosearch'])){
 
                                                                     if($row['image'] == NULL){
                                             echo "
-                                            <img id='prodImg' src='productimage/default.png' width='100px' height='100px'/></td>";
+                                            <img id='prodImg' src='productimage/logo.png' width='100px' height='100px'/></td>";
                                         } else{
                                                                         echo "
                                                                     <img id='prodImg' src='productimage/".$row['image']."' width='100px' height='100px'/></td>";

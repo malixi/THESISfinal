@@ -1,3 +1,6 @@
+<?php 
+    session_start(); 
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,9 +41,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="ca-r">
         <div class="cart box_1">
             <a href="view_cart.php">
-                <h3> <div class="total">
-            <span class="">My Cart</span> </div>
-            <img src="images/cart.png" alt=""/></h3>
+              <h3> 
+                <div class="total">
+                  <span class="">My Cart</span> 
+                </div>
+                <img src="images/cart.png" alt=""/>
+                  <?php
+                    if(isset($_SESSION["cart_products"])){
+                        echo count($_SESSION["cart_products"]);
+                    }
+                  ?>
+              </h3>
             </a>
         </div>
     </div>

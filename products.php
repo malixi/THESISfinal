@@ -1,7 +1,12 @@
+<?php 
+  session_start();
+?>
 <html>
 <head>
 <title></title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
@@ -37,9 +42,17 @@
     <div class="ca-r">
         <div class="cart box_1">
             <a href="view_cart.php">
-                <h3> <div class="total">
-            <span class="">My Cart</span> </div>
-            <img src="images/cart.png" alt=""/></h3>
+              <h3> 
+                <div class="total">
+                  <span class="">My Cart</span> 
+                </div>
+                <img src="images/cart.png" alt=""/>
+                  <?php
+                    if(isset($_SESSION["cart_products"])){
+                        echo count($_SESSION["cart_products"]);
+                    }
+                  ?>
+              </h3>
             </a>
         </div>
     </div>
@@ -63,7 +76,6 @@
 <!-- grow -->
 
 <?php
-session_start();
 include_once("configuration.php");
 
 //current URL of the Page. cart_update.php redirects back to this URL
@@ -74,11 +86,9 @@ $current_url = urlencode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_
 <!-- View Cart Box Start -->
 <?php
 if(isset($_SESSION["cart_products"]) && count($_SESSION["cart_products"])>0){
-
 	$total =0;
 	$b = 0;
-	foreach ($_SESSION["cart_products"] as $cart_itm)
-	{
+	foreach ($_SESSION["cart_products"] as $cart_itm){
 		$product_name = $cart_itm["product_name"];
 		$product_qty = $cart_itm["product_qty"];
 		$product_price = $cart_itm["product_price"];
@@ -95,29 +105,30 @@ if(isset($_SESSION["cart_products"]) && count($_SESSION["cart_products"])>0){
 
 <!-- Products List Start -->
 <?php
+if(empty($cart_itm["product_code"])){
+   $hello = "<button type='submit' class='add_to_cart'>Add</button>";
+}else{
+   $hello = "<button type='submit' class='add_to_cart'>Added To Cart</button>";
+}
+
 $results = $mysqli->query("SELECT productID, product_code, name, description, image, price FROM products ORDER BY productID");
 if($results){
 $products_item = '<ul class="products">';
 //fetch results set as object and output HTML
-while($obj = $results->fetch_object())
-{
+while($obj = $results->fetch_object()){
 if($obj->image == NULL){
-
 $products_item .= <<<EOT
   <li class="product">
   <form method="post" action="cart_update.php">
   <div class="hover11 well">
 
-  <div class="product-thumb"><figure> <a href="viewproducts.php?pname={$obj->productID}" class=""><img src="admin/productimage/default.png" width="150px" height="150px"></a></figure></div>
+  <div class="product-thumb"><figure> <a href="viewproducts.php?pname={$obj->productID}" class=""><img src="admin/productimage/logo.png" width="150px" height="150px"></a></figure></div>
   <div class="product-content"><h3>{$obj->name}</h3>
   <div class="product-info">
   Price {$currency}{$obj->price}
 
 
   <fieldset>
-
-
-
   <label>
     <span>Quantity</span>
     <input type="text" size="2" maxlength="2" name="product_qty" value="1" />
@@ -127,14 +138,13 @@ $products_item .= <<<EOT
   <input type="hidden" name="product_code" value="{$obj->product_code}"  />
   <input type="hidden" name="type" value="add" />
   <input type="hidden" name="return_url" value="{$current_url}" />
-  <div align="center"><button type="submit" class="add_to_cart">Add</button></div>
+  <div align="center">{$hello}</div>
 
   </div></div>
   </form>
   </li>
 EOT;
-}
-else{
+}else{
 
 $products_item .= <<<EOT
   <li class="product">
@@ -146,11 +156,7 @@ $products_item .= <<<EOT
   <div class="product-info">
   Price {$currency}{$obj->price}
 
-
   <fieldset>
-
-
-
   <label>
     <span>Quantity</span>
     <input type="text" size="2" maxlength="2" name="product_qty" value="1" />
@@ -160,17 +166,16 @@ $products_item .= <<<EOT
   <input type="hidden" name="product_code" value="{$obj->product_code}"  />
   <input type="hidden" name="type" value="add" />
   <input type="hidden" name="return_url" value="{$current_url}" />
-  <div align="center"><button type="submit" class="add_to_cart">Add</button></div>
+  <div align="center">{$hello}</div>
 
   </div></div>
   </form>
   </li>
 EOT;
-}
-}
+    }
+  }
 $products_item .= '</ul>';
 echo $products_item;
-
 }
 ?>
 <script>

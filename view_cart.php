@@ -259,10 +259,16 @@ require_once 'configuration.php';
                         <input type="hidden" name="currency_code" value="PHP">
 
                         <input type="hidden" name="cancel_return" value="http://localhost/THESISfinal/cancel.php">
-                        <input type="hidden" name="return" value="http://localhost/THESISfinal/success.php">
-
+                        <input type="hidden" name="return" value="http://localhost/THESISfinal/success.php">';
+                        if(isset($_SESSION['cart_products'])){
+                          echo'
                         <button class="order-btn" type="submit">Check Out With Paypal</button>
                       </form>';
+                        } else {
+                          echo'
+                        <button class="order-btn" type="submit" disabled>Check Out With Paypal</button>
+                      </form>';
+                        }
                     ?>
                 </div>
                 <div class="total-item">

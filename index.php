@@ -157,6 +157,12 @@ $current_url = urlencode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_
 
 <!-- Products List Start -->
 <?php
+if(empty($cart_itm["product_code"])){
+   $hello = "<button type='submit' class='add_to_cart'>Add to Cart</button>";
+}else{
+   $hello = "<button type='submit' class='add_to_cart'>Added To Cart</button>";
+}
+
 $results = $mysqli->query("SELECT productID, product_code, name, description, image, price FROM products ORDER BY productID LIMIT 4");
 if($results){
 $products_item = '<ul class="products">';
@@ -189,7 +195,7 @@ $products_item .= <<<EOT
   <input type="hidden" name="product_code" value="{$obj->product_code}"  />
   <input type="hidden" name="type" value="add" />
   <input type="hidden" name="return_url" value="{$current_url}" />
-  <div align="center"><button type="submit" class="add_to_cart">Add</button></div>
+  <div align="center">{$hello}</div>
 
   </div></div>
   </form>
@@ -222,7 +228,7 @@ $products_item .= <<<EOT
   <input type="hidden" name="product_code" value="{$obj->product_code}"  />
   <input type="hidden" name="type" value="add" />
   <input type="hidden" name="return_url" value="{$current_url}" />
-  <div align="center"><button type="submit" class="add_to_cart">Add</button></div>
+  <div align="center">{$hello}</div>
 
   </div></div>
   </form>

@@ -3,7 +3,6 @@
 session_start();
 require_once 'connector.php';
 require_once 'configuration.php';
-
 ?>
 <html>
 
@@ -22,6 +21,9 @@ require_once 'configuration.php';
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" type="text/javascript"/>
+    <script src="js/toastrInit.js"> </script>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery.min.js"></script>
     <!-- Custom Theme files -->
@@ -56,7 +58,31 @@ require_once 'configuration.php';
 
 <body>
     <!--header-->
-    <?php include 'header.php';    ?>
+    <?php 
+      include 'header.php';
+
+      if (isset($_GET['action']) && $_GET['action'] == 'success') {
+        echo "<script>toastr.info('Success', 'Removed All Products In Cart');</script>";
+      }
+
+      if (isset($_GET['action']) && $_GET['action'] == 'error') {
+        echo "<script>toastr.error('Error', 'No Products In Cart');</script>";
+      }
+
+      if (isset($_GET['action']) && $_GET['action'] == 'successupdate') {
+        echo "<script>toastr.info('Success', 'Cart Updated');</script>";
+      }
+
+      if (isset($_GET['action']) && $_GET['action'] == 'successremove') {
+        echo "<script>toastr.info('Success', 'Product Removed');</script>";
+      }
+
+      if (isset($_GET['action']) && $_GET['action'] == 'successadd') {
+        echo "<script>toastr.info('Success', 'Product Added To Cart');</script>";
+      }
+
+
+    ?>
 
     <!-- search-scripts -->
     <script src="js/classie.js"></script>
@@ -206,7 +232,8 @@ require_once 'configuration.php';
 
                 <div class="order" for="submit">
                   <?php
-                    echo '<form method="POST" action="https://www.sandbox.paypal.com/cgi-bin/webscr">
+                    echo '
+                      <form method="POST" action="https://www.sandbox.paypal.com/cgi-bin/webscr">
                         <input type="hidden" name="business" value="carlolo@gmail.com">
                         <input type="hidden" name="cmd" value="_cart">
                         <input type="hidden" name="upload" value="1">';

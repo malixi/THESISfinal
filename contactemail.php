@@ -23,7 +23,7 @@
 
   $subject=$_POST['Subject'];
   $message=$_POST['Message'];
-  $contactMessage = '<h1>Good Day! You have receive an email from ' .$name. '</h1>';
+  $contactMessage = '<h1>Good Day! You have received an email from ' .$name. '</h1>';
   $contactMessage .= '<p>Email: ' .$email. '</p>';
   $contactMessage .= 'Message: <br>';
   $contactMessage .= '           "' .$message. '"';

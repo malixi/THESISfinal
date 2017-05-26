@@ -1,4 +1,9 @@
 <?php
+session_start();
+include_once("configuration.php");
+?>
+
+<?php
 
 //if "email" variable is filled out, send email
   //Email information
@@ -35,14 +40,20 @@
   if(!$mail->send()) {
       //echo 'Message could not be sent.';
       //echo 'Mailer Error: ' . $mail->ErrorInfo;
+      //toastr
       echo"<script>location.href='contact.php?action=error';</script>";
+
   } else {
     // echo"<script>window.alert('Message sent!');</script>";
     // You need to be able to redirect with PARAMETERS. Give a parameters called action and
     // the receiving page must get that action and do the action.
     // Like "?action=successEmail" and the resulting page will do the toast.
+    //toastr
   	echo"<script>location.href='contact.php?action=success';</script>";
-  }
 
+  }
+  //back to return url
+  $return_url = (isset($_POST["return_url"]))?urldecode($_POST["return_url"]):''; //return url
+  header('Location:'.$return_url);
 
 ?>

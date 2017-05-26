@@ -11,6 +11,8 @@
 <!--theme-style-->
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <!--//theme-style-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" type="text/javascript"/>
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!--fonts-->
@@ -21,6 +23,7 @@
 <script type="text/javascript" src="js/memenu.js"></script>
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>
 <script src="js/simpleCart.min.js"> </script>
+<script src="js/toastrInit.js"> </script>
 </head>
 <body>
 	<?php include 'header.php';    ?>
@@ -47,6 +50,8 @@
 </div>
 </div>
 <div class="container">
+
+
 <?php include 'navbar.php'; ?>
 
 
@@ -89,6 +94,19 @@ if(isset($_SESSION["cart_products"]) && count($_SESSION["cart_products"])>0){
 ?>
 <!-- View Cart Box End -->
 
+//toastr
+<?php
+
+	if (isset($_SESSION['toast-state']) && $_SESSION['toast-state'] != 'error') {
+		echo "<script>toastr.info('Successfully Added Product!');</script>";
+		$_SESSION['toast-state'] = null;
+	}
+	else if (isset($_SESSION['toast-state']) && $_SESSION['toast-state'] == 'error') {
+		echo "<script>toastr.error('There is an error on adding to cart!');	</script>";
+		$_SESSION['toast-state'] = null;
+	}
+
+?>
 
 <!-- Products List Start -->
 <?php
@@ -157,11 +175,12 @@ $products_item .= <<<EOT
   <input type="hidden" name="product_code" value="{$obj->product_code}"  />
   <input type="hidden" name="type" value="add" />
   <input type="hidden" name="return_url" value="{$current_url}" />
-  <div align="center"><button type="submit" class="add_to_cart">Add</button></div>
+  <div align="center"><button type="submit" class="add_to_cart" >Add</button></div>
 
   </div></div>
   </form>
   </li>
+
 EOT;
 }
 }
@@ -192,6 +211,7 @@ $(document).ready(function () {
 </script>
 <a href="#" class="scrollup">Scroll</a>
 <!-- Products List End -->
+
 <?php include 'footer.php'; ?>
 </body>
 </html>

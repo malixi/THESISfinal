@@ -1,4 +1,9 @@
+<?php
+session_start();
+include_once("configuration.php");
 
+$current_url = urlencode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,6 +34,9 @@
 <!--header-->
 
 <?php include 'header.php';?>
+
+//toastr
+
 <?php
 
 	if (isset($_GET['action']) && $_GET['action'] == 'success') {
@@ -38,6 +46,7 @@
 	if (isset($_GET['action']) && $_GET['action'] == 'error') {
 		echo "<script>toastr.error('Error', 'Failed to send a Message!');</script>";
 	}
+
 
  ?>
 

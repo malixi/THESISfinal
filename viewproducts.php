@@ -10,7 +10,6 @@ DEFINE ('DB_NAME', 'grayenterprise');
 
 ?>﻿
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -74,6 +73,8 @@ DEFINE ('DB_NAME', 'grayenterprise');
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
 <!--//theme-style-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" type="text/javascript"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Mattress Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
@@ -88,6 +89,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>
 <script src="js/simpleCart.min.js"> </script>
 <script src="js/imagezoom.js"></script>
+<script src="js/toastrInit.js"> </script>
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 <style>
 
@@ -194,6 +196,10 @@ label.star:before {
 		</div>
 		<div class="container">
 	<?php include 'navbar.php'; ?>
+
+
+
+
 	<!-- grow -->
   <?php
           $pNAME = $_GET['pname'];
@@ -244,12 +250,12 @@ echo '
     						<div class="single-para ">
     						<h4>'  .$row['name']. '</h4>
 
-              include "starratingproducts.php"
+
 
     							<div class="star-on">
 
     								<div class="review">
-    									<a href="#"> 1 customer review </a>
+
 
     								</div>
 
@@ -289,7 +295,9 @@ echo '
 
 						</div>
 
-								<a href="#" class="add-cart item_add">ADD TO CART</a>
+								<a class="add-cart item_add" onclick="<script>toastr.info('Successfully Added product');</script>">ADD TO CART</a>
+
+
 
 						</div>
 
@@ -316,7 +324,7 @@ controlNav: "thumbnails"
 			</div>
 		</div>
 	</div>
-<?php include 'comment.php';?>
+
 </div>
 
 </div>

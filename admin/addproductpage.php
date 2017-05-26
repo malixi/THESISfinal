@@ -51,8 +51,16 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+		<!-- toastr links && style -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" type="text/javascript"/>
+		<script src="js/toastrInit.js"> </script>
+
 </head>
 <body>
+
+	
 
 <div id="wrapper">
 
@@ -119,7 +127,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
             <div class="sidebar-nav navbar-collapse">
 
                 <ul class="nav" id="side-menu">
-                    
+
                     <li>
                         <a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
@@ -129,7 +137,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                     <li>
                         <a href="viewadminpage.php"><i class="fa fa-dashboard fa-fw"></i> Admins</a>
                     </li>
-                    
+
                 </ul>
 
             </div>

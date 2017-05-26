@@ -2,6 +2,8 @@
 session_start();
 include_once("configuration.php");
 
+// BAKIT WALANG CATCH FOR FAIL? Paano kung nag error? Ay lmao
+
 //add product to session or create new one
 if(isset($_POST["type"]) && $_POST["type"]=='add' && $_POST["product_qty"]>0)
 {
@@ -56,6 +58,9 @@ if(isset($_POST["product_qty"]) || isset($_POST["remove_code"]))
 
 //back to return url
 $return_url = (isset($_POST["return_url"]))?urldecode($_POST["return_url"]):''; //return url
+//toastr
+$_SESSION['toast-state'] = 'success';
+
 header('Location:'.$return_url);
 
 ?>

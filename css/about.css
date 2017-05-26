@@ -1,6 +1,7 @@
 #fontstyle {
     font-size: 17px;
     padding-bottom: 10px;
+    line-height: 30px;
 }
 
 .row-no-padding {
@@ -8,4 +9,8 @@
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
+}
+
+#img {
+	padding-bottom: 10px;
 }

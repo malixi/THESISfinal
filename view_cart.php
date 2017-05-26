@@ -130,7 +130,7 @@ require_once 'configuration.php';
                 <!-- LOOP THIS -->
                 <?php 
                   if(empty($_SESSION['cart_products'])){
-                    echo "<h2>No Products In Cart.</h2><br><br>";
+                    echo "<h2>No products in the cart</h2><br><br>";
                   } else {
                   if(isset($_SESSION["cart_products"])){ //check session var
                     $total = 0; //set initial total value

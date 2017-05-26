@@ -1,0 +1,11 @@
+#fontstyle {
+    font-size: 17px;
+    padding-bottom: 10px;
+}
+
+.row-no-padding {
+  [class*="col-"] {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}

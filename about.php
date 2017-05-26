@@ -86,8 +86,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	has grown to offer a wide range of the highest-quality fresh, frozen and dried products to the global market as <b>GRAY ENTERPRISE.</b> </p>
 	<div class="row">
 
-          <center> <img class="img-responsive" src="images/farming.jpg" style="width:550px;height:300px;">
-					  <img class="img-responsive" src="images/farm.jpeg" style="width:550px;height:300px;"></center>
+          <center> <img id="img" class="img-responsive" src="images/farming.jpg" style="width:550px;height:300px;">
+				<img id="img" class="img-responsive" src="images/farm.jpeg" style="width:550px;height:300px;"></center>
 
     </div>
 

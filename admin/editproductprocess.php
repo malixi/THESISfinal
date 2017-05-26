@@ -3,7 +3,6 @@
 	session_start();
 	require_once('connector.php');
 	
-	
 	$prodID=$_POST['editID'];
 	$prodName=$_POST['editname'];
 	$prodPrice=$_POST['editprice'];

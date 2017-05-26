@@ -17,7 +17,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" type="text/javascript"/>
-<script src="js/toastrInit.js"> </script>
+
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!--fonts-->
 <link href='//fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
@@ -27,6 +27,7 @@
 <script type="text/javascript" src="js/memenu.js"></script>
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>
 <script src="js/simpleCart.min.js"> </script>
+<script src="js/toastrInit.js"> </script>
 <style>
  	 #map {
          height: 400px;
@@ -37,17 +38,18 @@
 <body>
 <!--header-->
 
-<?php 
-  include 'header.php';
+<?php include 'header.php';?>
+<?php
 
-  if (isset($_GET['action']) && $_GET['action'] == 'success') {
-    echo "<script>toastr.success('Success', 'Message Sent!');</script>";
-  }
+	if (isset($_GET['action']) && $_GET['action'] == 'success') {
+		echo "<script>toastr.success('Success', 'Message Sent!');</script>";
+	}
 
-  if (isset($_GET['action']) && $_GET['action'] == 'error') {
-    echo "<script>toastr.error('Error', 'Fwdawdawailed to send a Message!');</script>";
-  }
-?>
+	if (isset($_GET['action']) && $_GET['action'] == 'error') {
+		echo "<script>toastr.error('Error', 'Failed to send a Message!');</script>";
+	}
+
+ ?>
 
 <!--header-->
 
@@ -148,6 +150,8 @@
     </script>
     </div></div></div>
 <a href="#" class="scrollup">Scroll</a>
-<?php include 'footer.php'; ?>
+
+	<?php include 'footer.php'; ?>
+
 </body>
 </html>

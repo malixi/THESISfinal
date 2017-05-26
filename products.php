@@ -106,7 +106,7 @@ if(isset($_SESSION["cart_products"]) && count($_SESSION["cart_products"])>0){
 <!-- Products List Start -->
 <?php
 if(empty($cart_itm["product_code"])){
-   $hello = "<button type='submit' class='add_to_cart'>Add to Cart</button>";
+   $hello = "<button type='submit' class='add_to_cart'>Add</button>";
 }else{
    $hello = "<button type='submit' class='add_to_cart'>Added To Cart</button>";
 }
@@ -145,6 +145,7 @@ $products_item .= <<<EOT
   </li>
 EOT;
 }else{
+
 $products_item .= <<<EOT
   <li class="product">
   <form method="post" action="cart_update.php">

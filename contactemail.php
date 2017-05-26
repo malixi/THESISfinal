@@ -1,4 +1,4 @@
-  <?php
+<?php
 
 //if "email" variable is filled out, send email
   //Email information

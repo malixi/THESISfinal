@@ -167,18 +167,14 @@ if(isset($_GET['dosearch'])){
                 <div class="col-lg-6">
                     <?php
                         if($row['image'] == NULL){
-                            echo '
-                           <img src="admin/productimage/default.png" data-imagezoom="true" class="img-responsive" width="50%"> </div>';
-                         }
-                         else{
-                           echo '
-                          <img src="admin/productimage/' .$row['image']. '" data-imagezoom="true" class="img-responsive" width="50%"> </div>';
+                            echo '<img src="productimage/logo.png" data-imagezoom="true" class="img-responsive" width="50%"> </div>';
+                         }else{
+                           echo '<img src="productimage/'.$row['image'].'" data-imagezoom="true" class="img-responsive" width="50%"> </div>';
                          }
                     ?>
                 </div>
                 <div class="col-lg-6">
                     <?php
-                        echo '<div><h2>'.$row['name'].'</h2></div>';
                         echo '<table class="table table-hover">';
                         echo '
                             <tbody>

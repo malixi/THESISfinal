@@ -202,7 +202,7 @@ label.star:before {
     <div class="container">
         <?php include 'navbar.php'; ?>
     </div>
-	<!-- grow -->
+  <!-- grow -->
   <?php
           $pNAME = $_GET['pname'];
           $results = mysqli_query ($con,"SELECT * FROM products WHERE productID = '". $pNAME . "' LIMIT 1");
@@ -211,50 +211,68 @@ label.star:before {
             $_SESSION["test1"] = $pNAME;
               echo
 
-    	'<div class="grow">
-    		<div class="container">
-    			<h2>'  .$row['name']. '</h2>
-    		</div>
-    	</div>
-    	<!-- grow -->';
+      '<div class="grow">
+        <div class="container">
+          <h2>'  .$row['name']. '</h2>
+        </div>
+      </div>
+      <!-- grow -->';
       ?>
 
 
           <div class="container">
-            <div class="col-lg-6">
-              <?php
-                if(empty($row['image'])){ echo '<img class="img-responsive img-thumbnail" width="40%" height="70%" src="admin/productimage/logo.png" alt="" ></img>';} else { echo '<img class="img-responsive" width="50%" height="80%" src="admin/productimage/'.$row['image'].'" alt="" ></img>'; }
-              ?>
+            <div class="row">
+              <div class="span4">
+                <a href="themes/images/ladies/1.jpg" class="thumbnail" data-fancybox-group="group1" title="Description 1"><img alt="" <?php echo 'src="admin/productimage/'.$row['image'].'"' ?>></a>
+              </div>
+              <div class="span5">
+                <address>
+                  <strong>Brand:</strong> <span><?php echo $row['name']; ?></span><br>
+                  <strong>Product Code:</strong> <span>Product 14</span><br>
+                  <strong>Availability:</strong> <span>Out Of Stock</span><br>                
+                </address>                  
+                <h4><strong>Price: $587.50</strong></h4>
+              </div>
+              <div class="span5">
+                <form class="form-inline">
+                  <label class="checkbox">
+                    <input type="checkbox" value=""> Option one is this and that
+                  </label>
+                  <br/>
+                  <label class="checkbox">
+                    <input type="checkbox" value=""> Be sure to include why it's great
+                  </label>
+                  <p>&nbsp;</p>
+                  <label>Qty:</label>
+                  <input type="text" class="span1" placeholder="1">
+                  <button class="btn btn-inverse" type="submit">Add to cart</button>
+                </form>
+              </div>              
             </div>
-            <div class="col-lg-6">
-              <?php
-                  echo '<div><h2>'.$row['name'].'</h2></div>';
-                  echo '<table class="table table-hover table-responsive">';
-                  echo '
+            <div class="row">
+              <div class="span9">
+                <ul class="nav nav-tabs" id="myTab">
+                  <li class="active"><a href="#home">Description</a></li>
+                  <li class=""><a href="#profile">Additional Information</a></li>
+                </ul>              
+                <div class="tab-content">
+                  <div class="tab-pane active" id="home">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem</div>
+                  <div class="tab-pane" id="profile">
+                    <table class="table table-striped shop_attributes"> 
                       <tbody>
-                          </tr>
-                              <td>Product ID</td>
-                              <td>'.$row['productID'].'</td>
-                          </tr>
-                          <tr>
-                              <td>Description</td>
-                              <td>'.$row['description'].'</td>
-                          </tr>
-                          <tr>
-                              <td>Date Created</td>
-                              <td>'.$row['date_created'].'</td>
-                          <tr>
-                          </tr>
-                              <td>Price</td>
-                              <td>'.$row['price'].'</td>
-                          </tr>
-                          </tr>
-                              <td>Quanity</td>
-                              <td>'.$row['quantity'].'</td>
-                          </tr>
-                      </tbody>';
-                  echo '</table>';
-              ?>
+                        <tr class="">
+                          <th>Size</th>
+                          <td>Large, Medium, Small, X-Large</td>
+                        </tr>   
+                        <tr class="alt">
+                          <th>Colour</th>
+                          <td>Orange, Yellow</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>              
+              </div>
             </div>
           </div>
           <?php } ?>
@@ -272,9 +290,9 @@ controlNav: "thumbnails"
 });
 </script>
 
-  			</div>
-  		</div>
-  	</div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -287,6 +305,27 @@ controlNav: "thumbnails"
   ga('create', 'UA-46156385-1', 'cssscript.com');
   ga('send', 'pageview');
 </script>
+
+<script src="themes/js/common.js"></script>
+    <script>
+      $(function () {
+        $('#myTab a:first').tab('show');
+        $('#myTab a').click(function (e) {
+          e.preventDefault();
+          $(this).tab('show');
+        })
+      })
+      $(document).ready(function() {
+        $('.thumbnail').fancybox({
+          openEffect  : 'none',
+          closeEffect : 'none'
+        });
+        
+        $('#myCarousel-2').carousel({
+                    interval: 2500
+                });               
+      });
+    </script>
 
 <!--//content-->
 <?php include 'footer.php'; ?>

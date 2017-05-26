@@ -3,16 +3,7 @@
 				<div class="container-fluid">
 			<div class="footer-top-at w3">
 
-				<div class="col-md-3 amet-sed w3l">
-				<h4>MORE INFO</h4>
-				<ul class="nav-bottom">
-						<li><a href="faq">FAQS</a></li>
-						<li><a href="forwarders">Forwarder</a></li>
-						<li><a href="contact">Location</a></li>
-						<li><a href="services">Other Services</a></li>
-					</ul>
-				</div>
-				<div class="col-md-3 amet-sed w3ls">
+			<div class="col-md-3 amet-sed w3ls">
 					<h4>PRODUCTS</h4>
 					<ul class="nav-bottom">';
 					?>
@@ -29,6 +20,14 @@ echo     '<li><a href="viewproducts?pname='.$row['productID'].'">'.$row['name'].
 		?>
 					<?php echo '</ul>
 					<br>
+				</div>
+
+				<div class="col-md-3 amet-sed w3l">
+				<h4>MORE INFO</h4>
+				<ul class="nav-bottom">
+						<li><a href="faq">FAQS</a></li>
+						<li><a href="services">Other Services</a></li>
+					</ul>
 				</div>
 
 				<div class="col-md-3 amet-sed agileits-w3layouts">

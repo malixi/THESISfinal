@@ -3,8 +3,6 @@
 session_start();
 require_once 'connector.php';
 require_once 'configuration.php';
-
-
 ?>
 <html>
 
@@ -17,10 +15,15 @@ require_once 'configuration.php';
     <!--theme-style-->
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
     <!--//theme-style-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" type="text/javascript"/>
+    <script src="js/toastrInit.js"> </script>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery.min.js"></script>
     <!-- Custom Theme files -->
@@ -55,7 +58,31 @@ require_once 'configuration.php';
 
 <body>
     <!--header-->
-    <?php include 'header.php';    ?>
+    <?php 
+      include 'header.php';
+
+      if (isset($_GET['action']) && $_GET['action'] == 'success') {
+        echo "<script>toastr.info('Success', 'Removed All Products In Cart');</script>";
+      }
+
+      if (isset($_GET['action']) && $_GET['action'] == 'error') {
+        echo "<script>toastr.error('Error', 'No Products In Cart');</script>";
+      }
+
+      if (isset($_GET['action']) && $_GET['action'] == 'successupdate') {
+        echo "<script>toastr.info('Success', 'Cart Updated');</script>";
+      }
+
+      if (isset($_GET['action']) && $_GET['action'] == 'successremove') {
+        echo "<script>toastr.info('Success', 'Product Removed');</script>";
+      }
+
+      if (isset($_GET['action']) && $_GET['action'] == 'successadd') {
+        echo "<script>toastr.info('Success', 'Product Added To Cart');</script>";
+      }
+
+
+    ?>
 
     <!-- search-scripts -->
     <script src="js/classie.js"></script>
@@ -68,9 +95,17 @@ require_once 'configuration.php';
     <div class="ca-r">
         <div class="cart box_1">
             <a href="view_cart.php">
-                <h3> <div class="total">
-            <span class="">My Cart</span> </div>
-            <img src="images/cart.png" alt=""/></h3>
+              <h3> 
+                <div class="total">
+                  <span class="">My Cart</span> 
+                </div>
+                <img src="images/cart.png" alt=""/>
+                  <?php
+                    if(isset($_SESSION["cart_products"])){
+                        echo count($_SESSION["cart_products"]);
+                    }
+                  ?>
+              </h3>
             </a>
         </div>
     </div>
@@ -95,7 +130,7 @@ require_once 'configuration.php';
                 <!-- LOOP THIS -->
                 <?php 
                   if(empty($_SESSION['cart_products'])){
-                    echo "<h2>No Products In Cart.</h2>";
+                    echo "<h2>No Products In Cart.</h2><br><br>";
                   } else {
                   if(isset($_SESSION["cart_products"])){ //check session var
                     $total = 0; //set initial total value
@@ -128,6 +163,9 @@ require_once 'configuration.php';
                                   <li>
                                       <p>Price: <?php echo $product_price ?></p>
                                   </li>
+                                  <li>
+                                      <p>Total Price: <?php echo $product_price * $product_qty ?></p>
+                                  </li>
                               </ul>
                               <div class="delivery">
                                   <div class="clearfix"></div>
@@ -136,7 +174,6 @@ require_once 'configuration.php';
                           <div class="clearfix"></div>
                       </div>
                   </div>
-                </form>
                 <?php
                       $total = ($total + $subtotal);
                     }
@@ -187,15 +224,21 @@ require_once 'configuration.php';
                     <div class="clearfix"> </div>
                 </ul>
 
-
                 <div class="clearfix"></div>
+
+                <button class="order-btn" type="submit">Update Cart</button>
+                <a href="unset.php" class="order">Remove All</a>
+                </form>
+
                 <div class="order" for="submit">
                   <?php
-                    echo '<form method="POST" action="https://www.sandbox.paypal.com/cgi-bin/webscr">
+                    echo '
+                      <form method="POST" action="https://www.sandbox.paypal.com/cgi-bin/webscr">
                         <input type="hidden" name="business" value="carlolo@gmail.com">
                         <input type="hidden" name="cmd" value="_cart">
                         <input type="hidden" name="upload" value="1">';
                           $x = 0;
+                        if(isset($_SESSION["cart_products"])){
                         foreach ($_SESSION["cart_products"] as $cart_itm){
                           //set variables to use in content below
                           $product_name = $cart_itm["product_name"];
@@ -208,6 +251,7 @@ require_once 'configuration.php';
                           echo '<input type="hidden" name="item_number_'.$x.'" value="'.$product_code.'">';
                           echo '<input type="hidden" name="amount_'.$x.'" value="'.$product_price.'">';
                           echo '<input type="hidden" name="quantity_'.$x.'" value="'.$product_qty.'">';
+                          }
                         }
                     echo'
                         <input type="hidden" name="shipping" value="'.$shipping_cost.'">
@@ -215,9 +259,9 @@ require_once 'configuration.php';
                         <input type="hidden" name="currency_code" value="PHP">
 
                         <input type="hidden" name="cancel_return" value="http://localhost/THESISfinal/cancel.php">
-                          <input type="hidden" name="return" value="http://localhost/THESISfinal/success.php">
+                        <input type="hidden" name="return" value="http://localhost/THESISfinal/success.php">
 
-                          <input type="image" name="submit" border="0" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="PayPal - The safer, easier way to pay online">
+                        <button class="order-btn" type="submit">Check Out With Paypal</button>
                       </form>';
                     ?>
                 </div>
@@ -235,5 +279,4 @@ require_once 'configuration.php';
     </div>
     </div>
 </body>
-
 </html>

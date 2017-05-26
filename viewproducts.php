@@ -20,7 +20,8 @@ DEFINE ('DB_NAME', 'grayenterprise');
 <script src="js/jquery.min.js"></script>
 <!-- JS Comment -->
 <script src="js/comment.js"></script>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js"></script>
 
 
@@ -179,9 +180,17 @@ label.star:before {
     <div class="ca-r">
         <div class="cart box_1">
             <a href="view_cart.php">
-                <h3> <div class="total">
-            <span class="">My Cart</span> </div>
-            <img src="images/cart.png" alt=""/></h3>
+              <h3> 
+                <div class="total">
+                  <span class="">My Cart</span> 
+                </div>
+                <img src="images/cart.png" alt=""/>
+                  <?php
+                    if(isset($_SESSION["cart_products"])){
+                        echo count($_SESSION["cart_products"]);
+                    }
+                  ?>
+              </h3>
             </a>
         </div>
     </div>
@@ -210,44 +219,45 @@ label.star:before {
     	<!-- grow -->';
       ?>
 
-    		<div class="row">
-                <div class="col-lg-6">
-                    <?php
-                        echo '<img class="img-responsive" src="admin/productimage/'.$row['image'].'" alt="" ></img>';
-                    ?>
-                </div>
-                <div class="col-lg-6">
-                    <?php
-                        echo '<div><h2>'.$row['name'].'</h2></div>';
-                        echo '<table class="table table-hover">';
-                        echo '
-                            <tbody>
-                                </tr>
-                                    <td>Product ID</td>
-                                    <td>'.$row['productID'].'</td>
-                                </tr>
-                                <tr>
-                                    <td>Description</td>
-                                    <td>'.$row['description'].'</td>
-                                </tr>
-                                <tr>
-                                    <td>Date Created</td>
-                                    <td>'.$row['date_created'].'</td>
-                                <tr>
-                                </tr>
-                                    <td>Price</td>
-                                    <td>'.$row['price'].'</td>
-                                </tr>
-                                </tr>
-                                    <td>Quanity</td>
-                                    <td>'.$row['quantity'].'</td>
-                                </tr>
-                            </tbody>';
-                        echo '</table>';
-                    ?>
-                </div>
+
+          <div class="container">
+            <div class="col-lg-6">
+              <?php
+                if(empty($row['image'])){ echo '<img class="img-responsive img-thumbnail" width="40%" height="70%" src="admin/productimage/logo.png" alt="" ></img>';} else { echo '<img class="img-responsive" width="50%" height="80%" src="admin/productimage/'.$row['image'].'" alt="" ></img>'; }
+              ?>
             </div>
-            <?php } ?>
+            <div class="col-lg-6">
+              <?php
+                  echo '<div><h2>'.$row['name'].'</h2></div>';
+                  echo '<table class="table table-hover table-responsive">';
+                  echo '
+                      <tbody>
+                          </tr>
+                              <td>Product ID</td>
+                              <td>'.$row['productID'].'</td>
+                          </tr>
+                          <tr>
+                              <td>Description</td>
+                              <td>'.$row['description'].'</td>
+                          </tr>
+                          <tr>
+                              <td>Date Created</td>
+                              <td>'.$row['date_created'].'</td>
+                          <tr>
+                          </tr>
+                              <td>Price</td>
+                              <td>'.$row['price'].'</td>
+                          </tr>
+                          </tr>
+                              <td>Quanity</td>
+                              <td>'.$row['quantity'].'</td>
+                          </tr>
+                      </tbody>';
+                  echo '</table>';
+              ?>
+            </div>
+          </div>
+          <?php } ?>
 <!-- FlexSlider -->
 <script defer src="js/jquery.flexslider.js"></script>
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />

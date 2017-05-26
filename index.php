@@ -5,7 +5,8 @@
 <title></title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" type="text/javascript"/>
@@ -63,9 +64,17 @@
     <div class="ca-r">
         <div class="cart box_1">
             <a href="view_cart.php">
-                <h3> <div class="total">
-            <span class="">My Cart</span> </div>
-            <img src="images/cart.png" alt=""/></h3>
+              <h3> 
+                <div class="total">
+                  <span class="">My Cart</span> 
+                </div>
+                <img src="images/cart.png" alt=""/>
+                  <?php
+                    if(isset($_SESSION["cart_products"])){
+                        echo count($_SESSION["cart_products"]);
+                    }
+                  ?>
+              </h3>
             </a>
         </div>
     </div>
@@ -85,7 +94,6 @@
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
 
     <!-- Wrapper for slides -->
@@ -93,24 +101,16 @@
       <div class="item active">
         <img src="images\banner1.jpg" alt="New York" width="100%">
         <div class="carousel-caption">
-          <h3>Lorem Ipsum </h3>
-          <p>Lorem Ipsum Lorem Ipsum </p>
+          <h3></h3>
+          <p></p>
         </div>
       </div>
 
       <div class="item">
         <img src="images\banner2.jpg" alt="Chicago" width="100%">
         <div class="carousel-caption">
-          <h3>Lorem Ipsum </h3>
-          <p>Lorem Ipsum Lorem Ipsum </p>
-        </div>
-      </div>
-
-      <div class="item">
-        <img src="images\lg.png" alt="Los Angeles" width="100%">
-        <div class="carousel-caption">
-          <h3>Lorem Ipsum </h3>
-          <p>Lorem Ipsum Lorem Ipsum </p>
+          <h3></h3>
+          <p></p>
         </div>
       </div>
     </div>
@@ -157,6 +157,12 @@ $current_url = urlencode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_
 
 <!-- Products List Start -->
 <?php
+if(empty($cart_itm["product_code"])){
+   $hello = "<button type='submit' class='add_to_cart'>Add to Cart</button>";
+}else{
+   $hello = "<button type='submit' class='add_to_cart'>Added To Cart</button>";
+}
+
 $results = $mysqli->query("SELECT productID, product_code, name, description, image, price FROM products ORDER BY productID LIMIT 4");
 if($results){
 $products_item = '<ul class="products">';
@@ -170,7 +176,7 @@ $products_item .= <<<EOT
   <form method="post" action="cart_update.php">
   <div class="hover11 well">
 
-  <div class="product-thumb"><figure> <a href="viewproducts.php?pname={$obj->productID}" class=""><img src="admin/productimage/default.png" width="150px" height="150px"></a></figure></div>
+  <div class="product-thumb"><figure> <a href="viewproducts.php?pname={$obj->productID}" class=""><img src="admin/productimage/logo.png" width="150px" height="150px"></a></figure></div>
   <div class="product-content"><h3>{$obj->name}</h3>
   <div class="product-info">
   Price {$currency}{$obj->price}
@@ -189,7 +195,7 @@ $products_item .= <<<EOT
   <input type="hidden" name="product_code" value="{$obj->product_code}"  />
   <input type="hidden" name="type" value="add" />
   <input type="hidden" name="return_url" value="{$current_url}" />
-  <div align="center"><button type="submit" class="add_to_cart">Add</button></div>
+  <div align="center">{$hello}</div>
 
   </div></div>
   </form>
@@ -222,7 +228,7 @@ $products_item .= <<<EOT
   <input type="hidden" name="product_code" value="{$obj->product_code}"  />
   <input type="hidden" name="type" value="add" />
   <input type="hidden" name="return_url" value="{$current_url}" />
-  <div align="center"><button type="submit" class="add_to_cart">Add</button></div>
+  <div align="center">{$hello}</div>
 
   </div></div>
   </form>

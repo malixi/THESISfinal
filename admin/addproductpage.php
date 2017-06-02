@@ -163,11 +163,11 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                         </div>
                         <div class="form-group">
                             <label>Product Price</label>*
-                            <input type="number" class="form-control" name="addprice" id="addprice" required>
+                            <input type="number" class="form-control" min="1" name="addprice" id="addprice" required>
                         </div>
                         <div class="form-group">
                             <label>Product Quantity</label>*
-                            <input type="number" class="form-control" name="addquantity" id="addquantity" required maxlength="100">
+                            <input type="number" class="form-control" min="1" name="addquantity" id="addquantity" required maxlength="100">
                         </div>
                         <div class="form-group">
                             <label>Product Date Created</label>

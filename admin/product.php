@@ -166,7 +166,7 @@ if(isset($_GET['dosearch'])){
             <div class="row">
                 <div class="col-lg-6">
                     <?php
-                        if($row['image'] == NULL){
+                        if($row['image'] == "Submit"){
                             echo '<img src="productimage/logo.png" data-imagezoom="true" class="img-responsive" width="50%"> </div>';
                          }else{
                            echo '<img src="productimage/'.$row['image'].'" data-imagezoom="true" class="img-responsive" width="50%"> </div>';

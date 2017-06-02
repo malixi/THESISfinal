@@ -248,7 +248,7 @@ label.star:before {
           <div class="container">
             <div class="row">
               <div class="span4">
-                <a <?php echo 'href="admin/productimage/'.$row['image'].'"' ?> class="thumbnail" data-fancybox-group="group1" title="Description 1"><img alt="" <?php echo 'src="admin/productimage/'.$row['image'].'"' ?>></a>
+                <a <?php echo 'href="admin/productimage/'.$row['image'].'"' ?> class="thumbnail" data-fancybox-group="group1" title="Description 1"><img alt="" <?php if($row['image'] == "Submit"){ echo 'src="admin/productimage/logo.png"'; } else { echo 'src="admin/productimage/'.$row['image'].'"'; }?>></a>
               </div>
               <div class="span5">
                 <address>

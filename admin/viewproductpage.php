@@ -70,7 +70,7 @@ if(isset($_GET['dosearch'])){
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" href="home.php">GREY ENTERPRISE</a>
+            <a class="navbar-brand" href="home.php">GRAY ENTERPRISE</a>
         </div>
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -205,7 +205,7 @@ if(isset($_GET['dosearch'])){
                                 "<tr>
                                     <td>";
 
-                                                                    if($row['image'] == NULL){
+                                                                    if($row['image'] == 'Submit'){
                                             echo "
                                             <img id='prodImg' src='productimage/logo.png' width='100px' height='100px'/></td>";
                                         } else{

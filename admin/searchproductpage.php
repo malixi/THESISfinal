@@ -66,7 +66,7 @@ $search = $_GET['search'];
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" href="home.php">GREY ENTERPISE</a>
+            <a class="navbar-brand" href="home.php">GRAY ENTERPISE</a>
         </div>
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

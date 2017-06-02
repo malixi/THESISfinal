@@ -64,7 +64,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" href="home.php">GREY ENTERPRISE</a>
+            <a class="navbar-brand" href="home.php">GRAY ENTERPRISE</a>
         </div>
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -160,7 +160,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                     <div class='col-lg-6'>
                         <div class='form-group'>
                             <label>Product Image</label>";
-                            if($row['image'] == NULL){
+                            if($row['image'] == 'Submit'){
                                 echo "
                                 <form role='form' action='editproductprocess.php' method='post' enctype='multipart/form-data'>
                                 <input type='file' name='fileToReplace' id='fileToReplace' maxlength='200'>";

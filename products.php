@@ -122,7 +122,6 @@ $products_item .= <<<EOT
   <div class="product-info">
   Price {$currency}{$obj->price}
 
-
   <fieldset>
     <span>Quantity:</span>
     <input type="text" size="2" maxlength="2" name="product_qty" value="1" />

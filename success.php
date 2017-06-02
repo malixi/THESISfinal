@@ -46,11 +46,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                   <span class="">My Cart</span> 
                 </div>
                 <img src="images/cart.png" alt=""/>
-                  <?php
-                    if(isset($_SESSION["cart_products"])){
-                        echo count($_SESSION["cart_products"]);
-                    }
-                  ?>
               </h3>
             </a>
         </div>

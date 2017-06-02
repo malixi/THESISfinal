@@ -31,7 +31,7 @@ if(isset($_GET['dosearch'])){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>GREY ENTERPRISE</title>
+    <title>GRAY ENTERPRISE</title>
 
 
 
@@ -71,7 +71,7 @@ if(isset($_GET['dosearch'])){
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" href="home.php">GREY ENTERPRISE</a>
+            <a class="navbar-brand" href="home.php">GRAY ENTERPRISE</a>
         </div>
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -195,9 +195,29 @@ if(isset($_GET['dosearch'])){
                                     <td>'.$row['price'].'</td>
                                 </tr>
                                 </tr>
-                                    <td>Quanity</td>
+                                    <td>Quantity</td>
                                     <td>'.$row['quantity'].'</td>
                                 </tr>
+                                <td>
+                                    <div>
+                                        <form style="margin-bottom: 0em;" method="POST" action="editproductpage.php">
+                                            <input type="hidden" name="PNAME" value='.$row['productID'].' />
+                                            <input type="submit" class="btn btn-warning" value="Edit" name="submit">
+                                        </form>
+                                    </div>
+                                    <div>
+                                        <form style="margin-bottom: 0em;" method="POST" action="delproductprocess.php">
+                                            <input type="hidden" name="PNAME" value='.$row['productID'].' />
+                                            <input type="submit" class="btn btn-danger" value="Delete" name="submit" Onclick=\"return ConfirmDelete()\">
+                                        </form>
+                                    </div>
+                                    <div>
+                                            <form style="margin-bottom: 0em;" method="POST" action="product.php">
+                                                    <input type="hidden" name="PNAME" value='.$row['productID'].' />
+                                                    <input type="submit" class="btn btn-primary" value="View" name="submit">
+                                            </form>
+                                    </div>
+                                </td>
                             </tbody>';
                         echo '</table>';
                     ?>

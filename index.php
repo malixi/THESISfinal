@@ -169,7 +169,7 @@ $products_item = '<ul class="products">';
 //fetch results set as object and output HTML
 while($obj = $results->fetch_object())
 {
-if($obj->image == NULL){
+if($obj->image == "Submit"){
 
 $products_item .= <<<EOT
   <li class="product">

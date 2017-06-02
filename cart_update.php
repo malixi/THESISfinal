@@ -40,11 +40,15 @@ if(isset($_POST["type"]) && $_POST["type"]=='add' && $_POST["product_qty"]>0){
 if(isset($_POST["product_qty"]) || isset($_POST["remove_code"]))
 {
 	//update item quantity in product session
-	if(isset($_POST["product_qty"]) && is_array($_POST["product_qty"])){
+	if(isset($_POST["product_qty"]) && is_array($_POST["product_qty"])){	
 		$update = "<script>location.href='view_cart.php?action=successupdate';</script>";
 		foreach($_POST["product_qty"] as $key => $value){
 			if(is_numeric($value)){
-				$_SESSION["cart_products"][$key]["product_qty"] = $value;
+				if($value <= 0){
+					echo "<script>location.href='view_cart.php?action=errorupdate';</script>";
+				} else {
+					$_SESSION["cart_products"][$key]["product_qty"] = $value;
+				}
 			}
 		}
 	}

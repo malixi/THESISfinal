@@ -196,7 +196,7 @@ $search = $_GET['search'];
                                 "<tr>
                                     <td>";
 
-    																if($row['image'] == NULL){
+    																if($row['image'] == "Submit"){
     		                                echo "
     		                                <img id='prodImg' src='productimage/logo.png' width='100px' height='100px'/></td>";
     		                            } else{

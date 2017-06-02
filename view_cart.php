@@ -73,6 +73,10 @@ require_once 'configuration.php';
         echo "<script>toastr.info('Success', 'Cart Updated');</script>";
       }
 
+      if (isset($_GET['action']) && $_GET['action'] == 'errorupdate') {
+        echo "<script>toastr.error('Error', 'Invalid Product Quantity');</script>";
+      }
+
       if (isset($_GET['action']) && $_GET['action'] == 'successremove') {
         echo "<script>toastr.info('Success', 'Product Removed');</script>";
       }
@@ -152,13 +156,13 @@ require_once 'configuration.php';
                       </div>
                       <div class="cart-sec simpleCart_shelfItem">
                           <div class="cart-item cyc">
-                              <img src=<?php if(empty($product_image)){ echo "admin/productimage/logo.png"; } else { echo "admin/productimage/".$product_image.""; } ?> class="img-responsive" alt="" />
+                              <img src=<?php if($product_image == "Submit"){ echo "admin/productimage/logo.png"; } else { echo "admin/productimage/".$product_image.""; } ?> class="img-responsive" alt="" />
                           </div>
                           <div class="cart-item-info">
                               <h3><a href="#"><?php echo $product_name; ?></a><span><?php echo $product_code; ?></span></h3>
                               <ul class="qty">
                                   <li>
-                                      <p>Quantity: <input type="number" style="width:40px;" maxlength="2" name=<?php echo "product_qty[".$product_code."]" ?> value=<?php echo $product_qty ?> /></p>
+                                      <p>Quantity: <input type="number" min="1" style="width:40px;" maxlength="2" name=<?php echo "product_qty[".$product_code."]" ?> value=<?php echo $product_qty ?> /></p>
                                   </li>
                                   <li>
                                       <p>Price: <?php echo $product_price ?></p>

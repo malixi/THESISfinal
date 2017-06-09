@@ -41,7 +41,7 @@ if(isset($_POST['btn-submit']))
 		$msg = "<div class='alert alert-success'>
 					<button class='close' data-dismiss='alert'>&times;</button>
 					We've sent an email to $email.
-                    Please click on the password reset link in the email to generate new password.
+                    Please click on the password reset link in the email to reset your password.
 			  	</div>";
 	}
 	else

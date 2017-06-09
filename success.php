@@ -68,26 +68,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
-<div class="container" >
-<br>
-<br>
-<br>
-<h2>Payment Succesful</h2>
-<p>For more information please check your paypal account or email. Thank you.</p>
-<br>
-<br>
-
-
-
-
-<p> &nbsp;&nbsp;</p>
-
-
-
-
-            </div>
-          </div>
-        </div>
+    <div class="container" >
+        <br>
+        <br>
+        <br>
+        <h2>Payment Succesful</h2>
+        <p>For more information please check your paypal account or email. Thank you.</p>
+        <br>
+        <br>
+        <p> &nbsp;&nbsp;</p>
+    </div>
+  </div>
+</div>
 
 <?php include 'footer.php'; ?>
 </body>

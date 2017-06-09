@@ -249,7 +249,6 @@ require_once 'configuration.php';
                           $product_qty = $cart_itm["product_qty"];
                           $product_price = $cart_itm["product_price"];
                           $product_code = $cart_itm["product_code"];
-                          $num = 'product_qty['.$product_code.']';
                             $x++;
                           echo '<input type="hidden" name="item_name_'.$x.'" value="'.$product_name.'">';
                           echo '<input type="hidden" name="item_number_'.$x.'" value="'.$product_code.'">';
@@ -263,7 +262,7 @@ require_once 'configuration.php';
                         <input type="hidden" name="currency_code" value="PHP">
 
                         <input type="hidden" name="cancel_return" value="http://localhost/THESISfinal/cancel.php">
-                        <input type="hidden" name="return" value="http://localhost/THESISfinal/success.php">';
+                        <input type="hidden" name="return" value="http://localhost/THESISfinal/successproccess.php">';
                         if(isset($_SESSION['cart_products'])){
                           echo'
                         <button class="order-btn" type="submit">Check Out With Paypal</button>

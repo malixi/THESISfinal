@@ -106,7 +106,7 @@ if(isset($_SESSION["cart_products"]) && count($_SESSION["cart_products"])>0){
 <!-- Products List Start -->
 <?php
 
-$results = $mysqli->query("SELECT productID, product_code, name, description, image, price FROM products ORDER BY productID");
+$results = $mysqli->query("SELECT productID, product_code, name, description, image, price FROM products WHERE session = 1 ORDER BY productID");
 if($results){
 $products_item = '<ul class="products">';
 //fetch results set as object and output HTML

@@ -183,7 +183,7 @@ if(isset($_GET['dosearch'])){
             <div class="table-responsive">
                 <?php
 
-                    $results = mysqli_query ($dbconn,'SELECT * FROM products');
+                    $results = mysqli_query ($dbconn,'SELECT * FROM products WHERE session = 1');
                     if(empty($results->num_rows > 0)){
                         echo "<div><h2>No Results Found.</h2></div>";
                     }else {

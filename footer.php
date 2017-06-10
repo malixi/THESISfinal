@@ -53,7 +53,6 @@ echo     '<li><a href="viewproducts?pname='.$row['productID'].'">'.$row['name'].
 		</div>
 		<br>
 		<br>
-		<br>
 		<div class="footer-class w3-agile">
 		</div>
 		</div>

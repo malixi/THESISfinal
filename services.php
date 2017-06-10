@@ -88,6 +88,9 @@
             <br>
             <hr class="style14">
             <br>
+            <img id="img" class="img-responsive" src="images/office-furniture1.jpg" style="width:550px;height:300px;">
+            <hr class="style14">
+
             <p align="center" style = "font-size:17px">Our office can act as your buying office, as your third party counterpart to ensure that you are buying the exact requirement from your Philippine supplier. We shall check the volume, quality, time of delivery and capabilities of your prospective supplier or existing supplier.</p>
         </div>
         <div class="col-lg-6">
@@ -95,6 +98,8 @@
             <h1><font color="green"><center>Consolidator and Booking Coordinator</center></font></h1>
     		<hr class="style14">
             <br>
+            <img id="img" class="img-responsive" src="images/6505765-9812931.jpg" style="width:550px;height:300px;">
+            <hr class="style14">
             <p align="center" style = "font-size:17px">Our office can act as your consolidator and manage different products from different suppliers to pull cargo into one container before dispatching to the pier. We can also stand as your broker for all the documentations and as your booking coordinator to your preferred shipping lines or air lines.</p>
         </div>
     </div>

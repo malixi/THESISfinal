@@ -85,11 +85,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	we have successfully ventured into diversifying our products. What first started as a small family business in 1973
 	has grown to offer a wide range of the highest-quality fresh, frozen and dried products to the global market as <b>GRAY ENTERPRISE.</b> </p>
 	<div class="row">
+    <hr class="style14">
 
           <center> <img id="img" class="img-responsive" src="images/farming.jpg" style="width:550px;height:300px;">
 				<img id="img" class="img-responsive" src="images/farm.jpeg" style="width:550px;height:300px;"></center>
 
     </div>
+    <hr class="style14">
 
 <p id="fontstyle" class="text-justify">Now, with more than 40 years of expertise in farming and export, <b>Gray Enterprise</b> is continuing the mission to provide the freshest produce both to our international and local clients. At Gray Enterprise, we believe that our core values determine how we treat our staff, clients, and partners. They define who we are and how we do our jobs. It also enables us to work together in the most effective way. We believe our name is synonymous to superior quality, integrity and dependability. This is why we take great pride in what we do and safeguard the highest quality and standards as well as ensuring that all necessary requirements are met prior to delivery.  </p>
 

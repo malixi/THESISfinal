@@ -174,7 +174,7 @@ $search = $_GET['search'];
             <div class="table-responsive">
                 <?php
 
-                    $results = mysqli_query ($dbconn,'SELECT * FROM products WHERE name LIKE "%'.$search.'%"');
+                    $results = mysqli_query ($dbconn,'SELECT * FROM products WHERE name AND session = 1 LIKE "%'.$search.'%"');
                     if(empty($results->num_rows > 0 && $search)){
                         echo "<div><h2>No Results Found.</h2></div>";
                     }else {

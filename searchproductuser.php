@@ -108,7 +108,7 @@ if(isset($_SESSION["cart_products"]) && count($_SESSION["cart_products"])>0){
 
 
 <?php
-$results = mysqli_query ($dbconn,'SELECT * FROM products WHERE name AND session = 1 LIKE "%'.$search.'%"');
+$results = mysqli_query ($dbconn,'SELECT * FROM products WHERE name LIKE "%'.$search.'%" AND session = 1');
 if(empty($results->num_rows > 0 && $search)){
     echo "<div class='container'><br><br><br><br><h2>No Results Found.</h2><br><br><br><br></div>";
 }else {

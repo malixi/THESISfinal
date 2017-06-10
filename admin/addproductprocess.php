@@ -10,6 +10,7 @@
 	$prodDesc=$_POST['adddescription'];
 	$prodQty=$_POST['addquantity'];
 	$prodCreated=$_POST['adddate_created'];
+	$prodsession=1;
 	$prodphoto=$_FILES['fileToUpload']['name'];
 
 	$target_dir = "productimage/";
@@ -69,8 +70,8 @@
 				$stmt->close();
 				exit;
 			} else {
-				$stmt2 = $dbconn->prepare('INSERT INTO products (productID, product_code, name, price, image, description, quantity, date_created) VALUES (?,?, ?, ?, ?, ?, ?, ?)');
-				$stmt2->bind_param('issdssis', $prodID, $prodCode, $prodName, $prodPrice, $prodphoto, $prodDesc, $prodQty, $prodCreated);
+				$stmt2 = $dbconn->prepare('INSERT INTO products (productID, product_code, name, price, image, description, quantity, date_created, session) VALUES (?,?, ?, ?, ?, ?, ?, ?, ?)');
+				$stmt2->bind_param('issdssisi', $prodID, $prodCode, $prodName, $prodPrice, $prodphoto, $prodDesc, $prodQty, $prodCreated, $prodsession);
 				$stmt2->execute();
 				echo "<script>alert('Product Added.');</script>";
 				echo"<script>location.href='viewproductpage.php';</script>";
@@ -87,8 +88,8 @@
 				$stmt->close();
 				exit;
 			} else {
-				$stmt2 = $dbconn->prepare('INSERT INTO products (productID, product_code, name, price, image, description, quantity, date_created) VALUES (?,?, ?, ?, ?, ?, ?, ?)');
-				$stmt2->bind_param('issdssis', $prodID, $prodCode, $prodName, $prodPrice, $prodphoto, $prodDesc, $prodQty, $prodCreated);
+				$stmt2 = $dbconn->prepare('INSERT INTO products (productID, product_code, name, price, image, description, quantity, date_created, session) VALUES (?,?, ?, ?, ?, ?, ?, ?, ?)');
+				$stmt2->bind_param('issdssisi', $prodID, $prodCode, $prodName, $prodPrice, $prodphoto, $prodDesc, $prodQty, $prodCreated, $prodsession);
 				$stmt2->execute();
 				echo "<script>alert('Product Added.');</script>";
 				echo"<script>location.href='viewproductpage.php';</script>";

@@ -168,6 +168,31 @@ label.star:before {
 <body>
 <!--header-->
     <?php include 'header.php';    ?>
+    <?php
+      include_once("configuration.php");
+
+      //current URL of the Page. cart_update.php redirects back to this URL
+      $current_url = urlencode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+      ?>
+      <link href="style/style.css" rel="stylesheet" type="text/css">
+
+      <!-- View Cart Box Start -->
+      <?php
+      if(isset($_SESSION["cart_products"]) && count($_SESSION["cart_products"])>0){
+        $total =0;
+        $b = 0;
+        foreach ($_SESSION["cart_products"] as $cart_itm){
+          $product_name = $cart_itm["product_name"];
+          $product_qty = $cart_itm["product_qty"];
+          $product_price = $cart_itm["product_price"];
+          $product_code = $cart_itm["product_code"];
+          $bg_color = ($b++%2==1) ? 'odd' : 'even'; //zebra stripe
+          $subtotal = ($product_price * $product_qty);
+          $total = ($total + $subtotal);
+        }
+        $current_url = urlencode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+      }
+    ?>
 
     <!-- search-scripts -->
     <script src="js/classie.js"></script>
@@ -223,54 +248,45 @@ label.star:before {
           <div class="container">
             <div class="row">
               <div class="span4">
-                <a href="themes/images/ladies/1.jpg" class="thumbnail" data-fancybox-group="group1" title="Description 1"><img alt="" <?php echo 'src="admin/productimage/'.$row['image'].'"' ?>></a>
+                <a <?php echo 'href="admin/productimage/'.$row['image'].'"' ?> class="thumbnail" data-fancybox-group="group1" title="Description 1"><img alt="" <?php if($row['image'] == "Submit"){ echo 'src="admin/productimage/logo.png"'; } else { echo 'src="admin/productimage/'.$row['image'].'"'; }?>></a>
               </div>
               <div class="span5">
                 <address>
                   <strong>Brand:</strong> <span><?php echo $row['name']; ?></span><br>
-                  <strong>Product Code:</strong> <span>Product 14</span><br>
-                  <strong>Availability:</strong> <span>Out Of Stock</span><br>                
+                  <strong>Product Code:</strong> <span><?php echo $row['productID']; ?></span><br>
+                  <strong>Availability:</strong> <span><?php echo $row['quantity']; ?></span><br>                
                 </address>                  
-                <h4><strong>Price: $587.50</strong></h4>
+                <h4><strong>Price: <?php echo $row['price']; ?></strong></h4>
               </div>
               <div class="span5">
-                <form class="form-inline">
-                  <label class="checkbox">
-                    <input type="checkbox" value=""> Option one is this and that
-                  </label>
-                  <br/>
-                  <label class="checkbox">
-                    <input type="checkbox" value=""> Be sure to include why it's great
-                  </label>
+                <form class="form-inline" action="cart_update.php">
                   <p>&nbsp;</p>
-                  <label>Qty:</label>
-                  <input type="text" class="span1" placeholder="1">
-                  <button class="btn btn-inverse" type="submit">Add to cart</button>
+                  <fieldset>
+                    <label>Quantity:</label>
+                    <input type="number" class="span1" maxlength="2" name="product_qty" value="1" />
+                  </fieldset>
+                  <input type="hidden" name="product_code" value=<?php echo $row['product_code']; ?> />
+                  <input type="hidden" name="type" value="add" />
+                  <input type="hidden" name="return_url" value=<?php echo $current_url; ?> />
+                  <button class="btn btn-inverse" class="add_to_cart" type="submit">Add to cart</button>
                 </form>
+                <br>
+                <br>
+                <br>
               </div>              
             </div>
             <div class="row">
               <div class="span9">
                 <ul class="nav nav-tabs" id="myTab">
                   <li class="active"><a href="#home">Description</a></li>
-                  <li class=""><a href="#profile">Additional Information</a></li>
                 </ul>              
                 <div class="tab-content">
-                  <div class="tab-pane active" id="home">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem</div>
-                  <div class="tab-pane" id="profile">
-                    <table class="table table-striped shop_attributes"> 
-                      <tbody>
-                        <tr class="">
-                          <th>Size</th>
-                          <td>Large, Medium, Small, X-Large</td>
-                        </tr>   
-                        <tr class="alt">
-                          <th>Colour</th>
-                          <td>Orange, Yellow</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
+                  <div class="tab-pane active" id="home"><?php echo $row['description']; ?></div>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
                 </div>              
               </div>
             </div>

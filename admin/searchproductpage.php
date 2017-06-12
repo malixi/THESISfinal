@@ -66,7 +66,7 @@ $search = $_GET['search'];
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" href="home.php">GREY ENTERPISE</a>
+            <a class="navbar-brand" href="home.php">GRAY ENTERPISE</a>
         </div>
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -174,7 +174,7 @@ $search = $_GET['search'];
             <div class="table-responsive">
                 <?php
 
-                    $results = mysqli_query ($dbconn,'SELECT * FROM products WHERE name LIKE "%'.$search.'%"');
+                    $results = mysqli_query ($dbconn,'SELECT * FROM products WHERE name LIKE "%'.$search.'%" AND session = 1');
                     if(empty($results->num_rows > 0 && $search)){
                         echo "<div><h2>No Results Found.</h2></div>";
                     }else {
@@ -196,7 +196,7 @@ $search = $_GET['search'];
                                 "<tr>
                                     <td>";
 
-    																if($row['image'] == NULL){
+    																if($row['image'] == "Submit"){
     		                                echo "
     		                                <img id='prodImg' src='productimage/logo.png' width='100px' height='100px'/></td>";
     		                            } else{

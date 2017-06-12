@@ -106,22 +106,21 @@ if(isset($_SESSION["cart_products"]) && count($_SESSION["cart_products"])>0){
 <!-- Products List Start -->
 <?php
 
-$results = $mysqli->query("SELECT productID, product_code, name, description, image, price FROM products ORDER BY productID");
+$results = $mysqli->query("SELECT productID, product_code, name, description, image, price FROM products WHERE session = 1 ORDER BY productID");
 if($results){
 $products_item = '<ul class="products">';
 //fetch results set as object and output HTML
 while($obj = $results->fetch_object()){
-if($obj->image == NULL){
+if($obj->image == 'Submit'){
 $products_item .= <<<EOT
   <li class="product">
   <form method="post" action="cart_update.php">
   <div class="hover11 well">
 
-  <div class="product-thumb"><figure> <a href="viewproducts.php?pname={$obj->productID}" class=""><img src="admin/productimage/logo.png" width="150px" height="150px"></a></figure></div>
+  <div class="product-thumb"><figure> <a href="viewproducts.php?pname={$obj->productID}" class=""><img src="images/logo.png" width="150px" height="150px"></a></figure></div>
   <div class="product-content"><label><h3>{$obj->name}</h3></label>
   <div class="product-info">
   Price {$currency}{$obj->price}
-
 
   <fieldset>
     <span>Quantity:</span>

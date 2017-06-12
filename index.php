@@ -163,13 +163,13 @@ if(empty($cart_itm["product_code"])){
    $hello = "<button type='submit' class='add_to_cart'>Added To Cart</button>";
 }
 
-$results = $mysqli->query("SELECT productID, product_code, name, description, image, price FROM products ORDER BY productID LIMIT 4");
+$results = $mysqli->query("SELECT productID, product_code, name, description, image, price FROM products WHERE session = 1 ORDER BY productID LIMIT 4");
 if($results){
 $products_item = '<ul class="products">';
 //fetch results set as object and output HTML
 while($obj = $results->fetch_object())
 {
-if($obj->image == NULL){
+if($obj->image == "Submit"){
 
 $products_item .= <<<EOT
   <li class="product">

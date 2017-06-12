@@ -55,11 +55,10 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 <body>
 
 <div id="wrapper">
-
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" href="home.php">GREY ENTERPRISE</a>
+            <a class="navbar-brand" href="home.php">GRAY ENTERPRISE</a>
         </div>
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -151,7 +150,6 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                     if($results->num_rows > 0) {
                         while($row = mysqli_fetch_array($results)){
             ?>
-
             <!-- ... Your content goes here ... -->
             <div class="row">
                 <div class="col-lg-6">
@@ -165,11 +163,11 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                         </div>
                         <div class="form-group">
                             <label>Product Price</label>*
-                            <input type="number" class="form-control" name="addprice" id="addprice" required>
+                            <input type="number" class="form-control" min="1" name="addprice" id="addprice" required>
                         </div>
                         <div class="form-group">
                             <label>Product Quantity</label>*
-                            <input type="number" class="form-control" name="addquantity" id="addquantity" required maxlength="100">
+                            <input type="number" class="form-control" min="1" name="addquantity" id="addquantity" required maxlength="100">
                         </div>
                         <div class="form-group">
                             <label>Product Date Created</label>
@@ -181,7 +179,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                         </div>
                         <div class="form-group">
                             <label>Product Description</label>*
-                            <textarea class="form-control" rows="10" placeholder="Main Description" name="adddescription" id="adddescription" maxlength="500"></textarea>
+                            <textarea class="form-control" rows="10" placeholder="Main Description" name="adddescription" id="adddescription" maxlength="1000"></textarea>
                         </div>
                         <input type="submit" class="btn btn-primary" value="Add" name="submit">
                         <input type="reset" class="btn btn-default" value="Reset">
@@ -194,10 +192,8 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 }
             }
             ?>
-
         </div>
     </div>
-
 </div>
 
 <!-- jQuery -->
